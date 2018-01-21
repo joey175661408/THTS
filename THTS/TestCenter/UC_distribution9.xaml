@@ -1,0 +1,125 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:d3="http://research.microsoft.com/DynamicDataDisplay/1.0" 
+    xmlns:ec="http://schemas.microsoft.com/expression/2010/controls" 
+    x:Class="THTS.TestCenter.UC_distribution9"
+    mc:Ignorable="d" 
+    Height="500" Width="500">
+    
+    <Grid Background="White">
+        <Rectangle Height="100" Margin="0,49,0,0" Stroke="Black" VerticalAlignment="Top" Width="200" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" StrokeThickness="2">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-30"/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Margin="0" Stroke="Black" RenderTransformOrigin="0.5,0.5" StrokeThickness="2" Height="100" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-30"/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Margin="0,0,0,50" Stroke="Black" RenderTransformOrigin="0.5,0.5" StrokeThickness="2" Height="100" VerticalAlignment="Bottom" Width="200" HorizontalAlignment="Center">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-30"/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Margin="0,0,121,0" Stroke="Black" RenderTransformOrigin="0.5,0.5" StrokeThickness="2" HorizontalAlignment="Right" Width="59" Height="301" VerticalAlignment="Center">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-60"/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Margin="121,0,0,0" Stroke="Black" RenderTransformOrigin="0.5,0.5" StrokeThickness="2" HorizontalAlignment="Left" Width="59" Height="301" VerticalAlignment="Center">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-60"/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Path Data="M66,180 L289.5453,180" Height="2" Margin="0,98,0,0" Stretch="Fill" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="200" HorizontalAlignment="Center" StrokeDashArray="3 1"/>
+        <Path Data="M66,180 L289.5453,180" Height="2" Margin="0,98,0,0" Stretch="Fill" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="115" HorizontalAlignment="Center" StrokeDashArray="3 1" RenderTransformOrigin="0.5,0.5">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="120"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+        <Path Data="M66,180 L289.5453,180" Height="2" Margin="0" Stretch="Fill" Stroke="Black" StrokeThickness="2" VerticalAlignment="Center" Width="200" HorizontalAlignment="Center" StrokeDashArray="3 1"/>
+        <Path Data="M66,180 L289.5453,180" Height="2" Margin="0,0,0,98" Stretch="Fill" Stroke="Black" StrokeThickness="2" VerticalAlignment="Bottom" Width="200" HorizontalAlignment="Center" StrokeDashArray="3 1"/>
+        <Path Data="M66,180 L289.5453,180" Height="2" Margin="0,0,0,98" Stretch="Fill" Stroke="Black" StrokeThickness="2" VerticalAlignment="Bottom" Width="115" HorizontalAlignment="Center" StrokeDashArray="3 1" RenderTransformOrigin="0.5,0.5">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="120"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+        <Path Data="M66,180 L289.5453,180" Height="2" Margin="0" Stretch="Fill" Stroke="Black" StrokeThickness="2" VerticalAlignment="Center" Width="115" HorizontalAlignment="Center" StrokeDashArray="3 1" RenderTransformOrigin="0.5,0.5">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="120"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+        <Ellipse HorizontalAlignment="Center" Height="6" Margin="0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Center" Width="6" Fill="Black"/>
+        <Ellipse HorizontalAlignment="Center" Height="6" Margin="0,96,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="6" Fill="Black"/>
+        <Ellipse HorizontalAlignment="Center" Height="6" Margin="0,0,0,96" Stroke="Black" StrokeThickness="2" VerticalAlignment="Bottom" Width="6" Fill="Black"/>
+        <Ellipse HorizontalAlignment="Left" Height="6" Margin="148,0,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Center" Width="6" Fill="Black"/>
+        <Ellipse HorizontalAlignment="Right" Height="6" Margin="0,0,148,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Center" Width="6" Fill="Black"/>
+        <Ellipse HorizontalAlignment="Left" Height="6" Margin="274,198,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="6" Fill="Black"/>
+        <Ellipse HorizontalAlignment="Right" Height="6" Margin="0,0,274,198" Stroke="Black" StrokeThickness="2" VerticalAlignment="Bottom" Width="6" Fill="Black"/>
+        <Ellipse HorizontalAlignment="Left" Height="6" Margin="176,47,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="6" Fill="Black"/>
+        <Ellipse HorizontalAlignment="Right" Height="6" Margin="0,145,176,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="6" Fill="Black"/>
+        <Ellipse HorizontalAlignment="Right" Height="6" Margin="0,47,119,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="6" Fill="Black"/>
+        <Ellipse HorizontalAlignment="Left" Height="6" Margin="119,145,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="6" Fill="Black"/>
+        <Ellipse HorizontalAlignment="Left" Height="6" Margin="119,0,0,48" Stroke="Black" StrokeThickness="2" VerticalAlignment="Bottom" Width="6" Fill="Black"/>
+        <Ellipse HorizontalAlignment="Right" Height="6" Margin="0,0,176,48" Stroke="Black" StrokeThickness="2" VerticalAlignment="Bottom" Width="6" Fill="Black"/>
+        <Ellipse HorizontalAlignment="Right" Height="6" Margin="0,0,119,146" Stroke="Black" StrokeThickness="2" VerticalAlignment="Bottom" Width="6" Fill="Black"/>
+        <Ellipse HorizontalAlignment="Left" Height="6" Margin="176,0,0,146" Stroke="Black" StrokeThickness="2" VerticalAlignment="Bottom" Width="6" Fill="Black"/>
+        <Label x:Name="label" Content="A" HorizontalAlignment="Left" Margin="180,51,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy" Content="D" HorizontalAlignment="Left" Margin="123.33,149.33,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy1" Content="C" HorizontalAlignment="Left" Margin="322.015,149.33,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy2" Content="B" HorizontalAlignment="Left" Margin="379,51.303,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy4" Content="O" Margin="0,0,229.852,224.426" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+        <Label x:Name="label_Copy5" Content="E" HorizontalAlignment="Left" Margin="180,0,0,122.313" VerticalAlignment="Bottom"/>
+        <Label x:Name="label_Copy6" Content="H" HorizontalAlignment="Left" Margin="123.33,0,0,23.983" VerticalAlignment="Bottom"/>
+        <Label x:Name="label_Copy7" Content="G" HorizontalAlignment="Left" Margin="322.015,0,0,23.983" VerticalAlignment="Bottom"/>
+        <Label x:Name="label_Copy8" Content="F" HorizontalAlignment="Left" Margin="379,0,0,122.01" VerticalAlignment="Bottom"/>
+        <Label x:Name="label_Copy9" Content="丙" HorizontalAlignment="Left" Margin="156.998,21.76,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy10" Content="甲" Margin="228,224.758,0,249.999" d:LayoutOverrides="Height" HorizontalAlignment="Left"/>
+        <Label x:Name="label_Copy11" Content="乙" Margin="0,0,179.25,51" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+
+    </Grid>
+</UserControl>
