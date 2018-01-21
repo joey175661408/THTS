@@ -5,6 +5,7 @@
     xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
     xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:d3="http://research.microsoft.com/DynamicDataDisplay/1.0"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:THTS.TestCenter"
@@ -207,7 +208,7 @@
                     <ColumnDefinition Width="200"/>
                 </Grid.ColumnDefinitions>
                 
-                <GroupBox Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Header="测点分布" Visibility="Visible">
+                <GroupBox Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Header="测点分布" Visibility="Hidden">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="5"/>
@@ -224,7 +225,7 @@
                     </Grid>
                 </GroupBox>
 
-                <Grid Grid.Row="0" Grid.Column="2" Visibility="Visible">
+                <Grid Grid.Row="0" Grid.Column="2" Visibility="Hidden">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="5"/>
                         <RowDefinition Height="*"/>
@@ -289,16 +290,35 @@
                     </GroupBox>
                 </Grid>
 
-                <GroupBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Header="实时曲线图" Visibility="Hidden">
-                    
+                <GroupBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Header="实时曲线图" Visibility="Visible">
+                    <d3:ChartPlotter x:Name="plotter2">
+                        <d3:ChartPlotter.VerticalAxis>
+                            <d3:VerticalIntegerAxis />
+                        </d3:ChartPlotter.VerticalAxis>
+                        <d3:ChartPlotter.HorizontalAxis>
+                            <d3:HorizontalDateTimeAxis />
+                        </d3:ChartPlotter.HorizontalAxis>
+                        <d3:Header FontFamily="Arial" Content="实时温度曲线"/>
+                        <d3:HorizontalAxisTitle FontFamily="Arial"/>
+                        <d3:CursorCoordinateGraph IsHorizontalDateTimeAxis="True" />
+                        <d3:LineGraph Name="lineTemperature">
+                            <!--<d3:LineGraph DataSource="{Binding PreloadPressureCollections}">-->
+                                <d3:LineGraph.LinePen>
+                                <Pen Brush="Blue" Thickness="2"/>
+                            </d3:LineGraph.LinePen>
+                            <d3:LineGraph.Description>
+                                <d3:PenDescription DescriptionString="预压数据"/>
+                            </d3:LineGraph.Description>
+                        </d3:LineGraph>
+                    </d3:ChartPlotter>
                 </GroupBox>
 
-                <GroupBox Grid.Row="1" Grid.Column="0" Header="曲线属性" Visibility="Hidden">
+                <GroupBox Grid.Row="1" Grid.Column="0" Header="曲线属性" Visibility="Visible">
                     <ListBox></ListBox>
                 </GroupBox>
                 
                 <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Button Content="实时曲线" Width="80"/>
+                    <Button Content="实时曲线" Width="80" Click="Chart_Click"/>
                     <Label/>
                     <Button Content="中断测试" Width="80"/>
                     <Label/>

@@ -42,6 +42,14 @@
     <ApplicationIcon>logo.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DynamicDataDisplay, Version=0.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\DynamicDataDisplay.dll</HintPath>
+    </Reference>
+    <Reference Include="DynamicDataDisplay.resources, Version=0.3.0.0, Culture=ru-ru, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\DynamicDataDisplay.resources.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -81,6 +89,7 @@
       <HintPath>..\packages\System.Data.SQLite.Linq.1.0.106.0\lib\net45\System.Data.SQLite.Linq.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Windows" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.5.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
       <Private>True</Private>
@@ -113,6 +122,7 @@
     <Compile Include="TestCenter\SensorTest.xaml.cs">
       <DependentUpon>SensorTest.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TestCenter\SensorTestViewModel.cs" />
     <Compile Include="TestCenter\TestCenter.xaml.cs">
       <DependentUpon>TestCenter.xaml</DependentUpon>
     </Compile>
@@ -177,6 +187,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="bin\Debug\Data\DB.sqlite" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -189,7 +200,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="bin\Debug\Data\" />
     <Folder Include="DataCenter\" />
     <Folder Include="DeviceCenter\" />
   </ItemGroup>
@@ -206,6 +216,16 @@
     <Resource Include="Images\bk.png" />
     <Resource Include="Images\LoginBk.png" />
     <Resource Include="Images\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Lib\DynamicDataDisplay.dll" />
+    <Content Include="Lib\DynamicDataDisplay.resources.dll" />
+    <Content Include="Lib\EntityFramework.dll" />
+    <Content Include="Lib\SQLite.CodeFirst.dll" />
+    <Content Include="Lib\System.Data.SQLite.dll" />
+    <Content Include="Lib\System.Data.SQLite.EF6.dll" />
+    <Content Include="Lib\System.Data.SQLite.EF6.Migrations.dll" />
+    <Content Include="Lib\System.Data.SQLite.Linq.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.106.0\build\net45\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.106.0\build\net45\System.Data.SQLite.Core.targets')" />
