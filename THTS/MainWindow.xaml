@@ -61,19 +61,24 @@
                            Style="{StaticResource LargeTileStyle}" Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}">
                 <iconPacks:PackIconFontAwesome Width="40" Height="40" Kind="DesktopSolid"/>
             </Controls:Tile>
-            <Controls:Tile Title="设备中心" Margin="3" Background="Crimson" Style="{StaticResource SmallTileStyle}" Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}">
+            <Controls:Tile Title="设备中心" Margin="3" Background="Crimson" Click="DeviceCenter_Click"
+                           Style="{StaticResource SmallTileStyle}" Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}">
                 <iconPacks:PackIconFontAwesome Width="40" Height="40" Kind="DesktopSolid"/>
             </Controls:Tile>
-            <Controls:Tile Title="数据中心" Margin="3" Background="SaddleBrown" Style="{StaticResource LargeTileStyle}" Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}">
+            <Controls:Tile Title="数据中心" Margin="3" Background="SaddleBrown" Click="DataCenter_Click"
+                           Style="{StaticResource LargeTileStyle}" Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}">
                 <iconPacks:PackIconFontAwesome Width="40" Height="40" Kind="DesktopSolid"/>
             </Controls:Tile>
-            <Controls:Tile Title="用户中心" Margin="3" Background="Orange" Style="{StaticResource LargeTileStyle}" Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}">
+            <Controls:Tile Title="用户中心" Margin="3" Background="Orange" Click="UserCenter_Click"
+                           Style="{StaticResource LargeTileStyle}" Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}">
                 <iconPacks:PackIconFontAwesome Width="40" Height="40" Kind="DesktopSolid"/>
             </Controls:Tile>
-            <Controls:Tile Title="系统设置" Margin="3" Background="Blue" Style="{StaticResource LargeTileStyle}" Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}">
+            <Controls:Tile Title="系统设置" Margin="3" Background="Blue" Click="SettingCenter_Click"
+                           Style="{StaticResource LargeTileStyle}" Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}">
                 <iconPacks:PackIconFontAwesome Width="40" Height="40" Kind="DesktopSolid"/>
             </Controls:Tile>
-            <Controls:Tile Title="退出系统" Margin="3" Background="Green" Style="{StaticResource SmallTileStyle}" Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}">
+            <Controls:Tile Title="退出系统" Margin="3" Background="Green" Click="Quit_Click"
+                           Style="{StaticResource SmallTileStyle}" Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}">
                 <iconPacks:PackIconFontAwesome Width="40" Height="40" Kind="DesktopSolid"/>
             </Controls:Tile>
         </WrapPanel>

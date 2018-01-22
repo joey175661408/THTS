@@ -114,7 +114,25 @@
     <Compile Include="DataAccess\EntityDAO.cs" />
     <Compile Include="DataAccess\Mapping.cs" />
     <Compile Include="DataAccess\SQLiteDb.cs" />
+    <Compile Include="DataCenter\DataCenter.xaml.cs">
+      <DependentUpon>DataCenter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataCenter\DataCenterSearch.xaml.cs">
+      <DependentUpon>DataCenterSearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceCenter\DeviceCenter.xaml.cs">
+      <DependentUpon>DeviceCenter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceCenter\DeviceCenterSearch.xaml.cs">
+      <DependentUpon>DeviceCenterSearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceCenter\DeviceNew.xaml.cs">
+      <DependentUpon>DeviceNew.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MVVM\NotifyObject.cs" />
+    <Compile Include="SettingCenter\SettingCenter.xaml.cs">
+      <DependentUpon>SettingCenter.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="TestCenter\SensorSettings.xaml.cs">
       <DependentUpon>SensorSettings.xaml</DependentUpon>
@@ -132,6 +150,29 @@
     <Compile Include="UserCenter\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserCenter\UserCenter.xaml.cs">
+      <DependentUpon>UserCenter.xaml</DependentUpon>
+    </Compile>
+    <Page Include="DataCenter\DataCenter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DataCenter\DataCenterSearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeviceCenter\DeviceCenter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeviceCenter\DeviceCenterSearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeviceCenter\DeviceNew.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -147,6 +188,10 @@
     <Page Include="Resources\IconsNonShared.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SettingCenter\SettingCenter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TestCenter\SensorSettings.xaml">
       <SubType>Designer</SubType>
@@ -165,6 +210,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserCenter\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserCenter\UserCenter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -199,10 +248,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DataCenter\" />
-    <Folder Include="DeviceCenter\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Resources\WindowsIcons-license.txt" />
   </ItemGroup>

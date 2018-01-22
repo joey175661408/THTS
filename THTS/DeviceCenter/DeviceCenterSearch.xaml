@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="THTS.DeviceCenter.DeviceCenterSearch"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:metro="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             xmlns:local="clr-namespace:THTS.DeviceCenter"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Margin="0,0,0,5" Orientation="Vertical">
+                    <TextBlock Text="传感器类型"/>
+                    <ComboBox ItemsSource="{Binding DeviceTypeList}" SelectedItem="{Binding SelectedDeviceType}"/>
+                </StackPanel>
+
+                <TextBlock Text="设备名称"/>
+                <TextBox Margin="0,0,0,5" Text="{Binding DeviceName}" metro:TextBoxHelper.ClearTextButton="True"/>
+
+                <TextBlock Text="型号规格"/>
+                <TextBox Margin="0,0,0,5" Text="{Binding DeviceModel}" metro:TextBoxHelper.ClearTextButton="True"/>
+
+                <TextBlock Text="统一编号"/>
+                <TextBox Margin="0,0,0,5" Text="{Binding DeviceCustomNo}" metro:TextBoxHelper.ClearTextButton="True"/>
+
+                <TextBlock Text="出厂编号"/>
+                <TextBox Margin="0,0,0,5" Text="{Binding DeviceFactoryNo}" metro:TextBoxHelper.ClearTextButton="True"/>
+
+                <TextBlock Text="生产厂商"/>
+                <TextBox Margin="0,0,0,5" Text="{Binding DeviceFactoryName}" metro:TextBoxHelper.ClearTextButton="True"/>
+
+                <StackPanel Margin="0,0,0,5" Orientation="Vertical">
+                    <CheckBox x:Name="cbFactoryTime" Content="生产日期" IsChecked="{Binding IsEnableFactoryTime}"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <DatePicker Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding DeviceFactoryDateTimeStart, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=IsChecked,ElementName=cbFactoryTime}"/>
+                        <TextBlock Grid.Column="1" FontSize="30" Text="~" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <DatePicker Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding DeviceFactoryDateTimeEnd,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=IsChecked,ElementName=cbFactoryTime}"/>
+                    </Grid>
+                </StackPanel>
+                <StackPanel Margin="0,0,0,5" Orientation="Vertical">
+                    <CheckBox x:Name="cbCreateTime" Content="创建日期" IsChecked="{Binding IsEnableCreateTime}"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <DatePicker Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding DeviceRecordCreateDateTimeStart, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=IsChecked,ElementName=cbCreateTime}"/>
+                        <TextBlock Grid.Column="1" FontSize="30" Text="~" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <DatePicker Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding DeviceRecordCreateDateTimeEnd,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=IsChecked,ElementName=cbCreateTime}"/>
+                    </Grid>
+                </StackPanel>
+                <StackPanel Margin="0,0,0,5" Orientation="Vertical">
+                    <CheckBox x:Name="cbUpdateTime" Content="修改日期" IsChecked="{Binding IsEnableUpdateTime}"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <DatePicker Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding DeviceRecordUpdateDateTimeStart, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=IsChecked,ElementName=cbUpdateTime}"/>
+                        <TextBlock Grid.Column="1" FontSize="30" Text="~" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <DatePicker Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding DeviceRecordUpdateDateTimeEnd, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=IsChecked,ElementName=cbUpdateTime}"/>
+                    </Grid>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

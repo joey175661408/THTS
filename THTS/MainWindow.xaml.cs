@@ -32,5 +32,35 @@ namespace THTS
             TestCenter.TestCenter testCenter = new TestCenter.TestCenter();
             testCenter.ShowDialog();
         }
+
+        private void DeviceCenter_Click(object sender, RoutedEventArgs e)
+        {
+            DeviceCenter.DeviceCenter deviceCenter = new DeviceCenter.DeviceCenter();
+            deviceCenter.ShowDialog();
+        }
+
+        private void DataCenter_Click(object sender, RoutedEventArgs e)
+        {
+            DataCenter.DataCenter dataCenter = new DataCenter.DataCenter();
+            dataCenter.ShowDialog();
+        }
+
+        private void UserCenter_Click(object sender, RoutedEventArgs e)
+        {
+            UserCenter.UserCenter userCenter = new UserCenter.UserCenter();
+            userCenter.ShowDialog();
+        }
+
+        private void SettingCenter_Click(object sender, RoutedEventArgs e)
+        {
+            SettingCenter.SettingCenter settingCenter = new SettingCenter.SettingCenter();
+            settingCenter.ShowDialog();
+        }
+
+        private void Quit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }
