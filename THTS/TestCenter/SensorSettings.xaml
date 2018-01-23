@@ -149,7 +149,7 @@
                             <ColumnDefinition Width="5"/>
                         </Grid.ColumnDefinitions>
 
-                        <DataGrid Grid.Row="1" Grid.Column="1">
+                        <DataGrid Name="dataGridSensor" Grid.Row="1" Grid.Column="1">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="通道" Width="*"/>
                                 <DataGridTextColumn Header="传感器序号" Width="*"/>
@@ -159,9 +159,9 @@
                         </DataGrid>
 
                         <StackPanel Grid.Row="3" Grid.Column="1"  Orientation="Horizontal" HorizontalAlignment="Center">
-                            <Button Content="传感器" Width="50" Command="{Binding SensorSelectCommand}"/>
+                            <Button Content="传感器" Width="50" Click="SensorSelect_Click"/>
                             <Label Width="40"/>
-                            <Button Content="删除" Width="50" Command="{Binding SensorDeleteCommand}"/>
+                            <Button Content="删除" Width="50" Click="SensorDelete_Click"/>
                         </StackPanel>
                     </Grid>
                 </GroupBox>

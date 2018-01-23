@@ -21,10 +21,22 @@
             <Border  Grid.Row="0" BorderThickness="0,0,0,1" BorderBrush="Gray">
                 <StackPanel Orientation="Horizontal">
                     <ToolBar HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ToolBarTray.IsLocked="True"   Grid.Row="0" Foreground="Black">
-                        <Button Width="70" Height="55" Margin="0,0,0,0" VerticalAlignment="Center">
+                        <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Click="Add_Click">
                             <StackPanel Orientation="Vertical">
                                 <iconPacks:PackIconFontAwesome Width="30" Height="30" Kind="DesktopSolid" HorizontalAlignment="Center"/>
-                                <TextBlock Text="刷新"  HorizontalAlignment="Center" Margin="0,5,0,0"/>
+                                <TextBlock Text="新建" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Click="Edit_Click">
+                            <StackPanel Orientation="Vertical">
+                                <iconPacks:PackIconFontAwesome Width="30" Height="30" Kind="DesktopSolid" HorizontalAlignment="Center"/>
+                                <TextBlock Text="编辑" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center"  Click="Delete_Click">
+                            <StackPanel Orientation="Vertical">
+                                <iconPacks:PackIconFontAwesome Width="30" Height="30" Kind="DesktopSolid" HorizontalAlignment="Center"/>
+                                <TextBlock Text="删除" HorizontalAlignment="Center" Margin="0,5,0,0"/>
                             </StackPanel>
                         </Button>
                         <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Click="Search_Click" Visibility="Visible">
@@ -33,28 +45,22 @@
                                 <TextBlock Text="查询" HorizontalAlignment="Center" Margin="0,5,0,0"/>
                             </StackPanel>
                         </Button>
-                        <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Click="Add_Click">
+                        <Button Name="btnSelect" Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Click="Select_Click" Visibility="Visible">
                             <StackPanel Orientation="Vertical">
                                 <iconPacks:PackIconFontAwesome Width="30" Height="30" Kind="DesktopSolid" HorizontalAlignment="Center"/>
-                                <TextBlock Text="新建" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+                                <TextBlock Text="选择" HorizontalAlignment="Center" Margin="0,5,0,0"/>
                             </StackPanel>
                         </Button>
-                        <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Command="{Binding ExportRecordCommand}" IsEnabled="{Binding IsEnableExport,Mode=TwoWay}">
+                        <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Click="Close_Click" Visibility="Visible">
                             <StackPanel Orientation="Vertical">
                                 <iconPacks:PackIconFontAwesome Width="30" Height="30" Kind="DesktopSolid" HorizontalAlignment="Center"/>
-                                <TextBlock Text="编辑" HorizontalAlignment="Center" Margin="0,5,0,0"/>
-                            </StackPanel>
-                        </Button>
-                        <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Command="{Binding DeleteCommand}" IsEnabled="{Binding IsEnableExport,Mode=TwoWay}">
-                            <StackPanel Orientation="Vertical">
-                                <iconPacks:PackIconFontAwesome Width="30" Height="30" Kind="DesktopSolid" HorizontalAlignment="Center"/>
-                                <TextBlock Text="删除" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+                                <TextBlock Text="退出" HorizontalAlignment="Center" Margin="0,5,0,0"/>
                             </StackPanel>
                         </Button>
                     </ToolBar>
                 </StackPanel>
             </Border>
-            <GroupBox Grid.Row="1" Header="测试数据列表" Margin="0,2,0,2">
+            <GroupBox Grid.Row="1" Header="传感器列表" Margin="0,2,0,2">
                 <DataGrid Grid.Row="1" Style="{DynamicResource AzureDataGrid}" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Extended">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="序号" Binding="{Binding SequenceNumber}"/>

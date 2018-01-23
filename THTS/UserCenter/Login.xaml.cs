@@ -24,7 +24,7 @@ namespace THTS.UserCenter
                 return;
             }
 
-            if (!DataAccess.EntityDAO.IsExist(userName, password))
+            if (!DataAccess.UserDAO.IsExist(userName, password))
             {
                 MessageBox.Show("用户名或密码错误！", "提示", MessageBoxButton.OK, MessageBoxImage.Error);
             }else

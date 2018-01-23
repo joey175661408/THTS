@@ -35,7 +35,7 @@ namespace THTS
 
         private void DeviceCenter_Click(object sender, RoutedEventArgs e)
         {
-            DeviceCenter.DeviceCenter deviceCenter = new DeviceCenter.DeviceCenter();
+            DeviceCenter.DeviceCenter deviceCenter = new DeviceCenter.DeviceCenter(false);
             deviceCenter.ShowDialog();
         }
 

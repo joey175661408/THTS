@@ -4,11 +4,11 @@ using System.Data.Entity;
 
 namespace THTS.DataAccess
 {
-    public class EntityDAO : IDisposable
+    public class UserDAO : IDisposable
     {
         SQLiteDB context;
 
-        public EntityDAO()
+        public UserDAO()
         {
             context = new SQLiteDB();
         }

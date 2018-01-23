@@ -110,10 +110,13 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="DataAccess\Configuration.cs" />
-    <Compile Include="DataAccess\Entity.cs" />
-    <Compile Include="DataAccess\EntityDAO.cs" />
+    <Compile Include="DataAccess\Entity\Device.cs" />
+    <Compile Include="DataAccess\Entity\User.cs" />
+    <Compile Include="DataAccess\EntityDAO\UserDAO.cs" />
     <Compile Include="DataAccess\Mapping.cs" />
     <Compile Include="DataAccess\SQLiteDb.cs" />
+    <Compile Include="DataAccess\Entity\TemperatureTolerance.cs" />
+    <Compile Include="DataAccess\Entity\TestInfo.cs" />
     <Compile Include="DataCenter\DataCenter.xaml.cs">
       <DependentUpon>DataCenter.xaml</DependentUpon>
     </Compile>
