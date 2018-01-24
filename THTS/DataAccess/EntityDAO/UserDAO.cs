@@ -13,15 +13,15 @@ namespace THTS.DataAccess
             context = new SQLiteDB();
         }
 
-        public bool test()
+        public static bool test()
         {
             using (var db = new SQLiteDB())
             {
                 User fv = new User()
                 {
-                    Id = 111,
-                    UserName = "joey",
-                    Password = "123",
+                    Id = 1,
+                    UserName = "admin",
+                    Password = "admin",
                     IsDelete = 0
                 };
                 db.Users.Add(fv);

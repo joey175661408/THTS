@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
 
 namespace THTS.DeviceCenter
 {
@@ -19,22 +20,36 @@ namespace THTS.DeviceCenter
     /// </summary>
     public partial class DeviceCenter
     {
-        public List<DataAccess.Device> deviceSelectList = null;
+        private ObservableCollection<DataAccess.Device> _deviceList = new ObservableCollection<DataAccess.Device>();
+        public ObservableCollection<DataAccess.Device> DeviceList
+        {
+            get { return _deviceList; }
+        }
+
+        private ObservableCollection<DataAccess.Device> _deviceSelectList = new ObservableCollection<DataAccess.Device>();
+        public ObservableCollection<DataAccess.Device> DeviceSelectList
+        {
+            get { return _deviceSelectList; }
+        }
 
         public DeviceCenter(bool select) 
         {
             InitializeComponent();
+
+            DataContext = new DeviceCenterViewModel();
 
             if (select)
             {
                 this.Title = "选择传感器";
                 this.WindowState = WindowState.Normal;
                 this.btnSelect.Visibility = Visibility.Visible;
-                deviceSelectList = new List<DataAccess.Device>();
             }
             else
             {
                 this.btnSelect.Visibility = Visibility.Collapsed;
+
+                //_deviceList = DataAccess.EntityDAO.DeviceDAO.GetAllData();
+                //dgDevice.ItemsSource = _deviceList;
             }
         }
 
@@ -46,7 +61,16 @@ namespace THTS.DeviceCenter
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             DeviceNew newDevice = new DeviceNew();
-            newDevice.ShowDialog();
+            bool? result = newDevice.ShowDialog();
+
+            if(result.HasValue && result.Value)
+            {
+                bool save = DataAccess.EntityDAO.DeviceDAO.Save(newDevice.NewDevice);
+                if (save)
+                {
+                    _deviceList = DataAccess.EntityDAO.DeviceDAO.GetAllData();
+                }
+            }
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)

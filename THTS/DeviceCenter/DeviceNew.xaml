@@ -29,80 +29,26 @@
                         <ColumnDefinition Width="350"/>
                         <ColumnDefinition Width="50"/>
                     </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="1" Grid.Column="1" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Text="序列号"/>
+                    <TextBlock Name="tbID" Grid.Row="1" Grid.Column="3" Width="320" Height="24" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                </Grid>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="5"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="350"/>
+                        <ColumnDefinition Width="50"/>
+                    </Grid.ColumnDefinitions>
                     <TextBlock Grid.Row="1" Grid.Column="1"  TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Text="传感器类型"/>
-                    <ComboBox Grid.Row="1"  Grid.Column="3" Width="320" Height="24" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                </Grid>
-            </StackPanel>
-            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="5">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="5"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="5"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="50"/>
-                        <ColumnDefinition Width="100"/>
-                        <ColumnDefinition Width="50"/>
-                        <ColumnDefinition Width="350"/>
-                        <ColumnDefinition Width="50"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Row="1" Grid.Column="1" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Text="设备名称"/>
-                    <TextBox Grid.Row="1" Grid.Column="3" Width="320" Height="24" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                </Grid>
-            </StackPanel>
-            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="5">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="5"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="5"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="50"/>
-                        <ColumnDefinition Width="100"/>
-                        <ColumnDefinition Width="50"/>
-                        <ColumnDefinition Width="350"/>
-                        <ColumnDefinition Width="50"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Row="1" Grid.Column="1" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Text="型号规格"/>
-                    <TextBox Grid.Row="1" Grid.Column="3" Width="320" Height="24" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                </Grid>
-            </StackPanel>
-            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="5">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="5"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="5"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="50"/>
-                        <ColumnDefinition Width="100"/>
-                        <ColumnDefinition Width="50"/>
-                        <ColumnDefinition Width="350"/>
-                        <ColumnDefinition Width="50"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Row="1" Grid.Column="1" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Text="统一编号"/>
-                    <TextBox Grid.Row="1" Grid.Column="3" Width="320" Height="24" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                </Grid>
-            </StackPanel>
-            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="5">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="5"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="5"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="50"/>
-                        <ColumnDefinition Width="100"/>
-                        <ColumnDefinition Width="50"/>
-                        <ColumnDefinition Width="350"/>
-                        <ColumnDefinition Width="50"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Row="1" Grid.Column="1" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Text="出厂编号"/>
-                    <TextBox Grid.Row="1" Grid.Column="3" Controls:TextBoxHelper.Watermark="必填项" Width="320" Height="24" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <ComboBox Name="cbModule" Grid.Row="1"  Grid.Column="3" Width="320" Height="24" HorizontalAlignment="Left" VerticalAlignment="Center" />
                 </Grid>
             </StackPanel>
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="5">
@@ -120,7 +66,7 @@
                         <ColumnDefinition Width="50"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Row="1" Grid.Column="1" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Text="生产厂商"/>
-                    <TextBox Grid.Row="1" Grid.Column="3" Width="320" Height="24" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                    <TextBox Name="tbManufactory" Grid.Row="1" Grid.Column="3" Width="320" Height="24" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 </Grid>
             </StackPanel>
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="5">
@@ -137,8 +83,67 @@
                         <ColumnDefinition Width="350"/>
                         <ColumnDefinition Width="50"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Row="1" Grid.Column="1" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Text="生产日期"/>
-                    <DatePicker Grid.Row="1" Grid.Column="3" Width="320" Height="24" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                    <TextBlock Grid.Row="1" Grid.Column="1" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Text="出厂编号"/>
+                    <TextBox Name="tbFactoryNo" Grid.Row="1" Grid.Column="3" Width="320" Height="24" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                </Grid>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="5"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="350"/>
+                        <ColumnDefinition Width="50"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="1" Grid.Column="1" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Text="证书编号"/>
+                    <TextBox Name="tbCertificateNo" Grid.Row="1" Grid.Column="3" Width="320" Height="24" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                </Grid>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="5"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="350"/>
+                        <ColumnDefinition Width="50"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="1" Grid.Column="1" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Text="检定合格"/>
+                    <StackPanel Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" Orientation="Horizontal" Margin="5">
+                        <RadioButton Name="rbPass" Content="合格" IsChecked="True" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <RadioButton Content="不合格" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0"/>
+                    </StackPanel>
+
+                </Grid>
+            </StackPanel>
+            
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="5"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="350"/>
+                        <ColumnDefinition Width="50"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="1" Grid.Column="1" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Text="检定日期"/>
+                    <DatePicker Name="dpCalDate" Grid.Row="1" Grid.Column="3" Width="320" Height="24" HorizontalAlignment="Left" VerticalAlignment="Center" />
                 </Grid>
             </StackPanel>
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="5">
@@ -156,7 +161,7 @@
                         <ColumnDefinition Width="50"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Row="1" Grid.Column="1" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Text="有效期至"/>
-                    <DatePicker Grid.Row="1" Grid.Column="3" Width="320" Height="24" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                    <DatePicker Name="dpExpireDate" Grid.Row="1" Grid.Column="3" Width="320" Height="24" HorizontalAlignment="Left" VerticalAlignment="Center" />
                 </Grid>
             </StackPanel>
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="5">
@@ -174,13 +179,13 @@
                         <ColumnDefinition Width="50"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Row="1" Grid.Column="1" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Text="备注信息"/>
-                    <TextBox Grid.Row="1" Grid.Column="3" Width="320" Height="24" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                    <TextBox Name="tbRemark" Grid.Row="1" Grid.Column="3" Width="320" Height="24" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Center" />
                 </Grid>
             </StackPanel>
 
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                <Button Margin="20,30,60,20" Width="80" Height="30" Content="确定" Command="{Binding SaveCommand}"/>
-                <Button Margin="20,30,30,20" Width="80" Height="30" Content="取消" Command="{Binding CancelCommand}"/>
+                <Button Margin="20,30,60,20" Width="80" Height="30" Content="确定" Click="Save_Click"/>
+                <Button Margin="20,30,30,20" Width="80" Height="30" Content="取消" Click="Cancel_Click"/>
             </StackPanel>
         </StackPanel>
 

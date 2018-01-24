@@ -110,6 +110,7 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="DataAccess\Configuration.cs" />
+    <Compile Include="DataAccess\EntityDAO\DeviceDAO.cs" />
     <Compile Include="DataAccess\Entity\Device.cs" />
     <Compile Include="DataAccess\Entity\User.cs" />
     <Compile Include="DataAccess\EntityDAO\UserDAO.cs" />
@@ -129,10 +130,17 @@
     <Compile Include="DeviceCenter\DeviceCenterSearch.xaml.cs">
       <DependentUpon>DeviceCenterSearch.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DeviceCenter\DeviceCenterViewModel.cs" />
     <Compile Include="DeviceCenter\DeviceNew.xaml.cs">
       <DependentUpon>DeviceNew.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MVVM\DelegateCommand.cs" />
+    <Compile Include="MVVM\IDelegateCommand.cs" />
+    <Compile Include="MVVM\ISequencedObject.cs" />
     <Compile Include="MVVM\NotifyObject.cs" />
+    <Compile Include="MVVM\ObservableObjectExtensions.cs" />
+    <Compile Include="MVVM\PropertyChangedEventArgsEx.cs" />
+    <Compile Include="MVVM\SequencingService.cs" />
     <Compile Include="SettingCenter\SettingCenter.xaml.cs">
       <DependentUpon>SettingCenter.xaml</DependentUpon>
     </Compile>
@@ -239,7 +247,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="bin\Debug\Data\DB.sqlite" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

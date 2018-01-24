@@ -36,9 +36,9 @@ namespace THTS.TestCenter
         {
             DeviceCenter.DeviceCenter deviceSelect = new DeviceCenter.DeviceCenter(true);
             bool? result = deviceSelect.ShowDialog();
-            if (result.HasValue && result.Value && deviceSelect.deviceSelectList != null)
+            if (result.HasValue && result.Value && deviceSelect.DeviceSelectList != null)
             {
-                this.dataGridSensor.ItemsSource = deviceSelect.deviceSelectList;
+                this.dataGridSensor.ItemsSource = deviceSelect.DeviceSelectList;
             }
         }
 

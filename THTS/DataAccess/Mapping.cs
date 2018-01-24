@@ -14,6 +14,14 @@ namespace THTS.DataAccess
             {
             }
         }
+
+        public class DeviceMap : EntityTypeConfiguration<Device>
+        {
+            public DeviceMap()
+            {
+
+            }
+        }
         
     }
 }

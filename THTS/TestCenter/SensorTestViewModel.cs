@@ -42,7 +42,7 @@ namespace THTS.TestCenter
 
             HorizontalDateTimeAxis datetimeAxis = new HorizontalDateTimeAxis();
 
-            bool isStable = false;
+            //bool isStable = false;
             DateTime now = DateTime.Now;
         }
     }

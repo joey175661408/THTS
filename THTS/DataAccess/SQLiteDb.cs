@@ -5,8 +5,6 @@ namespace THTS.DataAccess
 {
     public class SQLiteDB : DbContext
     {
-        public DbSet<User> Users { get; set; }
-
         public SQLiteDB() : base("DefaultConnection")
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<SQLiteDB, Configuration>(true));
@@ -17,6 +15,8 @@ namespace THTS.DataAccess
             modelBuilder.Configurations.AddFromAssembly(typeof(SQLiteDB).Assembly);
         }
 
-       
+        public DbSet<User> Users { get; set; }
+        public DbSet<Device> Devices { get; set; }
+
     }
 }
