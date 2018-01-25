@@ -11,73 +11,79 @@ namespace THTS.DataAccess
     /// </summary>
     public class TemperatureTolerance
     {
+        public int Id { get; set;}
+
         #region 测试温度参数
-        public string onLower { get; set; }
-        public string temperatureLower { get; set; }
-        public string waitLower { get; set; }
-        public string toleranceLower { get; set; }
-        public string onUpper { get; set; }
-        public string temperatureUpper { get; set; }
-        public string waitUpper { get; set; }
-        public string toleranceUpper { get; set; }
-        public string onTest1 { get; set; }
-        public string temperatureTest1 { get; set; }
-        public string waitTest1 { get; set; }
-        public string toleranceTest1 { get; set; }
-        public string onTest2 { get; set; }
-        public string temperatureTest2 { get; set; }
-        public string waitTest2 { get; set; }
-        public string toleranceTest2 { get; set; }
-        public string onTest3 { get; set; }
-        public string temperatureTest3 { get; set; }
-        public string waitTest3 { get; set; }
-        public string toleranceTest3 { get; set; }
-        public string onTest4 { get; set; }
-        public string temperatureTest4 { get; set; }
-        public string waitTest4 { get; set; }
-        public string toleranceTest4 { get; set; }
-        public string onTest5 { get; set; }
-        public string temperatureTest5 { get; set; }
-        public string waitTest5 { get; set; }
-        public string toleranceTest5 { get; set; }
-        public string onTest6 { get; set; }
-        public string temperatureTest6 { get; set; }
-        public string waitTest6 { get; set; }
-        public string toleranceTest6 { get; set; }
-        public string onTest7 { get; set; }
-        public string temperatureTest7 { get; set; }
-        public string waitTest7 { get; set; }
-        public string toleranceTest7 { get; set; }
-        public string onTest8 { get; set; }
-        public string temperatureTest8 { get; set; }
-        public string waitTest8 { get; set; }
-        public string toleranceTest8 { get; set; }
-        public string onTest9 { get; set; }
-        public string temperatureTest9 { get; set; }
-        public string waitTest9 { get; set; }
-        public string toleranceTest9 { get; set; }
-        public string onTest10 { get; set; }
-        public string temperatureTest10 { get; set; }
-        public string waitTest10 { get; set; }
-        public string toleranceTest10 { get; set; }
+        public int OnLower { get; set; }
+        public string TemperatureLower { get; set; }
+        public string WaitLower { get; set; }
+        public string ToleranceLower { get; set; }
+        public int OnUpper { get; set; }
+        public string TemperatureUpper { get; set; }
+        public string WaitUpper { get; set; }
+        public string ToleranceUpper { get; set; }
+        public int OnTest1 { get; set; }
+        public string TemperatureTest1 { get; set; }
+        public string WaitTest1 { get; set; }
+        public string ToleranceTest1 { get; set; }
+        public int OnTest2 { get; set; }
+        public string TemperatureTest2 { get; set; }
+        public string WaitTest2 { get; set; }
+        public string ToleranceTest2 { get; set; }
+        public int OnTest3 { get; set; }
+        public string TemperatureTest3 { get; set; }
+        public string WaitTest3 { get; set; }
+        public string ToleranceTest3 { get; set; }
+        public int OnTest4 { get; set; }
+        public string TemperatureTest4 { get; set; }
+        public string WaitTest4 { get; set; }
+        public string ToleranceTest4 { get; set; }
+        public int OnTest5 { get; set; }
+        public string TemperatureTest5 { get; set; }
+        public string WaitTest5 { get; set; }
+        public string ToleranceTest5 { get; set; }
+        public int OnTest6 { get; set; }
+        public string TemperatureTest6 { get; set; }
+        public string WaitTest6 { get; set; }
+        public string TeranceTest6 { get; set; }
+        public int OnTest7 { get; set; }
+        public string TemperatureTest7 { get; set; }
+        public string WaitTest7 { get; set; }
+        public string ToleranceTest7 { get; set; }
+        public int OnTest8 { get; set; }
+        public string TemperatureTest8 { get; set; }
+        public string WaitTest8 { get; set; }
+        public string ToleranceTest8 { get; set; }
+        public int OnTest9 { get; set; }
+        public string TemperatureTest9 { get; set; }
+        public string WaitTest9 { get; set; }
+        public string ToleranceTest9 { get; set; }
+        public int OnTest10 { get; set; }
+        public string TemperatureTest10 { get; set; }
+        public string WaitTest10 { get; set; }
+        public string ToleranceTest10 { get; set; }
         #endregion
 
-        public string atmosphere { get; set; }
-        public string windSpeed { get; set; }
-        public string channel { get; set; }
-        public string sensorIndex { get; set; }
-        public string sensorName { get; set; }
-        public string sensorSN { get; set; }
-        public string isCJC { get; set; }
-        public string channelCJC { get; set; }
-        public string typeCJC { get; set; }
-        public string tempertureCJC { get; set; }
-        public string testTimeSpan { get; set; }
-        public string testSampleInterval { get; set; }
-        public string containMedium { get; set; }
-        public string mediumDescription { get; set; }
-        public string containLoad { get; set; }
-        public string loadDescription { get; set; }
+        public string Atmosphere { get; set; }
+        public string WindSpeed { get; set; }
+
+        public string Channel { get; set; }
+        public string SensorIndex { get; set; }
+        public string SensorName { get; set; }
+        public string SensorSN { get; set; }
+
+        public string IsCJC { get; set; }
+        public string ChannelCJC { get; set; }
+        public int TypeCJC { get; set; }
+        public string TempertureCJC { get; set; }
+
+        public string TestTimeSpan { get; set; }
+        public string TestSampleInterval { get; set; }
+
+        public int ContainMedium { get; set; }
+        public string MediumDescription { get; set; }
+        public int ContainLoad { get; set; }
+        public string LoadDescription { get; set; }
 
     }
 }

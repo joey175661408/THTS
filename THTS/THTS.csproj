@@ -110,6 +110,9 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="DataAccess\Configuration.cs" />
+    <Compile Include="DataAccess\DbContextExtensions.cs" />
+    <Compile Include="DataAccess\EntityDAO\TemperatureToleranceDAO.cs" />
+    <Compile Include="DataAccess\EntityDAO\TestInfoDAO.cs" />
     <Compile Include="DataAccess\EntityDAO\DeviceDAO.cs" />
     <Compile Include="DataAccess\Entity\Device.cs" />
     <Compile Include="DataAccess\Entity\User.cs" />
@@ -148,6 +151,7 @@
     <Compile Include="TestCenter\SensorSettings.xaml.cs">
       <DependentUpon>SensorSettings.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TestCenter\SensorSttingsViewModel.cs" />
     <Compile Include="TestCenter\SensorTest.xaml.cs">
       <DependentUpon>SensorTest.xaml</DependentUpon>
     </Compile>
@@ -155,6 +159,7 @@
     <Compile Include="TestCenter\TestCenter.xaml.cs">
       <DependentUpon>TestCenter.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TestCenter\TestCenterViewModel.cs" />
     <Compile Include="TestCenter\UC_distribution9.xaml.cs">
       <DependentUpon>UC_distribution9.xaml</DependentUpon>
     </Compile>

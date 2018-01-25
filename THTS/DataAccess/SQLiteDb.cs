@@ -16,7 +16,8 @@ namespace THTS.DataAccess
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<TestInfo> TestInfos { get; set; }
+        public DbSet<TemperatureTolerance> TemperatureTolerances { get; set; }
         public DbSet<Device> Devices { get; set; }
-
     }
 }

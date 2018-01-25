@@ -23,5 +23,12 @@ namespace THTS.DataAccess
             }
         }
         
+        public class TestInfoMap : EntityTypeConfiguration<TestInfo>
+        {
+            public TestInfoMap()
+            {
+
+            }
+        }
     }
 }

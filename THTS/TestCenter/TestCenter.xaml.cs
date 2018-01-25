@@ -22,12 +22,9 @@ namespace THTS.TestCenter
         public TestCenter()
         {
             InitializeComponent();
+
+            this.DataContext = new TestCenterViewModel();
         }
 
-        private void Start_Click(object sender, RoutedEventArgs e)
-        {
-            SensorSettings settings = new SensorSettings();
-            settings.ShowDialog();
-        }
     }
 }
