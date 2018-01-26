@@ -28,6 +28,14 @@ namespace THTS.DataAccess
             this.IsDelete = 0;
         }
 
+        #region
+        [NotMapped]
+        public string ChannelNo
+        {
+            get { return SequenceNumber.ToString("00"); }
+        }
+        #endregion
+
         #region INotifyPropertyChanged 成员
 
         public event PropertyChangedEventHandler PropertyChanged;

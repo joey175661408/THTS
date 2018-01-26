@@ -19,32 +19,8 @@ namespace THTS.TestCenter
         public SensorSettings()
         {
             InitializeComponent();
-        }
 
-        private void Start_Click(object sender, RoutedEventArgs e)
-        {
-            SensorTest test = new SensorTest();
-            test.ShowDialog();
-        }
-
-        private void Close_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
-        private void SensorSelect_Click(object sender, RoutedEventArgs e)
-        {
-            DeviceCenter.DeviceCenter deviceSelect = new DeviceCenter.DeviceCenter(true);
-            bool? result = deviceSelect.ShowDialog();
-            if (result.HasValue && result.Value && deviceSelect.DeviceSelectList != null)
-            {
-                this.dataGridSensor.ItemsSource = deviceSelect.DeviceSelectList;
-            }
-        }
-
-        private void SensorDelete_Click(object sender, RoutedEventArgs e)
-        {
-
+            this.DataContext = new SensorSettingsViewModel();
         }
     }
 }

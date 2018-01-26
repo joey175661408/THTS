@@ -151,7 +151,7 @@
     <Compile Include="TestCenter\SensorSettings.xaml.cs">
       <DependentUpon>SensorSettings.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TestCenter\SensorSttingsViewModel.cs" />
+    <Compile Include="TestCenter\SensorSettingsViewModel.cs" />
     <Compile Include="TestCenter\SensorTest.xaml.cs">
       <DependentUpon>SensorTest.xaml</DependentUpon>
     </Compile>
