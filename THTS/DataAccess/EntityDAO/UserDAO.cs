@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Data.Entity;
+using System.Collections.ObjectModel;
 
 namespace THTS.DataAccess
 {
@@ -13,22 +14,16 @@ namespace THTS.DataAccess
             context = new SQLiteDB();
         }
 
-        public static bool test()
+        /// <summary>
+        /// 获取所有设备信息
+        /// </summary>
+        public static ObservableCollection<User> GetAllData()
         {
-            using (var db = new SQLiteDB())
+            using (SQLiteDB ctx = new SQLiteDB())
             {
-                User fv = new User()
-                {
-                    Id = 1,
-                    UserName = "admin",
-                    Password = "admin",
-                    IsDelete = 0
-                };
-                db.Users.Add(fv);
-                db.SaveChanges();
+                ctx.Users.Where(t => t.IsDelete != 1).Load();
+                return ctx.Users.Local;
             }
-
-            return true;
         }
 
         /// <summary>
@@ -42,6 +37,20 @@ namespace THTS.DataAccess
             {
                 ctx.Users.Where(t => t.IsDelete != 1).Where(t => t.UserName.Equals(userName)).Where(t=> t.Password.Equals(password)).Load();
                 return ctx.Users.Local.Count > 0;
+            }
+        }
+
+        /// <summary>
+        /// 保存用户信息
+        /// </summary>
+        /// <param name="newUser"></param>
+        /// <returns></returns>
+        public static bool Save(User newUser)
+        {
+            using (SQLiteDB ctx = new SQLiteDB())
+            {
+                ctx.Users.Add(newUser);
+                return ctx.SaveChanges() > 0;
             }
         }
 

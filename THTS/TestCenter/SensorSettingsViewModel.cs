@@ -1,5 +1,8 @@
 ﻿using THTS.MVVM;
+using System;
+using System.Threading;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace THTS.TestCenter
 {
@@ -27,6 +30,26 @@ namespace THTS.TestCenter
             get { return _toleranceInfo; }
             set { _toleranceInfo = value; OnPropertyChanged(); }
         }
+
+        private ObservableCollection<DataAccess.Device> _deviceList = new ObservableCollection<DataAccess.Device>();
+        /// <summary>
+        /// 传感器列表数据源
+        /// </summary>
+        public ObservableCollection<DataAccess.Device> DeviceList
+        {
+            get { return _deviceList; }
+            set { _deviceList = value; OnPropertyChanged(); }
+        }
+
+        private DataAccess.Device _deviceSelected = new DataAccess.Device();
+        /// <summary>
+        /// 当前选中的传感器
+        /// </summary>
+        public DataAccess.Device DeviceSelected
+        {
+            get { return _deviceSelected; }
+            set { _deviceSelected = value; OnPropertyChanged(); }
+        }
         #endregion
 
         public SensorSettingsViewModel()
@@ -42,6 +65,8 @@ namespace THTS.TestCenter
             StartCommand = new DelegateCommand(Start);
             CloseCommand = new DelegateCommand(Close);
 
+            DeviceList = DataAccess.EntityDAO.DeviceDAO.GetAllData();
+
         }
 
         #region 方法
@@ -54,16 +79,56 @@ namespace THTS.TestCenter
             bool? result = deviceSelect.ShowDialog();
             if (result.HasValue && result.Value && deviceSelect.DeviceSelectList != null)
             {
-                ToleranceInfo.DeviceSelectList = deviceSelect.DeviceSelectList;
+                Thread thr = new Thread(new ThreadStart(() =>
+                {
+                    try
+                    {
+                        this.DispatcherInvoke(() =>
+                        {
+                            if (deviceSelect.DeviceSelectList != null && deviceSelect.DeviceSelectList.Count > 0)
+                            {
+                                DeviceList = MVVM.SequencingService.SetCollectionSequence(deviceSelect.DeviceSelectList);
+                            }
+                        });
+                    }
+                    catch (Exception ex)
+                    {
+                    }
+                    finally
+                    {
+                    }
+                }));
+                thr.IsBackground = true;
+                thr.Start();
             }
+            
         }
+
         /// <summary>
         /// 删除传感器
         /// </summary>
         private void SensorDelete()
         {
-
+            //Thread thr = new Thread(new ThreadStart(() =>
+            //{
+            //    try
+            //    {
+            //        this.DispatcherInvoke(() =>
+            //        {
+            //            DeviceList.Remove(DeviceSelected);
+            //        });
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //    }
+            //    finally
+            //    {
+            //    }
+            //}));
+            //thr.IsBackground = true;
+            //thr.Start();
         }
+
         /// <summary>
         /// 开始测试方法
         /// </summary>

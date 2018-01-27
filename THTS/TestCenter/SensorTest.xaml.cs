@@ -18,13 +18,19 @@ namespace THTS.TestCenter
         public ObservableDataSource<Point> TemperatureCollections
         {
             get { return _TemperatureCollections; }
-            set { _TemperatureCollections = value;}
+            set { _TemperatureCollections = value; }
         }
 
+        /// <summary>
+        /// 停止采样
+        /// </summary>
+        private bool Stop = false;
 
         public SensorTest()
         {
             InitializeComponent();
+            this.DataContext = new SensorTestViewModel();
+
             this.lineTemperature.DataSource = TemperatureCollections;
         }
 
@@ -40,7 +46,7 @@ namespace THTS.TestCenter
 
             HorizontalDateTimeAxis datetimeAxis = new HorizontalDateTimeAxis();
 
-            while (true)
+            while (!Stop)
             {
                 try
                 {
@@ -59,8 +65,41 @@ namespace THTS.TestCenter
 
         }
 
+        /// <summary>
+        /// 测点分布和实时曲线切换
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Visiable_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.btnChart.Content.Equals("测点分布"))
+            {
+                this.btnChart.Content = "实时曲线";
+                this.gbPoint.Visibility = Visibility.Visible;
+                this.gbPointParams.Visibility = Visibility.Visible;
+                this.gbChart.Visibility = Visibility.Hidden;
+                this.gbChartParams.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                this.btnChart.Content = "测点分布";
+                this.gbPoint.Visibility = Visibility.Hidden;
+                this.gbPointParams.Visibility = Visibility.Hidden;
+                this.gbChart.Visibility = Visibility.Visible;
+                this.gbChartParams.Visibility = Visibility.Visible;
+            }
+
+        }
+
+        /// <summary>
+        /// 开始采样
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Chart_Click(object sender, RoutedEventArgs e)
         {
+            Stop = false;
+
             Thread thrP = new Thread(new ThreadStart(() =>
             {
                 GetLiveData();
@@ -68,6 +107,16 @@ namespace THTS.TestCenter
             thrP.IsBackground = true;
             thrP.SetApartmentState(ApartmentState.STA);
             thrP.Start();
+        }
+
+        private void Stop_Click(object sender, RoutedEventArgs e)
+        {
+            Stop = true;
+        }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

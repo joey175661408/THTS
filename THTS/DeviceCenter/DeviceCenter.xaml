@@ -23,37 +23,37 @@
                     <ToolBar HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ToolBarTray.IsLocked="True"   Grid.Row="0" Foreground="Black">
                         <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Command="{Binding AddCommand}">
                             <StackPanel Orientation="Vertical">
-                                <iconPacks:PackIconFontAwesome Width="30" Height="30" Kind="DesktopSolid" HorizontalAlignment="Center"/>
+                                <iconPacks:PackIconFontAwesome Width="30" Height="30" Kind="CreativeCommonsBrands" HorizontalAlignment="Center"/>
                                 <TextBlock Text="新建" HorizontalAlignment="Center" Margin="0,5,0,0"/>
                             </StackPanel>
                         </Button>
-                        <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Click="Edit_Click">
+                        <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Command="{Binding EditCommand}">
                             <StackPanel Orientation="Vertical">
-                                <iconPacks:PackIconFontAwesome Width="30" Height="30" Kind="DesktopSolid" HorizontalAlignment="Center"/>
+                                <iconPacks:PackIconFontAwesome Width="30" Height="30" Kind="EditSolid" HorizontalAlignment="Center"/>
                                 <TextBlock Text="编辑" HorizontalAlignment="Center" Margin="0,5,0,0"/>
                             </StackPanel>
                         </Button>
-                        <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center"  Click="Delete_Click">
+                        <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Command="{Binding DeleteCommand}">
                             <StackPanel Orientation="Vertical">
-                                <iconPacks:PackIconFontAwesome Width="30" Height="30" Kind="DesktopSolid" HorizontalAlignment="Center"/>
+                                <iconPacks:PackIconFontAwesome Width="30" Height="30" Kind="CogSolid" HorizontalAlignment="Center"/>
                                 <TextBlock Text="删除" HorizontalAlignment="Center" Margin="0,5,0,0"/>
                             </StackPanel>
                         </Button>
-                        <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Click="Search_Click" Visibility="Visible">
+                        <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Command="{Binding SearchFlyoutCommand}">
                             <StackPanel Orientation="Vertical">
-                                <iconPacks:PackIconFontAwesome Width="30" Height="30" Kind="DesktopSolid" HorizontalAlignment="Center"/>
+                                <iconPacks:PackIconFontAwesome Width="30" Height="30" Kind="SearchSolid" HorizontalAlignment="Center"/>
                                 <TextBlock Text="查询" HorizontalAlignment="Center" Margin="0,5,0,0"/>
                             </StackPanel>
                         </Button>
-                        <Button Name="btnSelect" Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Click="Select_Click" Visibility="Visible">
+                        <Button Name="btnSelect" Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Click="Select_Click" Visibility="Collapsed">
                             <StackPanel Orientation="Vertical">
-                                <iconPacks:PackIconFontAwesome Width="30" Height="30" Kind="DesktopSolid" HorizontalAlignment="Center"/>
+                                <iconPacks:PackIconFontAwesome Width="30" Height="30" Kind="CompassSolid" HorizontalAlignment="Center"/>
                                 <TextBlock Text="选择" HorizontalAlignment="Center" Margin="0,5,0,0"/>
                             </StackPanel>
                         </Button>
-                        <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Click="Close_Click" Visibility="Visible">
+                        <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Command="{Binding CloseCommand}">
                             <StackPanel Orientation="Vertical">
-                                <iconPacks:PackIconFontAwesome Width="30" Height="30" Kind="DesktopSolid" HorizontalAlignment="Center"/>
+                                <iconPacks:PackIconFontAwesome Width="30" Height="30" Kind="WindowCloseSolid" HorizontalAlignment="Center"/>
                                 <TextBlock Text="退出" HorizontalAlignment="Center" Margin="0,5,0,0"/>
                             </StackPanel>
                         </Button>
@@ -61,8 +61,8 @@
                 </StackPanel>
             </Border>
             <GroupBox Grid.Row="1" Header="传感器列表" Margin="0,2,0,2">
-                <DataGrid Name="dgDevice" ItemsSource="{Binding DeviceList, Mode=TwoWay}" SelectedItem="{Binding SelectedDevice,Mode=TwoWay}"
-                          Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Extended">
+                <DataGrid Name="dgDevice" ItemsSource="{Binding DeviceList, Mode=TwoWay}" SelectedItem="{Binding DeviceSelected,Mode=TwoWay}"
+                          Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="序号" Binding="{Binding SequenceNumber}"/>
                         <DataGridTextColumn Header="传感器序列号" Binding="{Binding Id}"/>
@@ -80,7 +80,7 @@
         </Grid>
 
         <Controls:FlyoutsControl Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Panel.ZIndex="1">
-            <Controls:Flyout Name="flyoutSearch" Width="320" Background="#FF38A9D8" IsOpen="False" Header="查询条件" Position="Right" Theme="Adapt">
+            <Controls:Flyout IsOpen="{Binding IsOpen}" Width="320" Background="#FF38A9D8" Header="查询条件" Position="Right" Theme="Adapt">
                 <Grid Margin="10">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />

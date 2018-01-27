@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Threading;
+using System.Windows;
+using System.Windows.Controls;
 using THTS.MVVM;
 using System.Collections.ObjectModel;
 
@@ -12,6 +14,10 @@ namespace THTS.DeviceCenter
         public IDelegateCommand AddCommand { get; private set; }
         public IDelegateCommand EditCommand { get; private set; }
         public IDelegateCommand DeleteCommand { get; private set; }
+        public IDelegateCommand SearchFlyoutCommand { get; private set; }
+        public IDelegateCommand CloseCommand { get; private set; }
+        public IDelegateCommand SearchCommand { get; private set; }
+        public IDelegateCommand ResetSearchConditionsCommand { get; private set; }
         #endregion
 
         #region 属性
@@ -25,15 +31,20 @@ namespace THTS.DeviceCenter
             set { _deviceList = value; OnPropertyChanged(); }
         }
 
-        private DataAccess.Device _selectedDevice;
+        private DataAccess.Device _deviceSelected = new DataAccess.Device();
         /// <summary>
         /// 当前选中的传感器
         /// </summary>
-        public DataAccess.Device SelectedDevice
+        public DataAccess.Device DeviceSelected
         {
-            get { return _selectedDevice; }
-            set { _selectedDevice = value; OnPropertyChanged(); }
+            get { return _deviceSelected; }
+            set { _deviceSelected = value; OnPropertyChanged(); }
         }
+
+        /// <summary>
+        /// 查询窗口是否弹开
+        /// </summary>
+        public bool IsOpen { get; set; }
 
         #endregion
 
@@ -42,8 +53,14 @@ namespace THTS.DeviceCenter
             AddCommand = new DelegateCommand(Add);
             EditCommand = new DelegateCommand(Edit);
             DeleteCommand = new DelegateCommand(Delete);
+            SearchFlyoutCommand = new DelegateCommand(SearchFlyout);
+            CloseCommand = new DelegateCommand(Close);
+            SearchCommand = new DelegateCommand(Search);
+            ResetSearchConditionsCommand = new DelegateCommand(ResetSearchConditions);
 
-            DeviceList = DataAccess.EntityDAO.DeviceDAO.GetAllData();
+            Refresh();
+
+            IsOpen = false;
         }
 
         #region 方法
@@ -67,13 +84,13 @@ namespace THTS.DeviceCenter
                                 DeviceList = MVVM.SequencingService.SetCollectionSequence(DeviceList);
 
                                 DataAccess.Device tempSelected = null;
-                                if (SelectedDevice != null)
-                                    tempSelected = DeviceList.FirstOrDefault(t => t.Id == SelectedDevice.Id);
+                                if (DeviceSelected != null)
+                                    tempSelected = DeviceList.FirstOrDefault(t => t.Id == DeviceSelected.Id);
 
-                                SelectedDevice = tempSelected == null ? DeviceList[0] : tempSelected;
+                                DeviceSelected = tempSelected == null ? DeviceList[0] : tempSelected;
                             }
                             else
-                                SelectedDevice = null;
+                                DeviceSelected = null;
                         });
                     }
                     catch (Exception ex)
@@ -119,6 +136,37 @@ namespace THTS.DeviceCenter
         /// 删除
         /// </summary>
         private void Delete()
+        {
+            
+        }
+
+
+        /// <summary>
+        /// 弹出查询窗口
+        /// </summary>
+        private void SearchFlyout()
+        {
+            IsOpen = !IsOpen;
+        }
+
+        /// <summary>
+        /// 关闭窗口
+        /// </summary>
+        private void Close()
+        {
+        }
+
+        /// <summary>
+        /// 查询
+        /// </summary>
+        private void Search()
+        {
+        }
+
+        /// <summary>
+        /// 清空查询条件
+        /// </summary>
+        private void ResetSearchConditions()
         {
         }
         #endregion

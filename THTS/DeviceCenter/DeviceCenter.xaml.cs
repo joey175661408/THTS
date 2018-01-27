@@ -20,79 +20,34 @@ namespace THTS.DeviceCenter
     /// </summary>
     public partial class DeviceCenter
     {
-        private ObservableCollection<DataAccess.Device> _deviceList = new ObservableCollection<DataAccess.Device>();
-        public ObservableCollection<DataAccess.Device> DeviceList
-        {
-            get { return _deviceList; }
-        }
-
-        private ObservableCollection<DataAccess.Device> _deviceSelectList = new ObservableCollection<DataAccess.Device>();
-        public ObservableCollection<DataAccess.Device> DeviceSelectList
-        {
-            get { return _deviceSelectList; }
-        }
-
         public DeviceCenter(bool select) 
         {
             InitializeComponent();
 
             DataContext = new DeviceCenterViewModel();
 
-            if (select)
-            {
-                this.Title = "选择传感器";
-                this.WindowState = WindowState.Normal;
-                this.btnSelect.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                this.btnSelect.Visibility = Visibility.Collapsed;
-
-                //_deviceList = DataAccess.EntityDAO.DeviceDAO.GetAllData();
-                //dgDevice.ItemsSource = _deviceList;
-            }
+            this.btnSelect.Visibility = select ? Visibility.Visible : Visibility.Collapsed;
+            this.dgDevice.SelectionMode = DataGridSelectionMode.Extended;
         }
 
-        private void Search_Click(object sender, RoutedEventArgs e)
-        {
-            this.flyoutSearch.IsOpen = !this.flyoutSearch.IsOpen;
-        }
 
-        private void Add_Click(object sender, RoutedEventArgs e)
+        private ObservableCollection<DataAccess.Device> _deviceSelectList = new ObservableCollection<DataAccess.Device>();
+        /// <summary>
+        /// 当前选中的传感器列表
+        /// </summary>
+        public ObservableCollection<DataAccess.Device> DeviceSelectList
         {
-            DeviceNew newDevice = new DeviceNew();
-            bool? result = newDevice.ShowDialog();
-
-            if(result.HasValue && result.Value)
-            {
-                bool save = DataAccess.EntityDAO.DeviceDAO.Save(newDevice.NewDevice);
-                if (save)
-                {
-                    _deviceList = DataAccess.EntityDAO.DeviceDAO.GetAllData();
-                }
-            }
-        }
-
-        private void Edit_Click(object sender, RoutedEventArgs e)
-        {
-            DeviceNew newDevice = new DeviceNew();
-            newDevice.ShowDialog();
-        }
-
-        private void Delete_Click(object sender, RoutedEventArgs e)
-        {
+            get { return _deviceSelectList; }
         }
 
         private void Select_Click(object sender, RoutedEventArgs e)
         {
-            this.DialogResult = true;
-            this.Close();
-        }
 
-        private void Close_Click(object sender, RoutedEventArgs e)
-        {
-            this.DialogResult = false;
-            this.Close();
+            for (int i = 0; i < this.dgDevice.SelectedItems.Count; i++)
+            {
+                _deviceSelectList.Add((DataAccess.Device)this.dgDevice.SelectedItems[i]);
+            }
+            this.DialogResult = true;
         }
     }
 }

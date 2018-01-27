@@ -21,19 +21,19 @@
             <Border  Grid.Row="0" BorderThickness="0,0,0,1" BorderBrush="Gray">
                 <StackPanel Orientation="Horizontal">
                     <ToolBar HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ToolBarTray.IsLocked="True"   Grid.Row="0" Foreground="Black">
-                        <Button Width="70" Height="55" Margin="0,0,0,0" VerticalAlignment="Center" Click="Add_Click">
+                        <Button Width="70" Height="55" Margin="0,0,0,0" VerticalAlignment="Center" Command="{Binding AddCommand}">
                             <StackPanel Orientation="Vertical">
                                 <iconPacks:PackIconFontAwesome Width="30" Height="30" Kind="DesktopSolid" HorizontalAlignment="Center"/>
                                 <TextBlock Text="新建"  HorizontalAlignment="Center" Margin="0,5,0,0"/>
                             </StackPanel>
                         </Button>
-                        <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Click="Edit_Click">
+                        <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Command="{Binding EditCommand}">
                             <StackPanel Orientation="Vertical">
                                 <iconPacks:PackIconFontAwesome Width="30" Height="30" Kind="DesktopSolid" HorizontalAlignment="Center"/>
                                 <TextBlock Text="编辑" HorizontalAlignment="Center" Margin="0,5,0,0"/>
                             </StackPanel>
                         </Button>
-                        <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Click="Delete_Click">
+                        <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Command="{Binding DeleteCommand}">
                             <StackPanel Orientation="Vertical">
                                 <iconPacks:PackIconFontAwesome Width="30" Height="30" Kind="DesktopSolid" HorizontalAlignment="Center"/>
                                 <TextBlock Text="删除" HorizontalAlignment="Center" Margin="0,5,0,0"/>
@@ -43,11 +43,10 @@
                 </StackPanel>
             </Border>
             <GroupBox Grid.Row="1" Header="用户列表" Margin="0,2,0,2">
-                <DataGrid Grid.Row="1" Style="{DynamicResource AzureDataGrid}" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Extended">
+                <DataGrid Grid.Row="1" ItemsSource="{Binding UserList}" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Extended">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="序号" Binding="{Binding SequenceNumber}"/>
-                        <DataGridTextColumn Header="用户ID" Binding="{Binding RecordNo}"/>
-                        <DataGridTextColumn Header="用户名" Binding="{Binding DeviceName}"/>
+                        <DataGridTextColumn Header="用户名" Binding="{Binding UserName}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </GroupBox>

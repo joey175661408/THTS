@@ -208,7 +208,7 @@
                     <ColumnDefinition Width="200"/>
                 </Grid.ColumnDefinitions>
                 
-                <GroupBox Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Header="测点分布" Visibility="Hidden">
+                <GroupBox Name="gbPoint" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Header="测点分布" Visibility="Visible">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="5"/>
@@ -225,7 +225,7 @@
                     </Grid>
                 </GroupBox>
 
-                <Grid Grid.Row="0" Grid.Column="2" Visibility="Hidden">
+                <Grid Name="gbPointParams" Grid.Row="0" Grid.Column="2" Visibility="Visible">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="5"/>
                         <RowDefinition Height="*"/>
@@ -290,7 +290,7 @@
                     </GroupBox>
                 </Grid>
 
-                <GroupBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Header="实时曲线图" Visibility="Visible">
+                <GroupBox Name="gbChart" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Header="实时曲线图" Visibility="Hidden">
                     <d3:ChartPlotter x:Name="plotter2">
                         <d3:ChartPlotter.VerticalAxis>
                             <d3:VerticalIntegerAxis />
@@ -313,18 +313,18 @@
                     </d3:ChartPlotter>
                 </GroupBox>
 
-                <GroupBox Grid.Row="1" Grid.Column="0" Header="曲线属性" Visibility="Visible">
+                <GroupBox Name="gbChartParams" Grid.Row="1" Grid.Column="0" Header="曲线属性" Visibility="Hidden">
                     <ListBox></ListBox>
                 </GroupBox>
                 
                 <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Button Content="实时曲线" Width="80" Click="Chart_Click"/>
+                    <Button Name="btnChart" Content="实时曲线" Width="80" Click="Visiable_Click"/>
                     <Label/>
-                    <Button Content="中断测试" Width="80"/>
+                    <Button Content="中断测试" Width="80" Click="Stop_Click"/>
                     <Label/>
-                    <Button Content="开始采样" Width="80"/>
+                    <Button Content="开始采样" Width="80" Click="Chart_Click"/>
                     <Label/>
-                    <Button Content="返回" Width="80"/>
+                    <Button Content="返回" Width="80" Click="Close_Click"/>
                 </StackPanel>
             </Grid>
             

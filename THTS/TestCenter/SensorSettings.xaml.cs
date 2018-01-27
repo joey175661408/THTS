@@ -22,5 +22,10 @@ namespace THTS.TestCenter
 
             this.DataContext = new SensorSettingsViewModel();
         }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -59,7 +59,7 @@
         <WrapPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top">
             <Controls:Tile Title="测试中心" Margin="3" Background="Indigo" Click="TestCenter_Click"
                            Style="{StaticResource LargeTileStyle}" Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}">
-                <iconPacks:PackIconFontAwesome Width="40" Height="40" Kind="DesktopSolid"/>
+                <iconPacks:PackIconFontAwesome Width="40" Height="40" Kind="HeartbeatSolid"/>
             </Controls:Tile>
             <Controls:Tile Title="设备中心" Margin="3" Background="Crimson" Click="DeviceCenter_Click"
                            Style="{StaticResource SmallTileStyle}" Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}">
@@ -67,19 +67,19 @@
             </Controls:Tile>
             <Controls:Tile Title="数据中心" Margin="3" Background="SaddleBrown" Click="DataCenter_Click"
                            Style="{StaticResource LargeTileStyle}" Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}">
-                <iconPacks:PackIconFontAwesome Width="40" Height="40" Kind="DesktopSolid"/>
+                <iconPacks:PackIconFontAwesome Width="40" Height="40" Kind="DatabaseSolid"/>
             </Controls:Tile>
             <Controls:Tile Title="用户中心" Margin="3" Background="Orange" Click="UserCenter_Click"
                            Style="{StaticResource LargeTileStyle}" Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}">
-                <iconPacks:PackIconFontAwesome Width="40" Height="40" Kind="DesktopSolid"/>
+                <iconPacks:PackIconFontAwesome Width="40" Height="40" Kind="UsersSolid"/>
             </Controls:Tile>
             <Controls:Tile Title="系统设置" Margin="3" Background="Blue" Click="SettingCenter_Click"
                            Style="{StaticResource LargeTileStyle}" Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}">
-                <iconPacks:PackIconFontAwesome Width="40" Height="40" Kind="DesktopSolid"/>
+                <iconPacks:PackIconFontAwesome Width="40" Height="40" Kind="CogsSolid"/>
             </Controls:Tile>
             <Controls:Tile Title="退出系统" Margin="3" Background="Green" Click="Quit_Click"
                            Style="{StaticResource SmallTileStyle}" Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}">
-                <iconPacks:PackIconFontAwesome Width="40" Height="40" Kind="DesktopSolid"/>
+                <iconPacks:PackIconFontAwesome Width="40" Height="40" Kind="TimesCircleSolid"/>
             </Controls:Tile>
         </WrapPanel>
 

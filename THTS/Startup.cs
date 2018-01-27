@@ -15,7 +15,7 @@ namespace THTS
         {
             UserCenter.Login login = new UserCenter.Login();
             bool? log = login.ShowDialog();
-            if(log.HasValue && log.Value)
+            if (log.HasValue && log.Value)
             {
 
                 App app = new App();

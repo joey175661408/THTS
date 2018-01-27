@@ -149,9 +149,10 @@
                             <ColumnDefinition Width="5"/>
                         </Grid.ColumnDefinitions>
 
-                        <DataGrid ItemsSource="{Binding ToleranceInfo.DeviceSelectList,Mode=TwoWay}" Grid.Row="1" Grid.Column="1">
+                        <DataGrid ItemsSource="{Binding DeviceList,Mode=TwoWay}" SelectedItem="{Binding DeviceSelected}"
+                                  AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1" Grid.Column="1">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="通道" Binding="{Binding ChannelNo}" Width="*"/>
+                                <DataGridTextColumn Header="通道" Binding="{Binding SequenceNumber}" Width="*"/>
                                 <DataGridTextColumn Header="传感器序号" Binding="{Binding Id}" Width="*"/>
                                 <DataGridTextColumn Header="传感器名称" Binding="{Binding ModuleName}" Width="2*"/>
                                 <DataGridTextColumn Header="出厂编号" Binding="{Binding FactoryNo}" Width="2*"/>
@@ -289,7 +290,7 @@
                 <TextBlock Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Left" Text="负载说明"/>
                 <TextBox Text="{Binding ToleranceInfo.LoadDescription,Mode=TwoWay}" Grid.Row="2" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Left" Width="600"/>
                 <Button Grid.Row="2" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Width="50" Content="返回"
-                        Command="{Binding CloseCommand}"/>
+                        Click="Close_Click"/>
             </Grid>
         </GroupBox>
 
