@@ -163,6 +163,9 @@
     <Compile Include="TestCenter\UC_distribution9.xaml.cs">
       <DependentUpon>UC_distribution9.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserCenter\ChangePassword.xaml.cs">
+      <DependentUpon>ChangePassword.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserCenter\UserNew.xaml.cs">
       <DependentUpon>UserNew.xaml</DependentUpon>
     </Compile>
@@ -226,6 +229,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TestCenter\UC_distribution9.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserCenter\ChangePassword.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

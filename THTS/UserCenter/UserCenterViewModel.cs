@@ -102,7 +102,7 @@ namespace THTS.UserCenter
 
             if (result.HasValue && result.Value)
             {
-                bool save = DataAccess.UserDAO.Save(newUser.NewUser);
+                bool save = DataAccess.UserDAO.SaveOrUpdate(newUser.NewUser);
                 if (save)
                 {
                     Refresh();
@@ -115,6 +115,17 @@ namespace THTS.UserCenter
         /// </summary>
         private void Edit()
         {
+            ChangePassword changePW = new ChangePassword(UserSelected);
+            bool? result = changePW.ShowDialog();
+
+            if(result.HasValue && result.Value)
+            {
+                bool change = DataAccess.UserDAO.SaveOrUpdate(UserSelected);
+                if (change)
+                {
+                    Refresh();
+                }
+            }
         }
 
         /// <summary>
@@ -122,7 +133,10 @@ namespace THTS.UserCenter
         /// </summary>
         private void Delete()
         {
-
+            if (DataAccess.UserDAO.Delete(UserSelected))
+            {
+                Refresh();
+            }
         }
         #endregion
     }

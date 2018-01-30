@@ -26,16 +26,31 @@ namespace THTS.DataAccess
             }
         }
 
+
         /// <summary>
         /// 根据输入的用户名判断该用户名是否已经存在
         /// </summary>
         /// <param name="userName">用户名</param>
         /// <returns></returns>
-        public static bool IsExist(string userName, string password)
+        public static bool IsLogin(string userName, string password)
         {
             using (SQLiteDB ctx = new SQLiteDB())
             {
-                ctx.Users.Where(t => t.IsDelete != 1).Where(t => t.UserName.Equals(userName)).Where(t=> t.Password.Equals(password)).Load();
+                ctx.Users.Where(t => t.IsDelete != 1).Where(t => t.UserName.Equals(userName)).Where(t => t.Password.Equals(password)).Load();
+                return ctx.Users.Local.Count > 0;
+            }
+        }
+
+        /// <summary>
+        /// 根据输入的用户名判断该用户名是否已经存在
+        /// </summary>
+        /// <param name="userName">用户名</param>
+        /// <returns></returns>
+        public static bool IsExist(string userName)
+        {
+            using (SQLiteDB ctx = new SQLiteDB())
+            {
+                ctx.Users.Where(t => t.IsDelete != 1).Where(t => t.UserName.Equals(userName)).Load();
                 return ctx.Users.Local.Count > 0;
             }
         }
@@ -45,13 +60,30 @@ namespace THTS.DataAccess
         /// </summary>
         /// <param name="newUser"></param>
         /// <returns></returns>
-        public static bool Save(User newUser)
+        public static bool SaveOrUpdate(User newUser)
         {
             using (SQLiteDB ctx = new SQLiteDB())
             {
-                ctx.Users.Add(newUser);
+                if (IsExist(newUser.UserName))
+                {
+                    ctx.Update(newUser.Id, newUser);
+                }else
+                {
+                    ctx.Users.Add(newUser);
+                }
                 return ctx.SaveChanges() > 0;
             }
+        }
+
+        /// <summary>
+        /// 删除用户信息
+        /// </summary>
+        /// <param name="selectedUser"></param>
+        /// <returns></returns>
+        public static bool Delete(User selectedUser)
+        {
+            selectedUser.IsDelete = 1;
+            return SaveOrUpdate(selectedUser);
         }
 
         #region IDisposable 成员

@@ -30,7 +30,7 @@
                         <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Command="{Binding EditCommand}">
                             <StackPanel Orientation="Vertical">
                                 <iconPacks:PackIconFontAwesome Width="30" Height="30" Kind="DesktopSolid" HorizontalAlignment="Center"/>
-                                <TextBlock Text="编辑" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+                                <TextBlock Text="修改密码" HorizontalAlignment="Center" Margin="0,5,0,0"/>
                             </StackPanel>
                         </Button>
                         <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Command="{Binding DeleteCommand}">
@@ -43,10 +43,10 @@
                 </StackPanel>
             </Border>
             <GroupBox Grid.Row="1" Header="用户列表" Margin="0,2,0,2">
-                <DataGrid Grid.Row="1" ItemsSource="{Binding UserList}" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Extended">
+                <DataGrid Grid.Row="1" HorizontalContentAlignment="Center" ItemsSource="{Binding UserList}" SelectedItem="{Binding UserSelected}" AutoGenerateColumns="False" SelectionMode="Single">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="序号" Binding="{Binding SequenceNumber}"/>
-                        <DataGridTextColumn Header="用户名" Binding="{Binding UserName}"/>
+                        <DataGridTextColumn Header="序号" Width="100" Binding="{Binding SequenceNumber}"/>
+                        <DataGridTextColumn Header="用户名" Width="200" Binding="{Binding UserName}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </GroupBox>

@@ -13,17 +13,17 @@ namespace THTS
         [STAThread]
         static void Main(params string[] args)
         {
+
+            App app = new App();
+            app.InitialAppResources();
+
+            MainWindow mainWindow = new MainWindow();
+            app.ShutdownMode = ShutdownMode.OnMainWindowClose;
+
             UserCenter.Login login = new UserCenter.Login();
             bool? log = login.ShowDialog();
             if (log.HasValue && log.Value)
             {
-
-                App app = new App();
-                app.InitialAppResources();
-
-                MainWindow mainWindow = new MainWindow();
-                app.ShutdownMode = ShutdownMode.OnMainWindowClose;
-
                 app.Run(mainWindow);
             }
         }

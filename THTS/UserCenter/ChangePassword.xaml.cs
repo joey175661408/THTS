@@ -17,36 +17,32 @@ namespace THTS.UserCenter
     /// <summary>
     /// DeviceNew.xaml 的交互逻辑
     /// </summary>
-    public partial class UserNew
+    public partial class ChangePassword
     {
-        DataAccess.User _newUser;
-        public DataAccess.User NewUser
-        {
-            get { return _newUser; }
-        }
+        DataAccess.User _newUser = null;
 
-        public UserNew()
+        public ChangePassword(DataAccess.User user)
         {
             InitializeComponent();
-            _newUser = new DataAccess.User();
+            _newUser = user;
+            this.tbUserName.Text = _newUser.UserName;
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            if (DataAccess.UserDAO.IsExist(this.tbUserName.Text.Trim()))
+            if (!this.pbPassword.Password.Equals(_newUser.Password))
             {
-                MessageBox.Show("此用户名已存在，请重新输入！", "提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("原密码错误，请重新输入！", "提示", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
-            if (!this.pbPasswordOk.Password.Equals(this.pbPassword.Password))
+            if (!this.pbPasswordOk.Password.Equals(this.pbPasswordNew.Password))
             {
                 MessageBox.Show("两次密码不一致，请重新输入！", "提示", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
-            _newUser.UserName = this.tbUserName.Text;
-            _newUser.Password = this.pbPassword.Password;
+            _newUser.Password = this.pbPasswordNew.Password;
             this.DialogResult = true;
         }
 
