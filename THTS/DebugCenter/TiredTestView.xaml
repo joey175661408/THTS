@@ -1,0 +1,94 @@
+﻿<Controls:MetroWindow
+    x:Class="THTS.DebugCenter.TiredTestView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+    xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:THTS"
+    mc:Ignorable="d"
+    WindowStartupLocation="CenterScreen"
+    Title="疲劳性测试" Height="600" Width="960" WindowState="Maximized">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="5"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+            <Label Content="设备信息："/>
+            <Label Content="{Binding DeviceType}" Width="130"/>
+            <Button Content="{Binding ConnectButtonName, UpdateSourceTrigger=PropertyChanged}" Width="100" Command="{Binding ConnectCommand}"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+            <Label Content="采集次数(次)：" Width="100"/>
+            <Controls:NumericUpDown Value="{Binding LogCount,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="100"/>
+            <Label Content="采集时间(秒)：" Width="100"/>
+            <Controls:NumericUpDown Value="{Binding LogTime,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="100"/>
+            <Label Content="采集间隔(毫秒)：" Width="100"/>
+            <Controls:NumericUpDown Value="{Binding LogInterval,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="100"/>
+            <Label Width="20"/>
+            <Button Content="开始" Width="100" Command="{Binding StartCommand}"/>
+        </StackPanel>
+
+        <Grid Grid.Row="5" Grid.Column="1" >
+            <ListBox x:Name="channelListBox" ItemsSource="{Binding SensorList}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Width="240">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Content="{Binding SensorID}" Grid.Column="0" VerticalContentAlignment="Center"/>
+                            <Label Content="{Binding SensorValue}" Grid.Column="1" VerticalContentAlignment="Center"/>
+                            <Label Content="{Binding SensorUnit}" Grid.Column="2" VerticalContentAlignment="Center"/>
+
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal" MaxWidth="{Binding ActualWidth,ElementName=channelListBox}"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+        </Grid>
+
+        <StackPanel Grid.Row="7" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+            <Label Content="起始时间：" Width="100"/>
+            <TextBox Text="{Binding LogCount}" Width="100"/>
+            <Label Content="终止时间：" Width="100"/>
+            <TextBox Text="{Binding LogTime}" Width="100"/>
+            <Label Width="20"/>
+            <Button Content="查询" Width="100" Command="{Binding SearchCommond}"/>
+            <Label Width="20"/>
+            <Button Content="导出" Width="100" Command="{Binding ExportCommond}"/>
+        </StackPanel>
+
+        <Grid Grid.Row="9" Grid.Column="1">
+            <DataGrid>
+                
+            </DataGrid>
+        </Grid>
+        
+    </Grid>
+</Controls:MetroWindow>

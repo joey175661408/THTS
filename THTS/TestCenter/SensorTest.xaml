@@ -16,7 +16,6 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="25"/>
             <RowDefinition Height="5"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -34,166 +33,117 @@
 
             <Grid Grid.Row="0" Grid.Column="0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="12*"/>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
                 
-                <GroupBox Grid.Row="0" Header="实时温度数据">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="5"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="5"/>
-                            <ColumnDefinition Width="3*"/>
-                            <ColumnDefinition Width="5"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="5"/>
-                            <ColumnDefinition Width="3*"/>
-                            <ColumnDefinition Width="5"/>
-                        </Grid.ColumnDefinitions>
+                <GroupBox Grid.Row="0" Grid.Column="0" Header="通道1实时数据">
+                    <ListBox x:Name="channel1ListBox" ItemsSource="{Binding Channel1List}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="5"/>
+                                    </Grid.ColumnDefinitions>
 
-                        <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="01"/>
-                        <TextBox Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="29.48℃" Width="70"/>
-                        <TextBlock Grid.Row="1" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Text="16"/>
-                        <TextBox Grid.Row="1" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Text="0.00℃" Width="70"/>
-
-                        <TextBlock Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="02"/>
-                        <TextBox Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="29.48℃" Width="70"/>
-                        <TextBlock Grid.Row="2" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Text="17"/>
-                        <TextBox Grid.Row="2" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Text="0.00℃" Width="70"/>
-
-                        <TextBlock Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="03"/>
-                        <TextBox Grid.Row="3" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="29.48℃" Width="70"/>
-                        <TextBlock Grid.Row="3" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Text="18"/>
-                        <TextBox Grid.Row="3" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Text="0.00℃" Width="70"/>
-
-                        <TextBlock Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="04"/>
-                        <TextBox Grid.Row="4" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="29.48℃" Width="70"/>
-                        <TextBlock Grid.Row="4" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Text="19"/>
-                        <TextBox Grid.Row="4" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Text="0.00℃" Width="70"/>
-
-                        <TextBlock Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="05"/>
-                        <TextBox Grid.Row="5" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="29.48℃" Width="70"/>
-                        <TextBlock Grid.Row="5" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Text="20"/>
-                        <TextBox Grid.Row="5" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Text="0.00℃" Width="70"/>
-
-                        <TextBlock Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="06"/>
-                        <TextBox Grid.Row="6" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="29.48℃" Width="70"/>
-                        <TextBlock Grid.Row="6" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Text="21"/>
-                        <TextBox Grid.Row="6" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Text="0.00℃" Width="70"/>
-
-                        <TextBlock Grid.Row="7" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="07"/>
-                        <TextBox Grid.Row="7" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="29.48℃" Width="70"/>
-                        <TextBlock Grid.Row="7" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Text="22"/>
-                        <TextBox Grid.Row="7" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Text="0.00℃" Width="70"/>
-
-                        <TextBlock Grid.Row="8" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="08"/>
-                        <TextBox Grid.Row="8" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="29.48℃" Width="70"/>
-                        <TextBlock Grid.Row="8" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Text="23" />
-                        <TextBox Grid.Row="8" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Text="0.00℃" Width="70"/>
-
-                        <TextBlock Grid.Row="9" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="09"/>
-                        <TextBox Grid.Row="9" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="29.48℃" Width="70"/>
-                        <TextBlock Grid.Row="9" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Text="24"/>
-                        <TextBox Grid.Row="9" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Text="0.00℃" Width="70"/>
-
-                        <TextBlock Grid.Row="10" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="10"/>
-                        <TextBox Grid.Row="10" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="29.48℃" Width="70"/>
-                        <TextBlock Grid.Row="10" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Text="25"/>
-                        <TextBox Grid.Row="10" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Text="0.00℃" Width="70"/>
-
-                        <TextBlock Grid.Row="11" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="11"/>
-                        <TextBox Grid.Row="11" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="29.48℃" Width="70"/>
-                        <TextBlock Grid.Row="11" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Text="26"/>
-                        <TextBox Grid.Row="11" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Text="0.00℃" Width="70"/>
-
-                        <TextBlock Grid.Row="12" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="12"/>
-                        <TextBox Grid.Row="12" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="29.48℃" Width="70"/>
-                        <TextBlock Grid.Row="12" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Text="27"/>
-                        <TextBox Grid.Row="12" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Text="0.00℃" Width="70"/>
-
-                        <TextBlock Grid.Row="13" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="13"/>
-                        <TextBox Grid.Row="13" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="0.00℃" Width="70"/>
-                        <TextBlock Grid.Row="13" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Text="28" />
-                        <TextBox Grid.Row="13" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Text="0.00℃" Width="70"/>
-
-                        <TextBlock Grid.Row="14" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="14"/>
-                        <TextBox Grid.Row="14" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="0.00℃" Width="70"/>
-                        <TextBlock Grid.Row="14" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Text="29" />
-                        <TextBox Grid.Row="14" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Text="0.00℃" Width="70"/>
-
-                        <TextBlock Grid.Row="15" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="15"/>
-                        <TextBox Grid.Row="15" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="0.00℃" Width="70"/>
-                        <TextBlock Grid.Row="15" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Text="30" />
-                        <TextBox Grid.Row="15" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Text="0.00℃" Width="70"/>
-                    </Grid>
+                                    <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding SensorID}"/>
+                                    <TextBox Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding ValueAndUnit}" Width="70"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal" MaxWidth="{Binding ActualWidth,ElementName=channel1ListBox}"/>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                    </ListBox>
                 </GroupBox>
 
-                <GroupBox Grid.Row="1" Header="实时湿度数据">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="5"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="5"/>
-                            <ColumnDefinition Width="3*"/>
-                            <ColumnDefinition Width="5"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="5"/>
-                            <ColumnDefinition Width="3*"/>
-                            <ColumnDefinition Width="5"/>
-                        </Grid.ColumnDefinitions>
+                <GroupBox Grid.Row="0" Grid.Column="1" Header="通道2实时数据">
+                    <ListBox x:Name="channel2ListBox" ItemsSource="{Binding Channel2List}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="5"/>
+                                    </Grid.ColumnDefinitions>
 
-                        <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="1"/>
-                        <TextBox Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="56.65%RH" Width="75"/>
-                        <TextBlock Grid.Row="1" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Text="3"/>
-                        <TextBox Grid.Row="1" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Text="000.00%RH" Width="75"/>
-
-                        <TextBlock Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="2"/>
-                        <TextBox Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="000.00%RH" Width="75"/>
-                        <TextBlock Grid.Row="2" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Text="4"/>
-                        <TextBox Grid.Row="2" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Text="000.00%RH" Width="75"/>
-                    </Grid>
+                                    <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding SensorID}"/>
+                                    <TextBox Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding ValueAndUnit}" Width="70"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal" MaxWidth="{Binding ActualWidth,ElementName=channel2ListBox}"/>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                    </ListBox>
                 </GroupBox>
 
-                <GroupBox Grid.Row="2" Header="实时状态">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
+                <GroupBox Grid.Row="2" Grid.Column="0" Header="通道3实时数据">
+                    <ListBox x:Name="channel3ListBox" ItemsSource="{Binding Channel3List}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="5"/>
+                                    </Grid.ColumnDefinitions>
 
-                        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Label Content="等待" HorizontalContentAlignment="Center" Width="50" Background="Yellow"/>
-                            <Label Width="40"/>
-                            <Label Content="29.56℃" HorizontalContentAlignment="Center" Width="50" Background="Black" Foreground="White"/>
-                        </StackPanel>
-                    </Grid>
+                                    <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding SensorID}"/>
+                                    <TextBox Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding ValueAndUnit}" Width="70"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal" MaxWidth="{Binding ActualWidth,ElementName=channel3ListBox}"/>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                    </ListBox>
                 </GroupBox>
-                
+
+                <GroupBox Grid.Row="1" Grid.Column="1" Header="通道4实时数据">
+                    <ListBox x:Name="channel4ListBox" ItemsSource="{Binding Channel4List}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="5"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding SensorID}"/>
+                                    <TextBox Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding ValueAndUnit}" Width="70"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal" MaxWidth="{Binding ActualWidth,ElementName=channel4ListBox}"/>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                    </ListBox>
+                </GroupBox>
             </Grid>
 
             <Grid Grid.Row="0" Grid.Column="2">

@@ -59,7 +59,8 @@ namespace THTS
 
         private void Quit_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            DebugCenter.TiredTestView tired = new DebugCenter.TiredTestView();
+            tired.ShowDialog();
         }
 
     }

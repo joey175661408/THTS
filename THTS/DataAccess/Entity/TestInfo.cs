@@ -29,8 +29,6 @@ namespace THTS.DataAccess
         public string TestDate { get; set; }
         public int TemperatureDeparture { get; set; }
         public int TemperatureAverage { get; set; }
-        public int TemperatureRecovery { get; set; }
-        public int TemperatureChangeRate { get; set; }
 
         public TestInfo()
         {
@@ -62,34 +60,6 @@ namespace THTS.DataAccess
             set
             {
                 TemperatureAverage = value.HasValue && value.Value ? 1 : 0;
-            }
-        }
-
-        [NotMapped]
-        public bool? TempRecoveryIsChecked
-        {
-            get
-            {
-                return TemperatureRecovery == 1;
-            }
-
-            set
-            {
-                TemperatureRecovery = value.HasValue && value.Value ? 1 : 0;
-            }
-        }
-
-        [NotMapped]
-        public bool? TempChangeRateIsChecked
-        {
-            get
-            {
-                return TemperatureChangeRate == 1;
-            }
-
-            set
-            {
-                TemperatureChangeRate = value.HasValue && value.Value ? 1 : 0;
             }
         }
 

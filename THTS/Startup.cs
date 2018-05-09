@@ -20,12 +20,12 @@ namespace THTS
             MainWindow mainWindow = new MainWindow();
             app.ShutdownMode = ShutdownMode.OnMainWindowClose;
 
-            UserCenter.Login login = new UserCenter.Login();
-            bool? log = login.ShowDialog();
-            if (log.HasValue && log.Value)
-            {
+            //UserCenter.Login login = new UserCenter.Login();
+            //bool? log = login.ShowDialog();
+            //if (log.HasValue && log.Value)
+            //{
                 app.Run(mainWindow);
-            }
+            //}
         }
     }
 }

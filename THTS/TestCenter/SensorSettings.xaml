@@ -16,7 +16,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="14*"/>
             <RowDefinition Height="2*"/>
-            <RowDefinition Height="3*"/>
             <RowDefinition Height="5"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -27,9 +26,9 @@
 
         <Grid Grid.Row="0" Grid.Column="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
                 <ColumnDefinition Width="5"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5*"/>
             </Grid.ColumnDefinitions>
 
             <GroupBox Grid.Row="0" Grid.Column="0" Header="测试温度">
@@ -131,48 +130,16 @@
 
             <Grid Grid.Row="0" Grid.Column="2">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="10*"/>
-                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="13*"/>
                 </Grid.RowDefinitions>
                 
                 <GroupBox Grid.Row="0" Header="通道配置">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="5"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="5"/>
                             <RowDefinition Height="30"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="5"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="5"/>
-                        </Grid.ColumnDefinitions>
-
-                        <DataGrid ItemsSource="{Binding DeviceList,Mode=TwoWay}" SelectedItem="{Binding DeviceSelected}"
-                                  AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1" Grid.Column="1">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="通道" Binding="{Binding SequenceNumber}" Width="*"/>
-                                <DataGridTextColumn Header="传感器序号" Binding="{Binding Id}" Width="*"/>
-                                <DataGridTextColumn Header="传感器名称" Binding="{Binding ModuleName}" Width="2*"/>
-                                <DataGridTextColumn Header="出厂编号" Binding="{Binding FactoryNo}" Width="2*"/>
-                            </DataGrid.Columns>
-                        </DataGrid>
-
-                        <StackPanel Grid.Row="3" Grid.Column="1"  Orientation="Horizontal" HorizontalAlignment="Center">
-                            <Button Content="传感器" Width="50" Command ="{Binding SensorSelectCommand}"/>
-                            <Label Width="40"/>
-                            <Button Content="删除" Width="50" Command="{Binding SensorDeleteCommand}"/>
-                        </StackPanel>
-                    </Grid>
-                </GroupBox>
-
-                <GroupBox Grid.Row="1" Header="热电偶传感器冷端补偿">
-                    <Grid>
-                        <Grid.RowDefinitions>
                             <RowDefinition Height="5"/>
                             <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="5"/>
@@ -180,23 +147,58 @@
                             <ColumnDefinition Width="5"/>
                         </Grid.ColumnDefinitions>
 
-                        <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Orientation="Horizontal">
-                            <CheckBox Content="启用冷端补偿" IsChecked="{Binding ToleranceInfo.IsCJCIsChecked}"/>
+                        <StackPanel Grid.Row="1" Grid.Column="1"  Orientation="Horizontal" HorizontalAlignment="Left">
+                            <Button Content="获取通道信息" Width="100" Command ="{Binding SensorGetCommand}"/>
                         </StackPanel>
 
-                        <StackPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Orientation="Horizontal">
-                            <TextBlock Text="冷端补偿通道：" VerticalAlignment="Center"/>
-                            <Label Width="10"/>
-                            <ComboBox ItemsSource="{Binding ChannelList}" SelectedValue="{Binding ToleranceInfo.ChannelCJC,Mode=TwoWay}" Height="20" Width="80" VerticalAlignment="Center"/>
-                            <Label Width="10"/>
-                            <RadioButton IsChecked="{Binding ToleranceInfo.TypeCJCIsAuto}" Content="自动补偿" VerticalAlignment="Center"/>
-                            <Label Width="10"/>
-                            <RadioButton Content="人工补偿" VerticalAlignment="Center"/>
-                            <Label Width="10"/>
-                            <TextBlock Text="补偿温度：" VerticalAlignment="Center"/>
-                            <TextBox Text="{Binding ToleranceInfo.TempertureCJC,Mode=TwoWay}" Width="30" IsEnabled="False" VerticalAlignment="Center"/>
-                            <TextBlock Text="℃" VerticalAlignment="Center"/>
-                        </StackPanel>
+                        <Grid Grid.Row="3" Grid.Column="1" >
+                            <ListBox x:Name="channelListBox" ItemsSource="{Binding ChannelList}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="30"/>
+                                                <RowDefinition Height="30"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+
+                                            <Label Grid.Row="0" Content="{Binding ChannelName}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Stretch">
+                                                <Label Content="序号" Grid.Column="0" VerticalContentAlignment="Center"/>
+                                                <Label Content="传感器编号" Grid.Column="1" VerticalContentAlignment="Center"/>
+                                                <Label Content="选择" Grid.Column="2" VerticalContentAlignment="Center"/>
+                                            </StackPanel>
+
+                                            <ListBox ItemsSource="{Binding SensorList}" SelectedItem="{Binding SelectSensor}" Grid.Row="2">
+                                                <ListBox.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="*"/>
+                                                                <ColumnDefinition Width="2*"/>
+                                                                <ColumnDefinition Width="*"/>
+                                                            </Grid.ColumnDefinitions>
+
+                                                            <Label Content="{Binding SensorID}" Grid.Column="0" VerticalContentAlignment="Center"/>
+                                                            <Label Content="{Binding DeviceID}" Grid.Column="1" VerticalContentAlignment="Center"/>
+                                                            <Button Content="↓" Grid.Column="2" VerticalContentAlignment="Center" Height="20" Width="20" 
+                                                                    Command="{Binding SensorSelectCommand}"/>
+                                                        </Grid>
+                                                    </DataTemplate>
+                                                </ListBox.ItemTemplate>
+                                            </ListBox>
+
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel Orientation="Horizontal" MaxWidth="{Binding ActualWidth,ElementName=channelListBox}"/>
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                            </ListBox>
+                        </Grid>
+
                     </Grid>
                 </GroupBox>
             </Grid>
@@ -204,13 +206,7 @@
         </Grid>
 
         <Grid Grid.Row="1" Grid.Column="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="5"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <GroupBox Grid.Column="0" Header="干湿球湿度测量">
+            <GroupBox Grid.Column="0" Header="各温度点测试时间及频率">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="2"/>
@@ -219,28 +215,6 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Orientation="Horizontal">
-                        <Label Width="5"/>
-                        <TextBlock Text="大气压（kPa）：" VerticalAlignment="Center"/>
-                        <Label Width="10"/>
-                        <TextBox Text="{Binding ToleranceInfo.Atmosphere,Mode=TwoWay}" Width="80" VerticalAlignment="Center"/>
-                    </StackPanel>
-                    <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Orientation="Horizontal">
-                        <TextBlock Text="风速（m/s）：" VerticalAlignment="Center"/>
-                        <Label Width="10"/>
-                        <TextBox Text="{Binding ToleranceInfo.WindSpeed,Mode=TwoWay}" Width="80" VerticalAlignment="Center"/>
-                    </StackPanel>
-                </Grid>
-            </GroupBox>
-
-            <GroupBox Grid.Column="2" Header="各温度点测试时间及频率">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="2"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
@@ -257,42 +231,15 @@
                         <TextBox Text="{Binding ToleranceInfo.TestSampleInterval,Mode=TwoWay}" Width="50" VerticalAlignment="Center"/>
                         <TextBlock Text="分钟" VerticalAlignment="Center"/>
                     </StackPanel>
+                    <StackPanel Grid.Row="1" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button Grid.Row="1" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Width="50" Content="开始" 
+                        Command="{Binding StartCommand}"/>
+                        <Label Width="50"/>
+                        <Button Grid.Row="2" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Right" Width="50" Content="返回"
+                        Click="Close_Click"/>
+                    </StackPanel>
                 </Grid>
             </GroupBox>
         </Grid>
-        
-        <GroupBox Grid.Row="2" Grid.Column="1" Header="工作介质及负载">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="5"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="5"/>
-                    <ColumnDefinition Width="120"/>
-                    <ColumnDefinition Width="20"/>
-                    <ColumnDefinition Width="50"/>
-                    <ColumnDefinition Width="5"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="5"/>
-                    <ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="5"/>
-                </Grid.ColumnDefinitions>
-
-                <CheckBox IsChecked="{Binding ToleranceInfo.ContainMediumIsChecked}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Content="设备内有工作介质"/>
-                <TextBlock Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Left" Text="介质说明"/>
-                <TextBox Text="{Binding ToleranceInfo.MediumDescription,Mode=TwoWay}" Grid.Row="1" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Left" Width="600"/>
-                <Button Grid.Row="1" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Width="50" Content="开始" 
-                        Command="{Binding StartCommand}"/>
-
-                <CheckBox IsChecked="{Binding ToleranceInfo.ContainLoadIsChecked}" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Content="设备内有负载"/>
-                <TextBlock Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Left" Text="负载说明"/>
-                <TextBox Text="{Binding ToleranceInfo.LoadDescription,Mode=TwoWay}" Grid.Row="2" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Left" Width="600"/>
-                <Button Grid.Row="2" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Width="50" Content="返回"
-                        Click="Close_Click"/>
-            </Grid>
-        </GroupBox>
-
     </Grid>
 </Controls:MetroWindow>

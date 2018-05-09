@@ -161,10 +161,6 @@
                     <Label/>
                     <CheckBox IsChecked="{Binding Info.TempAverageIsChecked}" Content="波动度及温度均匀度" Margin="10,0,0,0"/>
                     <Label/>
-                    <CheckBox IsChecked="{Binding Info.TempRecoveryIsChecked}" Content="温度恢复时间" Margin="10,0,0,0"/>
-                    <Label/>
-                    <CheckBox IsChecked="{Binding Info.TempChangeRateIsChecked}" Content="温度平均变化速率" Margin="10,0,0,0"/>
-                    <Label/>
                 </StackPanel>
             </GroupBox>
             <Label/>

@@ -15,6 +15,21 @@
     <WarningLevel>4</WarningLevel>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -25,6 +40,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -103,14 +119,29 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="SystemEx.CRC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\SystemEx.CRC.dll</HintPath>
+    </Reference>
+    <Reference Include="SystemEx.ICEZipLib, Version=1.0.5228.17199, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\SystemEx.ICEZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="SystemEx.Protocols.Cppi, Version=1.0.5400.26112, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\SystemEx.Protocols.Cppi.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="CloneHelper.cs" />
     <Compile Include="DataAccess\Configuration.cs" />
     <Compile Include="DataAccess\DbContextExtensions.cs" />
+    <Compile Include="DataAccess\EntityDAO\DebugTiredTestDAO.cs" />
+    <Compile Include="DataAccess\Entity\DebugTiredTest.cs" />
     <Compile Include="DataAccess\EntityDAO\TemperatureToleranceDAO.cs" />
     <Compile Include="DataAccess\EntityDAO\TestInfoDAO.cs" />
     <Compile Include="DataAccess\EntityDAO\DeviceDAO.cs" />
@@ -118,6 +149,7 @@
     <Compile Include="DataAccess\Entity\User.cs" />
     <Compile Include="DataAccess\EntityDAO\UserDAO.cs" />
     <Compile Include="DataAccess\Mapping.cs" />
+    <Compile Include="DataAccess\Sensor.cs" />
     <Compile Include="DataAccess\SQLiteDb.cs" />
     <Compile Include="DataAccess\Entity\TemperatureTolerance.cs" />
     <Compile Include="DataAccess\Entity\TestInfo.cs" />
@@ -127,6 +159,13 @@
     <Compile Include="DataCenter\DataCenterSearch.xaml.cs">
       <DependentUpon>DataCenterSearch.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DebugCenter\DebugCenterView.xaml.cs">
+      <DependentUpon>DebugCenterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DebugCenter\TiredTestView.xaml.cs">
+      <DependentUpon>TiredTestView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DebugCenter\TiredTestViewModel.cs" />
     <Compile Include="DeviceCenter\DeviceCenter.xaml.cs">
       <DependentUpon>DeviceCenter.xaml</DependentUpon>
     </Compile>
@@ -144,6 +183,17 @@
     <Compile Include="MVVM\ObservableObjectExtensions.cs" />
     <Compile Include="MVVM\PropertyChangedEventArgsEx.cs" />
     <Compile Include="MVVM\SequencingService.cs" />
+    <Compile Include="SerialPort\Channel.cs" />
+    <Compile Include="SerialPort\CRCEntity.cs" />
+    <Compile Include="SerialPort\iInstrument.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SerialPort\iSerialPort.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SerialPort\ChannelState.cs" />
+    <Compile Include="SerialPort\ChannelValue.cs" />
+    <Compile Include="SerialPort\Win32.cs" />
     <Compile Include="SettingCenter\SettingCenter.xaml.cs">
       <DependentUpon>SettingCenter.xaml</DependentUpon>
     </Compile>
@@ -181,6 +231,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DataCenter\DataCenterSearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DebugCenter\DebugCenterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DebugCenter\TiredTestView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -278,7 +336,18 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\WindowsIcons-license.txt" />
   </ItemGroup>
@@ -302,6 +371,9 @@
     <Content Include="Lib\System.Data.SQLite.EF6.dll" />
     <Content Include="Lib\System.Data.SQLite.EF6.Migrations.dll" />
     <Content Include="Lib\System.Data.SQLite.Linq.dll" />
+    <Content Include="Lib\SystemEx.CRC.dll" />
+    <Content Include="Lib\SystemEx.ICEZipLib.dll" />
+    <Content Include="Lib\SystemEx.Protocols.Cppi.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.106.0\build\net45\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.106.0\build\net45\System.Data.SQLite.Core.targets')" />
