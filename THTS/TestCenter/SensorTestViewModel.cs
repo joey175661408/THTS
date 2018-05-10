@@ -73,25 +73,25 @@ namespace THTS.TestCenter
                 SensorRealValue sensor1 = new SensorRealValue();
                 sensor1.SensorID = i + 1;
                 //sensor1.SensorValue = value.Channel1[i].ValueAndUnit;
-                sensor1.ValueAndUnit = new Random().NextDouble().ToString() + "℃";
+                //sensor1.ValueAndUnit = new Random().NextDouble().ToString() + "℃";
                 Channel1List.Collection.Add(sensor1);
 
                 SensorRealValue sensor2 = new SensorRealValue();
                 sensor2.SensorID = i + 11;
                 //sensor2.SensorValue = value.Channel2[i].ValueAndUnit;
-                sensor1.ValueAndUnit = new Random().NextDouble().ToString() + "℃";
+                //sensor1.ValueAndUnit = new Random().NextDouble().ToString() + "℃";
                 Channel2List.Collection.Add(sensor2);
 
                 SensorRealValue sensor3 = new SensorRealValue();
                 sensor3.SensorID = i + 21;
                 //sensor3.SensorValue = value.Channel3[i].ValueAndUnit;
-                sensor3.ValueAndUnit = new Random().NextDouble().ToString() + "℃";
+                //sensor3.ValueAndUnit = new Random().NextDouble().ToString() + "℃";
                 Channel3List.Collection.Add(sensor3);
 
                 SensorRealValue sensor4 = new SensorRealValue();
                 sensor4.SensorID = i + 31;
                 //sensor4.SensorValue = value.Channel4[i].ValueAndUnit;
-                sensor4.ValueAndUnit = new Random().NextDouble().ToString() + "℃";
+                //sensor4.ValueAndUnit = new Random().NextDouble().ToString() + "℃";
                 Channel4List.Collection.Add(sensor4);
             }
             //GetLiveData();
@@ -133,25 +133,25 @@ namespace THTS.TestCenter
                         SensorRealValue sensor1 = new SensorRealValue();
                         sensor1.SensorID = i + 1;
                         //sensor1.SensorValue = value.Channel1[i].ValueAndUnit;
-                        sensor1.ValueAndUnit = new Random().NextDouble().ToString() + "℃";
+                        //sensor1.ValueAndUnit = new Random().NextDouble().ToString() + "℃";
                         Channel1List.Collection.Add(sensor1);
 
                         SensorRealValue sensor2 = new SensorRealValue();
                         sensor2.SensorID = i + 11;
                         //sensor2.SensorValue = value.Channel2[i].ValueAndUnit;
-                        sensor1.ValueAndUnit = new Random().NextDouble().ToString() + "℃";
+                        //sensor1.ValueAndUnit = new Random().NextDouble().ToString() + "℃";
                         Channel2List.Collection.Add(sensor2);
 
                         SensorRealValue sensor3 = new SensorRealValue();
                         sensor3.SensorID = i + 21;
                         //sensor3.SensorValue = value.Channel3[i].ValueAndUnit;
-                        sensor3.ValueAndUnit = new Random().NextDouble().ToString() + "℃";
+                        //sensor3.ValueAndUnit = new Random().NextDouble().ToString() + "℃";
                         Channel3List.Collection.Add(sensor3);
 
                         SensorRealValue sensor4 = new SensorRealValue();
                         sensor4.SensorID = i + 31;
                         //sensor4.SensorValue = value.Channel4[i].ValueAndUnit;
-                        sensor4.ValueAndUnit = new Random().NextDouble().ToString() + "℃";
+                        //sensor4.ValueAndUnit = new Random().NextDouble().ToString() + "℃";
                         Channel4List.Collection.Add(sensor4);
                     }
                 }

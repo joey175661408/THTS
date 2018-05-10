@@ -82,6 +82,10 @@
       <HintPath>..\packages\MahApps.Metro.IconPacks.2.0.0\lib\net45\MahApps.Metro.IconPacks.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="SQLite.CodeFirst, Version=1.5.0.21, Culture=neutral, PublicKeyToken=eb96ba0a78d831a7, processorArchitecture=MSIL">
       <HintPath>..\packages\SQLite.CodeFirst.1.5.0.21\lib\net45\SQLite.CodeFirst.dll</HintPath>
       <Private>True</Private>
@@ -366,6 +370,7 @@
     <Content Include="Lib\DynamicDataDisplay.dll" />
     <Content Include="Lib\DynamicDataDisplay.resources.dll" />
     <Content Include="Lib\EntityFramework.dll" />
+    <Content Include="Lib\Newtonsoft.Json.dll" />
     <Content Include="Lib\SQLite.CodeFirst.dll" />
     <Content Include="Lib\System.Data.SQLite.dll" />
     <Content Include="Lib\System.Data.SQLite.EF6.dll" />

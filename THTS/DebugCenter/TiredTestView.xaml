@@ -37,8 +37,8 @@
         </StackPanel>
 
         <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
-            <Label Content="采集次数(次)：" Width="100"/>
-            <Controls:NumericUpDown Value="{Binding LogCount,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="100"/>
+            <Label Content="采集任务名称：" Width="100"/>
+            <TextBox Text="{Binding TaskName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="200"/>
             <Label Content="采集时间(秒)：" Width="100"/>
             <Controls:NumericUpDown Value="{Binding LogTime,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="100"/>
             <Label Content="采集间隔(毫秒)：" Width="100"/>

@@ -285,7 +285,6 @@ namespace THTS.SerialPort
         private int _sensorID;
         private float _sensorValue;
         private string _sensorUnit;
-        private string _valueAndUnit;
 
         public int SensorID
         {
@@ -307,8 +306,7 @@ namespace THTS.SerialPort
 
         public string ValueAndUnit
         {
-            get { return _valueAndUnit; }
-            set { _valueAndUnit = value; }
+            get { return _sensorValue + _sensorUnit; }
         }
     }
 }

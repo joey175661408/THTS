@@ -39,14 +39,14 @@ namespace THTS.DebugCenter
             set { _deviceType = value; OnPropertyChanged(); }
         }
 
-        private int _logCount = 0;
+        private string _taskName = "Task" + DateTime.Now.ToString("yyyyMMddHHmmss");
         /// <summary>
-        /// 采集次数
+        /// 采集任务名称
         /// </summary>
-        public int LogCount
+        public string TaskName
         {
-            get { return _logCount; }
-            set { _logCount = value; OnPropertyChanged(); }
+            get { return _taskName; }
+            set { _taskName = value; OnPropertyChanged(); }
         }
 
         private int _logTime = 60;
@@ -184,8 +184,8 @@ namespace THTS.DebugCenter
             {
                 while (!timeout)
                 {
-                    Thread.Sleep(LogInterval);
-                    timeout = (DateTime.Now - now).TotalSeconds >= LogTime;
+                    Thread.Sleep(300);
+                    timeout = (DateTime.Now - now).TotalSeconds >= (LogTime + LogInterval / 1000);
                 }
 
                 timer.Stop();
@@ -206,8 +206,9 @@ namespace THTS.DebugCenter
         private void CollectData(object sender, EventArgs e)
         {
             DebugTiredTest testData = new DebugTiredTest();
-            testData.Time = DateTime.Now;
-            testData.SensorValue = new ObservableCollection<SensorRealValue>(SensorList);
+            testData.TaskName = TaskName;
+            testData.Time = DateTime.Now;//.ToString("yyyy-MM-dd HH:mm:ss.fff");
+            testData.SensorValue = JsonHelper.SerializeObject(SensorList);
 
             SensorSaveList.Add(testData);
         }
