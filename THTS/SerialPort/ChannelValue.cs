@@ -177,6 +177,7 @@ namespace THTS.SerialPort
         public float MeasureValue
         {
             get { return measureValue; }
+
             set { measureValue = value; }
         }
 
@@ -187,7 +188,7 @@ namespace THTS.SerialPort
         {
             get
             {
-                StringBuilder sb = new StringBuilder();
+                byte[] temp = new byte[2];
                 fixed (byte* pFile = unit)
                 {
                     for (int i = 0; i < 2; i++)
@@ -196,10 +197,22 @@ namespace THTS.SerialPort
                         {
                             break;
                         }
-                        sb.Append((char)pFile[i]);
+                        temp[i]=pFile[i];
                     }
                 }
-                return sb.ToString();
+
+                ushort unitCode = 0;
+                unitCode = (ushort)(unitCode ^ temp[0]);//将temp[0]赋值给低8位
+                unitCode = (ushort)(unitCode << 8); //低8位移动到高8位
+                unitCode = (ushort)(unitCode ^ temp[1]);
+
+                if (Enum.IsDefined(typeof(DataModule.EnumUnit), Convert.ToInt32(unitCode)))
+                {
+                    DataModule.EnumUnit enmu = (DataModule.EnumUnit)unitCode;
+                    return DataModule.EnumShell.GetShell<DataModule.EnumUnit>(enmu).Description;
+                }
+
+                return "";
             }
 
             set
@@ -253,11 +266,26 @@ namespace THTS.SerialPort
 
                 for (int index = 0; index < 240; index += 6)
                 {
-                    byte[] temp = new byte[6];
-                    for (int x = 0; x < temp.Length; x++)
+                    byte[] tempValue = new byte[4];
+                    for (int x = 0; x < 4; x++)
                     {
-                        temp[x] = buffer[index + x];
+                        tempValue[x] = buffer[index + x];
                     }
+
+                    byte[] tempUnit = new byte[2];
+                    for (int y = 0; y < 2; y++)
+                    {
+                        tempUnit[y] = buffer[index + 4 + y];
+                    }
+
+                    //查看当前计算机存储数据格式是否为小端格式，若不是，则反转为小端格式
+                    if (BitConverter.IsLittleEndian)
+                    {
+                        Array.Reverse(tempValue);
+                    }
+
+                    byte[] temp = new byte[tempValue.Length + tempUnit.Length];
+                    temp = tempValue.Concat(tempUnit).ToArray();
 
                     ChannelEachValue runRecord = new ChannelEachValue();
                     fixed (byte* pbuf = temp)

@@ -22,12 +22,56 @@ namespace THTS.DataAccess
         [NotMapped]
         public ObservableCollection<SensorRealValue> SensorValueList
         {
-            get { return new ObservableCollection<SensorRealValue>(); }
+            get
+            {
+                return new ObservableCollection<SensorRealValue>(
+                    JsonHelper.DeserializeJsonToList<SensorRealValue>(SensorValue));
+                
+            }
         }
 
         #region INotifyPropertyChanged 成员
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        #endregion
+    }
+
+    public class DebugTiredExport
+    {
+
+    }
+
+    public class DebugSensorRealValue : INotifyPropertyChanged, ISequencedObject
+    {
+        public DateTime Time { get; set; }
+        public float Value { get; set; }
+        public string Unit { get; set; }
+
+        public DebugSensorRealValue()
+        {
+            this.RegisterPropertyChangedHandler(() => PropertyChanged);
+        }
+
+        #region INotifyPropertyChanged 成员
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        #endregion
+
+        #region ISequencedObject 成员
+        [NotMapped]
+        public int SequenceNumber
+        {
+            get
+            {
+                return this.GetBackingValue(() => this.SequenceNumber);
+            }
+            set
+            {
+                this.SetBackingValue(() => this.SequenceNumber, value);
+            }
+        }
 
         #endregion
     }

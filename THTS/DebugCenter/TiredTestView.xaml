@@ -5,6 +5,7 @@
     xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
     xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:THTS"
@@ -74,19 +75,36 @@
         </Grid>
 
         <StackPanel Grid.Row="7" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
-            <Label Content="起始时间：" Width="100"/>
-            <TextBox Text="{Binding LogCount}" Width="100"/>
-            <Label Content="终止时间：" Width="100"/>
-            <TextBox Text="{Binding LogTime}" Width="100"/>
+            <Label Content="任务名称：" Width="70"/>
+            <TextBox Text="{Binding SearchTaskName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="150"/>
             <Label Width="20"/>
-            <Button Content="查询" Width="100" Command="{Binding SearchCommond}"/>
+            <Label Content="传感器ID：" Width="70"/>
+            <ComboBox ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding SelectSensorID}" Width="50">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <i:InvokeCommandAction Command="{Binding SelectSensorCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </ComboBox>
             <Label Width="20"/>
-            <Button Content="导出" Width="100" Command="{Binding ExportCommond}"/>
+            <Button Content="查询" Width="100" Command="{Binding SearchCommand}"/>
+            <Label Width="20"/>
+            <Button Content="导出" Width="100" Command="{Binding ExportCommand}"/>
         </StackPanel>
 
         <Grid Grid.Row="9" Grid.Column="1">
-            <DataGrid>
-                
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <DataGrid AutoGenerateColumns="False" Grid.Column="0"
+                      ItemsSource="{Binding SelectSearchData, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="序号" Binding="{Binding SequenceNumber}"/>
+                    <DataGridTextColumn Header="时间" Binding="{Binding Time}"/>
+                    <DataGridTextColumn Header="示值" Binding="{Binding Value}"/>
+                    <DataGridTextColumn Header="单位" Binding="{Binding Unit}"/>
+                </DataGrid.Columns>
             </DataGrid>
         </Grid>
         

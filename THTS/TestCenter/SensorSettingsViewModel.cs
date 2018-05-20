@@ -48,6 +48,9 @@ namespace THTS.TestCenter
             get { return _selectSensor; }
             set { _selectSensor = value; OnPropertyChanged(); }
         }
+
+        iInstrument instrument = new iInstrument("COM4", 115200, System.IO.Ports.Parity.None, 8, System.IO.Ports.StopBits.One);
+
         #endregion
 
         public SensorSettingsViewModel()
@@ -67,7 +70,10 @@ namespace THTS.TestCenter
         /// </summary>
         private void SensorGet()
         {
-            iInstrument instrument = new iInstrument("COM1",38400, System.IO.Ports.Parity.None,8, System.IO.Ports.StopBits.Two);
+            if (!instrument.Open())
+            {
+                return;
+            }
 
             ChannelState state = new ChannelState();
             if(instrument.GetSensorState(out state))
@@ -140,6 +146,8 @@ namespace THTS.TestCenter
                 _channelList.Add(channel3);
                 _channelList.Add(channel4);
             }
+
+            instrument.Close();
         }
 
         /// <summary>
@@ -192,7 +200,6 @@ namespace THTS.TestCenter
         /// </summary>
         private void Close()
         {
-
         }
         #endregion
     }

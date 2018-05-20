@@ -163,6 +163,7 @@
     <Compile Include="DataCenter\DataCenterSearch.xaml.cs">
       <DependentUpon>DataCenterSearch.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataModule\EnumUnit.cs" />
     <Compile Include="DebugCenter\DebugCenterView.xaml.cs">
       <DependentUpon>DebugCenterView.xaml</DependentUpon>
     </Compile>

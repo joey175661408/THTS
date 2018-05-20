@@ -58,7 +58,7 @@ namespace THTS.SerialPort
                 if (base.IsOpen)
                     base.Close();
             }
-            catch
+            catch (Exception ex)
             {
             }
         }
@@ -74,7 +74,7 @@ namespace THTS.SerialPort
                     base.Open();
                 return true;
             }
-            catch//(Exception ex)
+            catch(Exception ex)
             {
                 return false;
             }

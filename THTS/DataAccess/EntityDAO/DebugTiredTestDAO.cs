@@ -21,11 +21,11 @@ namespace THTS.DataAccess
         /// <param name="begin"></param>
         /// <param name="end"></param>
         /// <returns></returns>
-        public static ObservableCollection<DebugTiredTest> GetAllData(DateTime begin, DateTime end)
+        public static ObservableCollection<DebugTiredTest> GetAllData(string taskName)
         {
             using (SQLiteDB ctx = new SQLiteDB())
             {
-                ctx.DebugTiredTests.Where(t => t.Time >= begin && t.Time <= end).Load();
+                ctx.DebugTiredTests.Where(t => t.TaskName == taskName).Load();
                 return ctx.DebugTiredTests.Local;
             }
         }

@@ -2,6 +2,7 @@
 using System;
 using System.Threading;
 using System.Collections.ObjectModel;
+using System.Collections.Generic;
 using THTS.SerialPort;
 using THTS.DataAccess;
 using System.Windows.Threading;
@@ -14,6 +15,7 @@ namespace THTS.DebugCenter
         public IDelegateCommand ConnectCommand { get; private set; }
         public IDelegateCommand StartCommand { get; private set; }
         public IDelegateCommand SearchCommand { get; private set; }
+        public IDelegateCommand SelectSensorCommand { get; private set; }
         public IDelegateCommand ExportCommand { get; private set; }
         #endregion
 
@@ -95,6 +97,60 @@ namespace THTS.DebugCenter
         private bool running = true;
 
 
+        private string _searchTaskName = "Task20180510232604";
+        /// <summary>
+        /// 查询的任务名称
+        /// </summary>
+        public string SearchTaskName
+        {
+            get { return _searchTaskName; }
+            set { _searchTaskName = value; OnPropertyChanged(); }
+        }
+
+        private ObservableCollection<int> _sensorIDList = new ObservableCollection<int>();
+        /// <summary>
+        /// 传感器ID查询条件
+        /// </summary>
+        public ObservableCollection<int> SensorIDList
+        {
+            get { return _sensorIDList; }
+            set { _sensorIDList = value; OnPropertyChanged(); }
+        }
+
+        private int _selectSensorID = -1;
+        /// <summary>
+        /// 选中的传感器ID
+        /// </summary>
+        public int SelectSensorID
+        {
+            get { return _selectSensorID; }
+            set { _selectSensorID = value; OnPropertyChanged(); }
+        }
+
+        private ObservableCollection<DebugSensorRealValue> _selectSearchData = 
+            new ObservableCollection<DebugSensorRealValue>();
+        /// <summary>
+        /// 选中的查询结果数据
+        /// </summary>
+        public ObservableCollection<DebugSensorRealValue> SelectSearchData
+        {
+            get { return _selectSearchData; }
+            set { _selectSearchData = value; OnPropertyChanged(); }
+        }
+
+        private Dictionary<int, ObservableCollection<DebugSensorRealValue>> _searchAllData = 
+            new Dictionary<int, ObservableCollection<DebugSensorRealValue>>();
+        /// <summary>
+        /// 查询的所有数据
+        /// </summary>
+        public Dictionary<int, ObservableCollection<DebugSensorRealValue>> SearchAllData
+        {
+            get { return _searchAllData; }
+            set { _searchAllData = value; }
+        }
+
+        iInstrument instrument = new iInstrument("COM4", 115200, System.IO.Ports.Parity.None, 8, System.IO.Ports.StopBits.One);
+
         #endregion
 
         #region 构造函数
@@ -102,6 +158,14 @@ namespace THTS.DebugCenter
         {
             ConnectCommand = new DelegateCommand(Connect);
             StartCommand = new DelegateCommand(Start);
+            SearchCommand = new DelegateCommand(Search);
+            SelectSensorCommand = new DelegateCommand(SelectSensor);
+            ExportCommand = new DelegateCommand(Export);
+
+            for (int i = 1; i <= 40; i++)
+            {
+                SensorIDList.Add(i);
+            }
         }
         #endregion
 
@@ -117,13 +181,19 @@ namespace THTS.DebugCenter
                 ConnectButtonName = "连接";
                 DeviceType = "离线";
                 running = false;
+
+                instrument.Close();
                 return;
             }
 
             ConnectButtonName = "断开";
             running = true;
 
-            iInstrument instrument = new iInstrument("COM1", 38400, System.IO.Ports.Parity.None, 8, System.IO.Ports.StopBits.Two);
+            if (!instrument.Open())
+            {
+                return;
+            }
+
             DeviceType = instrument.GetDeviceType();
 
             if (!DeviceType.Equals(string.Empty))
@@ -136,14 +206,18 @@ namespace THTS.DebugCenter
                         ALLSensorValue allSensorValue = new ALLSensorValue();
                         if (instrument.GetALLSensorValue(out allSensorValue))
                         {
-                            #region Test
-                            ObservableCollection<SensorRealValue> _tempList = new ObservableCollection<SensorRealValue>();
-                            for (int i = 0; i < 40; i++)
+                            ObservableCollection<SensorRealValue> _tempList = allSensorValue.SensorList;
+
+                            for (int i = 0; i < _tempList.Count; i++)
                             {
-                                SensorRealValue real = new SensorRealValue();
-                                real.SensorID = i + 1;
-                                real.SensorValue = (float)(new Random(10).Next() * DateTime.Now.Millisecond);
-                                real.SensorUnit = "℃";
+                                #region Test
+                                //SensorRealValue real = new SensorRealValue();
+                                //real.SensorID = i + 1;
+                                //real.SensorValue = (float)(new Random(10).Next() * DateTime.Now.Millisecond);
+                                //real.SensorUnit = "℃";
+                                #endregion
+
+                                SensorRealValue real = _tempList[i];
 
                                 this.DispatcherInvoke(() =>
                                 {
@@ -157,8 +231,6 @@ namespace THTS.DebugCenter
                                     }
                                 });
                             }
-
-                            #endregion
                         }
                     }
                 }));
@@ -211,6 +283,57 @@ namespace THTS.DebugCenter
             testData.SensorValue = JsonHelper.SerializeObject(SensorList);
 
             SensorSaveList.Add(testData);
+        }
+
+        /// <summary>
+        /// 查询数据
+        /// </summary>
+        private void Search()
+        {
+            ObservableCollection<DebugTiredTest> allData = DebugTiredTestDAO.GetAllData(SearchTaskName);
+
+            for (int i = 0; i < allData.Count; i++)
+            {
+                ObservableCollection<DebugSensorRealValue> tempData = new ObservableCollection<DebugSensorRealValue>();
+                for (int j = 0; j < allData[i].SensorValueList.Count; j++)
+                {
+                    DebugSensorRealValue temp = new DebugSensorRealValue();
+                    temp.Time = allData[i].Time;
+                    temp.Value = allData[i].SensorValueList[j].SensorValue;
+                    temp.Unit = allData[i].SensorValueList[j].SensorUnit;
+                    tempData.Add(temp);
+                }
+
+                if (SearchAllData.ContainsKey(allData[i].Id))
+                {
+                    SearchAllData[allData[i].Id] = tempData;
+                }
+                else
+                {
+                    SearchAllData.Add(allData[i].Id, tempData);
+                }
+            }
+
+            SelectSensorID = 1;
+        }
+
+        /// <summary>
+        /// 选择查询条件-传感器ID
+        /// </summary>
+        private void SelectSensor()
+        {
+            if (SearchAllData.ContainsKey(SelectSensorID))
+            {
+                SelectSearchData = SearchAllData[SelectSensorID];
+            }
+        }
+
+        /// <summary>
+        /// 导出数据
+        /// </summary>
+        private void Export()
+        {
+
         }
 
         #endregion
