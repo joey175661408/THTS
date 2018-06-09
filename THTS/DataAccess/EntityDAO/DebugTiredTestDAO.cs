@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Data.Entity;
 using System.Collections.ObjectModel;
+using System.Collections.Generic;
 
 
 namespace THTS.DataAccess
@@ -27,6 +28,18 @@ namespace THTS.DataAccess
             {
                 ctx.DebugTiredTests.Where(t => t.TaskName == taskName).Load();
                 return ctx.DebugTiredTests.Local;
+            }
+        }
+
+        /// <summary>
+        /// 获取所有任务名称
+        /// </summary>
+        /// <returns></returns>
+        public static List<string> GetAllTaskName()
+        {
+            using(SQLiteDB ctx = new SQLiteDB())
+            {
+                return ctx.DebugTiredTests.AsEnumerable().Select(t => t.TaskName).Distinct().ToList();
             }
         }
 

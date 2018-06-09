@@ -20,5 +20,6 @@ namespace THTS.DataAccess
         public DbSet<TemperatureTolerance> TemperatureTolerances { get; set; }
         public DbSet<Device> Devices { get; set; }
         public DbSet<DebugTiredTest> DebugTiredTests { get; set; }
+        public DbSet<Settings> SettingsSet { get; set; }
     }
 }

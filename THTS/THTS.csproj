@@ -86,6 +86,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Lib\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="NPOI">
+      <HintPath>Lib\NPOI.dll</HintPath>
+    </Reference>
     <Reference Include="SQLite.CodeFirst, Version=1.5.0.21, Culture=neutral, PublicKeyToken=eb96ba0a78d831a7, processorArchitecture=MSIL">
       <HintPath>..\packages\SQLite.CodeFirst.1.5.0.21\lib\net45\SQLite.CodeFirst.dll</HintPath>
       <Private>True</Private>
@@ -110,6 +113,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.5.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
       <Private>True</Private>
@@ -154,6 +158,8 @@
     <Compile Include="DataAccess\EntityDAO\UserDAO.cs" />
     <Compile Include="DataAccess\Mapping.cs" />
     <Compile Include="DataAccess\Sensor.cs" />
+    <Compile Include="DataAccess\Entity\Settings.cs" />
+    <Compile Include="DataAccess\EntityDAO\SettingsDAO.cs" />
     <Compile Include="DataAccess\SQLiteDb.cs" />
     <Compile Include="DataAccess\Entity\TemperatureTolerance.cs" />
     <Compile Include="DataAccess\Entity\TestInfo.cs" />
@@ -181,6 +187,7 @@
     <Compile Include="DeviceCenter\DeviceNew.xaml.cs">
       <DependentUpon>DeviceNew.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ExcelHelper.cs" />
     <Compile Include="MVVM\DelegateCommand.cs" />
     <Compile Include="MVVM\IDelegateCommand.cs" />
     <Compile Include="MVVM\ISequencedObject.cs" />

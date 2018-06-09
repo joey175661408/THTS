@@ -77,9 +77,9 @@
                            Style="{StaticResource LargeTileStyle}" Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}">
                 <iconPacks:PackIconFontAwesome Width="40" Height="40" Kind="CogsSolid"/>
             </Controls:Tile>
-            <Controls:Tile Title="退出系统" Margin="3" Background="Green" Click="Quit_Click"
+            <Controls:Tile Title="调试系统" Margin="3" Background="Green" Click="Quit_Click"
                            Style="{StaticResource SmallTileStyle}" Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource BlackBrush}">
-                <iconPacks:PackIconFontAwesome Width="40" Height="40" Kind="TimesCircleSolid"/>
+                <iconPacks:PackIconFontAwesome Width="40" Height="40" Kind="SyncSolid"/>
             </Controls:Tile>
         </WrapPanel>
 
