@@ -222,6 +222,9 @@
       <DependentUpon>TestCenter.xaml</DependentUpon>
     </Compile>
     <Compile Include="TestCenter\TestCenterViewModel.cs" />
+    <Compile Include="TestCenter\UC_distribution15.xaml.cs">
+      <DependentUpon>UC_distribution15.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TestCenter\UC_distribution9.xaml.cs">
       <DependentUpon>UC_distribution9.xaml</DependentUpon>
     </Compile>
@@ -298,6 +301,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="TestCenter\UC_distribution15.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="TestCenter\UC_distribution9.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -337,6 +344,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Lib\巡检仪与计算机通讯规约.docx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -379,6 +387,7 @@
     <Content Include="Lib\DynamicDataDisplay.resources.dll" />
     <Content Include="Lib\EntityFramework.dll" />
     <Content Include="Lib\Newtonsoft.Json.dll" />
+    <Content Include="Lib\NPOI.dll" />
     <Content Include="Lib\SQLite.CodeFirst.dll" />
     <Content Include="Lib\System.Data.SQLite.dll" />
     <Content Include="Lib\System.Data.SQLite.EF6.dll" />

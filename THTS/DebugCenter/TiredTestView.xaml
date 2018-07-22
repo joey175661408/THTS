@@ -87,7 +87,7 @@
                 </ListBox.ItemTemplate>
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <WrapPanel Orientation="Horizontal" MaxWidth="{Binding ActualWidth,ElementName=channelListBox}"/>
+                        <WrapPanel MaxWidth="{Binding ActualWidth,ElementName=channelListBox}"/>
                     </ItemsPanelTemplate>
                 </ListBox.ItemsPanel>
             </ListBox>

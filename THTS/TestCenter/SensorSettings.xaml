@@ -166,23 +166,19 @@
                                             <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Stretch">
                                                 <Label Content="序号" Grid.Column="0" VerticalContentAlignment="Center"/>
                                                 <Label Content="传感器编号" Grid.Column="1" VerticalContentAlignment="Center"/>
-                                                <Label Content="选择" Grid.Column="2" VerticalContentAlignment="Center"/>
                                             </StackPanel>
 
-                                            <ListBox ItemsSource="{Binding SensorList}" SelectedItem="{Binding SelectSensor}" Grid.Row="2">
+                                            <ListBox ItemsSource="{Binding SensorList}" Grid.Row="2">
                                                 <ListBox.ItemTemplate>
                                                     <DataTemplate>
                                                         <Grid>
                                                             <Grid.ColumnDefinitions>
                                                                 <ColumnDefinition Width="*"/>
                                                                 <ColumnDefinition Width="2*"/>
-                                                                <ColumnDefinition Width="*"/>
                                                             </Grid.ColumnDefinitions>
 
                                                             <Label Content="{Binding SensorID}" Grid.Column="0" VerticalContentAlignment="Center"/>
-                                                            <Label Content="{Binding DeviceID}" Grid.Column="1" VerticalContentAlignment="Center"/>
-                                                            <Button Content="↓" Grid.Column="2" VerticalContentAlignment="Center" Height="20" Width="20" 
-                                                                    Command="{Binding SensorSelectCommand}"/>
+                                                            <TextBox Text="{Binding DeviceID}" Grid.Column="1" VerticalContentAlignment="Center"/>
                                                         </Grid>
                                                     </DataTemplate>
                                                 </ListBox.ItemTemplate>

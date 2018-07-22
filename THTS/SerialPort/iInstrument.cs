@@ -67,26 +67,26 @@ namespace THTS.SerialPort
                 ChannelState state = new ChannelState();
 
                 #region 测试内容
-                //ChannelEachState sensor1 = new ChannelEachState();
-                //sensor1.ChannelType = "DPC.Temperature";
-                //sensor1.IsOnline = true;
-                //ChannelEachState sensor2 = new ChannelEachState();
-                //sensor2.ChannelType = "DPC.Temperature";
-                //sensor2.IsOnline = false;
-                //ChannelEachState sensor3 = new ChannelEachState();
-                //sensor3.ChannelType = "DPC.Humidity";
-                //sensor3.IsOnline = true;
-                //ChannelEachState sensor4 = new ChannelEachState();
-                //sensor4.ChannelType = "DPC.SampleBoard";
-                //sensor4.IsOnline = true;
+                ChannelEachState sensor1 = new ChannelEachState();
+                sensor1.ChannelType = "DPC.Temperature";
+                sensor1.IsOnline = true;
+                ChannelEachState sensor2 = new ChannelEachState();
+                sensor2.ChannelType = "DPC.Temperature";
+                sensor2.IsOnline = false;
+                ChannelEachState sensor3 = new ChannelEachState();
+                sensor3.ChannelType = "DPC.Humidity";
+                sensor3.IsOnline = true;
+                ChannelEachState sensor4 = new ChannelEachState();
+                sensor4.ChannelType = "DPC.SampleBoard";
+                sensor4.IsOnline = true;
 
-                //state.Channel1 = sensor1;
-                //state.Channel2 = sensor2;
-                //state.Channel3 = sensor3;
-                //state.Channel4 = sensor4;
+                state.Channel1 = sensor1;
+                state.Channel2 = sensor2;
+                state.Channel3 = sensor3;
+                state.Channel4 = sensor4;
 
-                //sensorState = state;
-                //return true;
+                sensorState = state;
+                return true;
                 #endregion
 
                 //读取任务基本信息
@@ -147,7 +147,7 @@ namespace THTS.SerialPort
         public bool GetALLSensorValue(out ALLSensorValue allSensorValue)
         {
             #region Test
-            //return true;
+            return true;
             #endregion
 
             try

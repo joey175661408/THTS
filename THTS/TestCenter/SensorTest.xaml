@@ -5,6 +5,7 @@
     xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
     xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
     xmlns:d3="http://research.microsoft.com/DynamicDataDisplay/1.0"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -32,6 +33,56 @@
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Row="0" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <GroupBox Grid.Row="0" Header="实时数据">
+                    <ListBox x:Name="channelListBox" ItemsSource="{Binding SensorList}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Width="120">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Content="{Binding SensorID}" Grid.Column="0" VerticalContentAlignment="Center"/>
+                                    <Label Content="{Binding SensorValue}" Grid.Column="1" VerticalContentAlignment="Center"/>
+                                    <Label Content="{Binding SensorUnit}" Grid.Column="2" VerticalContentAlignment="Center"/>
+
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Vertical" MaxHeight="520" MaxWidth="{Binding ActualWidth,ElementName=channelListBox}"/>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                    </ListBox>
+                </GroupBox>
+                <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Label Content="当前测试温度：" FontSize="18" Height="40" VerticalContentAlignment="Center"/>
+                    <Label Content="0℃" FontSize="18" Height="40" VerticalContentAlignment="Center"/>
+                </StackPanel>
+                <StackPanel  Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label Content="等待测试温度："/>
+                    <TextBox Text="100℃" IsEnabled="False" Height="20" Width="100" HorizontalContentAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label Content="已采样次数："/>
+                    <TextBox Text="0" IsEnabled="False" Height="20" Width="50" HorizontalContentAlignment="Center"/>
+                    <Label Content="次"/>
+                </StackPanel>
+                <Label Grid.Row="4" Content="如需立即开始，可按【开始采样】按钮！"/>
+            </Grid>
+            
+            
+            <Grid Grid.Row="0" Grid.Column="0" Visibility="Collapsed">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
@@ -171,7 +222,8 @@
                             <ColumnDefinition Width="5"/>
                         </Grid.ColumnDefinitions>
 
-                        <local:UC_distribution9 Grid.Row="1" Grid.Column="1" Width="500" Height="500"/>
+                        <local:UC_distribution15 Grid.Row="1" Grid.Column="1" Width="500" Height="500" Visibility="{Binding UC15Visibility}"/>
+                        <local:UC_distribution9 Grid.Row="1" Grid.Column="1" Width="500" Height="500" Visibility="{Binding UC9Visibility}"/>
                     </Grid>
                 </GroupBox>
 
@@ -179,64 +231,92 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="5"/>
                         <RowDefinition Height="*"/>
-                        <RowDefinition Height="2*"/>
-                        <RowDefinition Height="11*"/>
                     </Grid.RowDefinitions>
 
-                    <CheckBox Grid.Row="1" Content="显示温度" VerticalAlignment="Center" Margin="5,0,0,0"/>
-                    <GroupBox Grid.Row="2" Header="温场情况">
-                        <ListBox Width="150" Height="20" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                    </GroupBox>
-                    <GroupBox Grid.Row="3" Header="湿度测量（干湿球法）">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="5"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="5"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="5"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="5"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-
-                            <TextBlock Text="干球" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <TextBlock Text="湿球" Grid.Row="1" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <CheckBox Content="1组" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <TextBox Text="1" Width="40" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <TextBox Text="10" Width="40" Grid.Row="2" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <CheckBox Content="2组" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <TextBox Text="3" Width="40" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <TextBox Text="4" Width="40" Grid.Row="3" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <CheckBox Content="3组" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <TextBox Text="5" Width="40" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <TextBox Text="6" Width="40" Grid.Row="4" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <CheckBox Content="4组" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <TextBox Text="29" Width="40" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <TextBox Text="30" Width="40" Grid.Row="5" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <TextBlock Text="A=0.0006693" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Center" Margin="10,0,0,0"/>
-                            <StackPanel Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="5" VerticalAlignment="Center" Orientation="Horizontal">
-                                <Label Width="10"/>
-                                <TextBlock Text="大气压（kPa）："/>
-                                <Label Width="10"/>
-                                <TextBox Text="98" Width="50"/>
-                            </StackPanel>
-                            <StackPanel Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="5" VerticalAlignment="Center" Orientation="Horizontal">
-                                <Label Width="10"/>
-                                <TextBlock Text="风速（m/s）："/>
-                                <Label Width="20"/>
-                                <TextBox Text="2" Width="50"/>
-                            </StackPanel>
-                        </Grid>
+                    <GroupBox Header="温场形状" Grid.Row="1">
+                        <StackPanel>
+                            <Label/>
+                            <ComboBox ItemsSource="{Binding TestPositionList}" SelectedValue="{Binding SelectedTestPosition}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="SelectionChanged">
+                                        <i:InvokeCommandAction Command="{Binding SelectedPositionCommand}" />
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </ComboBox>
+                            <Label/>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5"/>
+                                    <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="5"/>
+                                    <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="5"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0" Grid.Column="1" Content="A : "/>
+                                <ComboBox Grid.Row="0" Grid.Column="2" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorA}"/>
+                                <Label Grid.Row="2" Grid.Column="1" Content="B : "/>
+                                <ComboBox Grid.Row="2" Grid.Column="2" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorB}"/>
+                                <Label Grid.Row="4" Grid.Column="1" Content="C : "/>
+                                <ComboBox Grid.Row="4" Grid.Column="2" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorC}"/>
+                                <Label Grid.Row="6" Grid.Column="1" Content="D : "/>
+                                <ComboBox Grid.Row="6" Grid.Column="2" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorD}"/>
+                                <Label Grid.Row="8" Grid.Column="1" Content="E : "/>
+                                <ComboBox Grid.Row="8" Grid.Column="2" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorE}"/>
+                                <Label Grid.Row="10" Grid.Column="1" Content="F : "/>
+                                <ComboBox Grid.Row="10" Grid.Column="2" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorF}"/>
+                                <Label Grid.Row="12" Grid.Column="1" Content="G : "/>
+                                <ComboBox Grid.Row="12" Grid.Column="2" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorG}"/>
+                                <Label Grid.Row="14" Grid.Column="1" Content="H : "/>
+                                <ComboBox Grid.Row="14" Grid.Column="2" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorH}"/>
+                                <Label Grid.Row="16" Grid.Column="1" Content="I : "/>
+                                <ComboBox Grid.Row="16" Grid.Column="2" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorI}"/>
+                                <Label Grid.Row="18" Grid.Column="1" Content="J : "/>
+                                <ComboBox Grid.Row="18" Grid.Column="2" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorJ}"/>
+                                <Label Grid.Row="0" Grid.Column="4" Content="K : "/>
+                                <ComboBox Grid.Row="0" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorK}"/>
+                                <Label Grid.Row="2" Grid.Column="4" Content="L : "/>
+                                <ComboBox Grid.Row="2" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorL}"/>
+                                <Label Grid.Row="4" Grid.Column="4" Content="M : "/>
+                                <ComboBox Grid.Row="4" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorM}"/>
+                                <Label Grid.Row="6" Grid.Column="4" Content="N : "/>
+                                <ComboBox Grid.Row="6" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorN}"/>
+                                <Label Grid.Row="8" Grid.Column="4" Content="O : "/>
+                                <ComboBox Grid.Row="8" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorO}"/>
+                                <Label Grid.Row="10" Grid.Column="4" Content="甲 : "/>
+                                <ComboBox Grid.Row="10" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorJia}"/>
+                                <Label Grid.Row="12" Grid.Column="4" Content="乙 : "/>
+                                <ComboBox Grid.Row="12" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorYi}"/>
+                                <Label Grid.Row="14" Grid.Column="4" Content="丙 : "/>
+                                <ComboBox Grid.Row="14" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorBing}"/>
+                                <Label Grid.Row="16" Grid.Column="4" Content="丁 : "/>
+                                <ComboBox Grid.Row="16" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorDing}"/>
+                            </Grid>
+                        </StackPanel>
                     </GroupBox>
                 </Grid>
 
@@ -279,26 +359,5 @@
             </Grid>
             
         </Grid>
-
-        <Grid Grid.Row="1" Grid.Column="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="5"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="5"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <Label Grid.Column="0" Content="等待测试温度100℃；如需立即开始，可按【开始采样】按钮！"/>
-            <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Label Content="已采样次数："/>
-                <TextBox Text="0次" IsEnabled="False" Width="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-            </StackPanel>
-            <StackPanel Grid.Column="4" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Label Content="等待时间："/>
-                <TextBox Text="00:00:52" IsEnabled="False" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-            </StackPanel>
-        </Grid>
-
     </Grid>
 </Controls:MetroWindow>
