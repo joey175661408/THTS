@@ -18,12 +18,34 @@ namespace THTS.DataAccess
         /// <summary>
         /// 获取信息
         /// </summary>
-        public static Settings GetData()
+        public static Setting GetData()
         {
             using (SQLiteDB ctx = new SQLiteDB())
             {
-                ctx.SettingsSet.Where(t => t.Id == 1).Load();
-                return ctx.SettingsSet.Local[0];
+                ctx.Settingses.Where(t => t.No.Equals("1")).Load();
+                return ctx.Settingses.Local[0];
+            }
+        }
+
+        /// <summary>
+        /// 保存信息
+        /// </summary>
+        /// <param name="newUser"></param>
+        /// <returns></returns>
+        public static bool SaveOrUpdate(Setting settings)
+        {
+            using (SQLiteDB ctx = new SQLiteDB())
+            {
+                ctx.Settingses.Load();
+                if (ctx.Settingses.Local.Count > 0)
+                {
+                    ctx.Update(settings.No, settings);
+                }
+                else
+                {
+                    ctx.Settingses.Add(settings);
+                }
+                return ctx.SaveChanges() > 0;
             }
         }
 

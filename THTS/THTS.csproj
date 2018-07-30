@@ -158,7 +158,7 @@
     <Compile Include="DataAccess\EntityDAO\UserDAO.cs" />
     <Compile Include="DataAccess\Mapping.cs" />
     <Compile Include="DataAccess\Sensor.cs" />
-    <Compile Include="DataAccess\Entity\Settings.cs" />
+    <Compile Include="DataAccess\Entity\Setting.cs" />
     <Compile Include="DataAccess\EntityDAO\SettingsDAO.cs" />
     <Compile Include="DataAccess\SQLiteDb.cs" />
     <Compile Include="DataAccess\Entity\TemperatureTolerance.cs" />
@@ -209,6 +209,7 @@
     <Compile Include="SettingCenter\SettingCenter.xaml.cs">
       <DependentUpon>SettingCenter.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SettingCenter\SettingCenterViewModel.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="TestCenter\SensorSettings.xaml.cs">
       <DependentUpon>SensorSettings.xaml</DependentUpon>

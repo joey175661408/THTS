@@ -18,7 +18,7 @@ namespace THTS.SerialPort
         public string GetDeviceType()
         {
             #region Test
-            //return "DPC";
+            return "DPC";
             #endregion
 
             try

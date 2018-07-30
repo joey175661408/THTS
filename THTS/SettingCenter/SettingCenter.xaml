@@ -71,38 +71,10 @@
                     <TextBox Text="{Binding Info.TemperatureUpper,Mode=TwoWay}" Width="200" Grid.Row="15" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 </Grid>
             </GroupBox>
-            
-            <GroupBox Header="检测设置">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="5"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="5"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="5"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="5"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="5"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="30"/>
-                        <ColumnDefinition Width="2*"/>
-                        <ColumnDefinition Width="10"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Text="温度恢复时间检测的度数间隔（秒）" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                    <TextBox Text="5" Width="80" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                    <TextBlock Text="温度平均变化速率检测的读数间隔（分钟）" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                    <TextBox Text="5" Width="80" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                    <TextBlock Text="当读数失败时重试的次数" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                    <TextBox Text="3" Width="80" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                </Grid>
-            </GroupBox>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="3" Orientation="Vertical">
-            <GroupBox Header="硬件设置">
+            <GroupBox Header="串口设置">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="5"/>
@@ -116,12 +88,21 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="10"/>
-                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Text="串口号" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    <TextBox Text="COM1" Width="100" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <ComboBox Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"
+                              ItemsSource="{Binding PortNameList}" SelectedValue="{Binding PortName}" Width="120"/>
                     <TextBlock Text="波特率" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    <TextBox Text="9600" Width="100" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <Controls:NumericUpDown  Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" 
+                                             Value="{Binding BaudRate,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="120"/>
+                    <Label Content="设备信息：" Grid.Row="1" Grid.Column="4"/>
+                    <Label Content="{Binding DeviceType}" Grid.Row="1" Grid.Column="6" Width="130"/>
+                    <Button Content="测试" Width="100" Command="{Binding ConnectCommand}" Grid.Row="3" Grid.Column="6" />
                 </Grid>
             </GroupBox>
             <GroupBox Header="仪表信息">
@@ -158,7 +139,7 @@
             </GroupBox>
             
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button Margin="20" Content="确定" Width="100" Height="30" Command="{Binding OKCommand}"/>
+                <Button Margin="20" Content="保存" Width="100" Height="30" Command="{Binding SaveCommand}"/>
                 <Button Margin="20" Content="取消" Width="100" Height="30" Command="{Binding CancelCommand}"/>
             </StackPanel>
         </StackPanel>

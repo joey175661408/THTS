@@ -1,16 +1,18 @@
 ﻿using System.ComponentModel;
 using THTS.MVVM;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace THTS.DataAccess
 {
-    public class Settings : INotifyPropertyChanged, ISequencedObject
+    public class Setting : INotifyPropertyChanged, ISequencedObject
     {
-        public int Id { get; set; }
+        [Key]
+        public string No { get; set; }
         public string PortName { get; set; }
-        public string BaudRate { get; set; }
+        public int BaudRate { get; set; }
 
-        public Settings()
+        public Setting()
         {
             this.RegisterPropertyChangedHandler(() => PropertyChanged);
         }

@@ -159,7 +159,7 @@
                     <Label/>
                     <CheckBox IsChecked="{Binding Info.TempDepartureIsChecked}" Content="温度偏差" Margin="10,0,0,0"/>
                     <Label/>
-                    <CheckBox IsChecked="{Binding Info.TempAverageIsChecked}" Content="波动度及温度均匀度" Margin="10,0,0,0"/>
+                    <CheckBox IsChecked="{Binding Info.TempAverageIsChecked}" Content="温度波动度及均匀度" Margin="10,0,0,0"/>
                     <Label/>
                 </StackPanel>
             </GroupBox>

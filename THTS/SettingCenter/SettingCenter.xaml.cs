@@ -22,6 +22,7 @@ namespace THTS.SettingCenter
         public SettingCenter()
         {
             InitializeComponent();
+            this.DataContext = new SettingCenterViewModel();
         }
     }
 }
