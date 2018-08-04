@@ -54,7 +54,7 @@
                        FontSize="48"
                        FontWeight="Light"
                        Foreground="{DynamicResource BlackBrush}"
-                       Text="温湿度场自动测试系统" />
+                       Text="温湿度场 自动测试系统" />
         
         <WrapPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top">
             <Controls:Tile Title="测试中心" Margin="3" Background="Indigo" Click="TestCenter_Click"
