@@ -345,6 +345,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Lib\sqlite-tools-win32-x86-3180000.zip" />
     <None Include="Lib\巡检仪与计算机通讯规约.docx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
