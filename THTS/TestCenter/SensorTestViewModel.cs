@@ -17,7 +17,7 @@ namespace THTS.TestCenter
     {
         #region Command
         /// <summary>
-        /// 压力量程或温度范围单位切换命令
+        /// 测试点分布切换命令
         /// </summary>
         public IDelegateCommand SelectedPositionCommand { get; private set; }
         #endregion

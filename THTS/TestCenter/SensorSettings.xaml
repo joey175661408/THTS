@@ -29,9 +29,9 @@
 
         <Grid Grid.Row="1" Grid.Column="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="3*"/>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="5"/>
-                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="5"/>
             </Grid.RowDefinitions>
             
@@ -127,8 +127,6 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="5"/>
@@ -140,41 +138,35 @@
 
                     <TextBlock Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="测试温度/℃"/>
 
-                    <CheckBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Content="下限" IsChecked="{Binding ToleranceInfo.OnLowerIsChecked}"/>
+                    <CheckBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0"  Content="下限" IsChecked="{Binding ToleranceInfo.OnLowerIsChecked}"/>
                     <TextBox Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding ToleranceInfo.TemperatureLower,Mode=TwoWay}" Width="50"/>
 
-                    <CheckBox Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Content="抽测1" IsChecked="{Binding ToleranceInfo.OnTest1IsChecked}"/>
+                    <CheckBox Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0"  Content="抽测1" IsChecked="{Binding ToleranceInfo.OnTest1IsChecked}"/>
                     <TextBox Grid.Row="3" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding ToleranceInfo.TemperatureTest1,Mode=TwoWay}" Width="50"/>
 
-                    <CheckBox Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Content="抽测2" IsChecked="{Binding ToleranceInfo.OnTest2IsChecked}"/>
+                    <CheckBox Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0"  Content="抽测2" IsChecked="{Binding ToleranceInfo.OnTest2IsChecked}"/>
                     <TextBox Grid.Row="4" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding ToleranceInfo.TemperatureTest2,Mode=TwoWay}" Width="50"/>
 
-                    <CheckBox Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Content="抽测3" IsChecked="{Binding ToleranceInfo.OnTest3IsChecked}"/>
+                    <CheckBox Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0"  Content="抽测3" IsChecked="{Binding ToleranceInfo.OnTest3IsChecked}"/>
                     <TextBox Grid.Row="5" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding ToleranceInfo.TemperatureTest3,Mode=TwoWay}" Width="50"/>
 
-                    <CheckBox Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Content="抽测4" IsChecked="{Binding ToleranceInfo.OnTest4IsChecked}"/>
+                    <CheckBox Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0"  Content="抽测4" IsChecked="{Binding ToleranceInfo.OnTest4IsChecked}"/>
                     <TextBox Grid.Row="6" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding ToleranceInfo.TemperatureTest4,Mode=TwoWay}" Width="50"/>
 
-                    <CheckBox Grid.Row="7" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Content="抽测5" IsChecked="{Binding ToleranceInfo.OnTest5IsChecked}"/>
+                    <CheckBox Grid.Row="7" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0"  Content="抽测5" IsChecked="{Binding ToleranceInfo.OnTest5IsChecked}"/>
                     <TextBox Grid.Row="7" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding ToleranceInfo.TemperatureTest5,Mode=TwoWay}" Width="50"/>
 
-                    <CheckBox Grid.Row="8" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Content="抽测6" IsChecked="{Binding ToleranceInfo.OnTest6IsChecked}"/>
+                    <CheckBox Grid.Row="8" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0"  Content="抽测6" IsChecked="{Binding ToleranceInfo.OnTest6IsChecked}"/>
                     <TextBox Grid.Row="8" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding ToleranceInfo.TemperatureTest6,Mode=TwoWay}" Width="50"/>
 
-                    <CheckBox Grid.Row="9" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Content="抽测7" IsChecked="{Binding ToleranceInfo.OnTest7IsChecked}"/>
+                    <CheckBox Grid.Row="9" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0"  Content="抽测7" IsChecked="{Binding ToleranceInfo.OnTest7IsChecked}"/>
                     <TextBox Grid.Row="9" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding ToleranceInfo.TemperatureTest7,Mode=TwoWay}" Width="50"/>
 
-                    <CheckBox Grid.Row="10" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Content="抽测8" IsChecked="{Binding ToleranceInfo.OnTest8IsChecked}"/>
+                    <CheckBox Grid.Row="10" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0"  Content="抽测8" IsChecked="{Binding ToleranceInfo.OnTest8IsChecked}"/>
                     <TextBox Grid.Row="10" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding ToleranceInfo.TemperatureTest8,Mode=TwoWay}" Width="50"/>
 
-                    <CheckBox Grid.Row="11" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Content="抽测9" IsChecked="{Binding ToleranceInfo.OnTest9IsChecked}"/>
-                    <TextBox Grid.Row="11" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding ToleranceInfo.TemperatureTest9,Mode=TwoWay}" Width="50"/>
-
-                    <CheckBox Grid.Row="12" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Content="抽测10" IsChecked="{Binding ToleranceInfo.OnTest10IsChecked}"/>
-                    <TextBox Grid.Row="12" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding ToleranceInfo.TemperatureTest10,Mode=TwoWay}" Width="50"/>
-
-                    <CheckBox Grid.Row="13" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Content="上限" IsChecked="{Binding ToleranceInfo.OnUpperIsChecked}"/>
-                    <TextBox Grid.Row="13" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding ToleranceInfo.TemperatureUpper,Mode=TwoWay}" Width="50"/>
+                    <CheckBox Grid.Row="11" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Content="上限" IsChecked="{Binding ToleranceInfo.OnUpperIsChecked}"/>
+                    <TextBox Grid.Row="11" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding ToleranceInfo.TemperatureUpper,Mode=TwoWay}" Width="50"/>
 
                 </Grid>
             </GroupBox>
@@ -191,14 +183,6 @@
                         <Label/>
                         <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="5"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="5"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="5"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="5"/>
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="5"/>
                                 <RowDefinition Height="*"/>
@@ -239,30 +223,30 @@
                             <ComboBox Grid.Row="10" Grid.Column="2" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorF}"/>
                             <Label Grid.Row="12" Grid.Column="1" Content="G : "/>
                             <ComboBox Grid.Row="12" Grid.Column="2" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorG}"/>
-                            <Label Grid.Row="14" Grid.Column="1" Content="H : "/>
-                            <ComboBox Grid.Row="14" Grid.Column="2" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorH}"/>
-                            <Label Grid.Row="16" Grid.Column="1" Content="I : "/>
-                            <ComboBox Grid.Row="16" Grid.Column="2" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorI}"/>
-                            <Label Grid.Row="18" Grid.Column="1" Content="J : "/>
-                            <ComboBox Grid.Row="18" Grid.Column="2" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorJ}"/>
-                            <Label Grid.Row="0" Grid.Column="4" Content="K : "/>
-                            <ComboBox Grid.Row="0" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorK}"/>
-                            <Label Grid.Row="2" Grid.Column="4" Content="L : "/>
-                            <ComboBox Grid.Row="2" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorL}"/>
-                            <Label Grid.Row="4" Grid.Column="4" Content="M : "/>
-                            <ComboBox Grid.Row="4" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorM}"/>
-                            <Label Grid.Row="6" Grid.Column="4" Content="N : "/>
-                            <ComboBox Grid.Row="6" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorN}"/>
-                            <Label Grid.Row="8" Grid.Column="4" Content="O : "/>
-                            <ComboBox Grid.Row="8" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorO}"/>
-                            <Label Grid.Row="10" Grid.Column="4" Content="甲 : "/>
-                            <ComboBox Grid.Row="10" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorJia}"/>
-                            <Label Grid.Row="12" Grid.Column="4" Content="乙 : "/>
-                            <ComboBox Grid.Row="12" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorYi}"/>
-                            <Label Grid.Row="14" Grid.Column="4" Content="丙 : "/>
-                            <ComboBox Grid.Row="14" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorBing}"/>
-                            <Label Grid.Row="16" Grid.Column="4" Content="丁 : "/>
-                            <ComboBox Grid.Row="16" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorDing}"/>
+                            <Label Grid.Row="0" Grid.Column="4" Content="H : "/>
+                            <ComboBox Grid.Row="0" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorH}"/>
+                            <Label Grid.Row="2" Grid.Column="4" Content="I : "/>
+                            <ComboBox Grid.Row="2" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorI}"/>
+                            <Label Grid.Row="4" Grid.Column="4" Content="J : "/>
+                            <ComboBox Grid.Row="4" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorJ}"/>
+                            <Label Grid.Row="6" Grid.Column="4" Content="K : "/>
+                            <ComboBox Grid.Row="6" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorK}"/>
+                            <Label Grid.Row="8" Grid.Column="4" Content="L : "/>
+                            <ComboBox Grid.Row="8" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorL}"/>
+                            <Label Grid.Row="10" Grid.Column="4" Content="M : "/>
+                            <ComboBox Grid.Row="10" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorM}"/>
+                            <Label Grid.Row="12" Grid.Column="4" Content="N : "/>
+                            <ComboBox Grid.Row="12" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorN}"/>
+                            <Label Grid.Row="0" Grid.Column="7" Content="O : "/>
+                            <ComboBox Grid.Row="0" Grid.Column="8" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorO}"/>
+                            <Label Grid.Row="2" Grid.Column="7" Content="甲 : "/>
+                            <ComboBox Grid.Row="2" Grid.Column="8" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorJia}"/>
+                            <Label Grid.Row="4" Grid.Column="7" Content="乙 : "/>
+                            <ComboBox Grid.Row="4" Grid.Column="8" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorYi}"/>
+                            <Label Grid.Row="6" Grid.Column="7" Content="丙 : "/>
+                            <ComboBox Grid.Row="6" Grid.Column="8" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorBing}"/>
+                            <Label Grid.Row="8" Grid.Column="7" Content="丁 : "/>
+                            <ComboBox Grid.Row="8" Grid.Column="8" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorDing}"/>
                         </Grid>
                     </StackPanel>
                 </GroupBox>
