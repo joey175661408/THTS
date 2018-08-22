@@ -23,6 +23,14 @@ namespace THTS.DataAccess
             using (SQLiteDB ctx = new SQLiteDB())
             {
                 ctx.Settingses.Where(t => t.No.Equals("1")).Load();
+
+                if (ctx.Settingses.Local.Count < 1)
+                {
+                    Setting temp = new Setting() { No = "1", PortName = "COM1", BaudRate = 115200 };
+                    SaveOrUpdate(temp);
+                    return temp;
+                }
+
                 return ctx.Settingses.Local[0];
             }
         }

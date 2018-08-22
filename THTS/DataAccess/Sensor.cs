@@ -17,7 +17,7 @@ namespace THTS.DataAccess
         private int sensorID;
         private int deviceID;
         private string sensorPosition;
-        private List<SensorData> sensorDataList;
+        //private List<SensorData> sensorDataList;
 
         /// <summary>
         /// 是否在线
@@ -76,11 +76,11 @@ namespace THTS.DataAccess
         /// <summary>
         /// 传感器数据集合
         /// </summary>
-        public List<SensorData> SensorDataList
-        {
-            get { return sensorDataList; }
-            set { sensorDataList = value; }
-        }
+        //public List<SensorData> SensorDataList
+        //{
+        //    get { return sensorDataList; }
+        //    set { sensorDataList = value; }
+        //}
 
     }
 

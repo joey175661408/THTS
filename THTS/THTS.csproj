@@ -170,6 +170,7 @@
       <DependentUpon>DataCenterSearch.xaml</DependentUpon>
     </Compile>
     <Compile Include="DataModule\EnumUnit.cs" />
+    <Compile Include="DataModule\TestTemperatureModule.cs" />
     <Compile Include="DebugCenter\DebugCenterView.xaml.cs">
       <DependentUpon>DebugCenterView.xaml</DependentUpon>
     </Compile>

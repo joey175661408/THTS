@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using THTS.SerialPort;
 using THTS.DataAccess;
+using System.Windows;
 
 namespace THTS.TestCenter
 {
@@ -12,7 +13,10 @@ namespace THTS.TestCenter
     {
         #region 命令
         public IDelegateCommand SensorGetCommand { get; private set; }
-        public IDelegateCommand SensorSelectCommand { get; private set; }
+        /// <summary>
+        /// 测试点分布切换命令
+        /// </summary>
+        public IDelegateCommand SelectedPositionCommand { get; private set; }
         public IDelegateCommand StartCommand { get; private set; }
         public IDelegateCommand CloseCommand { get; private set; }
         #endregion
@@ -29,7 +33,67 @@ namespace THTS.TestCenter
             set { _channelList = value; OnPropertyChanged(); }
         }
 
-        private TemperatureTolerance _toleranceInfo;
+        private ObservableCollection<DataModule.TestTemperatureModule> _testTemperatureList = new ObservableCollection<DataModule.TestTemperatureModule>();
+        /// <summary>
+        /// 温度模块信息
+        /// </summary>
+        public ObservableCollection<DataModule.TestTemperatureModule> TestTemperatureList
+        {
+            get { return _testTemperatureList; }
+            set { _testTemperatureList = value; OnPropertyChanged(); }
+        }
+
+        private Visibility _uC9Visibility = Visibility.Visible;
+        /// <summary>
+        /// 9测点分布示意图 
+        /// </summary>
+        public Visibility UC9Visibility
+        {
+            get { return _uC9Visibility; }
+            set { _uC9Visibility = value; OnPropertyChanged(); }
+        }
+
+        private Visibility _uC15Visibility = Visibility.Visible;
+        /// <summary>
+        /// 15测点分布示意图 
+        /// </summary>
+        public Visibility UC15Visibility
+        {
+            get { return _uC15Visibility; }
+            set { _uC15Visibility = value; OnPropertyChanged(); }
+        }
+
+        private List<string> _testPositionList;
+        /// <summary>
+        /// 温场测点分布体列表
+        /// </summary>
+        public List<string> TestPositionList
+        {
+            get { return _testPositionList; }
+            set { _testPositionList = value; OnPropertyChanged(); }
+        }
+
+        private string _selectedTestPosition = string.Empty;
+        /// <summary>
+        /// 选中的测点分布体
+        /// </summary>
+        public string SelectedTestPosition
+        {
+            get { return _selectedTestPosition; }
+            set { _selectedTestPosition = value; OnPropertyChanged(); }
+        }
+
+        private ObservableCollection<string> _sensorIDList = new ObservableCollection<string>();
+        /// <summary>
+        /// 传感器ID列表
+        /// </summary>
+        public ObservableCollection<string> SensorIDList
+        {
+            get { return _sensorIDList; }
+            set { _sensorIDList = value; OnPropertyChanged(); }
+        }
+
+        private TemperatureTolerance _toleranceInfo = new TemperatureTolerance();
         /// <summary>
         /// 当前测试信息
         /// </summary>
@@ -39,17 +103,7 @@ namespace THTS.TestCenter
             set { _toleranceInfo = value; OnPropertyChanged(); }
         }
 
-        private Sensor _selectSensor = new Sensor();
-        /// <summary>
-        /// 当前选中的传感器
-        /// </summary>
-        public Sensor SelectSensor
-        {
-            get { return _selectSensor; }
-            set { _selectSensor = value; OnPropertyChanged(); }
-        }
-
-        iInstrument instrument = new iInstrument("COM4", 115200, System.IO.Ports.Parity.None, 8, System.IO.Ports.StopBits.One);
+        iInstrument instrument = new iInstrument("COM1", 115200, System.IO.Ports.Parity.None, 8, System.IO.Ports.StopBits.One);
 
         #endregion
 
@@ -57,10 +111,50 @@ namespace THTS.TestCenter
         {
             ToleranceInfo = DataAccess.EntityDAO.TemperatureToleranceDAO.GetToleranceInfoData();
 
+            for (int i = 0; i < 10; i++)
+            {
+                if(i == 0)
+                {
+                    DataModule.TestTemperatureModule module = new DataModule.TestTemperatureModule();
+                    module.IsChecked = true;
+                    module.TestTemperatureID = "下限";
+                    TestTemperatureList.Add(module);
+                }
+                else if (i == 9)
+                {
+                    DataModule.TestTemperatureModule module = new DataModule.TestTemperatureModule();
+                    module.IsChecked = true;
+                    module.TestTemperatureID = "上限";
+                    TestTemperatureList.Add(module);
+                }
+                else
+                {
+                    DataModule.TestTemperatureModule module = new DataModule.TestTemperatureModule();
+                    module.IsChecked = false;
+                    module.TestTemperatureID = "抽测" + i ;
+                    TestTemperatureList.Add(module);
+                }
+            }
+
+            _testPositionList = new List<string>();
+            _testPositionList.Add("9测点分布体");
+            _testPositionList.Add("15测点分布体");
+            SelectedTestPosition = _testPositionList[0];
+
+            for (int i = 1; i <= 40; i++)
+            {
+                _sensorIDList.Add(i.ToString());
+            }
+
+            SelectedPositionCommand = new DelegateCommand(TestPositionChanged);
             SensorGetCommand = new DelegateCommand(SensorGet);
-            SensorSelectCommand = new DelegateCommand(SensorSelect);
             StartCommand = new DelegateCommand(Start);
             CloseCommand = new DelegateCommand(Close);
+
+            //获取串口配置信息
+            DataAccess.Setting settings = DataAccess.SettingsDAO.GetData();
+
+            instrument = new iInstrument(settings.PortName, settings.BaudRate, System.IO.Ports.Parity.None, 8, System.IO.Ports.StopBits.One);
         }
 
         #region 方法
@@ -151,40 +245,46 @@ namespace THTS.TestCenter
         }
 
         /// <summary>
-        /// 选择传感器
+        /// 测点分布切换
         /// </summary>
-        private void SensorSelect()
+        private void TestPositionChanged()
         {
-            DeviceCenter.DeviceCenter deviceSelect = new DeviceCenter.DeviceCenter(true);
-            bool? result = deviceSelect.ShowDialog();
-            if (result.HasValue && result.Value && deviceSelect.DeviceSelectList != null)
+            if (SelectedTestPosition.Contains("9"))
             {
-                Thread thr = new Thread(new ThreadStart(() =>
-                {
-                    try
-                    {
-                        this.DispatcherInvoke(() =>
-                        {
-                            if (deviceSelect.DeviceSelectList != null && deviceSelect.DeviceSelectList.Count > 0)
-                            {
-                                SelectSensor.DeviceID = deviceSelect.DeviceSelectList[0].Id;
-                            }
-                        });
-                    }
-                    catch (Exception ex)
-                    {
-                    }
-                }));
-                thr.IsBackground = true;
-                thr.Start();
+                UC9Visibility = Visibility.Visible;
+                UC15Visibility = Visibility.Hidden;
+            }
+            else if (SelectedTestPosition.Contains("15"))
+            {
+                UC9Visibility = Visibility.Hidden;
+                UC15Visibility = Visibility.Visible;
             }
         }
 
         /// <summary>
-        /// 开始测试方法
+        /// 下一步方法
         /// </summary>
         private void Start()
         {
+            for (int i = 0; i < TestTemperatureList.Count; i++)
+            {
+                if(TestTemperatureList[i].IsChecked == true)
+                {
+                    double temp = 0.0;
+                    if(Double.TryParse(TestTemperatureList[i].TemperatureValue, out temp))
+                    {
+                        ToleranceInfo.TemperatureList.Add(temp);
+                    }
+                    else
+                    {
+                        System.Windows.MessageBox.Show("温度数据异常："+ TestTemperatureList[i].TestTemperatureID + TestTemperatureList[i].TemperatureValue);
+                        return;
+                    }
+                }
+
+            }
+
+
             if (!DataAccess.EntityDAO.TemperatureToleranceDAO.SaveOrUpdate(ToleranceInfo))
             {
                 System.Windows.MessageBox.Show("测试信息保存失败！");

@@ -29,9 +29,9 @@
 
         <Grid Grid.Row="1" Grid.Column="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="5*"/>
                 <RowDefinition Height="5"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="4*"/>
                 <RowDefinition Height="5"/>
             </Grid.RowDefinitions>
             
@@ -116,58 +116,37 @@
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="5"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="20"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="5"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="5"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="5"/>
-                    </Grid.ColumnDefinitions>
 
-                    <TextBlock Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="测试温度/℃"/>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="5"/>
+                        </Grid.ColumnDefinitions>
 
-                    <CheckBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0"  Content="下限" IsChecked="{Binding ToleranceInfo.OnLowerIsChecked}"/>
-                    <TextBox Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding ToleranceInfo.TemperatureLower,Mode=TwoWay}" Width="50"/>
+                        <TextBlock Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="测试温度/℃"/>
+                    </Grid>
+                    
+                    <ListBox ItemsSource="{Binding TestTemperatureList}" Grid.Row="2">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
 
-                    <CheckBox Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0"  Content="抽测1" IsChecked="{Binding ToleranceInfo.OnTest1IsChecked}"/>
-                    <TextBox Grid.Row="3" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding ToleranceInfo.TemperatureTest1,Mode=TwoWay}" Width="50"/>
-
-                    <CheckBox Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0"  Content="抽测2" IsChecked="{Binding ToleranceInfo.OnTest2IsChecked}"/>
-                    <TextBox Grid.Row="4" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding ToleranceInfo.TemperatureTest2,Mode=TwoWay}" Width="50"/>
-
-                    <CheckBox Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0"  Content="抽测3" IsChecked="{Binding ToleranceInfo.OnTest3IsChecked}"/>
-                    <TextBox Grid.Row="5" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding ToleranceInfo.TemperatureTest3,Mode=TwoWay}" Width="50"/>
-
-                    <CheckBox Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0"  Content="抽测4" IsChecked="{Binding ToleranceInfo.OnTest4IsChecked}"/>
-                    <TextBox Grid.Row="6" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding ToleranceInfo.TemperatureTest4,Mode=TwoWay}" Width="50"/>
-
-                    <CheckBox Grid.Row="7" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0"  Content="抽测5" IsChecked="{Binding ToleranceInfo.OnTest5IsChecked}"/>
-                    <TextBox Grid.Row="7" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding ToleranceInfo.TemperatureTest5,Mode=TwoWay}" Width="50"/>
-
-                    <CheckBox Grid.Row="8" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0"  Content="抽测6" IsChecked="{Binding ToleranceInfo.OnTest6IsChecked}"/>
-                    <TextBox Grid.Row="8" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding ToleranceInfo.TemperatureTest6,Mode=TwoWay}" Width="50"/>
-
-                    <CheckBox Grid.Row="9" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0"  Content="抽测7" IsChecked="{Binding ToleranceInfo.OnTest7IsChecked}"/>
-                    <TextBox Grid.Row="9" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding ToleranceInfo.TemperatureTest7,Mode=TwoWay}" Width="50"/>
-
-                    <CheckBox Grid.Row="10" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0"  Content="抽测8" IsChecked="{Binding ToleranceInfo.OnTest8IsChecked}"/>
-                    <TextBox Grid.Row="10" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding ToleranceInfo.TemperatureTest8,Mode=TwoWay}" Width="50"/>
-
-                    <CheckBox Grid.Row="11" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Content="上限" IsChecked="{Binding ToleranceInfo.OnUpperIsChecked}"/>
-                    <TextBox Grid.Row="11" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding ToleranceInfo.TemperatureUpper,Mode=TwoWay}" Width="50"/>
-
+                                    <CheckBox Content="{Binding TestTemperatureID}" IsChecked="{Binding IsChecked}" Grid.Column="0" VerticalContentAlignment="Center"/>
+                                    <TextBox Text="{Binding TemperatureValue}" Grid.Column="1" VerticalContentAlignment="Center"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
                 </Grid>
             </GroupBox>
                 <GroupBox Header="温场形状" Grid.Column="2">
@@ -258,7 +237,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="5"/>
-                <RowDefinition Height="60"/>
+                <RowDefinition Height="80"/>
             </Grid.RowDefinitions>
             <GroupBox Name="gbPoint" Grid.Row="0" Header="测点分布" Visibility="Visible">
                 <Grid>
