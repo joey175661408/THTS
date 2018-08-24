@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using THTS.SerialPort;
 using THTS.DataAccess;
 using System.Windows;
+using THTS.DataModule;
 
 namespace THTS.TestCenter
 {
@@ -83,14 +84,24 @@ namespace THTS.TestCenter
             set { _selectedTestPosition = value; OnPropertyChanged(); }
         }
 
-        private ObservableCollection<string> _sensorIDList = new ObservableCollection<string>();
+        private ObservableCollection<TestPositionModule> _positionList = new ObservableCollection<TestPositionModule>();
         /// <summary>
-        /// 传感器ID列表
+        /// 测点分布菜单列表
         /// </summary>
-        public ObservableCollection<string> SensorIDList
+        public ObservableCollection<TestPositionModule> PositionList
         {
-            get { return _sensorIDList; }
-            set { _sensorIDList = value; OnPropertyChanged(); }
+            get { return _positionList; }
+            set { _positionList = value; OnPropertyChanged(); }
+        }
+
+        private ObservableCollection<Sensor> _sensorsList = new ObservableCollection<Sensor>();
+        /// <summary>
+        /// 传感器信息列表
+        /// </summary>
+        public ObservableCollection<Sensor> SensorsList
+        {
+            get { return _sensorsList; }
+            set { _sensorsList = value; OnPropertyChanged(); }
         }
 
         private TemperatureTolerance _toleranceInfo = new TemperatureTolerance();
@@ -113,7 +124,7 @@ namespace THTS.TestCenter
 
             for (int i = 0; i < 10; i++)
             {
-                if(i == 0)
+                if (i == 0)
                 {
                     DataModule.TestTemperatureModule module = new DataModule.TestTemperatureModule();
                     module.IsChecked = true;
@@ -131,7 +142,7 @@ namespace THTS.TestCenter
                 {
                     DataModule.TestTemperatureModule module = new DataModule.TestTemperatureModule();
                     module.IsChecked = false;
-                    module.TestTemperatureID = "抽测" + i ;
+                    module.TestTemperatureID = "抽测" + i;
                     TestTemperatureList.Add(module);
                 }
             }
@@ -140,11 +151,6 @@ namespace THTS.TestCenter
             _testPositionList.Add("9测点分布体");
             _testPositionList.Add("15测点分布体");
             SelectedTestPosition = _testPositionList[0];
-
-            for (int i = 1; i <= 40; i++)
-            {
-                _sensorIDList.Add(i.ToString());
-            }
 
             SelectedPositionCommand = new DelegateCommand(TestPositionChanged);
             SensorGetCommand = new DelegateCommand(SensorGet);
@@ -173,22 +179,22 @@ namespace THTS.TestCenter
             if(instrument.GetSensorState(out state))
             {
                 Channel channel1 = new Channel();
-                channel1.IsOnlie = state.Channel1.IsOnline;
+                channel1.IsOnline = state.Channel1.IsOnline;
                 channel1.ChannelName = "通道1：" + state.Channel1.ChannelName;
                 channel1.SensorList = new List<Sensor>();
 
                 Channel channel2 = new Channel();
-                channel2.IsOnlie = state.Channel2.IsOnline;
+                channel2.IsOnline = state.Channel2.IsOnline;
                 channel2.ChannelName = "通道2：" + state.Channel2.ChannelName;
                 channel2.SensorList = new List<Sensor>();
 
                 Channel channel3 = new Channel();
-                channel3.IsOnlie = state.Channel3.IsOnline;
+                channel3.IsOnline = state.Channel3.IsOnline;
                 channel3.ChannelName = "通道3：" + state.Channel3.ChannelName;
                 channel3.SensorList = new List<Sensor>();
 
                 Channel channel4 = new Channel();
-                channel4.IsOnlie = state.Channel4.IsOnline;
+                channel4.IsOnline = state.Channel4.IsOnline;
                 channel4.ChannelName = "通道4：" + state.Channel4.ChannelName;
                 channel4.SensorList = new List<Sensor>();
 
@@ -198,40 +204,56 @@ namespace THTS.TestCenter
                     {
                         Sensor sensor1 = new Sensor();
                         sensor1.ChannelID = 1;
-                        sensor1.IsOnline = state.Channel1.IsOnline;
                         sensor1.SensorID = i;
                         sensor1.Type = state.Channel1.ChannelType;
                         channel1.SensorList.Add(sensor1);
+
+                        if (state.Channel1.IsOnline)
+                        {
+                            _sensorsList.Add(sensor1);
+                        }
                     }
                     
                     if(i > 10 && i <= 20)
                     {
                         Sensor sensor2 = new Sensor();
                         sensor2.ChannelID = 2;
-                        sensor2.IsOnline = state.Channel2.IsOnline;
                         sensor2.SensorID = i;
                         sensor2.Type = state.Channel2.ChannelType;
                         channel2.SensorList.Add(sensor2);
+
+                        if (state.Channel2.IsOnline)
+                        {
+                            _sensorsList.Add(sensor2);
+                        }
                     }
 
                     if (i > 20 && i <= 30)
                     {
                         Sensor sensor3 = new Sensor();
                         sensor3.ChannelID = 3;
-                        sensor3.IsOnline = state.Channel3.IsOnline;
                         sensor3.SensorID = i;
                         sensor3.Type = state.Channel3.ChannelType;
                         channel3.SensorList.Add(sensor3);
+
+                        if (state.Channel3.IsOnline)
+                        {
+                            _sensorsList.Add(sensor3);
+                        }
                     }
 
                     if (i > 30)
                     {
                         Sensor sensor4 = new Sensor();
                         sensor4.ChannelID = 4;
-                        sensor4.IsOnline = state.Channel4.IsOnline;
                         sensor4.SensorID = i;
                         sensor4.Type = state.Channel4.ChannelType;
                         channel4.SensorList.Add(sensor4);
+
+                        if (state.Channel4.IsOnline)
+                        {
+                            _sensorsList.Add(sensor4);
+                        }
                     }
                 }
                 _channelList.Clear();
@@ -242,6 +264,8 @@ namespace THTS.TestCenter
             }
 
             instrument.Close();
+
+            TestPositionChanged();
         }
 
         /// <summary>
@@ -253,11 +277,72 @@ namespace THTS.TestCenter
             {
                 UC9Visibility = Visibility.Visible;
                 UC15Visibility = Visibility.Hidden;
+
+                PositionList.Clear();
+
+                for (int i = 0; i < 8; i++)
+                {
+                    TestPositionModule item = new TestPositionModule();
+                    item.SensorsList = SensorsList;
+                    item.TestPositionName = Convert.ToChar(65 + i).ToString();
+                    PositionList.Add(item);
+                }
+
+                TestPositionModule itemO = new TestPositionModule();
+                itemO.SensorsList = SensorsList;
+                itemO.TestPositionName = "O";
+                PositionList.Add(itemO);
+
+                TestPositionModule itemJia = new TestPositionModule();
+                itemJia.SensorsList = SensorsList;
+                itemJia.TestPositionName = "甲";
+                PositionList.Add(itemJia);
+
+                TestPositionModule itemYi = new TestPositionModule();
+                itemYi.SensorsList = SensorsList;
+                itemYi.TestPositionName = "乙";
+                PositionList.Add(itemYi);
+
+                TestPositionModule itemBing = new TestPositionModule();
+                itemBing.SensorsList = SensorsList;
+                itemBing.TestPositionName = "丙";
+                PositionList.Add(itemBing);
+
             }
             else if (SelectedTestPosition.Contains("15"))
             {
                 UC9Visibility = Visibility.Hidden;
                 UC15Visibility = Visibility.Visible;
+
+                PositionList.Clear();
+
+                for (int i = 0; i < 15; i++)
+                {
+                    TestPositionModule item = new TestPositionModule();
+                    item.SensorsList = SensorsList;
+                    item.TestPositionName = Convert.ToChar(65 + i).ToString();
+                    PositionList.Add(item);
+                }
+
+                TestPositionModule itemJia = new TestPositionModule();
+                itemJia.SensorsList = SensorsList;
+                itemJia.TestPositionName = "甲";
+                PositionList.Add(itemJia);
+
+                TestPositionModule itemYi = new TestPositionModule();
+                itemYi.SensorsList = SensorsList;
+                itemYi.TestPositionName = "乙";
+                PositionList.Add(itemYi);
+
+                TestPositionModule itemBing = new TestPositionModule();
+                itemBing.SensorsList = SensorsList;
+                itemBing.TestPositionName = "丙";
+                PositionList.Add(itemBing);
+
+                TestPositionModule itemDing = new TestPositionModule();
+                itemDing.SensorsList = SensorsList;
+                itemDing.TestPositionName = "丁";
+                PositionList.Add(itemDing);
             }
         }
 
@@ -284,6 +369,12 @@ namespace THTS.TestCenter
 
             }
 
+            ToleranceInfo.PositionType = SelectedTestPosition.Contains("9") ? 9 : 15;
+
+            if (!CheckTestPostion())
+            {
+                return;
+            }
 
             if (!DataAccess.EntityDAO.TemperatureToleranceDAO.SaveOrUpdate(ToleranceInfo))
             {
@@ -291,8 +382,37 @@ namespace THTS.TestCenter
                 return;
             }
 
-            SensorTest test = new SensorTest();
+            SensorTest test = new SensorTest(ToleranceInfo);
             test.ShowDialog();
+        }
+
+        /// <summary>
+        /// 检查测点传感器布置是否重复
+        /// </summary>
+        private bool CheckTestPostion()
+        {
+            Dictionary<int, string> positionDic = new Dictionary<int, string>();
+
+            for (int i = 0; i < PositionList.Count; i++)
+            {
+                if(PositionList[i].TestPositionID == null)
+                {
+                    continue;
+                }
+
+                if (positionDic.ContainsKey(PositionList[i].TestPositionID.SensorID))
+                {
+                    System.Windows.MessageBox.Show("同一个传感器不允许放置到多个位置！");
+                    return false;
+                }
+
+                positionDic.Add(PositionList[i].TestPositionID.SensorID, PositionList[i].TestPositionName);
+
+                ToleranceInfo.PositionList.Add(PositionList[i].TestPositionName, PositionList[i].TestPositionID);
+            }
+
+            return true;
+
         }
 
         /// <summary>

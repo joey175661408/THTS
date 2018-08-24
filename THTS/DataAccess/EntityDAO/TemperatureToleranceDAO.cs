@@ -25,7 +25,12 @@ namespace THTS.DataAccess.EntityDAO
                     return ctx.TemperatureTolerances.Local[0];
                 }else
                 {
-                    return new TemperatureTolerance();
+                    TemperatureTolerance tolerance = new TemperatureTolerance();
+
+                    tolerance.TestTimeSpan = 30;
+                    tolerance.TestSampleInterval = 2;
+
+                    return tolerance;
                 }
             }
         }

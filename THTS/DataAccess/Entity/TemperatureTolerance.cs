@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections.ObjectModel;
+using System.Collections.Generic;
 
 namespace THTS.DataAccess
 {
@@ -13,14 +14,10 @@ namespace THTS.DataAccess
         #region 测试温度参数
         public int Id { get; set;}
 
-        public ObservableCollection<double> TemperatureList { get; set; }
-
-        public ObservableCollection<Sensor> SensorList { get; set; }
-
         public int PositionType { get; set; }
 
-        public string TestTimeSpan { get; set; }
-        public string TestSampleInterval { get; set; }
+        public int TestTimeSpan { get; set; }
+        public int TestSampleInterval { get; set; }
 
         #endregion
 
@@ -28,12 +25,17 @@ namespace THTS.DataAccess
         {
             this.RegisterPropertyChangedHandler(() => PropertyChanged);
             TemperatureList = new ObservableCollection<double>();
-            SensorList = new ObservableCollection<Sensor>();
+            PositionList = new Dictionary<string, Sensor>();
         }
 
         #region NotMapped
 
-        
+        [NotMapped]
+        public Dictionary<string,Sensor> PositionList { get; set; }
+
+        [NotMapped]
+        public ObservableCollection<double> TemperatureList { get; set; }
+
         #endregion
 
         #region INotifyPropertyChanged 成员

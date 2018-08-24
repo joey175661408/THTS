@@ -6,6 +6,7 @@ using System.Windows;
 using System.Threading;
 using Microsoft.Research.DynamicDataDisplay.DataSources;
 using Microsoft.Research.DynamicDataDisplay.Charts;
+using THTS.DataAccess;
 
 namespace THTS.TestCenter
 {
@@ -26,10 +27,10 @@ namespace THTS.TestCenter
         /// </summary>
         private bool Stop = false;
 
-        public SensorTest()
+        public SensorTest(TemperatureTolerance tolerance)
         {
             InitializeComponent();
-            this.DataContext = new SensorTestViewModel();
+            this.DataContext = new SensorTestViewModel(tolerance);
 
             this.lineTemperature.DataSource = TemperatureCollections;
         }

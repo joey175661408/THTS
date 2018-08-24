@@ -27,7 +27,33 @@ namespace THTS.DataAccess.EntityDAO
                     return ctx.TestInfos.Local[0];
                 }else
                 {
-                    return new TestInfo();
+                    TestInfo test = new TestInfo();
+                    test.Company = "北京XX仪表有限公司";
+
+                    test.UutName = "高低温箱";
+                    test.UutModule = "T-001";
+                    test.UutSN = "T20180101001";
+                    test.UutManufacture = "北京YY有限公司";
+                    test.UutCustomSN = "CSN001";
+                    test.Accuracy = "1";
+                    test.TemperatureLower = "-40";
+                    test.TemperatureUpper = "120";
+
+                    test.EnvironmentTemperature = "25";
+                    test.EnvironmentPressure = "101";
+                    test.EnvironmentHumidity = "45";
+
+                    test.RecordSN = "R20180808001";
+                    test.CertificateSN = "SN1234567";
+
+                    test.VerifiedBy = "张三";
+                    test.CheckedBy = "李四";
+                    test.TestDate = "2018-08-08";
+
+                    test.TempAverageIsChecked = true;
+                    test.TempDepartureIsChecked = true;
+
+                    return test;
                 }
             }
         }

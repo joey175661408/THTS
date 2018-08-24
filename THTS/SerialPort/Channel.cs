@@ -13,7 +13,7 @@ namespace THTS.SerialPort
         /// <summary>
         /// 通道是否在线
         /// </summary>
-        public bool IsOnlie
+        public bool IsOnline
         {
             get { return _isOnline; }
             set { _isOnline = value; }

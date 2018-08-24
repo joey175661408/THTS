@@ -75,7 +75,7 @@
                                                 <Label Content="传感器编号" Grid.Column="1" VerticalContentAlignment="Center"/>
                                             </StackPanel>
 
-                                            <ListBox ItemsSource="{Binding SensorList}" Grid.Row="2">
+                                            <ListBox ItemsSource="{Binding SensorList}" Grid.Row="2" IsEnabled="{Binding IsOnline}">
                                                 <ListBox.ItemTemplate>
                                                     <DataTemplate>
                                                         <Grid>
@@ -160,73 +160,29 @@
                             </i:Interaction.Triggers>
                         </ComboBox>
                         <Label/>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="5"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="5"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="5"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="5"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="5"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="5"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="5"/>
-                                <ColumnDefinition Width="30"/>
-                                <ColumnDefinition Width="50"/>
-                                <ColumnDefinition Width="5"/>
-                                <ColumnDefinition Width="30"/>
-                                <ColumnDefinition Width="50"/>
-                                <ColumnDefinition Width="5"/>
-                                <ColumnDefinition Width="30"/>
-                                <ColumnDefinition Width="50"/>
-                                <ColumnDefinition Width="5"/>
-                            </Grid.ColumnDefinitions>
-                            <Label Grid.Row="0" Grid.Column="1" Content="A : "/>
-                            <ComboBox Grid.Row="0" Grid.Column="2" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorA}"/>
-                            <Label Grid.Row="2" Grid.Column="1" Content="B : "/>
-                            <ComboBox Grid.Row="2" Grid.Column="2" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorB}"/>
-                            <Label Grid.Row="4" Grid.Column="1" Content="C : "/>
-                            <ComboBox Grid.Row="4" Grid.Column="2" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorC}"/>
-                            <Label Grid.Row="6" Grid.Column="1" Content="D : "/>
-                            <ComboBox Grid.Row="6" Grid.Column="2" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorD}"/>
-                            <Label Grid.Row="8" Grid.Column="1" Content="E : "/>
-                            <ComboBox Grid.Row="8" Grid.Column="2" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorE}"/>
-                            <Label Grid.Row="10" Grid.Column="1" Content="F : "/>
-                            <ComboBox Grid.Row="10" Grid.Column="2" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorF}"/>
-                            <Label Grid.Row="12" Grid.Column="1" Content="G : "/>
-                            <ComboBox Grid.Row="12" Grid.Column="2" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorG}"/>
-                            <Label Grid.Row="0" Grid.Column="4" Content="H : "/>
-                            <ComboBox Grid.Row="0" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorH}"/>
-                            <Label Grid.Row="2" Grid.Column="4" Content="I : "/>
-                            <ComboBox Grid.Row="2" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorI}"/>
-                            <Label Grid.Row="4" Grid.Column="4" Content="J : "/>
-                            <ComboBox Grid.Row="4" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorJ}"/>
-                            <Label Grid.Row="6" Grid.Column="4" Content="K : "/>
-                            <ComboBox Grid.Row="6" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorK}"/>
-                            <Label Grid.Row="8" Grid.Column="4" Content="L : "/>
-                            <ComboBox Grid.Row="8" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorL}"/>
-                            <Label Grid.Row="10" Grid.Column="4" Content="M : "/>
-                            <ComboBox Grid.Row="10" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorM}"/>
-                            <Label Grid.Row="12" Grid.Column="4" Content="N : "/>
-                            <ComboBox Grid.Row="12" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorN}"/>
-                            <Label Grid.Row="0" Grid.Column="7" Content="O : "/>
-                            <ComboBox Grid.Row="0" Grid.Column="8" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorO}"/>
-                            <Label Grid.Row="2" Grid.Column="7" Content="甲 : "/>
-                            <ComboBox Grid.Row="2" Grid.Column="8" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorJia}"/>
-                            <Label Grid.Row="4" Grid.Column="7" Content="乙 : "/>
-                            <ComboBox Grid.Row="4" Grid.Column="8" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorYi}"/>
-                            <Label Grid.Row="6" Grid.Column="7" Content="丙 : "/>
-                            <ComboBox Grid.Row="6" Grid.Column="8" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorBing}"/>
-                            <Label Grid.Row="8" Grid.Column="7" Content="丁 : "/>
-                            <ComboBox Grid.Row="8" Grid.Column="8" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorDing}"/>
-                        </Grid>
+                        <ListBox x:Name="PositionListBox" ItemsSource="{Binding PositionList}" Grid.Row="2">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Width="100">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="30"/>
+                                            <ColumnDefinition Width="10"/>
+                                            <ColumnDefinition Width="50"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label Grid.Column="0" Content="{Binding TestPositionName}" HorizontalAlignment="Right"/>
+                                        <Label Grid.Column="1" />
+                                        <ComboBox Grid.Column="2" ItemsSource="{Binding SensorsList}" DisplayMemberPath="SensorID" SelectedValue="{Binding TestPositionID}" HorizontalAlignment="Left"/>
+                                        
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel MaxWidth="{Binding ActualWidth,ElementName=PositionListBox}"/>
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                        </ListBox>
                     </StackPanel>
                 </GroupBox>
             </Grid>
@@ -260,14 +216,12 @@
                     <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Orientation="Horizontal">
                         <Label Width="5"/>
                         <TextBlock Text="测试时间：" VerticalAlignment="Center"/>
-                        <Label Width="10"/>
-                        <TextBox Text="{Binding ToleranceInfo.TestTimeSpan,Mode=TwoWay}" Width="50" VerticalAlignment="Center"/>
+                        <Controls:NumericUpDown Value="{Binding ToleranceInfo.TestTimeSpan,Mode=TwoWay}" VerticalAlignment="Center"/>
                         <TextBlock Text="分钟" VerticalAlignment="Center"/>
                     </StackPanel>
                     <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Orientation="Horizontal">
                         <TextBlock Text="采样时间间隔：" VerticalAlignment="Center"/>
-                        <Label Width="10"/>
-                        <TextBox Text="{Binding ToleranceInfo.TestSampleInterval,Mode=TwoWay}" Width="50" VerticalAlignment="Center"/>
+                        <Controls:NumericUpDown Value="{Binding ToleranceInfo.TestSampleInterval,Mode=TwoWay}" VerticalAlignment="Center"/>
                         <TextBlock Text="分钟" VerticalAlignment="Center"/>
                     </StackPanel>
                     <StackPanel Grid.Row="1" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Center">

@@ -10,6 +10,7 @@ using THTS.MVVM;
 using Microsoft.Research.DynamicDataDisplay.DataSources;
 using Microsoft.Research.DynamicDataDisplay.Charts;
 using THTS.SerialPort;
+using THTS.DataAccess;
 
 namespace THTS.TestCenter
 {
@@ -91,7 +92,7 @@ namespace THTS.TestCenter
         /// <summary>
         /// 构造函数
         /// </summary>
-        public SensorTestViewModel()
+        public SensorTestViewModel(TemperatureTolerance tolerance)
         {
             _testPositionList = new List<string>();
             _testPositionList.Add("9测点分布体");

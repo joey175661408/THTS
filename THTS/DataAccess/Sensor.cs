@@ -11,22 +11,10 @@ namespace THTS.DataAccess
     /// </summary>
     public class Sensor
     {
-        private bool isOnline;
-        private string type;
         private int channelID;
+        private string type;
         private int sensorID;
         private int deviceID;
-        private string sensorPosition;
-        //private List<SensorData> sensorDataList;
-
-        /// <summary>
-        /// 是否在线
-        /// </summary>
-        public bool IsOnline
-        {
-            get { return isOnline; }
-            set { isOnline = value; }
-        }
 
         /// <summary>
         /// 传感器类型
@@ -63,25 +51,6 @@ namespace THTS.DataAccess
             get { return deviceID; }
             set { deviceID = value; }
         }
-
-        /// <summary>
-        /// 传感器所在温箱中的位置
-        /// </summary>
-        public string SensorPosition
-        {
-            get { return sensorPosition; }
-            set { sensorPosition = value; }
-        }
-
-        /// <summary>
-        /// 传感器数据集合
-        /// </summary>
-        //public List<SensorData> SensorDataList
-        //{
-        //    get { return sensorDataList; }
-        //    set { sensorDataList = value; }
-        //}
-
     }
 
     /// <summary>
