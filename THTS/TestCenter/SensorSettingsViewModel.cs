@@ -408,7 +408,14 @@ namespace THTS.TestCenter
 
                 positionDic.Add(PositionList[i].TestPositionID.SensorID, PositionList[i].TestPositionName);
 
-                ToleranceInfo.PositionList.Add(PositionList[i].TestPositionName, PositionList[i].TestPositionID);
+                if (!ToleranceInfo.PositionList.ContainsKey(PositionList[i].TestPositionName))
+                {
+                    ToleranceInfo.PositionList.Add(PositionList[i].TestPositionName, PositionList[i].TestPositionID);
+                }
+                else
+                {
+                    ToleranceInfo.PositionList[PositionList[i].TestPositionName] = PositionList[i].TestPositionID;
+                }
             }
 
             return true;

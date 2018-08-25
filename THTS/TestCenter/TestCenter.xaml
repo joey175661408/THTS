@@ -9,6 +9,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:THTS"
     mc:Ignorable="d"
+    BorderBrush="{DynamicResource AccentColorBrush}"
+    BorderThickness="1"
     WindowStartupLocation="CenterScreen"
     Title="测试中心" Height="600" Width="960" WindowState="Maximized">
 

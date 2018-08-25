@@ -12,352 +12,381 @@
     xmlns:local="clr-namespace:THTS.TestCenter"
     mc:Ignorable="d"
     WindowStartupLocation="CenterScreen"
-    Title="温度偏差测试" Height="600" Width="960" WindowState="Maximized">
+    BorderBrush="{DynamicResource AccentColorBrush}"
+    BorderThickness="1"
+    Title="温度偏差测试" Height="768" Width="1024" WindowState="Maximized">
+
+    <Window.Resources>
+        <!-- 合并列头的样式模版 -->
+        <Style x:Key="DeviceStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Grid x:Name="Root">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="1" />
+                                    <RowDefinition Height="20" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                </Grid.ColumnDefinitions>
+                                <!--设置标题名称-->
+                                <ContentPresenter Content="仪表示值" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="3" />
+                                <!--设置间隔线-->
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Height="1" Visibility="Visible" Grid.Row="1" Grid.ColumnSpan="3" />
+                                <ContentPresenter Content="℃" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="1" />
+                                <ContentPresenter Content="%RH" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                             </Grid>
+                            <Rectangle x:Name="VerticalSeparator" Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="1" Grid.Column="1" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="PositionTemperatureStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Grid x:Name="Root">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="1" />
+                                    <RowDefinition Height="20" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                </Grid.ColumnDefinitions>
+                                <!--设置标题名称-->
+                                <ContentPresenter Content="温度/℃" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="29" />
+                                <!--设置间隔线-->
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Height="1" Visibility="Visible" Grid.Row="1" Grid.ColumnSpan="29" />
+                                <ContentPresenter Content="A" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="1" />
+                                <ContentPresenter Content="B" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="3" />
+                                <ContentPresenter Content="C" Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="5" />
+                                <ContentPresenter Content="D" Grid.Row="2" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="7" />
+                                <ContentPresenter Content="E" Grid.Row="2" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="9" />
+                                <ContentPresenter Content="F" Grid.Row="2" Grid.Column="10" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="11" />
+                                <ContentPresenter Content="G" Grid.Row="2" Grid.Column="12" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="13" />
+                                <ContentPresenter Content="H" Grid.Row="2" Grid.Column="14" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="15" />
+                                <ContentPresenter Content="I" Grid.Row="2" Grid.Column="16" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="17" />
+                                <ContentPresenter Content="J" Grid.Row="2" Grid.Column="18" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="19" />
+                                <ContentPresenter Content="K" Grid.Row="2" Grid.Column="20" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="21" />
+                                <ContentPresenter Content="L" Grid.Row="2" Grid.Column="22" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="23" />
+                                <ContentPresenter Content="M" Grid.Row="2" Grid.Column="24" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="25" />
+                                <ContentPresenter Content="N" Grid.Row="2" Grid.Column="26" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="27" />
+                                <ContentPresenter Content="O" Grid.Row="2" Grid.Column="28" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            </Grid>
+                            <Rectangle x:Name="VerticalSeparator" Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="1" Grid.Column="1" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="PositionHumidityStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Grid x:Name="Root">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="1" />
+                                    <RowDefinition Height="20" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                </Grid.ColumnDefinitions>
+                                <!--设置标题名称-->
+                                <ContentPresenter Content="湿度" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="7" />
+                                <!--设置间隔线-->
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Height="1" Visibility="Visible" Grid.Row="1" Grid.ColumnSpan="7" />
+                                <ContentPresenter Content="甲" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="1" />
+                                <ContentPresenter Content="乙" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="3" />
+                                <ContentPresenter Content="丙" Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="5" />
+                                <ContentPresenter Content="丁" Grid.Row="2" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            </Grid>
+                            <Rectangle x:Name="VerticalSeparator" Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="1" Grid.Column="1" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="5"/>
-        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="320"/>
             <ColumnDefinition Width="5"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="5"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Row="0" Grid.Column="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="5"/>
-                <ColumnDefinition Width="3*"/>
-            </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button Content="开始采样" Width="80" Command="{Binding StartCommand}"/>
+                <Label/>
+                <Button Content="中止测试" Width="80" Command="{Binding StopCommand}"/>
+            </StackPanel>
+            <Label Grid.Row="2" Content="如需立即开始，可按【开始采样】按钮！" HorizontalAlignment="Center"/>
+            <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Content="当前测试温度：" FontSize="18" Height="40" VerticalContentAlignment="Center"/>
+                <Label Content="0℃" FontSize="18" Height="40" VerticalContentAlignment="Center"/>
+            </StackPanel>
+            <StackPanel  Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label Content="等待测试温度：" FontSize="18" Height="40" VerticalContentAlignment="Center"/>
+                <Label Content="0℃" FontSize="18" Height="40" VerticalContentAlignment="Center"/>
+            </StackPanel>
+            <Border Grid.Row="0" Grid.RowSpan="5" BorderBrush="AliceBlue" BorderThickness="1"/>
 
-            <Grid Grid.Row="0" Grid.Column="0">
+            <Grid Grid.Row="5">
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="5"/>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="30"/>
-                </Grid.RowDefinitions>
-                <GroupBox Grid.Row="0" Header="实时数据">
-                    <ListBox x:Name="channelListBox" ItemsSource="{Binding SensorList}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <Grid Width="120">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="2*"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-
-                                    <Label Content="{Binding SensorID}" Grid.Column="0" VerticalContentAlignment="Center"/>
-                                    <Label Content="{Binding SensorValue}" Grid.Column="1" VerticalContentAlignment="Center"/>
-                                    <Label Content="{Binding SensorUnit}" Grid.Column="2" VerticalContentAlignment="Center"/>
-
-                                </Grid>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                        <ListBox.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel Orientation="Vertical" MaxHeight="520" MaxWidth="{Binding ActualWidth,ElementName=channelListBox}"/>
-                            </ItemsPanelTemplate>
-                        </ListBox.ItemsPanel>
-                    </ListBox>
-                </GroupBox>
-                <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Label Content="当前测试温度：" FontSize="18" Height="40" VerticalContentAlignment="Center"/>
-                    <Label Content="0℃" FontSize="18" Height="40" VerticalContentAlignment="Center"/>
-                </StackPanel>
-                <StackPanel  Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Label Content="等待测试温度："/>
-                    <TextBox Text="100℃" IsEnabled="False" Height="20" Width="100" HorizontalContentAlignment="Center"/>
-                </StackPanel>
-                <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Label Content="已采样次数："/>
-                    <TextBox Text="0" IsEnabled="False" Height="20" Width="50" HorizontalContentAlignment="Center"/>
-                    <Label Content="次"/>
-                </StackPanel>
-                <Label Grid.Row="4" Content="如需立即开始，可按【开始采样】按钮！"/>
-            </Grid>
-            
-            
-            <Grid Grid.Row="0" Grid.Column="0" Visibility="Collapsed">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="5"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                
-                <GroupBox Grid.Row="0" Grid.Column="0" Header="通道1实时数据">
-                    <ListBox x:Name="channel1ListBox" ItemsSource="{Binding Channel1List}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="5"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="5"/>
-                                        <ColumnDefinition Width="3*"/>
-                                        <ColumnDefinition Width="5"/>
-                                    </Grid.ColumnDefinitions>
-
-                                    <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding SensorID}"/>
-                                    <TextBox Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding ValueAndUnit}" Width="70"/>
-                                </Grid>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                        <ListBox.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel Orientation="Horizontal" MaxWidth="{Binding ActualWidth,ElementName=channel1ListBox}"/>
-                            </ItemsPanelTemplate>
-                        </ListBox.ItemsPanel>
-                    </ListBox>
-                </GroupBox>
-
-                <GroupBox Grid.Row="0" Grid.Column="1" Header="通道2实时数据">
-                    <ListBox x:Name="channel2ListBox" ItemsSource="{Binding Channel2List}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="5"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="5"/>
-                                        <ColumnDefinition Width="3*"/>
-                                        <ColumnDefinition Width="5"/>
-                                    </Grid.ColumnDefinitions>
-
-                                    <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding SensorID}"/>
-                                    <TextBox Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding ValueAndUnit}" Width="70"/>
-                                </Grid>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                        <ListBox.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel Orientation="Horizontal" MaxWidth="{Binding ActualWidth,ElementName=channel2ListBox}"/>
-                            </ItemsPanelTemplate>
-                        </ListBox.ItemsPanel>
-                    </ListBox>
-                </GroupBox>
-
-                <GroupBox Grid.Row="2" Grid.Column="0" Header="通道3实时数据">
-                    <ListBox x:Name="channel3ListBox" ItemsSource="{Binding Channel3List}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="5"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="5"/>
-                                        <ColumnDefinition Width="3*"/>
-                                        <ColumnDefinition Width="5"/>
-                                    </Grid.ColumnDefinitions>
-
-                                    <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding SensorID}"/>
-                                    <TextBox Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding ValueAndUnit}" Width="70"/>
-                                </Grid>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                        <ListBox.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel Orientation="Horizontal" MaxWidth="{Binding ActualWidth,ElementName=channel3ListBox}"/>
-                            </ItemsPanelTemplate>
-                        </ListBox.ItemsPanel>
-                    </ListBox>
-                </GroupBox>
-
-                <GroupBox Grid.Row="1" Grid.Column="1" Header="通道4实时数据">
-                    <ListBox x:Name="channel4ListBox" ItemsSource="{Binding Channel4List}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="5"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="5"/>
-                                        <ColumnDefinition Width="3*"/>
-                                        <ColumnDefinition Width="5"/>
-                                    </Grid.ColumnDefinitions>
-
-                                    <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding SensorID}"/>
-                                    <TextBox Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding ValueAndUnit}" Width="70"/>
-                                </Grid>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                        <ListBox.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel Orientation="Horizontal" MaxWidth="{Binding ActualWidth,ElementName=channel4ListBox}"/>
-                            </ItemsPanelTemplate>
-                        </ListBox.ItemsPanel>
-                    </ListBox>
-                </GroupBox>
-            </Grid>
-
-            <Grid Grid.Row="0" Grid.Column="2">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="150"/>
-                    <RowDefinition Height="1"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="5"/>
-                    <ColumnDefinition Width="200"/>
                 </Grid.ColumnDefinitions>
-                
-                <GroupBox Name="gbPoint" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Header="测点分布" Visibility="Visible">
+
+                <local:UC_distribution15 Margin="-100,0,0,0" Grid.Row="1" Grid.Column="1" Width="500" Height="500" Visibility="{Binding UC15Visibility}"/>
+                <local:UC_distribution9 Margin="-100,0,0,0" Grid.Row="1" Grid.Column="1" Width="500" Height="500" Visibility="{Binding UC9Visibility}"/>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="0" Grid.Column="2">
+            <Controls:MetroTabControl>
+                <Controls:MetroTabItem Header="实时数据" >
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="5"/>
-                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="260"/>
                             <RowDefinition Height="5"/>
+                            <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="5"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="5"/>
-                        </Grid.ColumnDefinitions>
+                        <ListBox BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="1" Grid.Row="1" 
+                                 x:Name="channelListBox" ItemsSource="{Binding SensorList}" 
+                                 VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Width="240">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="2*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
 
-                        <local:UC_distribution15 Grid.Row="1" Grid.Column="1" Width="500" Height="500" Visibility="{Binding UC15Visibility}"/>
-                        <local:UC_distribution9 Grid.Row="1" Grid.Column="1" Width="500" Height="500" Visibility="{Binding UC9Visibility}"/>
+                                        <Label Content="{Binding SensorID}" Grid.Column="0" VerticalContentAlignment="Center"/>
+                                        <Label Content="{Binding SensorValue}" Grid.Column="1" VerticalContentAlignment="Center"/>
+                                        <Label Content="{Binding SensorUnit}" Grid.Column="2" VerticalContentAlignment="Center"/>
+
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel Orientation="Vertical" MaxHeight="260" />
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                        </ListBox>
+
+                        <Controls:MetroTabControl Grid.Row="3">
+                            <Controls:MetroTabItem Header="下限">
+                                <DataGrid AutoGenerateColumns="False" HeadersVisibility="Column" SelectionUnit="FullRow" ColumnHeaderHeight="50" 
+                                          BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="1" Width="auto"
+                                          ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Binding="{Binding Time}" Header="时间" />
+                                        <DataGridTextColumn Binding="{Binding Count}" Header="次数" />
+                                        <DataGridTemplateColumn HeaderStyle="{StaticResource DeviceStyle}">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Label Content="{Binding DeviceTemperature}" Width="50" />
+                                                        <Rectangle Fill="#000" VerticalAlignment="Stretch" Margin="0" Width="1" />
+                                                        <Label Content="{Binding DeviceHumidity}" Width="50" />
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+
+                                        <DataGridTemplateColumn HeaderStyle="{StaticResource PositionTemperatureStyle}">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Label Content="{Binding A}" Width="50" />
+                                                        <Rectangle Fill="#000" VerticalAlignment="Stretch" Margin="0" Width="1" />
+                                                        <Label Content="{Binding B}" Width="50" />
+                                                        <Rectangle Fill="#000" VerticalAlignment="Stretch" Margin="0" Width="1" />
+                                                        <Label Content="{Binding C}" Width="50" />
+                                                        <Rectangle Fill="#000" VerticalAlignment="Stretch" Margin="0" Width="1" />
+                                                        <Label Content="{Binding D}" Width="50" />
+                                                        <Rectangle Fill="#000" VerticalAlignment="Stretch" Margin="0" Width="1" />
+                                                        <Label Content="{Binding E}" Width="50" />
+                                                        <Rectangle Fill="#000" VerticalAlignment="Stretch" Margin="0" Width="1" />
+                                                        <Label Content="{Binding F}" Width="50" />
+                                                        <Rectangle Fill="#000" VerticalAlignment="Stretch" Margin="0" Width="1" />
+                                                        <Label Content="{Binding G}" Width="50" />
+                                                        <Rectangle Fill="#000" VerticalAlignment="Stretch" Margin="0" Width="1" />
+                                                        <Label Content="{Binding H}" Width="50" />
+                                                        <Rectangle Fill="#000" VerticalAlignment="Stretch" Margin="0" Width="1" />
+                                                        <Label Content="{Binding I}" Width="50" />
+                                                        <Rectangle Fill="#000" VerticalAlignment="Stretch" Margin="0" Width="1" />
+                                                        <Label Content="{Binding J}" Width="50" />
+                                                        <Rectangle Fill="#000" VerticalAlignment="Stretch" Margin="0" Width="1" />
+                                                        <Label Content="{Binding K}" Width="50" />
+                                                        <Rectangle Fill="#000" VerticalAlignment="Stretch" Margin="0" Width="1" />
+                                                        <Label Content="{Binding L}" Width="50" />
+                                                        <Rectangle Fill="#000" VerticalAlignment="Stretch" Margin="0" Width="1" />
+                                                        <Label Content="{Binding M}" Width="50" />
+                                                        <Rectangle Fill="#000" VerticalAlignment="Stretch" Margin="0" Width="1" />
+                                                        <Label Content="{Binding N}" Width="50" />
+                                                        <Rectangle Fill="#000" VerticalAlignment="Stretch" Margin="0" Width="1" />
+                                                        <Label Content="{Binding O}" Width="50" />
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+
+
+                                        <DataGridTemplateColumn HeaderStyle="{StaticResource PositionHumidityStyle}">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Label Content="{Binding Jia}" Width="50" />
+                                                        <Rectangle Fill="#000" VerticalAlignment="Stretch" Margin="0" Width="1" />
+                                                        <Label Content="{Binding Yi}" Width="50" />
+                                                        <Rectangle Fill="#000" VerticalAlignment="Stretch" Margin="0" Width="1" />
+                                                        <Label Content="{Binding Bing}" Width="50" />
+                                                        <Rectangle Fill="#000" VerticalAlignment="Stretch" Margin="0" Width="1" />
+                                                        <Label Content="{Binding Ding}" Width="50" />
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                        
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </Controls:MetroTabItem>
+                            <Controls:MetroTabItem Header="上限"/>
+                        </Controls:MetroTabControl>
+                        
                     </Grid>
-                </GroupBox>
 
-                <Grid Name="gbPointParams" Grid.Row="0" Grid.Column="2" Visibility="Visible">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="5"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-
-                    <GroupBox Header="温场形状" Grid.Row="1">
-                        <StackPanel>
-                            <Label/>
-                            <ComboBox ItemsSource="{Binding TestPositionList}" SelectedValue="{Binding SelectedTestPosition}">
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="SelectionChanged">
-                                        <i:InvokeCommandAction Command="{Binding SelectedPositionCommand}" />
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
-                            </ComboBox>
-                            <Label/>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="*"/>
-                                    <RowDefinition Height="5"/>
-                                    <RowDefinition Height="*"/>
-                                    <RowDefinition Height="5"/>
-                                    <RowDefinition Height="*"/>
-                                    <RowDefinition Height="5"/>
-                                    <RowDefinition Height="*"/>
-                                    <RowDefinition Height="5"/>
-                                    <RowDefinition Height="*"/>
-                                    <RowDefinition Height="5"/>
-                                    <RowDefinition Height="*"/>
-                                    <RowDefinition Height="5"/>
-                                    <RowDefinition Height="*"/>
-                                    <RowDefinition Height="5"/>
-                                    <RowDefinition Height="*"/>
-                                    <RowDefinition Height="5"/>
-                                    <RowDefinition Height="*"/>
-                                    <RowDefinition Height="5"/>
-                                    <RowDefinition Height="*"/>
-                                    <RowDefinition Height="5"/>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="5"/>
-                                    <ColumnDefinition Width="30"/>
-                                    <ColumnDefinition Width="50"/>
-                                    <ColumnDefinition Width="5"/>
-                                    <ColumnDefinition Width="30"/>
-                                    <ColumnDefinition Width="50"/>
-                                    <ColumnDefinition Width="5"/>
-                                </Grid.ColumnDefinitions>
-                                <Label Grid.Row="0" Grid.Column="1" Content="A : "/>
-                                <ComboBox Grid.Row="0" Grid.Column="2" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorA}"/>
-                                <Label Grid.Row="2" Grid.Column="1" Content="B : "/>
-                                <ComboBox Grid.Row="2" Grid.Column="2" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorB}"/>
-                                <Label Grid.Row="4" Grid.Column="1" Content="C : "/>
-                                <ComboBox Grid.Row="4" Grid.Column="2" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorC}"/>
-                                <Label Grid.Row="6" Grid.Column="1" Content="D : "/>
-                                <ComboBox Grid.Row="6" Grid.Column="2" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorD}"/>
-                                <Label Grid.Row="8" Grid.Column="1" Content="E : "/>
-                                <ComboBox Grid.Row="8" Grid.Column="2" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorE}"/>
-                                <Label Grid.Row="10" Grid.Column="1" Content="F : "/>
-                                <ComboBox Grid.Row="10" Grid.Column="2" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorF}"/>
-                                <Label Grid.Row="12" Grid.Column="1" Content="G : "/>
-                                <ComboBox Grid.Row="12" Grid.Column="2" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorG}"/>
-                                <Label Grid.Row="14" Grid.Column="1" Content="H : "/>
-                                <ComboBox Grid.Row="14" Grid.Column="2" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorH}"/>
-                                <Label Grid.Row="16" Grid.Column="1" Content="I : "/>
-                                <ComboBox Grid.Row="16" Grid.Column="2" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorI}"/>
-                                <Label Grid.Row="18" Grid.Column="1" Content="J : "/>
-                                <ComboBox Grid.Row="18" Grid.Column="2" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorJ}"/>
-                                <Label Grid.Row="0" Grid.Column="4" Content="K : "/>
-                                <ComboBox Grid.Row="0" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorK}"/>
-                                <Label Grid.Row="2" Grid.Column="4" Content="L : "/>
-                                <ComboBox Grid.Row="2" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorL}"/>
-                                <Label Grid.Row="4" Grid.Column="4" Content="M : "/>
-                                <ComboBox Grid.Row="4" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorM}"/>
-                                <Label Grid.Row="6" Grid.Column="4" Content="N : "/>
-                                <ComboBox Grid.Row="6" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorN}"/>
-                                <Label Grid.Row="8" Grid.Column="4" Content="O : "/>
-                                <ComboBox Grid.Row="8" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorO}"/>
-                                <Label Grid.Row="10" Grid.Column="4" Content="甲 : "/>
-                                <ComboBox Grid.Row="10" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorJia}"/>
-                                <Label Grid.Row="12" Grid.Column="4" Content="乙 : "/>
-                                <ComboBox Grid.Row="12" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorYi}"/>
-                                <Label Grid.Row="14" Grid.Column="4" Content="丙 : "/>
-                                <ComboBox Grid.Row="14" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorBing}"/>
-                                <Label Grid.Row="16" Grid.Column="4" Content="丁 : "/>
-                                <ComboBox Grid.Row="16" Grid.Column="5" ItemsSource="{Binding SensorIDList}" SelectedValue="{Binding TestSensorDing}"/>
-                            </Grid>
-                        </StackPanel>
-                    </GroupBox>
-                </Grid>
-
-                <GroupBox Name="gbChart" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Header="实时曲线图" Visibility="Hidden">
-                    <d3:ChartPlotter x:Name="plotter2">
-                        <d3:ChartPlotter.VerticalAxis>
-                            <d3:VerticalIntegerAxis />
-                        </d3:ChartPlotter.VerticalAxis>
-                        <d3:ChartPlotter.HorizontalAxis>
-                            <d3:HorizontalDateTimeAxis />
-                        </d3:ChartPlotter.HorizontalAxis>
-                        <d3:Header FontFamily="Arial" Content="实时温度曲线"/>
-                        <d3:HorizontalAxisTitle FontFamily="Arial"/>
-                        <d3:CursorCoordinateGraph IsHorizontalDateTimeAxis="True" />
-                        <d3:LineGraph Name="lineTemperature">
-                            <!--<d3:LineGraph DataSource="{Binding PreloadPressureCollections}">-->
+                </Controls:MetroTabItem>
+                <Controls:MetroTabItem Header="实时曲线">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="200"/>
+                        </Grid.RowDefinitions>
+                        <d3:ChartPlotter x:Name="plotter2">
+                            <d3:ChartPlotter.VerticalAxis>
+                                <d3:VerticalIntegerAxis />
+                            </d3:ChartPlotter.VerticalAxis>
+                            <d3:ChartPlotter.HorizontalAxis>
+                                <d3:HorizontalDateTimeAxis />
+                            </d3:ChartPlotter.HorizontalAxis>
+                            <d3:Header FontFamily="Arial" Content="实时温度曲线"/>
+                            <d3:HorizontalAxisTitle FontFamily="Arial"/>
+                            <d3:CursorCoordinateGraph IsHorizontalDateTimeAxis="True" />
+                            <d3:LineGraph Name="lineTemperature">
+                                <!--<d3:LineGraph DataSource="{Binding PreloadPressureCollections}">-->
                                 <d3:LineGraph.LinePen>
-                                <Pen Brush="Blue" Thickness="2"/>
-                            </d3:LineGraph.LinePen>
-                            <d3:LineGraph.Description>
-                                <d3:PenDescription DescriptionString="预压数据"/>
-                            </d3:LineGraph.Description>
-                        </d3:LineGraph>
-                    </d3:ChartPlotter>
-                </GroupBox>
-
-                <GroupBox Name="gbChartParams" Grid.Row="1" Grid.Column="0" Header="曲线属性" Visibility="Hidden">
-                    <ListBox></ListBox>
-                </GroupBox>
-                
-                <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Button Name="btnChart" Content="实时曲线" Width="80" Click="Visiable_Click"/>
-                    <Label/>
-                    <Button Content="中断测试" Width="80" Click="Stop_Click"/>
-                    <Label/>
-                    <Button Content="开始采样" Width="80" Click="Chart_Click"/>
-                    <Label/>
-                    <Button Content="返回" Width="80" Click="Close_Click"/>
-                </StackPanel>
-            </Grid>
-            
+                                    <Pen Brush="Blue" Thickness="2"/>
+                                </d3:LineGraph.LinePen>
+                                <d3:LineGraph.Description>
+                                    <d3:PenDescription DescriptionString="预压数据"/>
+                                </d3:LineGraph.Description>
+                            </d3:LineGraph>
+                        </d3:ChartPlotter>
+                        <GroupBox Name="gbChartParams" Header="曲线属性" Visibility="Hidden">
+                            <ListBox></ListBox>
+                        </GroupBox>
+                    </Grid>
+                </Controls:MetroTabItem>
+            </Controls:MetroTabControl>
         </Grid>
+
     </Grid>
 </Controls:MetroWindow>

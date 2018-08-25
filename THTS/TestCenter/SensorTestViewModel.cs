@@ -53,36 +53,6 @@ namespace THTS.TestCenter
             set { _uC15Visibility = value; OnPropertyChanged(); }
         }
 
-        private List<string> _testPositionList;
-        /// <summary>
-        /// 温场测点分布体列表
-        /// </summary>
-        public List<string> TestPositionList
-        {
-            get { return _testPositionList; }
-            set { _testPositionList = value; OnPropertyChanged(); }
-        }
-
-        private string _selectedTestPosition = string.Empty;
-        /// <summary>
-        /// 选中的测点分布体
-        /// </summary>
-        public string SelectedTestPosition
-        {
-            get { return _selectedTestPosition; }
-            set { _selectedTestPosition = value; OnPropertyChanged(); }
-        }
-
-        private ObservableCollection<string> _sensorIDList = new ObservableCollection<string>();
-        /// <summary>
-        /// 传感器ID列表
-        /// </summary>
-        public ObservableCollection<string> SensorIDList
-        {
-            get { return _sensorIDList; }
-            set { _sensorIDList = value; OnPropertyChanged(); }
-        }
-
         /// <summary>
         /// 通讯实例
         /// </summary>
@@ -94,17 +64,7 @@ namespace THTS.TestCenter
         /// </summary>
         public SensorTestViewModel(TemperatureTolerance tolerance)
         {
-            _testPositionList = new List<string>();
-            _testPositionList.Add("9测点分布体");
-            _testPositionList.Add("15测点分布体");
-            SelectedTestPosition = _testPositionList[0];
-
-            for (int i = 1; i <= 40; i++)
-            {
-                _sensorIDList.Add(i.ToString());
-            }
-
-            SelectedPositionCommand = new DelegateCommand(TestPositionChanged);
+            TestPositionChanged(tolerance.PositionType);
 
             //获取串口配置信息
             DataAccess.Setting settings = DataAccess.SettingsDAO.GetData();
@@ -164,21 +124,21 @@ namespace THTS.TestCenter
         /// </summary>
         private void GetLiveData()
         {
-            iInstrument instrument = new iInstrument("COM1", 38400, System.IO.Ports.Parity.None, 8, System.IO.Ports.StopBits.Two);
+            iInstrument instrument = new iInstrument("COM1", 115200, System.IO.Ports.Parity.None, 8, System.IO.Ports.StopBits.Two);
 
         }
 
         /// <summary>
         /// 测点分布切换
         /// </summary>
-        private void TestPositionChanged()
+        private void TestPositionChanged(int testPositionType)
         {
-            if (SelectedTestPosition.Contains("9"))
+            if (testPositionType == 9)
             {
                 UC9Visibility = Visibility.Visible;
                 UC15Visibility = Visibility.Hidden;
             }
-            else if (SelectedTestPosition.Contains("15"))
+            else if (testPositionType == 15)
             {
                 UC9Visibility = Visibility.Hidden;
                 UC15Visibility = Visibility.Visible;
