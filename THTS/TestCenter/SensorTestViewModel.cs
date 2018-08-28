@@ -11,16 +11,15 @@ using Microsoft.Research.DynamicDataDisplay.DataSources;
 using Microsoft.Research.DynamicDataDisplay.Charts;
 using THTS.SerialPort;
 using THTS.DataAccess;
+using THTS.DataAccess.Entity;
+using THTS.DataModule;
 
 namespace THTS.TestCenter
 {
     public class SensorTestViewModel : NotifyObject
     {
         #region Command
-        /// <summary>
-        /// 测试点分布切换命令
-        /// </summary>
-        public IDelegateCommand SelectedPositionCommand { get; private set; }
+
         #endregion
 
         private ObservableCollection<SensorRealValue> _sensorList = new ObservableCollection<SensorRealValue>();
@@ -53,6 +52,29 @@ namespace THTS.TestCenter
             set { _uC15Visibility = value; OnPropertyChanged(); }
         }
 
+        private Dictionary<string, Sensor> _positionName;
+        /// <summary>
+        /// 测点分布与传感器对应关系
+        /// </summary>
+        public Dictionary<string, Sensor> PositionName
+        {
+            get { return _positionName; }
+            set { _positionName = value; OnPropertyChanged(); }
+        }
+
+        private ObservableCollection<TestData> _testDataList = new ObservableCollection<TestData>();
+        /// <summary>
+        /// 数据采集结果
+        /// </summary>
+        public ObservableCollection<TestData> TestDataList
+        {
+            get { return _testDataList; }
+            set { _testDataList = value; OnPropertyChanged(); }
+        }
+
+
+
+
         /// <summary>
         /// 通讯实例
         /// </summary>
@@ -66,12 +88,30 @@ namespace THTS.TestCenter
         {
             TestPositionChanged(tolerance.PositionType);
 
+            PositionName = tolerance.PositionList;
+
+            TestDataTemperatureTitle(tolerance.TemperatureList);
+
             //获取串口配置信息
             DataAccess.Setting settings = DataAccess.SettingsDAO.GetData();
 
             instrument = new iInstrument(settings.PortName, settings.BaudRate, System.IO.Ports.Parity.None, 8, System.IO.Ports.StopBits.One);
 
             SyncData();
+        }
+
+        /// <summary>
+        /// 采集数据的温度标题更新
+        /// </summary>
+        public void TestDataTemperatureTitle(ObservableCollection<TestTemperatureModule> templist)
+        {
+            for (int i = 0; i < templist.Count; i++)
+            {
+                TestData data = new TestData();
+                data.TemperatureName = templist[i].TestTemperatureID;
+                data.TemperatureValue = templist[i].TemperatureValue;
+                TestDataList.Add(data);
+            }
         }
 
         /// <summary>
@@ -136,11 +176,11 @@ namespace THTS.TestCenter
             if (testPositionType == 9)
             {
                 UC9Visibility = Visibility.Visible;
-                UC15Visibility = Visibility.Hidden;
+                UC15Visibility = Visibility.Collapsed;
             }
             else if (testPositionType == 15)
             {
-                UC9Visibility = Visibility.Hidden;
+                UC9Visibility = Visibility.Collapsed;
                 UC15Visibility = Visibility.Visible;
             }
         }

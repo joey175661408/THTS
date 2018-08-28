@@ -6,6 +6,7 @@
     xmlns:d3="http://research.microsoft.com/DynamicDataDisplay/1.0" 
     xmlns:ec="http://schemas.microsoft.com/expression/2010/controls" 
     x:Class="THTS.TestCenter.UC_distribution9"
+    Loaded="UserControl_Loaded"
     mc:Ignorable="d" 
     Height="500" Width="500">
     
@@ -108,18 +109,18 @@
         <Ellipse HorizontalAlignment="Right" Height="6" Margin="0,0,176,48" Stroke="Black" StrokeThickness="2" VerticalAlignment="Bottom" Width="6" Fill="Black"/>
         <Ellipse HorizontalAlignment="Right" Height="6" Margin="0,0,119,146" Stroke="Black" StrokeThickness="2" VerticalAlignment="Bottom" Width="6" Fill="Black"/>
         <Ellipse HorizontalAlignment="Left" Height="6" Margin="176,0,0,146" Stroke="Black" StrokeThickness="2" VerticalAlignment="Bottom" Width="6" Fill="Black"/>
-        <Label x:Name="label" Content="A" HorizontalAlignment="Left" Margin="180,51,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label_Copy" Content="D" HorizontalAlignment="Left" Margin="123.33,149.33,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label_Copy1" Content="C" HorizontalAlignment="Left" Margin="322.015,149.33,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label_Copy2" Content="B" HorizontalAlignment="Left" Margin="379,51.303,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label_Copy4" Content="O" Margin="0,0,229.852,224.426" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
-        <Label x:Name="label_Copy5" Content="E" HorizontalAlignment="Left" Margin="180,0,0,122.313" VerticalAlignment="Bottom"/>
-        <Label x:Name="label_Copy6" Content="H" HorizontalAlignment="Left" Margin="123.33,0,0,23.983" VerticalAlignment="Bottom"/>
-        <Label x:Name="label_Copy7" Content="G" HorizontalAlignment="Left" Margin="322.015,0,0,23.983" VerticalAlignment="Bottom"/>
-        <Label x:Name="label_Copy8" Content="F" HorizontalAlignment="Left" Margin="379,0,0,122.01" VerticalAlignment="Bottom"/>
-        <Label x:Name="label_Copy9" Content="丙" HorizontalAlignment="Left" Margin="156.998,21.76,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label_Copy10" Content="甲" Margin="228,224.758,0,249.999" d:LayoutOverrides="Height" HorizontalAlignment="Left"/>
-        <Label x:Name="label_Copy11" Content="乙" Margin="0,0,179.25,51" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+        <Label x:Name="A" Content="A" HorizontalAlignment="Left" Margin="180,51,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="B" Content="B" HorizontalAlignment="Left" Margin="379,51.303,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="C" Content="C" HorizontalAlignment="Left" Margin="322.015,149.33,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="D" Content="D" HorizontalAlignment="Left" Margin="123.33,149.33,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="O" Content="O" Margin="250,0,0,225" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+        <Label x:Name="E" Content="E" HorizontalAlignment="Left" Margin="180,0,0,122.313" VerticalAlignment="Bottom"/>
+        <Label x:Name="F" Content="F" HorizontalAlignment="Left" Margin="379,0,0,122.01" VerticalAlignment="Bottom"/>
+        <Label x:Name="G" Content="G" HorizontalAlignment="Left" Margin="322.015,0,0,23.983" VerticalAlignment="Bottom"/>
+        <Label x:Name="H" Content="H" HorizontalAlignment="Left" Margin="123.33,0,0,23.983" VerticalAlignment="Bottom"/>
+        <Label x:Name="Jia" Content="甲" Margin="0,0,250,250" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+        <Label x:Name="Yi" Content="乙" Margin="0,0,179.25,51" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+        <Label x:Name="Bing" Content="丙" HorizontalAlignment="Right" Margin="0,22,320,0" VerticalAlignment="Top"/>
 
     </Grid>
 </UserControl>

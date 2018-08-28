@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using THTS.DataModule;
 
 namespace THTS.DataAccess
 {
@@ -24,7 +25,7 @@ namespace THTS.DataAccess
         public TemperatureTolerance()
         {
             this.RegisterPropertyChangedHandler(() => PropertyChanged);
-            TemperatureList = new ObservableCollection<double>();
+            TemperatureList = new ObservableCollection<TestTemperatureModule>();
             PositionList = new Dictionary<string, Sensor>();
         }
 
@@ -34,7 +35,7 @@ namespace THTS.DataAccess
         public Dictionary<string,Sensor> PositionList { get; set; }
 
         [NotMapped]
-        public ObservableCollection<double> TemperatureList { get; set; }
+        public ObservableCollection<TestTemperatureModule> TemperatureList { get; set; }
 
         #endregion
 

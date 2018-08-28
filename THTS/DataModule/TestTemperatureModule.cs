@@ -11,5 +11,6 @@ namespace THTS.DataModule
         public bool? IsChecked { get; set; }
         public string TestTemperatureID { get; set; }
         public string TemperatureValue { get; set; }
+        public double TemperatureDoubleValue { get; set; }
     }
 }

@@ -351,6 +351,7 @@ namespace THTS.TestCenter
         /// </summary>
         private void Start()
         {
+            ToleranceInfo.TemperatureList.Clear();
             for (int i = 0; i < TestTemperatureList.Count; i++)
             {
                 if(TestTemperatureList[i].IsChecked == true)
@@ -358,7 +359,8 @@ namespace THTS.TestCenter
                     double temp = 0.0;
                     if(Double.TryParse(TestTemperatureList[i].TemperatureValue, out temp))
                     {
-                        ToleranceInfo.TemperatureList.Add(temp);
+                        TestTemperatureList[i].TemperatureDoubleValue = temp;
+                        ToleranceInfo.TemperatureList.Add(TestTemperatureList[i]);
                     }
                     else
                     {
@@ -391,6 +393,7 @@ namespace THTS.TestCenter
         /// </summary>
         private bool CheckTestPostion()
         {
+            ToleranceInfo.PositionList.Clear();
             Dictionary<int, string> positionDic = new Dictionary<int, string>();
 
             for (int i = 0; i < PositionList.Count; i++)

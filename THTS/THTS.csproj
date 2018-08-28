@@ -154,6 +154,7 @@
     <Compile Include="DataAccess\EntityDAO\TestInfoDAO.cs" />
     <Compile Include="DataAccess\EntityDAO\DeviceDAO.cs" />
     <Compile Include="DataAccess\Entity\Device.cs" />
+    <Compile Include="DataAccess\Entity\TestData.cs" />
     <Compile Include="DataAccess\Entity\User.cs" />
     <Compile Include="DataAccess\EntityDAO\UserDAO.cs" />
     <Compile Include="DataAccess\Mapping.cs" />
