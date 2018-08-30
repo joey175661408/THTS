@@ -13,14 +13,39 @@ using THTS.SerialPort;
 using THTS.DataAccess;
 using THTS.DataAccess.Entity;
 using THTS.DataModule;
+using System.Windows.Threading;
+using THTS.DataAccess.EntityDAO;
 
 namespace THTS.TestCenter
 {
     public class SensorTestViewModel : NotifyObject
     {
         #region Command
-
+        public IDelegateCommand StartCommand { get; private set; }
+        public IDelegateCommand StopCommand { get; private set; }
         #endregion
+
+        private int temperatureIndex = 0;
+
+        private int _tabItemIndex = 0;
+        /// <summary>
+        /// 数据采集面板序号
+        /// </summary>
+        public int TabItemIndex
+        {
+            get { return _tabItemIndex; }
+            set { _tabItemIndex = value; OnPropertyChanged(); }
+        }
+
+        private string _currentTemperature;
+        /// <summary>
+        /// 当前测试温度
+        /// </summary>
+        public string CurrentTemperature
+        {
+            get { return _currentTemperature; }
+            set { _currentTemperature = value; OnPropertyChanged(); }
+        }
 
         private ObservableCollection<SensorRealValue> _sensorList = new ObservableCollection<SensorRealValue>();
         /// <summary>
@@ -62,17 +87,50 @@ namespace THTS.TestCenter
             set { _positionName = value; OnPropertyChanged(); }
         }
 
-        private ObservableCollection<TestData> _testDataList = new ObservableCollection<TestData>();
+        private ObservableCollection<TestDataList> _testResultDataList = new ObservableCollection<TestDataList>();
         /// <summary>
         /// 数据采集结果
         /// </summary>
-        public ObservableCollection<TestData> TestDataList
+        public ObservableCollection<TestDataList> TestResultDataList
         {
-            get { return _testDataList; }
-            set { _testDataList = value; OnPropertyChanged(); }
+            get { return _testResultDataList; }
+            set { _testResultDataList = value; OnPropertyChanged(); }
         }
 
+        private TemperatureTolerance tol;
+        private DateTime currTime;
+        bool timeout = false;
 
+
+        private bool _startEnable = true;
+        /// <summary>
+        /// 开始按钮是否有效
+        /// </summary>
+        public bool StartEnable
+        {
+            get { return _startEnable; }
+            set { _startEnable = value; OnPropertyChanged(); }
+        }
+
+        private int _barValue = 0;
+        /// <summary>
+        /// 进度条当前进度
+        /// </summary>
+        public int BarValue
+        {
+            get { return _barValue; }
+            set { _barValue = value; OnPropertyChanged(); }
+        }
+
+        private string _barTime;
+        /// <summary>
+        /// 进度条倒计时
+        /// </summary>
+        public string BarTime
+        {
+            get { return _barTime; }
+            set { _barTime = value; OnPropertyChanged(); }
+        }
 
 
         /// <summary>
@@ -86,6 +144,11 @@ namespace THTS.TestCenter
         /// </summary>
         public SensorTestViewModel(TemperatureTolerance tolerance)
         {
+            tol = tolerance;
+
+            StartCommand = new DelegateCommand(Start);
+            StopCommand = new DelegateCommand(Stop);
+
             TestPositionChanged(tolerance.PositionType);
 
             PositionName = tolerance.PositionList;
@@ -107,10 +170,16 @@ namespace THTS.TestCenter
         {
             for (int i = 0; i < templist.Count; i++)
             {
-                TestData data = new TestData();
+                TestDataList data = new TestDataList();
                 data.TemperatureName = templist[i].TestTemperatureID;
                 data.TemperatureValue = templist[i].TemperatureValue;
-                TestDataList.Add(data);
+                TestResultDataList.Add(data);
+            }
+
+            if (templist.Count > 0)
+            {
+                CurrentTemperature = templist[0].TemperatureValue;
+                TabItemIndex = 0;
             }
         }
 
@@ -134,7 +203,7 @@ namespace THTS.TestCenter
                             #region Test
                             SensorRealValue real = new SensorRealValue();
                             real.SensorID = i + 1;
-                            real.SensorValue = (float)(new Random(10).Next() * DateTime.Now.Millisecond);
+                            real.SensorValue = (float)(50 + (new Random(Guid.NewGuid().GetHashCode()).Next(-100,100)) * 0.01);
                             real.SensorUnit = "℃";
                             #endregion
 
@@ -160,11 +229,120 @@ namespace THTS.TestCenter
         }
 
         /// <summary>
+        /// 开始采集数据
+        /// </summary>
+        private void Start()
+        {
+            DispatcherTimer timerBar = new DispatcherTimer();
+            timerBar.Interval = TimeSpan.FromSeconds(1);
+            timerBar.Tick += ProcessBarChange;
+            currTime = DateTime.Now.AddMinutes(tol.TestTimeSpan);
+            timerBar.Start();
+
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromMinutes(tol.TestSampleInterval);
+            timer.Tick += CollectData;
+            timer.Start();
+
+            DateTime now = DateTime.Now;
+            timeout = false;
+            Thread thrP = new Thread(new ThreadStart(() =>
+            {
+                StartEnable = false;
+
+                while (!timeout)
+                {
+                    BarValue = (int)(DateTime.Now - now).TotalSeconds * 100 / (tol.TestTimeSpan * 60);
+                    timeout = BarValue >= 100;
+                    Thread.Sleep(500);
+                }
+
+                timerBar.Stop();
+                timer.Stop();
+                TestDataDAO.Save(TestResultDataList[temperatureIndex].DataList);
+                StartEnable = true;
+
+                if (TestResultDataList.Count > temperatureIndex + 1)
+                {
+                    temperatureIndex = temperatureIndex + 1;
+                    TabItemIndex = TabItemIndex + 1;
+                    CurrentTemperature = TestResultDataList[temperatureIndex].TemperatureValue;
+                }
+            }));
+            thrP.IsBackground = true;
+            thrP.Start();
+        }
+
+        /// <summary>
+        /// 进度条变更事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ProcessBarChange(object sender, EventArgs e)
+        {
+            TimeSpan temp = currTime - DateTime.Now;
+            BarTime = temp.Hours.ToString("00") + ":" + temp.Minutes.ToString("00") + ":" + temp.Seconds.ToString("00");
+        }
+
+        /// <summary>
+        /// 单点数据采集事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CollectData(object sender, EventArgs e)
+        {
+            TestData data = new TestData();
+            data.RecordSN = tol.RecordSN;
+            data.Time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            data.Count = TestResultDataList[temperatureIndex].DataList.Count + 1;
+            data.DeviceTemperature = CurrentTemperature;
+
+            data.A = SetValueForPosition( "A");
+            data.B = SetValueForPosition("B");
+            data.C = SetValueForPosition("C");
+            data.D = SetValueForPosition( "D");
+            data.E = SetValueForPosition( "E");
+            data.F = SetValueForPosition("F");
+            data.G = SetValueForPosition( "G");
+            data.H = SetValueForPosition( "H");
+            data.I = SetValueForPosition("I");
+            data.J = SetValueForPosition( "J");
+            data.K = SetValueForPosition( "K");
+            data.L = SetValueForPosition( "L");
+            data.M = SetValueForPosition( "M");
+            data.N = SetValueForPosition( "N");
+            data.O = SetValueForPosition("O");
+            data.Jia = SetValueForPosition( "甲");
+            data.Yi = SetValueForPosition( "乙");
+            data.Bing = SetValueForPosition("丙");
+            data.Ding = SetValueForPosition("丁");
+
+            TestResultDataList[temperatureIndex].DataList.Add(data);
+        }
+
+        private string SetValueForPosition(string position)
+        {
+            if (PositionName.ContainsKey(position))
+            {
+                return SensorList[PositionName[position].SensorID - 1].SensorValue.ToString("0.00");
+            }
+
+            return string.Empty;
+        }
+
+        /// <summary>
+        /// 停止采集
+        /// </summary>
+        private void Stop()
+        {
+            timeout = true;
+        }
+
+        /// <summary>
         /// 获取实时数据
         /// </summary>
         private void GetLiveData()
         {
-            iInstrument instrument = new iInstrument("COM1", 115200, System.IO.Ports.Parity.None, 8, System.IO.Ports.StopBits.Two);
 
         }
 

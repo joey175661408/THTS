@@ -189,12 +189,11 @@
             <ColumnDefinition Width="330"/>
             <ColumnDefinition Width="5"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="10"/>
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Row="0" Grid.Column="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="10"/>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="30"/>
@@ -202,22 +201,19 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button Content="开始采样" Width="80" Command="{Binding StartCommand}"/>
+                <Button Content="开始采样" Width="80" Height="30" Command="{Binding StartCommand}" IsEnabled="{Binding StartEnable}"/>
                 <Label/>
-                <Button Content="中止测试" Width="80" Command="{Binding StopCommand}"/>
+                <Button Content="中止测试" Width="80" Height="30" Command="{Binding StopCommand}"/>
             </StackPanel>
             <Label Grid.Row="2" Content="如需立即开始，可按【开始采样】按钮！" HorizontalAlignment="Center"/>
             <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
                 <Label Content="当前测试温度：" FontSize="18" Height="40" VerticalContentAlignment="Center"/>
-                <Label Content="0℃" FontSize="18" Height="40" VerticalContentAlignment="Center"/>
-            </StackPanel>
-            <StackPanel  Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Label Content="等待测试温度：" FontSize="18" Height="40" VerticalContentAlignment="Center"/>
-                <Label Content="0℃" FontSize="18" Height="40" VerticalContentAlignment="Center"/>
+                <Label Content="{Binding CurrentTemperature}" FontSize="18" Height="40" VerticalContentAlignment="Center"/>
+                <Label Content="℃" FontSize="18" Height="40" VerticalContentAlignment="Center"/>
             </StackPanel>
             <Border Grid.Row="0" Grid.RowSpan="5" BorderBrush="AliceBlue" BorderThickness="1"/>
 
-            <Grid Grid.Row="5">
+            <Grid Grid.Row="4">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="5"/>
                     <RowDefinition Height="*"/>
@@ -242,7 +238,10 @@
                             <RowDefinition Height="5"/>
                             <RowDefinition Height="260"/>
                             <RowDefinition Height="5"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="5"/>
                             <RowDefinition Height="*"/>
+                            <RowDefinition Height="10"/>
                         </Grid.RowDefinitions>
                         <ListBox BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="1" Grid.Row="1" 
                                  x:Name="channelListBox" ItemsSource="{Binding SensorList}" 
@@ -268,7 +267,13 @@
                             </ListBox.ItemsPanel>
                         </ListBox>
 
-                        <Controls:MetroTabControl Grid.Row="3" ItemsSource="{Binding TestDataList}">
+                        <StackPanel Grid.Row="3" Orientation="Horizontal">
+                            <Controls:MetroProgressBar Value="{Binding BarValue}" IsIndeterminate="True"  Maximum="100" Minimum="0" Width="400" Height="20"/>
+                            <Label/>
+                            <Label Content="{Binding BarTime}" Width="100" HorizontalAlignment="Right"/>
+                        </StackPanel>
+                        
+                        <Controls:MetroTabControl Grid.Row="5" ItemsSource="{Binding TestResultDataList}" SelectedIndex="{Binding TabItemIndex}">
                             <Controls:MetroTabControl.ItemTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding TemperatureTitle}"/>
@@ -277,18 +282,18 @@
                             <Controls:MetroTabControl.ContentTemplate>
                                 <DataTemplate>
                                     <DataGrid AutoGenerateColumns="False" HeadersVisibility="Column" SelectionUnit="FullRow" ColumnHeaderHeight="50" 
-                                          BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="1" Width="auto"
+                                          BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="1" Width="auto" ItemsSource="{Binding DataList}"
+                                          GridLinesVisibility="All" HorizontalGridLinesBrush="AliceBlue" VerticalGridLinesBrush="AliceBlue" 
                                           ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
                                         <DataGrid.Columns>
-                                            <DataGridTextColumn Binding="{Binding Time}" Header="时间" />
+                                            <DataGridTextColumn Binding="{Binding Time}" Header="时间"/>
                                             <DataGridTextColumn Binding="{Binding Count}" Header="次数" />
                                             <DataGridTemplateColumn HeaderStyle="{StaticResource DeviceStyle}">
                                                 <DataGridTemplateColumn.CellTemplate>
                                                     <DataTemplate>
                                                         <StackPanel Orientation="Horizontal">
-                                                            <Label Content="{Binding DeviceTemperature}" Width="50" />
-                                                            <Rectangle Fill="#000" VerticalAlignment="Stretch" Margin="0" Width="1" />
-                                                            <Label Content="{Binding DeviceHumidity}" Width="50" />
+                                                            <Label Content="{Binding DeviceTemperature}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Label Content="{Binding DeviceHumidity}" Width="50" HorizontalContentAlignment="Center"/>
                                                         </StackPanel>
                                                     </DataTemplate>
                                                 </DataGridTemplateColumn.CellTemplate>
@@ -298,35 +303,35 @@
                                                 <DataGridTemplateColumn.CellTemplate>
                                                     <DataTemplate>
                                                         <StackPanel Orientation="Horizontal">
-                                                            <Label Content="{Binding A}" Width="50" />
-                                                            <Rectangle Fill="#000" VerticalAlignment="Stretch" Margin="0" Width="1" />
-                                                            <Label Content="{Binding B}" Width="50" />
-                                                            <Rectangle Fill="#000" VerticalAlignment="Stretch" Margin="0" Width="1" />
-                                                            <Label Content="{Binding C}" Width="50" />
-                                                            <Rectangle Fill="#000" VerticalAlignment="Stretch" Margin="0" Width="1" />
-                                                            <Label Content="{Binding D}" Width="50" />
-                                                            <Rectangle Fill="#000" VerticalAlignment="Stretch" Margin="0" Width="1" />
-                                                            <Label Content="{Binding E}" Width="50" />
-                                                            <Rectangle Fill="#000" VerticalAlignment="Stretch" Margin="0" Width="1" />
-                                                            <Label Content="{Binding F}" Width="50" />
-                                                            <Rectangle Fill="#000" VerticalAlignment="Stretch" Margin="0" Width="1" />
-                                                            <Label Content="{Binding G}" Width="50" />
-                                                            <Rectangle Fill="#000" VerticalAlignment="Stretch" Margin="0" Width="1" />
-                                                            <Label Content="{Binding H}" Width="50" />
-                                                            <Rectangle Fill="#000" VerticalAlignment="Stretch" Margin="0" Width="1" />
-                                                            <Label Content="{Binding I}" Width="50" />
-                                                            <Rectangle Fill="#000" VerticalAlignment="Stretch" Margin="0" Width="1" />
-                                                            <Label Content="{Binding J}" Width="50" />
-                                                            <Rectangle Fill="#000" VerticalAlignment="Stretch" Margin="0" Width="1" />
-                                                            <Label Content="{Binding K}" Width="50" />
-                                                            <Rectangle Fill="#000" VerticalAlignment="Stretch" Margin="0" Width="1" />
-                                                            <Label Content="{Binding L}" Width="50" />
-                                                            <Rectangle Fill="#000" VerticalAlignment="Stretch" Margin="0" Width="1" />
-                                                            <Label Content="{Binding M}" Width="50" />
-                                                            <Rectangle Fill="#000" VerticalAlignment="Stretch" Margin="0" Width="1" />
-                                                            <Label Content="{Binding N}" Width="50" />
-                                                            <Rectangle Fill="#000" VerticalAlignment="Stretch" Margin="0" Width="1" />
-                                                            <Label Content="{Binding O}" Width="50" />
+                                                            <Label Content="{Binding A}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding B}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding C}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding D}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding E}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding F}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding G}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding H}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding I}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding J}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding K}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding L}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding M}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding N}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding O}" Width="50" HorizontalContentAlignment="Center"/>
                                                         </StackPanel>
                                                     </DataTemplate>
                                                 </DataGridTemplateColumn.CellTemplate>
@@ -336,13 +341,13 @@
                                                 <DataGridTemplateColumn.CellTemplate>
                                                     <DataTemplate>
                                                         <StackPanel Orientation="Horizontal">
-                                                            <Label Content="{Binding Jia}" Width="50" />
-                                                            <Rectangle Fill="#000" VerticalAlignment="Stretch" Margin="0" Width="1" />
-                                                            <Label Content="{Binding Yi}" Width="50" />
-                                                            <Rectangle Fill="#000" VerticalAlignment="Stretch" Margin="0" Width="1" />
-                                                            <Label Content="{Binding Bing}" Width="50" />
-                                                            <Rectangle Fill="#000" VerticalAlignment="Stretch" Margin="0" Width="1" />
-                                                            <Label Content="{Binding Ding}" Width="50" />
+                                                            <Label Content="{Binding Jia}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding Yi}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding Bing}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding Ding}" Width="50" HorizontalContentAlignment="Center"/>
                                                         </StackPanel>
                                                     </DataTemplate>
                                                 </DataGridTemplateColumn.CellTemplate>

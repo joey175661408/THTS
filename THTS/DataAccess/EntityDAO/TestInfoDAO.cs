@@ -17,6 +17,25 @@ namespace THTS.DataAccess.EntityDAO
         /// <summary>
         /// 获取测试信息
         /// </summary>
+        public static TestInfo GetTestInfoData(string recordSN)
+        {
+            using (SQLiteDB ctx = new SQLiteDB())
+            {
+                ctx.TestInfos.Where(t=>t.RecordSN == recordSN).Load();
+                if (ctx.TestInfos.Local.Count > 0)
+                {
+                    return ctx.TestInfos.Local[0];
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
+        /// <summary>
+        /// 获取测试信息
+        /// </summary>
         public static TestInfo GetTestInfoData()
         {
             using (SQLiteDB ctx = new SQLiteDB())
@@ -24,7 +43,7 @@ namespace THTS.DataAccess.EntityDAO
                 ctx.TestInfos.Load();
                 if (ctx.TestInfos.Local.Count > 0)
                 {
-                    return ctx.TestInfos.Local[0];
+                    return ctx.TestInfos.Local[ctx.TestInfos.Local.Count-1];
                 }else
                 {
                     TestInfo test = new TestInfo();
@@ -66,15 +85,15 @@ namespace THTS.DataAccess.EntityDAO
         {
             using (SQLiteDB ctx = new SQLiteDB())
             {
-                TestInfo oldInfo = GetTestInfoData();
+                TestInfo oldInfo = GetTestInfoData(testInfo.RecordSN);
 
-                if (oldInfo.Id == 0)
+                if (oldInfo == null)
                 {
                     ctx.TestInfos.Add(testInfo);
                 }
                 else
                 {
-                    ctx.Update(oldInfo.Id, testInfo);
+                    return false;
                 }
 
                 return ctx.SaveChanges() > 0;

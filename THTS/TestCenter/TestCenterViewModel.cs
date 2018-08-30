@@ -32,6 +32,7 @@ namespace THTS.TestCenter
             CloseCommand = new DelegateCommand(Close);
 
             Info = DataAccess.EntityDAO.TestInfoDAO.GetTestInfoData();
+            Info.RecordSN = DateTime.Now.ToString("yyyyMMddHHmmss");
         }
 
         #region 方法
@@ -42,11 +43,11 @@ namespace THTS.TestCenter
         {
             if (!DataAccess.EntityDAO.TestInfoDAO.SaveOrUpdate(Info))
             {
-                System.Windows.MessageBox.Show("测试信息保存失败！");
+                System.Windows.MessageBox.Show("测试信息保存失败！此记录编号已存在！");
                 return;
             }
 
-            SensorSettings settings = new SensorSettings();
+            SensorSettings settings = new SensorSettings(Info);
             settings.ShowDialog();
         }
 

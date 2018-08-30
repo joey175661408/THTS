@@ -14,6 +14,7 @@ namespace THTS.DataAccess
     {
         #region 测试温度参数
         public int Id { get; set;}
+        public string RecordSN { get; set; }
 
         public int PositionType { get; set; }
 

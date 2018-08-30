@@ -11,16 +11,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
- 
+using THTS.DataAccess;
+
 namespace THTS.TestCenter
 {
     public partial class SensorSettings
     {
-        public SensorSettings()
+        public SensorSettings(TestInfo Info)
         {
             InitializeComponent();
 
-            this.DataContext = new SensorSettingsViewModel();
+            this.DataContext = new SensorSettingsViewModel(Info);
         }
 
         private void Close_Click(object sender, RoutedEventArgs e)

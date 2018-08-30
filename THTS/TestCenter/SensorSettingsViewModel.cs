@@ -118,9 +118,10 @@ namespace THTS.TestCenter
 
         #endregion
 
-        public SensorSettingsViewModel()
+        public SensorSettingsViewModel(TestInfo Info)
         {
             ToleranceInfo = DataAccess.EntityDAO.TemperatureToleranceDAO.GetToleranceInfoData();
+            ToleranceInfo.RecordSN = Info.RecordSN;
 
             for (int i = 0; i < 10; i++)
             {

@@ -149,6 +149,7 @@
     <Compile Include="DataAccess\Configuration.cs" />
     <Compile Include="DataAccess\DbContextExtensions.cs" />
     <Compile Include="DataAccess\EntityDAO\DebugTiredTestDAO.cs" />
+    <Compile Include="DataAccess\EntityDAO\TestDataDAO.cs" />
     <Compile Include="DataAccess\Entity\DebugTiredTest.cs" />
     <Compile Include="DataAccess\EntityDAO\TemperatureToleranceDAO.cs" />
     <Compile Include="DataAccess\EntityDAO\TestInfoDAO.cs" />

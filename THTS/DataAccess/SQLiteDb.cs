@@ -1,5 +1,6 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using THTS.DataAccess.Entity;
 
 namespace THTS.DataAccess
 {
@@ -21,5 +22,6 @@ namespace THTS.DataAccess
         public DbSet<Device> Devices { get; set; }
         public DbSet<DebugTiredTest> DebugTiredTests { get; set; }
         public DbSet<Setting> Settingses { get; set; }
+        public DbSet<TestData> TestDatas { get; set; }
     }
 }

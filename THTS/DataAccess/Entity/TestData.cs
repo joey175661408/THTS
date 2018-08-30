@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 using THTS.MVVM;
@@ -8,10 +9,11 @@ namespace THTS.DataAccess.Entity
     public class TestData : INotifyPropertyChanged
     {
         public int Id { get; set; }
+        public string RecordSN { get; set; }
 
         public string TemperatureName { get; set; }
         public string TemperatureValue { get; set; }
-        public DateTime Time { get; set; }
+        public string Time { get; set; }
         public int Count { get; set; }
         public string DeviceTemperature { get; set; }
         public string DeviceHumidity { get; set; }
@@ -38,6 +40,39 @@ namespace THTS.DataAccess.Entity
         public TestData()
         {
             this.RegisterPropertyChangedHandler(() => PropertyChanged);
+        }
+
+        #region NotMapped
+
+        [NotMapped]
+        public string TemperatureTitle
+        {
+            get { return TemperatureName + "(" + TemperatureValue + "℃)  "; }
+        }
+
+        #endregion
+
+        #region INotifyPropertyChanged 成员
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        #endregion
+    }
+
+    /// <summary>
+    /// 界面显示数据列表
+    /// </summary>
+    public class TestDataList : INotifyPropertyChanged
+    {
+        public int Id { get; set; }
+        public string TemperatureName { get; set; }
+        public string TemperatureValue { get; set; }
+        public ObservableCollection<TestData> DataList { get; set; }
+
+        public TestDataList()
+        {
+            this.RegisterPropertyChangedHandler(() => PropertyChanged);
+            DataList = new ObservableCollection<TestData>();
         }
 
         #region NotMapped
