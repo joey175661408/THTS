@@ -12,6 +12,7 @@ namespace THTS.DataCenter
         public DataCenter()
         {
             InitializeComponent();
+            this.DataContext = new DataCenterViewModel();
         }
 
         private void Search_Click(object sender, RoutedEventArgs e)

@@ -360,7 +360,6 @@ namespace THTS.TestCenter
                     double temp = 0.0;
                     if(Double.TryParse(TestTemperatureList[i].TemperatureValue, out temp))
                     {
-                        TestTemperatureList[i].TemperatureDoubleValue = temp;
                         ToleranceInfo.TemperatureList.Add(TestTemperatureList[i]);
                     }
                     else

@@ -15,6 +15,19 @@ namespace THTS.DataAccess.EntityDAO
         }
 
         /// <summary>
+        /// 获取所有查询数据
+        /// </summary>
+        /// <returns></returns>
+        public static ObservableCollection<TestInfo> GetAllData()
+        {
+            using (SQLiteDB ctx = new SQLiteDB())
+            {
+                ctx.TestInfos.Load();
+                return ctx.TestInfos.Local;
+            }
+        }
+
+        /// <summary>
         /// 获取测试信息
         /// </summary>
         public static TestInfo GetTestInfoData(string recordSN)

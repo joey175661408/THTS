@@ -293,10 +293,12 @@ namespace THTS.SerialPort
                         Win32.memcpy(&runRecord, pbuf, sizeof(ChannelEachValue));
                     }
 
-                    SensorRealValue realValue = new SensorRealValue();
-                    realValue.SensorID = index / 6 + 1;
-                    realValue.SensorValue = runRecord.MeasureValue;
-                    realValue.SensorUnit = runRecord.Unit;
+                    SensorRealValue realValue = new SensorRealValue
+                    {
+                        SensorID = index / 6 + 1,
+                        SensorValue = runRecord.MeasureValue,
+                        SensorUnit = runRecord.Unit
+                    };
 
                     records.Add(realValue);
                 }

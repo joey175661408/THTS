@@ -170,9 +170,12 @@ namespace THTS.TestCenter
         {
             for (int i = 0; i < templist.Count; i++)
             {
-                TestDataList data = new TestDataList();
-                data.TemperatureName = templist[i].TestTemperatureID;
-                data.TemperatureValue = templist[i].TemperatureValue;
+                TestDataList data = new TestDataList
+                {
+                    TemperatureName = templist[i].TestTemperatureID,
+                    TemperatureValue = templist[i].TemperatureValue,
+                    HumidityValue = templist[i].HumidityValue
+                };
                 TestResultDataList.Add(data);
             }
 
@@ -291,43 +294,49 @@ namespace THTS.TestCenter
         /// <param name="e"></param>
         private void CollectData(object sender, EventArgs e)
         {
-            TestData data = new TestData();
-            data.RecordSN = tol.RecordSN;
-            data.Time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            data.Count = TestResultDataList[temperatureIndex].DataList.Count + 1;
-            data.DeviceTemperature = CurrentTemperature;
+            TestData data = new TestData
+            {
+                RecordSN = tol.RecordSN,
+                TemperatureName = TestResultDataList[temperatureIndex].TemperatureName,
+                TemperatureValue = CurrentTemperature,
+                HumidityValue = TestResultDataList[temperatureIndex].HumidityValue,
+                Time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
+                Count = TestResultDataList[temperatureIndex].DataList.Count + 1,
+                DeviceTemperature = CurrentTemperature,
+                DeviceHumidity = TestResultDataList[temperatureIndex].HumidityValue,
 
-            data.A = SetValueForPosition( "A");
-            data.B = SetValueForPosition("B");
-            data.C = SetValueForPosition("C");
-            data.D = SetValueForPosition( "D");
-            data.E = SetValueForPosition( "E");
-            data.F = SetValueForPosition("F");
-            data.G = SetValueForPosition( "G");
-            data.H = SetValueForPosition( "H");
-            data.I = SetValueForPosition("I");
-            data.J = SetValueForPosition( "J");
-            data.K = SetValueForPosition( "K");
-            data.L = SetValueForPosition( "L");
-            data.M = SetValueForPosition( "M");
-            data.N = SetValueForPosition( "N");
-            data.O = SetValueForPosition("O");
-            data.Jia = SetValueForPosition( "甲");
-            data.Yi = SetValueForPosition( "乙");
-            data.Bing = SetValueForPosition("丙");
-            data.Ding = SetValueForPosition("丁");
+                A = SetValueForPosition("A"),
+                B = SetValueForPosition("B"),
+                C = SetValueForPosition("C"),
+                D = SetValueForPosition("D"),
+                E = SetValueForPosition("E"),
+                F = SetValueForPosition("F"),
+                G = SetValueForPosition("G"),
+                H = SetValueForPosition("H"),
+                I = SetValueForPosition("I"),
+                J = SetValueForPosition("J"),
+                K = SetValueForPosition("K"),
+                L = SetValueForPosition("L"),
+                M = SetValueForPosition("M"),
+                N = SetValueForPosition("N"),
+                O = SetValueForPosition("O"),
+                Jia = SetValueForPosition("甲"),
+                Yi = SetValueForPosition("乙"),
+                Bing = SetValueForPosition("丙"),
+                Ding = SetValueForPosition("丁")
+            };
 
             TestResultDataList[temperatureIndex].DataList.Add(data);
         }
 
-        private string SetValueForPosition(string position)
+        private float SetValueForPosition(string position)
         {
             if (PositionName.ContainsKey(position))
             {
-                return SensorList[PositionName[position].SensorID - 1].SensorValue.ToString("0.00");
+                return SensorList[PositionName[position].SensorID - 1].SensorValue;
             }
 
-            return string.Empty;
+            return -1000;
         }
 
         /// <summary>

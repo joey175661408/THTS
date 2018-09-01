@@ -285,6 +285,11 @@
                                           BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="1" Width="auto" ItemsSource="{Binding DataList}"
                                           GridLinesVisibility="All" HorizontalGridLinesBrush="AliceBlue" VerticalGridLinesBrush="AliceBlue" 
                                           ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                                        <DataGrid.ColumnHeaderStyle>
+                                            <Style TargetType="DataGridColumnHeader">
+                                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                            </Style>
+                                        </DataGrid.ColumnHeaderStyle>
                                         <DataGrid.Columns>
                                             <DataGridTextColumn Binding="{Binding Time}" Header="时间"/>
                                             <DataGridTextColumn Binding="{Binding Count}" Header="次数" />
@@ -303,35 +308,35 @@
                                                 <DataGridTemplateColumn.CellTemplate>
                                                     <DataTemplate>
                                                         <StackPanel Orientation="Horizontal">
-                                                            <Label Content="{Binding A}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Label Content="{Binding StringA}" Width="50" HorizontalContentAlignment="Center"/>
                                                             <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                            <Label Content="{Binding B}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Label Content="{Binding StringB}" Width="50" HorizontalContentAlignment="Center"/>
                                                             <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                            <Label Content="{Binding C}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Label Content="{Binding StringC}" Width="50" HorizontalContentAlignment="Center"/>
                                                             <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                            <Label Content="{Binding D}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Label Content="{Binding StringD}" Width="50" HorizontalContentAlignment="Center"/>
                                                             <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                            <Label Content="{Binding E}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Label Content="{Binding StringE}" Width="50" HorizontalContentAlignment="Center"/>
                                                             <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                            <Label Content="{Binding F}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Label Content="{Binding StringF}" Width="50" HorizontalContentAlignment="Center"/>
                                                             <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                            <Label Content="{Binding G}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Label Content="{Binding StringG}" Width="50" HorizontalContentAlignment="Center"/>
                                                             <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                            <Label Content="{Binding H}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Label Content="{Binding StringH}" Width="50" HorizontalContentAlignment="Center"/>
                                                             <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                            <Label Content="{Binding I}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Label Content="{Binding StringI}" Width="50" HorizontalContentAlignment="Center"/>
                                                             <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                            <Label Content="{Binding J}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Label Content="{Binding StringJ}" Width="50" HorizontalContentAlignment="Center"/>
                                                             <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                            <Label Content="{Binding K}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Label Content="{Binding StringK}" Width="50" HorizontalContentAlignment="Center"/>
                                                             <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                            <Label Content="{Binding L}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Label Content="{Binding StringL}" Width="50" HorizontalContentAlignment="Center"/>
                                                             <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                            <Label Content="{Binding M}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Label Content="{Binding StringM}" Width="50" HorizontalContentAlignment="Center"/>
                                                             <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                            <Label Content="{Binding N}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Label Content="{Binding StringN}" Width="50" HorizontalContentAlignment="Center"/>
                                                             <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                            <Label Content="{Binding O}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Label Content="{Binding StringO}" Width="50" HorizontalContentAlignment="Center"/>
                                                         </StackPanel>
                                                     </DataTemplate>
                                                 </DataGridTemplateColumn.CellTemplate>
@@ -341,13 +346,13 @@
                                                 <DataGridTemplateColumn.CellTemplate>
                                                     <DataTemplate>
                                                         <StackPanel Orientation="Horizontal">
-                                                            <Label Content="{Binding Jia}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Label Content="{Binding StringJia}" Width="50" HorizontalContentAlignment="Center"/>
                                                             <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                            <Label Content="{Binding Yi}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Label Content="{Binding StringYi}" Width="50" HorizontalContentAlignment="Center"/>
                                                             <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                            <Label Content="{Binding Bing}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Label Content="{Binding StringBing}" Width="50" HorizontalContentAlignment="Center"/>
                                                             <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                            <Label Content="{Binding Ding}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Label Content="{Binding StringDing}" Width="50" HorizontalContentAlignment="Center"/>
                                                         </StackPanel>
                                                     </DataTemplate>
                                                 </DataGridTemplateColumn.CellTemplate>

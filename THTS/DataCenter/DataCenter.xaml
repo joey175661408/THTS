@@ -12,6 +12,13 @@
     WindowStartupLocation="CenterScreen"
     Title="数据中心" Height="600" Width="960" WindowState="Maximized">
 
+    <Controls:MetroWindow.Resources>
+        <Style x:Key="DataGridTextColumnCenterSytle" TargetType="{x:Type TextBlock}">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+    </Controls:MetroWindow.Resources>
+    
     <Grid  HorizontalAlignment="Stretch" >
         <Grid>
             <Grid.RowDefinitions>
@@ -21,37 +28,25 @@
             <Border  Grid.Row="0" BorderThickness="0,0,0,1" BorderBrush="Gray">
                 <StackPanel Orientation="Horizontal">
                     <ToolBar HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ToolBarTray.IsLocked="True"   Grid.Row="0" Foreground="Black">
-                        <Button Width="70" Height="55" Margin="0,0,0,0" VerticalAlignment="Center">
-                            <StackPanel Orientation="Vertical">
-                                <iconPacks:PackIconFontAwesome Width="30" Height="30" Kind="DesktopSolid" HorizontalAlignment="Center"/>
-                                <TextBlock Text="刷新"  HorizontalAlignment="Center" Margin="0,5,0,0"/>
-                            </StackPanel>
-                        </Button>
-                        <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Click="Search_Click" Visibility="Visible">
+                        <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Click="Search_Click" Visibility="Collapsed">
                             <StackPanel Orientation="Vertical">
                                 <iconPacks:PackIconFontAwesome Width="30" Height="30" Kind="DesktopSolid" HorizontalAlignment="Center"/>
                                 <TextBlock Text="查询" HorizontalAlignment="Center" Margin="0,5,0,0"/>
                             </StackPanel>
                         </Button>
-                        <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Command="{Binding AddCommand}" Visibility="Collapsed">
+                        <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Command="{Binding EditCommand}" IsEnabled ="{Binding IsEnableEdit, UpdateSourceTrigger=PropertyChanged}">
                             <StackPanel Orientation="Vertical">
                                 <iconPacks:PackIconFontAwesome Width="30" Height="30" Kind="DesktopSolid" HorizontalAlignment="Center"/>
-                                <TextBlock Text="新建" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+                                <TextBlock Text="查看" HorizontalAlignment="Center" Margin="0,5,0,0"/>
                             </StackPanel>
                         </Button>
-                        <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Command="{Binding EditCommand}" IsEnabled ="{Binding IsEnableEdit, UpdateSourceTrigger=PropertyChanged}"  Visibility="{Binding IsShowEdit,Converter={StaticResource BooleanToVisibilityConverter}}">
-                            <StackPanel Orientation="Vertical">
-                                <iconPacks:PackIconFontAwesome Width="30" Height="30" Kind="DesktopSolid" HorizontalAlignment="Center"/>
-                                <TextBlock Text="查看数据" HorizontalAlignment="Center" Margin="0,5,0,0"/>
-                            </StackPanel>
-                        </Button>
-                        <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Command="{Binding ExportRecordCommand}" IsEnabled="{Binding IsEnableExport,Mode=TwoWay}" Visibility="{Binding IsShowExport,Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Command="{Binding ExportRecordCommand}" IsEnabled="{Binding IsEnableExport,Mode=TwoWay}" >
                             <StackPanel Orientation="Vertical">
                                 <iconPacks:PackIconFontAwesome Width="30" Height="30" Kind="DesktopSolid" HorizontalAlignment="Center"/>
                                 <TextBlock Text="导出" HorizontalAlignment="Center" Margin="0,5,0,0"/>
                             </StackPanel>
                         </Button>
-                        <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Command="{Binding DeleteCommand}" IsEnabled="{Binding IsEnableExport,Mode=TwoWay}" Visibility="{Binding IsShowDelete,Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Command="{Binding DeleteCommand}" IsEnabled="{Binding IsEnableExport,Mode=TwoWay}">
                             <StackPanel Orientation="Vertical">
                                 <iconPacks:PackIconFontAwesome Width="30" Height="30" Kind="DesktopSolid" HorizontalAlignment="Center"/>
                                 <TextBlock Text="删除" HorizontalAlignment="Center" Margin="0,5,0,0"/>
@@ -61,23 +56,32 @@
                 </StackPanel>
             </Border>
             <GroupBox Grid.Row="1" Header="测试数据列表" Margin="0,2,0,2">
-                <DataGrid Grid.Row="1" Style="{DynamicResource AzureDataGrid}" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Extended">
+                <DataGrid Grid.Row="1" ItemsSource="{Binding TestRecordList}" SelectedValue="{Binding SelectedTestInfo}" Style="{DynamicResource AzureDataGrid}" 
+                          HorizontalContentAlignment="Center" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single">
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="序号" Binding="{Binding SequenceNumber}"/>
-                        <DataGridTextColumn Header="记录编号" Binding="{Binding RecordNo}"/>
-                        <DataGridTextColumn Header="传感器名称" Binding="{Binding DeviceName}"/>
-                        <DataGridTextColumn Header="出厂编号" Binding="{Binding FactoryNo}"/>
-                        <DataGridTextColumn Header="生产厂商" Binding="{Binding ManufacturerName}"/>
-                        <DataGridTextColumn Header="量程信息" Binding="{Binding RangeString}"/>
-                        <DataGridTextColumn Header="型号规格" Binding="{Binding DeviceModel}"/>
-                        <DataGridTextColumn Header="批次编号" Binding="{Binding BatchNo}"/>
-                        <DataGridTextColumn Header="任务名称" Binding="{Binding TaskName}"/>
-                        <DataGridTextColumn Header="任务模板名称" Binding="{Binding TaskModelName}"/>
-                        <DataGridTextColumn Header="压力类型" Binding="{Binding PressureType}"/>
-                        <DataGridTextColumn Header="测试日期" Binding="{Binding CreateDateString}"/>
-                        <DataGridTextColumn Header="更新日期" Binding="{Binding UpdateDataString}"/>
-                        <DataGridTextColumn Header="测试人员" Binding="{Binding Tester}"/>
-                        <DataGridTextColumn Header="备注" Binding="{Binding Remark}"/>
+                        <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Header="序号" Binding="{Binding SequenceNumber}"/>
+                        <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Header="记录编号" Binding="{Binding RecordSN}"/>
+                        <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Header="设备名称" Binding="{Binding UutName}"/>
+                        <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Header="型号规格" Binding="{Binding UutModule}"/>
+                        <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Header="出厂编号" Binding="{Binding UutSN}"/>
+                        <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Header="生产厂商" Binding="{Binding UutManufacture}"/>
+                        <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Header="用户编号" Binding="{Binding UutCustomSN}"/>
+                        <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Header="精确度(±℃)" Binding="{Binding Accuracy}"/>
+                        <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Header="温度下限(℃)" Binding="{Binding TemperatureLower}"/>
+                        <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Header="温度上限(℃)" Binding="{Binding TemperatureUpper}"/>
+                        <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Header="环境温度(℃)" Binding="{Binding EnvironmentTemperature}"/>
+                        <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Header="环境大气压(千帕)" Binding="{Binding EnvironmentPressure}"/>
+                        <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Header="环境湿度(%)" Binding="{Binding EnvironmentTemperature}"/>
+                        <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Header="测试日期" Binding="{Binding TestDate}"/>
+                        <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Header="测试人员" Binding="{Binding VerifiedBy}"/>
+                        <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Header="核验人员" Binding="{Binding CheckedBy}"/>
+                        <DataGridCheckBoxColumn Header="温度偏差" Binding="{Binding TempDepartureIsChecked}"/>
+                        <DataGridCheckBoxColumn Header="温度均匀度" Binding="{Binding TempAverageIsChecked}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </GroupBox>
@@ -103,8 +107,6 @@
                 </Grid>
             </Controls:Flyout>
         </Controls:FlyoutsControl>
-        <Controls:ProgressRing Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Visibility="Visible" HorizontalAlignment="Center" VerticalAlignment="Center"
-                                        Width="40" Height="40" />
     </Grid>
     
 </Controls:MetroWindow>

@@ -7,7 +7,7 @@ namespace THTS.DataAccess
     /// <summary>
     /// 基本测试参数
     /// </summary>
-    public class TestInfo : INotifyPropertyChanged
+    public class TestInfo : INotifyPropertyChanged, ISequencedObject
     {
         public int Id { get; set; }
         public string Company { get; set; }
@@ -29,10 +29,12 @@ namespace THTS.DataAccess
         public string TestDate { get; set; }
         public int TemperatureDeparture { get; set; }
         public int TemperatureAverage { get; set; }
+        public int IsDeleted { get; set; }
 
         public TestInfo()
         {
             this.RegisterPropertyChangedHandler(() => PropertyChanged);
+            this.IsDeleted = 0;
         }
 
         [NotMapped]
@@ -68,6 +70,22 @@ namespace THTS.DataAccess
         public event PropertyChangedEventHandler PropertyChanged;
 
         #endregion
-        
+
+        #region ISequencedObject 成员
+        [NotMapped]
+        public int SequenceNumber
+        {
+            get
+            {
+                return this.GetBackingValue(() => this.SequenceNumber);
+            }
+            set
+            {
+                this.SetBackingValue(() => this.SequenceNumber, value);
+            }
+        }
+
+        #endregion
+
     }
 }

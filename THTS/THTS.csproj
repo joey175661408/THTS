@@ -156,6 +156,7 @@
     <Compile Include="DataAccess\EntityDAO\DeviceDAO.cs" />
     <Compile Include="DataAccess\Entity\Device.cs" />
     <Compile Include="DataAccess\Entity\TestData.cs" />
+    <Compile Include="DataAccess\Entity\TestDataResult.cs" />
     <Compile Include="DataAccess\Entity\User.cs" />
     <Compile Include="DataAccess\EntityDAO\UserDAO.cs" />
     <Compile Include="DataAccess\Mapping.cs" />
@@ -171,6 +172,11 @@
     <Compile Include="DataCenter\DataCenterSearch.xaml.cs">
       <DependentUpon>DataCenterSearch.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataCenter\DataCenterViewModel.cs" />
+    <Compile Include="DataCenter\DataDetailView.xaml.cs">
+      <DependentUpon>DataDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataCenter\DataDetailViewModel.cs" />
     <Compile Include="DataModule\EnumUnit.cs" />
     <Compile Include="DataModule\TestPositionModule.cs" />
     <Compile Include="DataModule\TestTemperatureModule.cs" />
@@ -251,6 +257,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DataCenter\DataCenterSearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DataCenter\DataDetailView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
