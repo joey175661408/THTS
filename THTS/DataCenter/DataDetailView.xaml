@@ -9,6 +9,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:THTS.DataCenter"
     mc:Ignorable="d"
+    BorderBrush="{DynamicResource AccentColorBrush}"
     WindowStartupLocation="CenterScreen"
     Title="数据记录" Height="768" Width="1024" WindowState="Maximized">
 
@@ -219,14 +220,21 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="5"/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="350"/>
             <RowDefinition Height="5"/>
-            <RowDefinition Height="3*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="5"/>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="5"/>
+        </Grid.ColumnDefinitions>
         
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" Grid.Column="1">
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="5"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="5"/>
@@ -234,8 +242,8 @@
                 <ColumnDefinition Width="5"/>
             </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical">
-                <GroupBox Header="被检仪器信息">
+            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" IsEnabled="False">
+                <GroupBox Header="被检仪器信息" Height="340">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="5"/>
@@ -260,8 +268,8 @@
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="10"/>
-                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="送检单位" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                         <TextBox Text="{Binding Info.Company,Mode=TwoWay}" Width="200" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
@@ -273,31 +281,32 @@
                         <TextBox Text="{Binding Info.UutSN,Mode=TwoWay}" Width="200" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                         <TextBlock Text="生产厂家" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                         <TextBox Text="{Binding Info.UutManufacture,Mode=TwoWay}" Width="200" Grid.Row="9" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Text="设备统一编号" Grid.Row="11" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Info.UutCustomSN,Mode=TwoWay}" Width="200" Grid.Row="11" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBlock Text="校准地点" Grid.Row="11" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBox Text="{Binding Info.UutCalPosition,Mode=TwoWay}" Width="200" Grid.Row="11" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                         <TextBlock Text="精确度（±℃）" Grid.Row="13" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                         <TextBox Text="{Binding Info.Accuracy,Mode=TwoWay}" Width="200" Grid.Row="13" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                         <TextBlock Text="下限温度（℃）" Grid.Row="15" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                         <TextBox Text="{Binding Info.TemperatureLower,Mode=TwoWay}" Width="200" Grid.Row="15" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Text="上线温度（℃）" Grid.Row="17" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBlock Text="上限温度（℃）" Grid.Row="17" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                         <TextBox Text="{Binding Info.TemperatureUpper,Mode=TwoWay}" Width="200" Grid.Row="17" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                     </Grid>
                 </GroupBox>
-                <GroupBox Header="测试项目">
-                    <StackPanel Orientation="Horizontal">
-                        <Label/>
-                        <CheckBox IsChecked="{Binding Info.TempDepartureIsChecked}" Content="温度偏差" Margin="10,0,0,0"/>
-                        <Label/>
-                        <CheckBox IsChecked="{Binding Info.TempAverageIsChecked}" Content="温度波动度及均匀度" Margin="10,0,0,0"/>
-                        <Label/>
-                    </StackPanel>
-                </GroupBox>
             </StackPanel>
 
-            <StackPanel Grid.Row="1" Grid.Column="3" Orientation="Vertical">
-                <GroupBox Header="测试环境条件">
+            <StackPanel Grid.Row="1" Grid.Column="3" Orientation="Vertical" IsEnabled="False">
+                <GroupBox Header="测试信息" Height="340">
                     <Grid>
                         <Grid.RowDefinitions>
+                            <RowDefinition Height="5"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="5"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="5"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="5"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="5"/>
+                            <RowDefinition Height="*"/>
                             <RowDefinition Height="5"/>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="5"/>
@@ -308,19 +317,31 @@
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="10"/>
-                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="温度（℃）" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                         <TextBox Text="{Binding Info.EnvironmentTemperature,Mode=TwoWay}" Width="200" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Text="气压（千帕）" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBlock Text="气压（kPa）" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                         <TextBox Text="{Binding Info.EnvironmentPressure,Mode=TwoWay}" Width="200" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Text="相对湿度（%）" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBlock Text="湿度（%RH）" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                         <TextBox Text="{Binding Info.EnvironmentHumidity,Mode=TwoWay}" Width="200" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBlock Text="检定员" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBox Text="{Binding Info.VerifiedBy,Mode=TwoWay}" Width="200" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBlock Text="核验员" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBox Text="{Binding Info.CheckedBy,Mode=TwoWay}" Width="200" Grid.Row="9" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBlock Text="测试时间" Grid.Row="11" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <DatePicker Text="{Binding Info.TestDate,Mode=TwoWay}" Width="200" Grid.Row="11" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBlock Text="记录编号" Grid.Row="13" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBox Text="{Binding Info.RecordSN,Mode=TwoWay}" Width="200" Grid.Row="13" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBlock Text="证书编号" Grid.Row="15" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBox Text="{Binding Info.CertificateSN,Mode=TwoWay}" Width="200" Grid.Row="15" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                     </Grid>
                 </GroupBox>
+            </StackPanel>
 
-                <GroupBox Header="证书信息">
+            <StackPanel Grid.Row="1" Grid.Column="5" Orientation="Vertical">
+                <GroupBox Header="测试项目">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="5"/>
@@ -331,44 +352,25 @@
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="10"/>
-                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="记录编号" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Info.RecordSN,Mode=TwoWay}" Width="200" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Text="证书编号" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Info.CertificateSN,Mode=TwoWay}" Width="200" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <CheckBox Grid.Row="1" Grid.Column="0" IsChecked="{Binding Info.TempDepartureIsChecked}" Content="温度偏差" Margin="10,0,0,0"/>
+                        <CheckBox Grid.Row="1" Grid.Column="2" IsChecked="{Binding Info.TempAverageIsChecked}" Content="温度波动度及均匀度" Margin="10,0,0,0"/>
+                        <CheckBox Grid.Row="3" Grid.Column="0" IsChecked="{Binding Info.HumiDepartureIsChecked}" Content="湿度偏差" Margin="10,0,0,0"/>
+                        <CheckBox Grid.Row="3" Grid.Column="2" IsChecked="{Binding Info.HumiAverageIsChecked}" Content="湿度波动度及均匀度" Margin="10,0,0,0"/>
                     </Grid>
                 </GroupBox>
-                <GroupBox Header="测试信息">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="5"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="10"/>
-                            <ColumnDefinition Width="3*"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Text="检定员" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Info.VerifiedBy,Mode=TwoWay}" Width="200" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Text="核验员" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Info.CheckedBy,Mode=TwoWay}" Width="200" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Text="测试时间" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <DatePicker Text="{Binding Info.TestDate,Mode=TwoWay}" Width="200" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                    </Grid>
-                </GroupBox>
-
+                
+                <Label/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Content="导出报告" Width="100" Height="30" Command="{Binding ExportRecordCommand}"/>
+                </StackPanel>
             </StackPanel>
         </Grid>
 
-        <Controls:MetroTabControl Grid.Row="3" ItemsSource="{Binding ResultList}">
+        <Controls:MetroTabControl Grid.Row="3" Grid.Column="1" ItemsSource="{Binding ResultList}" Margin="10,0,0,0"
+                                  MaxWidth="1342" HorizontalAlignment="Left">
             <Controls:MetroTabControl.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding TemperatureTitle}"/>
@@ -380,30 +382,30 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="30"/>
                             <RowDefinition Height="*"/>
-                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="60"/>
                         </Grid.RowDefinitions>
                         
-                        <Grid Grid.Row="0" HorizontalAlignment="Left">
+                        <Grid Grid.Row="0">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="20"/>
                                 <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="2*"/>
                                 <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
-                                <Label Content="标称温度" HorizontalContentAlignment="Right"/>
-                                <Label Content="{Binding TemperatureValue}" HorizontalContentAlignment="Center"/>
-                                <Label Content="℃" HorizontalContentAlignment="Left"/>
+                                <Label FontSize="18" Content="标称温度" HorizontalContentAlignment="Left"/>
+                                <Label FontSize="18" Content="{Binding TemperatureValue}" Width="80" HorizontalContentAlignment="Center"/>
+                                <Label FontSize="18" Content="℃" HorizontalContentAlignment="Left"/>
                             </StackPanel>
                             <StackPanel Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Center">
-                                <Label Content="标称湿度" HorizontalContentAlignment="Right"/>
-                                <Label Content="{Binding HumidityValue}" HorizontalContentAlignment="Center"/>
-                                <Label Content="%RH" HorizontalContentAlignment="Left"/>
+                                <Label FontSize="18" Content="标称湿度" HorizontalContentAlignment="Left"/>
+                                <Label FontSize="18" Content="{Binding HumidityValue}" Width="80" HorizontalContentAlignment="Center"/>
+                                <Label FontSize="18" Content="%RH" HorizontalContentAlignment="Left"/>
                             </StackPanel>
                         </Grid>
                         
-                        <DataGrid Grid.Row="1" AutoGenerateColumns="False" HeadersVisibility="Column" SelectionUnit="FullRow" ColumnHeaderHeight="50" 
+                        <DataGrid Grid.Row="1" AutoGenerateColumns="False" HeadersVisibility="Column" SelectionUnit="FullRow" ColumnHeaderHeight="50" IsReadOnly="True"
                                               BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="1" Width="auto" ItemsSource="{Binding DataList}"
                                               GridLinesVisibility="All" HorizontalGridLinesBrush="AliceBlue" VerticalGridLinesBrush="AliceBlue" 
                                               ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
@@ -495,49 +497,49 @@
                             </DataGrid.Columns>
                         </DataGrid>
 
-                        <Grid Grid.Row="2" HorizontalAlignment="Center">
+                        <Grid Grid.Row="2">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="5"/>
                                 <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="5"/>
+                                <ColumnDefinition Width="2*"/>
                                 <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="5"/>
+                                <ColumnDefinition Width="2*"/>
                                 <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="5"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
-                                <Label Content="温度偏差" HorizontalContentAlignment="Right"/>
-                                <Label Content="{Binding TemperatureDepartureValue}" HorizontalContentAlignment="Center"/>
-                                <Label Content="℃" HorizontalContentAlignment="Left"/>
+                            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                                <Label FontSize="18" Content="温度偏差" HorizontalContentAlignment="Left"/>
+                                <Label FontSize="18" Content="{Binding TemperatureDepartureValue}" Width="80" HorizontalContentAlignment="Center"/>
+                                <Label FontSize="18" Content="℃" HorizontalContentAlignment="Left"/>
                             </StackPanel>
-                            <StackPanel Grid.Row="0" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Center">
-                                <Label Content="温度均匀度" HorizontalContentAlignment="Right"/>
-                                <Label Content="{Binding TemperatureAverageValue}" HorizontalContentAlignment="Center"/>
-                                <Label Content="℃" HorizontalContentAlignment="Left"/>
+                            <StackPanel Grid.Row="0" Grid.Column="3" Orientation="Horizontal" >
+                                <Label FontSize="18" Content="温度均匀度" HorizontalContentAlignment="Left"/>
+                                <Label FontSize="18" Content="{Binding TemperatureAverageValue}" Width="80" HorizontalContentAlignment="Center"/>
+                                <Label FontSize="18" Content="℃" HorizontalContentAlignment="Left"/>
                             </StackPanel>
-                            <StackPanel Grid.Row="0" Grid.Column="5" Orientation="Horizontal" HorizontalAlignment="Center">
-                                <Label Content="温度波动度" HorizontalContentAlignment="Right"/>
-                                <Label Content="{Binding TemperatureFluctuationValue}" HorizontalContentAlignment="Center"/>
-                                <Label Content="℃" HorizontalContentAlignment="Left"/>
+                            <StackPanel Grid.Row="0" Grid.Column="5" Orientation="Horizontal" >
+                                <Label FontSize="18" Content="温度波动度" HorizontalContentAlignment="Left"/>
+                                <Label FontSize="18" Content="{Binding TemperatureFluctuationValue}" Width="80" HorizontalContentAlignment="Center"/>
+                                <Label FontSize="18" Content="℃" HorizontalContentAlignment="Left"/>
                             </StackPanel>
-                            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
-                                <Label Content="湿度偏差" HorizontalContentAlignment="Right"/>
-                                <Label Content="{Binding HumidityDepartureValue}" HorizontalContentAlignment="Center"/>
-                                <Label Content="%RH" HorizontalContentAlignment="Left"/>
+                            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                                <Label FontSize="18" Content="湿度偏差" HorizontalContentAlignment="Left"/>
+                                <Label FontSize="18" Content="{Binding HumidityDepartureValue}" Width="80" HorizontalContentAlignment="Center"/>
+                                <Label FontSize="18" Content="%RH" HorizontalContentAlignment="Left"/>
                             </StackPanel>
-                            <StackPanel Grid.Row="1" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Center">
-                                <Label Content="湿度均匀度" HorizontalContentAlignment="Right"/>
-                                <Label Content="{Binding HumidityAverageValue}" HorizontalContentAlignment="Center"/>
-                                <Label Content="%RH" HorizontalContentAlignment="Left"/>
+                            <StackPanel Grid.Row="1" Grid.Column="3" Orientation="Horizontal">
+                                <Label FontSize="18" Content="湿度均匀度" HorizontalContentAlignment="Left"/>
+                                <Label FontSize="18" Content="{Binding HumidityAverageValue}" Width="80" HorizontalContentAlignment="Center"/>
+                                <Label FontSize="18" Content="%RH" HorizontalContentAlignment="Left"/>
                             </StackPanel>
-                            <StackPanel Grid.Row="1" Grid.Column="5" Orientation="Horizontal" HorizontalAlignment="Center">
-                                <Label Content="湿度波动度" HorizontalContentAlignment="Right"/>
-                                <Label Content="{Binding HumidityFluctuationValue}" HorizontalContentAlignment="Center"/>
-                                <Label Content="%RH" HorizontalContentAlignment="Left"/>
+                            <StackPanel Grid.Row="1" Grid.Column="5" Orientation="Horizontal">
+                                <Label FontSize="18" Content="湿度波动度" HorizontalContentAlignment="Left"/>
+                                <Label FontSize="18" Content="{Binding HumidityFluctuationValue}" Width="80" HorizontalContentAlignment="Center"/>
+                                <Label FontSize="18" Content="%RH" HorizontalContentAlignment="Left"/>
                             </StackPanel>
                         </Grid>
                     </Grid>

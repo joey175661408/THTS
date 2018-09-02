@@ -11,8 +11,7 @@ using System.Data;
 using NPOI.SS.UserModel;
 using System.Collections.ObjectModel;
 using THTS.DataAccess;
-
-
+using THTS.DataAccess.Entity;
 
 namespace THTS
 {
@@ -32,6 +31,21 @@ namespace THTS
                 }
 
                 return hssfworkbook;
+            }
+
+            set { hssfworkbook = value; }
+        }
+
+        /// <summary>
+        /// 从Excel模板读取数据
+        /// </summary>
+        /// <param name="filePath"></param>
+        public void ReadFromExcelTemplate(string filePath)
+        {
+            using (FileStream file = new FileStream(filePath, FileMode.Open, FileAccess.Read))  //路径，打开权限，读取权限
+            {
+                hssfworkbook = new HSSFWorkbook(file);
+                file.Close();
             }
         }
 
@@ -164,6 +178,108 @@ namespace THTS
                     SetCellValue(cell, new NPOIValue(row.RowNum, cell.ColumnIndex, (double)valueList[colIndex].SensorValue));
                 }
             }
+            return true;
+        }
+
+        /// <summary>
+        /// 设置测试结果数据
+        /// </summary>
+        /// <param name="Info"></param>
+        /// <param name="ResultList"></param>
+        /// <returns></returns>
+        public bool SetTestResultValue(TestInfo Info, ObservableCollection<TestDataResult> ResultList)
+        {
+            ISheet sheet = GetOrCreateSheet("Source");
+            IRow row = GetOrCreateRow(sheet, 1);
+            ICell cell0 = GetOrCreateColumn(row, 0);
+            cell0.SetCellValue(Info.Company);
+            ICell cell1 = GetOrCreateColumn(row, 1);
+            cell1.SetCellValue(Info.UutName);
+            ICell cell2 = GetOrCreateColumn(row, 2);
+            cell2.SetCellValue(Info.UutModule);
+            ICell cell3 = GetOrCreateColumn(row, 3);
+            cell3.SetCellValue(Info.UutSN);
+            ICell cell4 = GetOrCreateColumn(row, 4);
+            cell4.SetCellValue(Info.UutManufacture);
+            ICell cell5 = GetOrCreateColumn(row, 5);
+            cell5.SetCellValue(Info.UutCalPosition);
+            ICell cell6 = GetOrCreateColumn(row, 6);
+            cell6.SetCellValue(Info.Accuracy);
+            ICell cell7 = GetOrCreateColumn(row, 7);
+            cell7.SetCellValue(Info.TemperatureLower);
+            ICell cell8 = GetOrCreateColumn(row, 8);
+            cell8.SetCellValue(Info.TemperatureUpper);
+            ICell cell9 = GetOrCreateColumn(row, 9);
+            cell9.SetCellValue(Info.EnvironmentTemperature);
+            ICell cell10 = GetOrCreateColumn(row, 10);
+            cell10.SetCellValue(Info.EnvironmentPressure);
+            ICell cell11 = GetOrCreateColumn(row, 11);
+            cell11.SetCellValue(Info.EnvironmentHumidity);
+            ICell cell12 = GetOrCreateColumn(row, 12);
+            cell12.SetCellValue(Info.VerifiedBy);
+            ICell cell13 = GetOrCreateColumn(row, 13);
+            cell13.SetCellValue(Info.CheckedBy);
+            ICell cell14 = GetOrCreateColumn(row, 14);
+            cell14.SetCellValue(Info.TestDate);
+            ICell cell15 = GetOrCreateColumn(row, 15);
+            cell15.SetCellValue(Info.RecordSN);
+            ICell cell16 = GetOrCreateColumn(row, 16);
+            cell16.SetCellValue(Info.CertificateSN);
+
+
+            for (int i = 0; i < ResultList.Count; i++)
+            {
+                IRow rowI = GetOrCreateRow(sheet, i * 25 + 5);
+                ICell cellI0 = GetOrCreateColumn(rowI, 0);
+                cellI0.SetCellValue(ResultList[i].TemperatureValue);
+                ICell cellI1 = GetOrCreateColumn(rowI, 1);
+                cellI1.SetCellValue(ResultList[i].HumidityValue);
+                ICell cellI2 = GetOrCreateColumn(rowI, 2);
+                cellI2.SetCellValue(ResultList[i].TemperatureDepartureValue);
+                ICell cellI3 = GetOrCreateColumn(rowI, 3);
+                cellI3.SetCellValue(ResultList[i].TemperatureAverageValue);
+                ICell cellI4 = GetOrCreateColumn(rowI, 4);
+                cellI4.SetCellValue(ResultList[i].TemperatureFluctuationValue);
+                ICell cellI5 = GetOrCreateColumn(rowI, 5);
+                cellI5.SetCellValue(ResultList[i].HumidityDepartureValue);
+                ICell cellI6 = GetOrCreateColumn(rowI, 6);
+                cellI6.SetCellValue(ResultList[i].HumidityAverageValue);
+                ICell cellI7 = GetOrCreateColumn(rowI, 7);
+                cellI7.SetCellValue(ResultList[i].HumidityFluctuationValue);
+
+                for (int j = 0; j < ResultList[i].DataList.Count; j++)
+                {
+                    IRow rowJ = GetOrCreateRow(sheet, i * 25 + 5 + 2 + j);
+                    GetOrCreateColumn(rowJ, 0).SetCellValue(ResultList[i].DataList[j].Time);
+                    GetOrCreateColumn(rowJ, 1).SetCellValue(ResultList[i].DataList[j].Count);
+                    GetOrCreateColumn(rowJ, 2).SetCellValue(ResultList[i].DataList[j].DeviceTemperature);
+                    GetOrCreateColumn(rowJ, 3).SetCellValue(ResultList[i].DataList[j].DeviceHumidity);
+                    GetOrCreateColumn(rowJ, 4).SetCellValue(ResultList[i].DataList[j].StringA);
+                    GetOrCreateColumn(rowJ, 5).SetCellValue(ResultList[i].DataList[j].StringB);
+                    GetOrCreateColumn(rowJ, 6).SetCellValue(ResultList[i].DataList[j].StringC);
+                    GetOrCreateColumn(rowJ, 7).SetCellValue(ResultList[i].DataList[j].StringD);
+                    GetOrCreateColumn(rowJ, 8).SetCellValue(ResultList[i].DataList[j].StringE);
+                    GetOrCreateColumn(rowJ, 9).SetCellValue(ResultList[i].DataList[j].StringF);
+                    GetOrCreateColumn(rowJ, 10).SetCellValue(ResultList[i].DataList[j].StringG);
+                    GetOrCreateColumn(rowJ, 11).SetCellValue(ResultList[i].DataList[j].StringH);
+                    GetOrCreateColumn(rowJ, 12).SetCellValue(ResultList[i].DataList[j].StringI);
+                    GetOrCreateColumn(rowJ, 13).SetCellValue(ResultList[i].DataList[j].StringJ);
+                    GetOrCreateColumn(rowJ, 14).SetCellValue(ResultList[i].DataList[j].StringK);
+                    GetOrCreateColumn(rowJ, 15).SetCellValue(ResultList[i].DataList[j].StringL);
+                    GetOrCreateColumn(rowJ, 16).SetCellValue(ResultList[i].DataList[j].StringM);
+                    GetOrCreateColumn(rowJ, 17).SetCellValue(ResultList[i].DataList[j].StringN);
+                    GetOrCreateColumn(rowJ, 18).SetCellValue(ResultList[i].DataList[j].StringO);
+                    GetOrCreateColumn(rowJ, 19).SetCellValue(ResultList[i].DataList[j].StringMaxT);
+                    GetOrCreateColumn(rowJ, 20).SetCellValue(ResultList[i].DataList[j].StringMinT);
+                    GetOrCreateColumn(rowJ, 21).SetCellValue(ResultList[i].DataList[j].StringJia);
+                    GetOrCreateColumn(rowJ, 22).SetCellValue(ResultList[i].DataList[j].StringYi);
+                    GetOrCreateColumn(rowJ, 23).SetCellValue(ResultList[i].DataList[j].StringBing);
+                    GetOrCreateColumn(rowJ, 24).SetCellValue(ResultList[i].DataList[j].StringDing);
+                }
+
+            }
+
+
             return true;
         }
 

@@ -36,7 +36,7 @@
                         <ColumnDefinition Width="10"/>
                         <ColumnDefinition Width="3*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="送检单位" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBlock Text="委托单位" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                     <TextBox Text="{Binding Info.Company,Mode=TwoWay}" Width="200" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 </Grid>
             </GroupBox>
@@ -66,7 +66,7 @@
                         <ColumnDefinition Width="10"/>
                         <ColumnDefinition Width="3*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="设备名称" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBlock Text="仪器名称" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                     <TextBox Text="{Binding Info.UutName,Mode=TwoWay}" Width="200" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                     <TextBlock Text="型号/规格" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                     <TextBox Text="{Binding Info.UutModule,Mode=TwoWay}" Width="200" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
@@ -74,17 +74,17 @@
                     <TextBox Text="{Binding Info.UutSN,Mode=TwoWay}" Width="200" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                     <TextBlock Text="生产厂家" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                     <TextBox Text="{Binding Info.UutManufacture,Mode=TwoWay}" Width="200" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                    <TextBlock Text="设备统一编号" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    <TextBox Text="{Binding Info.UutCustomSN,Mode=TwoWay}" Width="200" Grid.Row="9" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBlock Text="校准地点" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBox Text="{Binding Info.UutCalPosition,Mode=TwoWay}" Width="200" Grid.Row="9" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                     <TextBlock Text="精确度（±℃）" Grid.Row="11" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                     <TextBox Text="{Binding Info.Accuracy,Mode=TwoWay}" Width="200" Grid.Row="11" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                     <TextBlock Text="下限温度（℃）" Grid.Row="13" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                     <TextBox Text="{Binding Info.TemperatureLower,Mode=TwoWay}" Width="200" Grid.Row="13" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                    <TextBlock Text="上线温度（℃）" Grid.Row="15" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBlock Text="上限温度（℃）" Grid.Row="15" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                     <TextBox Text="{Binding Info.TemperatureUpper,Mode=TwoWay}" Width="200" Grid.Row="15" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 </Grid>
             </GroupBox>
-            <GroupBox Header="测试环境条件">
+            <GroupBox Header="测试环境">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="5"/>
@@ -102,9 +102,9 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock Text="温度（℃）" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                     <TextBox Text="{Binding Info.EnvironmentTemperature,Mode=TwoWay}" Width="200" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                    <TextBlock Text="气压（千帕）" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBlock Text="气压（kPa）" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                     <TextBox Text="{Binding Info.EnvironmentPressure,Mode=TwoWay}" Width="200" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                    <TextBlock Text="相对湿度（%）" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBlock Text="湿度（%RH）" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                     <TextBox Text="{Binding Info.EnvironmentHumidity,Mode=TwoWay}" Width="200" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 </Grid>
             </GroupBox>
@@ -162,6 +162,10 @@
                     <CheckBox IsChecked="{Binding Info.TempDepartureIsChecked}" Content="温度偏差" Margin="10,0,0,0"/>
                     <Label/>
                     <CheckBox IsChecked="{Binding Info.TempAverageIsChecked}" Content="温度波动度及均匀度" Margin="10,0,0,0"/>
+                    <Label/>
+                    <CheckBox IsChecked="{Binding Info.HumiDepartureIsChecked}" Content="湿度偏差" Margin="10,0,0,0"/>
+                    <Label/>
+                    <CheckBox IsChecked="{Binding Info.HumiAverageIsChecked}" Content="湿度波动度及均匀度" Margin="10,0,0,0"/>
                     <Label/>
                 </StackPanel>
             </GroupBox>

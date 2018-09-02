@@ -16,6 +16,7 @@ namespace THTS.DataAccess
         public string UutSN { get; set; }
         public string UutManufacture { get; set; }
         public string UutCustomSN { get; set; }
+        public string UutCalPosition { get; set; }
         public string Accuracy { get; set; }
         public string TemperatureLower { get; set; }
         public string TemperatureUpper { get; set; }
@@ -29,11 +30,25 @@ namespace THTS.DataAccess
         public string TestDate { get; set; }
         public int TemperatureDeparture { get; set; }
         public int TemperatureAverage { get; set; }
+        public int HumidityDeparture { get; set; }
+        public int HumidityAverage { get; set; }
         public int IsDeleted { get; set; }
+        public string Extra1 { get; set; }
+        public string Extra2 { get; set; }
+        public string Extra3 { get; set; }
+        public string Extra4 { get; set; }
+        public string Extra5 { get; set; }
+        public string Extra6 { get; set; }
+        public string Extra7 { get; set; }
+        public string Extra8 { get; set; }
+        public string Extra9 { get; set; }
+        public string Extra10 { get; set; }
 
         public TestInfo()
         {
             this.RegisterPropertyChangedHandler(() => PropertyChanged);
+            this.HumidityDeparture = 0;
+            this.HumidityAverage = 0;
             this.IsDeleted = 0;
         }
 
@@ -62,6 +77,34 @@ namespace THTS.DataAccess
             set
             {
                 TemperatureAverage = value.HasValue && value.Value ? 1 : 0;
+            }
+        }
+
+        [NotMapped]
+        public bool? HumiDepartureIsChecked
+        {
+            get
+            {
+                return HumidityDeparture == 1;
+            }
+
+            set
+            {
+                HumidityDeparture = value.HasValue && value.Value ? 1 : 0;
+            }
+        }
+
+        [NotMapped]
+        public bool? HumiAverageIsChecked
+        {
+            get
+            {
+                return HumidityAverage == 1;
+            }
+
+            set
+            {
+                HumidityAverage = value.HasValue && value.Value ? 1 : 0;
             }
         }
 

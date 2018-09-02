@@ -67,6 +67,7 @@ namespace THTS.DataAccess.EntityDAO
                     test.UutSN = "T20180101001";
                     test.UutManufacture = "北京YY有限公司";
                     test.UutCustomSN = "CSN001";
+                    test.UutCalPosition = "北京博芮思元仪表科技有限公司";
                     test.Accuracy = "1";
                     test.TemperatureLower = "-40";
                     test.TemperatureUpper = "120";
@@ -80,10 +81,12 @@ namespace THTS.DataAccess.EntityDAO
 
                     test.VerifiedBy = "张三";
                     test.CheckedBy = "李四";
-                    test.TestDate = "2018-08-08";
+                    test.TestDate = DateTime.Now.ToString("yyyy-MM-dd");
 
                     test.TempAverageIsChecked = true;
                     test.TempDepartureIsChecked = true;
+                    test.HumiDepartureIsChecked = false;
+                    test.HumiAverageIsChecked = false;
 
                     return test;
                 }

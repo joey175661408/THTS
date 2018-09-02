@@ -33,6 +33,7 @@ namespace THTS.TestCenter
 
             Info = DataAccess.EntityDAO.TestInfoDAO.GetTestInfoData();
             Info.RecordSN = DateTime.Now.ToString("yyyyMMddHHmmss");
+            Info.TestDate = DateTime.Now.ToString("yyyy-MM-dd");
         }
 
         #region 方法
