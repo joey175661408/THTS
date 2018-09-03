@@ -42,6 +42,13 @@ namespace THTS.TestCenter
         /// </summary>
         private void Start()
         {
+            if(Info.TemperatuerVisibility == System.Windows.Visibility.Collapsed &&
+                Info.HumidityVisibility == System.Windows.Visibility.Collapsed)
+            {
+                System.Windows.MessageBox.Show("无测试项目！");
+                return;
+            }
+
             if (!DataAccess.EntityDAO.TestInfoDAO.SaveOrUpdate(Info))
             {
                 System.Windows.MessageBox.Show("测试信息保存失败！此记录编号已存在！");

@@ -30,6 +30,16 @@ namespace THTS.DataCenter
             set { _info = value; OnPropertyChanged(); }
         }
 
+        private TemperatureTolerance _toleranceInfo = new TemperatureTolerance();
+        /// <summary>
+        /// 当前测试信息
+        /// </summary>
+        public TemperatureTolerance ToleranceInfo
+        {
+            get { return _toleranceInfo; }
+            set { _toleranceInfo = value; OnPropertyChanged(); }
+        }
+
         private ObservableCollection<TestDataResult> _resultList = new ObservableCollection<TestDataResult>();
         /// <summary>
         /// 最终结果数据
@@ -45,6 +55,8 @@ namespace THTS.DataCenter
         public DataDetailViewModel(TestInfo testinfo)
         {
             Info = testinfo;
+
+            ToleranceInfo = TemperatureToleranceDAO.GetToleranceInfoData(testinfo.RecordSN);
 
             EditCommand = new DelegateCommand(Edit);
             ExportRecordCommand = new DelegateCommand(Export);
@@ -113,7 +125,7 @@ namespace THTS.DataCenter
                     helper.ReadFromExcelTemplate(@".\Template\TemperatureAndHumidity9.xls");
                     helper.SetTestResultValue(Info, ResultList);
 
-                    helper.WriteToFile(save.FileName, false);
+                    helper.WriteToFile(save.FileName, true);
                     MessageBox.Show("导出成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)

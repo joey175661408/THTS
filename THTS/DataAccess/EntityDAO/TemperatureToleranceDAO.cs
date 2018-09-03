@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Data.Entity;
 
 namespace THTS.DataAccess.EntityDAO
@@ -23,7 +24,8 @@ namespace THTS.DataAccess.EntityDAO
                 if (ctx.TemperatureTolerances.Local.Count > 0)
                 {
                     return ctx.TemperatureTolerances.Local[0];
-                }else
+                }
+                else
                 {
                     TemperatureTolerance tolerance = new TemperatureTolerance();
 
@@ -32,6 +34,18 @@ namespace THTS.DataAccess.EntityDAO
 
                     return tolerance;
                 }
+            }
+        }
+
+        /// <summary>
+        /// 获取测试信息
+        /// </summary>
+        public static TemperatureTolerance GetToleranceInfoData(string recordSN)
+        {
+            using (SQLiteDB ctx = new SQLiteDB())
+            {
+                ctx.TemperatureTolerances.Where(t => t.RecordSN == recordSN).Load();
+                return ctx.TemperatureTolerances.Local[0];
             }
         }
 

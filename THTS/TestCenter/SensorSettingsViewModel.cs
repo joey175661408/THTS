@@ -122,6 +122,7 @@ namespace THTS.TestCenter
         {
             ToleranceInfo = DataAccess.EntityDAO.TemperatureToleranceDAO.GetToleranceInfoData();
             ToleranceInfo.RecordSN = Info.RecordSN;
+            ToleranceInfo.Info = Info;
 
             for (int i = 0; i < 10; i++)
             {
@@ -130,6 +131,7 @@ namespace THTS.TestCenter
                     DataModule.TestTemperatureModule module = new DataModule.TestTemperatureModule();
                     module.IsChecked = true;
                     module.TestTemperatureID = "下限";
+                    module.TemperatureValue = Info.TemperatureLower;
                     TestTemperatureList.Add(module);
                 }
                 else if (i == 9)
@@ -137,6 +139,7 @@ namespace THTS.TestCenter
                     DataModule.TestTemperatureModule module = new DataModule.TestTemperatureModule();
                     module.IsChecked = true;
                     module.TestTemperatureID = "上限";
+                    module.TemperatureValue = Info.TemperatureUpper;
                     TestTemperatureList.Add(module);
                 }
                 else
@@ -294,20 +297,23 @@ namespace THTS.TestCenter
                 itemO.TestPositionName = "O";
                 PositionList.Add(itemO);
 
-                TestPositionModule itemJia = new TestPositionModule();
-                itemJia.SensorsList = SensorsList;
-                itemJia.TestPositionName = "甲";
-                PositionList.Add(itemJia);
+                if (ToleranceInfo.Info.HumidityVisibility == Visibility.Visible)
+                {
+                    TestPositionModule itemJia = new TestPositionModule();
+                    itemJia.SensorsList = SensorsList;
+                    itemJia.TestPositionName = "甲";
+                    PositionList.Add(itemJia);
 
-                TestPositionModule itemYi = new TestPositionModule();
-                itemYi.SensorsList = SensorsList;
-                itemYi.TestPositionName = "乙";
-                PositionList.Add(itemYi);
+                    TestPositionModule itemYi = new TestPositionModule();
+                    itemYi.SensorsList = SensorsList;
+                    itemYi.TestPositionName = "乙";
+                    PositionList.Add(itemYi);
 
-                TestPositionModule itemBing = new TestPositionModule();
-                itemBing.SensorsList = SensorsList;
-                itemBing.TestPositionName = "丙";
-                PositionList.Add(itemBing);
+                    TestPositionModule itemBing = new TestPositionModule();
+                    itemBing.SensorsList = SensorsList;
+                    itemBing.TestPositionName = "丙";
+                    PositionList.Add(itemBing);
+                }
 
             }
             else if (SelectedTestPosition.Contains("15"))
@@ -325,25 +331,28 @@ namespace THTS.TestCenter
                     PositionList.Add(item);
                 }
 
-                TestPositionModule itemJia = new TestPositionModule();
-                itemJia.SensorsList = SensorsList;
-                itemJia.TestPositionName = "甲";
-                PositionList.Add(itemJia);
+                if (ToleranceInfo.Info.HumidityVisibility == Visibility.Visible)
+                {
+                    TestPositionModule itemJia = new TestPositionModule();
+                    itemJia.SensorsList = SensorsList;
+                    itemJia.TestPositionName = "甲";
+                    PositionList.Add(itemJia);
 
-                TestPositionModule itemYi = new TestPositionModule();
-                itemYi.SensorsList = SensorsList;
-                itemYi.TestPositionName = "乙";
-                PositionList.Add(itemYi);
+                    TestPositionModule itemYi = new TestPositionModule();
+                    itemYi.SensorsList = SensorsList;
+                    itemYi.TestPositionName = "乙";
+                    PositionList.Add(itemYi);
 
-                TestPositionModule itemBing = new TestPositionModule();
-                itemBing.SensorsList = SensorsList;
-                itemBing.TestPositionName = "丙";
-                PositionList.Add(itemBing);
+                    TestPositionModule itemBing = new TestPositionModule();
+                    itemBing.SensorsList = SensorsList;
+                    itemBing.TestPositionName = "丙";
+                    PositionList.Add(itemBing);
 
-                TestPositionModule itemDing = new TestPositionModule();
-                itemDing.SensorsList = SensorsList;
-                itemDing.TestPositionName = "丁";
-                PositionList.Add(itemDing);
+                    TestPositionModule itemDing = new TestPositionModule();
+                    itemDing.SensorsList = SensorsList;
+                    itemDing.TestPositionName = "丁";
+                    PositionList.Add(itemDing);
+                }
             }
         }
 
@@ -419,6 +428,18 @@ namespace THTS.TestCenter
                 {
                     ToleranceInfo.PositionList[PositionList[i].TestPositionName] = PositionList[i].TestPositionID;
                 }
+            }
+
+            if(ToleranceInfo.Info.TemperatuerVisibility == Visibility.Visible && !ToleranceInfo.PositionList.ContainsKey("O"))
+            {
+                System.Windows.MessageBox.Show("温度中心点位置【O】未放置传感器！");
+                return false;
+            }
+
+            if (ToleranceInfo.Info.HumidityVisibility == Visibility.Visible && !ToleranceInfo.PositionList.ContainsKey("甲"))
+            {
+                System.Windows.MessageBox.Show("湿度中心点位置【甲】未放置传感器！");
+                return false;
             }
 
             return true;

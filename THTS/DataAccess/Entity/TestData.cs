@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Windows;
 using THTS.MVVM;
 
 namespace THTS.DataAccess.Entity
@@ -154,6 +155,37 @@ namespace THTS.DataAccess.Entity
         public string StringMaxT { get { return MaxT.ToString("0.00"); } }
         [NotMapped]
         public string StringMinT { get { return MinT.ToString("0.00"); } }
+
+        [NotMapped]
+        public float MaxH
+        {
+            get
+            {
+                float temp = Jia;
+                temp = Yi == -1000 || Yi < temp ? temp : Yi;
+                temp = Bing == -1000 || Bing < temp ? temp : Bing;
+                temp = Ding == -1000 || Ding < temp ? temp : Ding;
+                return temp;
+            }
+        }
+
+        [NotMapped]
+        public float MinH
+        {
+            get
+            {
+                float temp = Jia;
+                temp = Yi == -1000 || Yi > temp ? temp : Yi;
+                temp = Bing == -1000 || Bing > temp ? temp : Bing;
+                temp = Ding == -1000 || Ding > temp ? temp : Ding;
+                return temp;
+            }
+        }
+
+        [NotMapped]
+        public string StringMaxH { get { return MaxH.ToString("0.00"); } }
+        [NotMapped]
+        public string StringMinH { get { return MinH.ToString("0.00"); } }
 
         #endregion
 

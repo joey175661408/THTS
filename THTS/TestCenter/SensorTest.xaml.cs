@@ -12,6 +12,15 @@ namespace THTS.TestCenter
 {
     public partial class SensorTest
     {
+
+        public SensorTest(TemperatureTolerance tolerance)
+        {
+            InitializeComponent();
+            this.DataContext = new SensorTestViewModel(tolerance);
+
+            //this.lineTemperature.DataSource = TemperatureCollections;
+        }
+
         ObservableDataSource<Point> _TemperatureCollections = new ObservableDataSource<Point>();
         /// <summary>
         /// 温度曲线数据源
@@ -26,14 +35,6 @@ namespace THTS.TestCenter
         /// 停止采样
         /// </summary>
         private bool Stop = false;
-
-        public SensorTest(TemperatureTolerance tolerance)
-        {
-            InitializeComponent();
-            this.DataContext = new SensorTestViewModel(tolerance);
-
-            this.lineTemperature.DataSource = TemperatureCollections;
-        }
 
         /// <summary>
         /// 获取实时数据
@@ -83,5 +84,25 @@ namespace THTS.TestCenter
             thrP.SetApartmentState(ApartmentState.STA);
             thrP.Start();
         }
+    }
+
+    public class BindingProxy : Freezable
+    {
+        protected override Freezable CreateInstanceCore()
+        {
+            return new BindingProxy();
+        }
+
+        public object Data
+        {
+            get { return (object)GetValue(DataProperty); }
+            set { SetValue(DataProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for Data.
+        // This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty DataProperty =
+            DependencyProperty.Register("Data", typeof(object),
+            typeof(BindingProxy), new UIPropertyMetadata(null));
     }
 }

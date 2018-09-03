@@ -134,10 +134,10 @@
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="温度/℃"/>
-                        <TextBlock Grid.Row="1" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Text="湿度/%"/>
+                        <TextBlock x:Name="humidity" Grid.Row="1" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Text="湿度/%" Visibility="{Binding ToleranceInfo.Info.HumidityVisibility}"/>
                     </Grid>
                     
-                    <ListBox ItemsSource="{Binding TestTemperatureList}" Grid.Row="2">
+                    <ListBox x:Name="TestListBox" ItemsSource="{Binding TestTemperatureList}" Grid.Row="2">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
@@ -149,7 +149,8 @@
 
                                     <CheckBox Content="{Binding TestTemperatureID}" IsChecked="{Binding IsChecked}" Grid.Column="0" VerticalContentAlignment="Center"/>
                                     <TextBox Text="{Binding TemperatureValue}" Grid.Column="1" VerticalContentAlignment="Center"/>
-                                    <TextBox Text="{Binding HumidityValue}" Grid.Column="2" VerticalContentAlignment="Center"/>
+                                    <TextBox Text="{Binding HumidityValue}" Grid.Column="2" VerticalContentAlignment="Center" 
+                                             Visibility="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Controls:MetroWindow}},Path = DataContext.ToleranceInfo.Info.HumidityVisibility}"/>
                                 </Grid>
                             </DataTemplate>
                         </ListBox.ItemTemplate>

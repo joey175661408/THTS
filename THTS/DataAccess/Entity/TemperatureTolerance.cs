@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using THTS.DataModule;
+using System.Windows;
 
 namespace THTS.DataAccess
 {
@@ -42,6 +43,27 @@ namespace THTS.DataAccess
         }
 
         #region NotMapped
+
+        [NotMapped]
+        public TestInfo Info { get; set; }
+
+        [NotMapped]
+        public Visibility UC9Visibility
+        {
+            get
+            {
+                return PositionType == 9 ? Visibility.Visible : Visibility.Collapsed;
+            }
+        }
+
+        [NotMapped]
+        public Visibility UC15Visibility
+        {
+            get
+            {
+                return PositionType == 15 ? Visibility.Visible : Visibility.Collapsed;
+            }
+        }
 
         [NotMapped]
         public Dictionary<string,Sensor> PositionList { get; set; }

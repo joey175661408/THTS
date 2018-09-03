@@ -76,7 +76,7 @@ namespace THTS.DataAccess.EntityDAO
                     test.EnvironmentPressure = "101";
                     test.EnvironmentHumidity = "45";
 
-                    test.RecordSN = "R20180808001";
+                    test.RecordSN = DateTime.Now.ToString("yyyyMMddHHmmss");
                     test.CertificateSN = "SN1234567";
 
                     test.VerifiedBy = "张三";

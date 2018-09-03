@@ -98,6 +98,15 @@ namespace THTS.TestCenter
         }
 
         private TemperatureTolerance tol;
+        /// <summary>
+        /// 测试参数
+        /// </summary>
+        public TemperatureTolerance Tol
+        {
+            get { return tol; }
+            set { tol = value; OnPropertyChanged(); }
+        }
+
         private DateTime currTime;
         bool timeout = false;
 

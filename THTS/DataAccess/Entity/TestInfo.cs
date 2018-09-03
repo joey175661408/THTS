@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using THTS.MVVM;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Windows;
 
 namespace THTS.DataAccess
 {
@@ -51,6 +52,8 @@ namespace THTS.DataAccess
             this.HumidityAverage = 0;
             this.IsDeleted = 0;
         }
+
+        #region NotMapped
 
         [NotMapped]
         public bool? TempDepartureIsChecked
@@ -107,6 +110,40 @@ namespace THTS.DataAccess
                 HumidityAverage = value.HasValue && value.Value ? 1 : 0;
             }
         }
+
+        [NotMapped]
+        public Visibility TemperatuerVisibility
+        {
+            get
+            {
+                if(TemperatureAverage == 0 || TemperatureDeparture == 0)
+                {
+                    return Visibility.Collapsed;
+                }
+                else
+                {
+                    return Visibility.Visible;
+                }
+            }
+        }
+
+        [NotMapped]
+        public Visibility HumidityVisibility
+        {
+            get
+            {
+                if (HumidityAverage == 0 || HumidityDeparture == 0)
+                {
+                    return Visibility.Collapsed;
+                }
+                else
+                {
+                    return Visibility.Visible;
+                }
+            }
+        }
+
+        #endregion
 
         #region INotifyPropertyChanged 成员
 
