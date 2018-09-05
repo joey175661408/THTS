@@ -23,6 +23,7 @@ namespace THTS.TestCenter
         #region Command
         public IDelegateCommand StartCommand { get; private set; }
         public IDelegateCommand StopCommand { get; private set; }
+        public IDelegateCommand SaveAndCloseCommand { get; private set; }
         #endregion
 
         private int temperatureIndex = 0;
@@ -157,6 +158,7 @@ namespace THTS.TestCenter
 
             StartCommand = new DelegateCommand(Start);
             StopCommand = new DelegateCommand(Stop);
+            SaveAndCloseCommand = new DelegateCommand(SaveAndClose); 
 
             TestPositionChanged(tolerance.PositionType);
 
@@ -271,7 +273,6 @@ namespace THTS.TestCenter
 
                 timerBar.Stop();
                 timer.Stop();
-                TestDataDAO.Save(TestResultDataList[temperatureIndex].DataList);
                 StartEnable = true;
 
                 if (TestResultDataList.Count > temperatureIndex + 1)
@@ -338,6 +339,11 @@ namespace THTS.TestCenter
             TestResultDataList[temperatureIndex].DataList.Add(data);
         }
 
+        /// <summary>
+        /// 给各个测试点赋值
+        /// </summary>
+        /// <param name="position"></param>
+        /// <returns></returns>
         private float SetValueForPosition(string position)
         {
             if (PositionName.ContainsKey(position))
@@ -357,11 +363,43 @@ namespace THTS.TestCenter
         }
 
         /// <summary>
+        /// 保存并关闭窗口
+        /// </summary>
+        private void SaveAndClose()
+        {
+            TestInfoDAO.Save(tol.Info);
+            for (int i = 0; i < TestResultDataList.Count; i++)
+            {
+                TestDataDAO.Save(TestResultDataList[i].DataList);
+            }
+
+            foreach (Window item in Application.Current.Windows)
+            {
+                if (item.Title.Equals("测试中心") || item.Title.Equals("测试参数")|| item.Title.Equals("偏差、波动度及均匀度测试"))
+                {
+                    item.Close();
+                }
+            }
+        }
+
+        /// <summary>
         /// 获取实时数据
         /// </summary>
         private void GetLiveData()
         {
+            for (int i = 0; i < TestResultDataList.Count; i++)
+            {
+                TestDataDAO.Save(TestResultDataList[i].DataList);
+            }
 
+            foreach (Window item in Application.Current.Windows)
+            {
+                if (item.Title.Equals("测试中心") || item.Title.Equals("测试参数") || item.Title.Equals("偏差、波动度及均匀度测试"))
+                {
+                    item.Close();
+                }
+
+            }
         }
 
         /// <summary>

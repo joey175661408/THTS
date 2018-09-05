@@ -24,5 +24,10 @@ namespace THTS.SettingCenter
             InitializeComponent();
             this.DataContext = new SettingCenterViewModel();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

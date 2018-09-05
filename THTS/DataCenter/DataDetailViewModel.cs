@@ -75,35 +75,7 @@ namespace THTS.DataCenter
         /// </summary>
         private void CalcuteAndGroupBy()
         {
-            ObservableCollection<TestData> datalist = TestDataDAO.GetData(Info.RecordSN);
-
-            Dictionary<string, ObservableCollection<TestData>> groupBy = new Dictionary<string, ObservableCollection<TestData>>();
-
-            string temp = string.Empty;
-            for (int i = 0; i < datalist.Count; i++)
-            {
-                if (temp != datalist[i].TemperatureName)
-                {
-                    temp = datalist[i].TemperatureName;
-                    groupBy.Add(temp, new ObservableCollection<TestData>());
-                    groupBy[temp].Add(datalist[i]);
-                    continue;
-                }
-                groupBy[temp].Add(datalist[i]);
-            }
-
-            foreach (var item in groupBy)
-            {
-                TestDataResult result = new TestDataResult
-                {
-                    TemperatureName = item.Key,
-                    TemperatureValue = item.Value[0].TemperatureValue,
-                    HumidityValue = item.Value[0].HumidityValue,
-                    DataList = item.Value
-                };
-                result.CalcuteResult();
-                ResultList.Add(result);
-            }
+            ResultList = TestDataDAO.CalcuteAndGroupBy(Info.RecordSN);
         }
 
         /// <summary>
@@ -111,29 +83,8 @@ namespace THTS.DataCenter
         /// </summary>
         private void Export()
         {
-            SaveFileDialog save = new SaveFileDialog();
-            save.Filter = "xls files(*.xls)|*.xls|All files(*.*)|*.*";
-            save.DefaultExt = "xls";
-            save.AddExtension = true;
-            save.RestoreDirectory = true;
-            save.FileName = Info.RecordSN + ".xls";
-            if (save.ShowDialog() == DialogResult.OK)
-            {
-                try
-                {
-                    ExcelHelper helper = new ExcelHelper();
-                    helper.ReadFromExcelTemplate(@".\Template\TemperatureAndHumidity9.xls");
-                    helper.SetTestResultValue(Info, ResultList);
-
-                    helper.WriteToFile(save.FileName, true);
-                    MessageBox.Show("导出成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("导出失败！\r\n" + ex.Message);
-                }
-
-            }
+            ExcelHelper helper = new ExcelHelper();
+            helper.ExportDataDetail(Info, ResultList);
         }
 
         /// <summary>

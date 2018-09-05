@@ -13,7 +13,7 @@
     BorderBrush="{DynamicResource AccentColorBrush}"
     BorderThickness="1"
     WindowStartupLocation="CenterScreen"
-    Title="温度偏差、波动度及均匀度测试" Height="600" Width="960" WindowState="Maximized">
+    Title="测试参数" Height="600" Width="960" WindowState="Maximized">
 
     <Grid>
         <Grid.RowDefinitions>

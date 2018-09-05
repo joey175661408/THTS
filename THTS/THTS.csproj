@@ -359,6 +359,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="bin\Debug\Data\DB.sqlite" />
+    <None Include="bin\Debug\Template\Temperature9.xls" />
+    <None Include="bin\Debug\Template\TemperatureAndHumidity9.xls" />
     <None Include="Lib\JJF 1101-2003 环境试验设备温度、湿度校准规范.pdf" />
     <None Include="Lib\sqlite-tools-win32-x86-3180000.zip" />
     <None Include="Lib\巡检仪与计算机通讯规约.docx" />

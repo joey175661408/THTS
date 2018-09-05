@@ -14,7 +14,7 @@
     WindowStartupLocation="CenterScreen"
     BorderBrush="{DynamicResource AccentColorBrush}"
     BorderThickness="1"
-    Title="温度偏差测试" Height="768" Width="1024" WindowState="Maximized">
+    Title="偏差、波动度及均匀度测试" Height="768" Width="1024" WindowState="Maximized">
 
     <Window.Resources>
         <local:BindingProxy x:Key="proxy" Data="{Binding}"/>
@@ -269,6 +269,8 @@
                 <Button Content="开始采样" Width="80" Height="30" Command="{Binding StartCommand}" IsEnabled="{Binding StartEnable}"/>
                 <Label/>
                 <Button Content="中止测试" Width="80" Height="30" Command="{Binding StopCommand}"/>
+                <Label/>
+                <Button Content="保存并关闭" Width="80" Height="30" Command="{Binding SaveAndCloseCommand}"/>
             </StackPanel>
             <Label Grid.Row="2" Content="如需立即开始，可按【开始采样】按钮！" HorizontalAlignment="Center"/>
             <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
@@ -346,7 +348,7 @@
                             </Controls:MetroTabControl.ItemTemplate>
                             <Controls:MetroTabControl.ContentTemplate>
                                 <DataTemplate>
-                                    <DataGrid AutoGenerateColumns="False" HeadersVisibility="Column" SelectionUnit="FullRow" ColumnHeaderHeight="50" 
+                                    <DataGrid AutoGenerateColumns="False" HeadersVisibility="Column" SelectionUnit="FullRow" ColumnHeaderHeight="50" IsReadOnly="True"
                                           BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="1" Width="auto" ItemsSource="{Binding DataList}"
                                           GridLinesVisibility="All" HorizontalGridLinesBrush="AliceBlue" VerticalGridLinesBrush="AliceBlue" 
                                           ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">

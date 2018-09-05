@@ -49,9 +49,9 @@ namespace THTS.TestCenter
                 return;
             }
 
-            if (!DataAccess.EntityDAO.TestInfoDAO.SaveOrUpdate(Info))
+            if (DataAccess.EntityDAO.TestInfoDAO.IsExit(Info.RecordSN))
             {
-                System.Windows.MessageBox.Show("测试信息保存失败！此记录编号已存在！");
+                System.Windows.MessageBox.Show("此记录编号已存在！");
                 return;
             }
 

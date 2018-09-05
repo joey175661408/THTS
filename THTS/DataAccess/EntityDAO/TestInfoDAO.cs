@@ -22,7 +22,7 @@ namespace THTS.DataAccess.EntityDAO
         {
             using (SQLiteDB ctx = new SQLiteDB())
             {
-                ctx.TestInfos.Load();
+                ctx.TestInfos.Where(t=>t.IsDeleted == 0).Load();
                 return ctx.TestInfos.Local;
             }
         }
@@ -34,7 +34,7 @@ namespace THTS.DataAccess.EntityDAO
         {
             using (SQLiteDB ctx = new SQLiteDB())
             {
-                ctx.TestInfos.Where(t=>t.RecordSN == recordSN).Load();
+                ctx.TestInfos.Where(t=> t.IsDeleted == 0 && t.RecordSN == recordSN).Load();
                 if (ctx.TestInfos.Local.Count > 0)
                 {
                     return ctx.TestInfos.Local[0];
@@ -94,24 +94,43 @@ namespace THTS.DataAccess.EntityDAO
         }
 
         /// <summary>
+        /// 此记录编号是否存在
+        /// </summary>
+        /// <param name="recordSN"></param>
+        /// <returns></returns>
+        public static bool IsExit(string recordSN)
+        {
+            return GetTestInfoData(recordSN) != null;
+        }
+
+        /// <summary>
         /// 保存或更新测试信息
         /// </summary>
         /// <returns></returns>
-        public static bool SaveOrUpdate(TestInfo testInfo)
+        public static bool Save(TestInfo testInfo)
         {
             using (SQLiteDB ctx = new SQLiteDB())
             {
-                TestInfo oldInfo = GetTestInfoData(testInfo.RecordSN);
+                ctx.TestInfos.Add(testInfo);
+                return ctx.SaveChanges() > 0;
+            }
+        }
 
-                if (oldInfo == null)
+        /// <summary>
+        /// 删除数据
+        /// </summary>
+        /// <param name="testInfo"></param>
+        /// <returns></returns>
+        public static bool Delete(TestInfo testInfo)
+        {
+            using (SQLiteDB ctx = new SQLiteDB())
+            {
+                TestInfo temp = GetTestInfoData(testInfo.RecordSN);
+                if(temp != null)
                 {
-                    ctx.TestInfos.Add(testInfo);
+                    temp.IsDeleted = 1;
                 }
-                else
-                {
-                    return false;
-                }
-
+                ctx.Update(temp.Id, temp);
                 return ctx.SaveChanges() > 0;
             }
         }

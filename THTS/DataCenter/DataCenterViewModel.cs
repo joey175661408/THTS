@@ -48,7 +48,7 @@ namespace THTS.DataCenter
             DeleteCommand = new DelegateCommand(Delete);
 
             TestRecordList = TestInfoDAO.GetAllData();
-            TestRecordList = MVVM.SequencingService.SetCollectionSequence(TestRecordList);
+            TestRecordList = SequencingService.SetCollectionSequence(TestRecordList);
         }
 
         #endregion
@@ -60,6 +60,11 @@ namespace THTS.DataCenter
         /// </summary>
         private void Edit()
         {
+            if(SelectedTestInfo == null)
+            {
+                return;
+            }
+
             DataDetailView view = new DataDetailView(SelectedTestInfo);
             view.ShowDialog();
         }
@@ -69,7 +74,15 @@ namespace THTS.DataCenter
         /// </summary>
         private void Delete()
         {
-            
+            if (SelectedTestInfo == null)
+            {
+                return;
+            }
+
+            if (TestInfoDAO.Delete(SelectedTestInfo))
+            {
+                TestRecordList = TestInfoDAO.GetAllData();
+            }
         }
 
         /// <summary>
@@ -77,7 +90,13 @@ namespace THTS.DataCenter
         /// </summary>
         private void Export()
         {
-            
+            if (SelectedTestInfo == null)
+            {
+                return;
+            }
+
+            ExcelHelper helper = new ExcelHelper();
+            helper.ExportDataDetail(SelectedTestInfo, TestDataDAO.CalcuteAndGroupBy(SelectedTestInfo.RecordSN));
         }
         #endregion
     }

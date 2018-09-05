@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using THTS.DataAccess;
 
 namespace THTS.SettingCenter
 {
@@ -14,7 +15,6 @@ namespace THTS.SettingCenter
         #region 命令
         public IDelegateCommand ConnectCommand { get; private set; }
         public IDelegateCommand SaveCommand { get; private set; }
-        public IDelegateCommand CancelCommand { get; private set; }
         #endregion
 
         #region 属性
@@ -59,6 +59,16 @@ namespace THTS.SettingCenter
             set { _deviceType = value; OnPropertyChanged(); }
         }
 
+        DataAccess.Setting _info = new DataAccess.Setting();
+        /// <summary>
+        /// 参数信息
+        /// </summary>
+        public DataAccess.Setting Info
+        {
+            get { return _info; }
+            set { _info = value;OnPropertyChanged(); }
+        }
+
         iInstrument instrument = new iInstrument("COM4", 115200, System.IO.Ports.Parity.None, 8, System.IO.Ports.StopBits.One);
 
         #endregion
@@ -68,7 +78,6 @@ namespace THTS.SettingCenter
         {
             ConnectCommand = new DelegateCommand(Connect);
             SaveCommand = new DelegateCommand(Save);
-            CancelCommand = new DelegateCommand(Cancel);
 
             PortNameList = new List<string>(System.IO.Ports.SerialPort.GetPortNames());
 
@@ -77,7 +86,7 @@ namespace THTS.SettingCenter
                 PortName = PortNameList[0];
             }
 
-
+            Info = SettingsDAO.GetData();
         }
         #endregion
 
@@ -111,12 +120,12 @@ namespace THTS.SettingCenter
         /// </summary>
         private void Save()
         {
-            DataAccess.Setting setting = new DataAccess.Setting();
-            setting.No = "1";
-            setting.PortName = PortName;
-            setting.BaudRate = BaudRate;
+            Info.No = "1";
+            Info.PortName = PortName;
+            Info.BaudRate = BaudRate;
+            
 
-            if (DataAccess.SettingsDAO.SaveOrUpdate(setting))
+            if (DataAccess.SettingsDAO.SaveOrUpdate(Info))
             {
                 MessageBox.Show("保存成功！");
             }else
@@ -125,13 +134,6 @@ namespace THTS.SettingCenter
             }
         }
 
-        /// <summary>
-        /// 取消
-        /// </summary>
-        private void Cancel()
-        {
-
-        }
         #endregion
     }
 }

@@ -19,7 +19,6 @@ namespace THTS.TestCenter
         /// </summary>
         public IDelegateCommand SelectedPositionCommand { get; private set; }
         public IDelegateCommand StartCommand { get; private set; }
-        public IDelegateCommand CloseCommand { get; private set; }
         #endregion
 
         #region 属性
@@ -159,7 +158,6 @@ namespace THTS.TestCenter
             SelectedPositionCommand = new DelegateCommand(TestPositionChanged);
             SensorGetCommand = new DelegateCommand(SensorGet);
             StartCommand = new DelegateCommand(Start);
-            CloseCommand = new DelegateCommand(Close);
 
             //获取串口配置信息
             DataAccess.Setting settings = DataAccess.SettingsDAO.GetData();
@@ -446,12 +444,6 @@ namespace THTS.TestCenter
 
         }
 
-        /// <summary>
-        /// 关闭窗体方法
-        /// </summary>
-        private void Close()
-        {
-        }
         #endregion
     }
 }

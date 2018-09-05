@@ -12,6 +12,7 @@ using NPOI.SS.UserModel;
 using System.Collections.ObjectModel;
 using THTS.DataAccess;
 using THTS.DataAccess.Entity;
+using System.Windows.Forms;
 
 namespace THTS
 {
@@ -90,7 +91,7 @@ namespace THTS
             font.Boldweight = (short)FontBoldWeight.Bold;
 
             ICellStyle style = hssfworkbook.CreateCellStyle();
-            style.Alignment = HorizontalAlignment.Center;
+            style.Alignment = NPOI.SS.UserModel.HorizontalAlignment.Center;
             style.VerticalAlignment = VerticalAlignment.Center;
             style.SetFont(font);
 
@@ -463,6 +464,38 @@ namespace THTS
             file.Close();
             file.Dispose();
         }
+
+        /// <summary>
+        /// 导出详细数据
+        /// </summary>
+        /// <param name="Info">参数</param>
+        /// <param name="ResultList">数据</param>
+        public void ExportDataDetail(TestInfo Info,ObservableCollection<TestDataResult> ResultList)
+        {
+            SaveFileDialog save = new SaveFileDialog();
+            save.Filter = "xls files(*.xls)|*.xls|All files(*.*)|*.*";
+            save.DefaultExt = "xls";
+            save.AddExtension = true;
+            save.RestoreDirectory = true;
+            save.FileName = Info.RecordSN + ".xls";
+            if (save.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    ReadFromExcelTemplate(@".\Template\Temperature9.xls");
+                    SetTestResultValue(Info, ResultList);
+
+                    WriteToFile(save.FileName, true);
+                    MessageBox.Show("导出成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("导出失败！\r\n" + ex.Message);
+                }
+
+            }
+        }
+
     }
 
     /// <summary>
