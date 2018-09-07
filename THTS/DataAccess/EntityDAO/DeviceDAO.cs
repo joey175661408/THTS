@@ -15,6 +15,37 @@ namespace THTS.DataAccess.EntityDAO
         }
 
         /// <summary>
+        /// 获取传感器信息
+        /// </summary>
+        /// <param name="sensorID"></param>
+        /// <returns></returns>
+        public static Device GetDevice(string sensorID)
+        {
+            using (SQLiteDB ctx = new SQLiteDB())
+            {
+                ctx.Devices.Where(t => t.IsDelete != 1 && t.SensorId == sensorID).Load();
+                if (ctx.Devices.Local.Count > 0)
+                {
+                    return ctx.Devices.Local[0];
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
+        /// <summary>
+        /// 此传感器是否已存在
+        /// </summary>
+        /// <param name="sensorID"></param>
+        /// <returns></returns>
+        public static bool IsExist(string sensorID)
+        {
+            return GetDevice(sensorID) != null;
+        }
+
+        /// <summary>
         /// 获取所有设备信息
         /// </summary>
         public static ObservableCollection<Device> GetAllData()
@@ -39,6 +70,39 @@ namespace THTS.DataAccess.EntityDAO
                 return ctx.SaveChanges() > 0;
             }
         }
+
+        /// <summary>
+        /// 更新设备信息
+        /// </summary>
+        /// <param name="newDevice"></param>
+        /// <returns></returns>
+        public static bool Update(Device newDevice)
+        {
+            using (SQLiteDB ctx = new SQLiteDB())
+            {
+                Device old = GetDevice(newDevice.SensorId);
+
+                ctx.Update(old.Id, newDevice);
+                return ctx.SaveChanges() > 0;
+            }
+        }
+
+        /// <summary>
+        /// 删除设备信息
+        /// </summary>
+        /// <param name="newDevice"></param>
+        /// <returns></returns>
+        public static bool Delete(Device newDevice)
+        {
+            using (SQLiteDB ctx = new SQLiteDB())
+            {
+                Device old = GetDevice(newDevice.SensorId);
+                old.IsDelete = 1;
+                ctx.Update(old.Id, old);
+                return ctx.SaveChanges() > 0;
+            }
+        }
+
 
         #region IDisposable 成员
 

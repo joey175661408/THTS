@@ -122,6 +122,10 @@ namespace THTS.DeviceCenter
                 {
                     Refresh();
                 }
+                else
+                {
+                    MessageBox.Show("保存失败！");
+                }
             }
         }
 
@@ -130,6 +134,21 @@ namespace THTS.DeviceCenter
         /// </summary>
         private void Edit()
         {
+            DeviceNew newDevice = new DeviceNew(DeviceSelected);
+            bool? result = newDevice.ShowDialog();
+
+            if (result.HasValue && result.Value)
+            {
+                bool update = DataAccess.EntityDAO.DeviceDAO.Update(newDevice.NewDevice);
+                if (update)
+                {
+                    Refresh();
+                }
+                else
+                {
+                    MessageBox.Show("更新失败！");
+                }
+            }
         }
 
         /// <summary>
@@ -137,7 +156,15 @@ namespace THTS.DeviceCenter
         /// </summary>
         private void Delete()
         {
-            
+            bool delete = DataAccess.EntityDAO.DeviceDAO.Delete(DeviceSelected);
+            if (delete)
+            {
+                Refresh();
+            }
+            else
+            {
+                MessageBox.Show("删除失败！");
+            }
         }
 
 

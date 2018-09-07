@@ -215,13 +215,13 @@ namespace THTS.TestCenter
                         for (int i = 0; i < _tempList.Count; i++)
                         {
                             #region Test
-                            SensorRealValue real = new SensorRealValue();
-                            real.SensorID = i + 1;
-                            real.SensorValue = (float)(50 + (new Random(Guid.NewGuid().GetHashCode()).Next(-100,100)) * 0.01);
-                            real.SensorUnit = "℃";
+                            //SensorRealValue real = new SensorRealValue();
+                            //real.SensorID = i + 1;
+                            //real.SensorValue = (float)(50 + (new Random(Guid.NewGuid().GetHashCode()).Next(-100,100)) * 0.01);
+                            //real.SensorUnit = "℃";
                             #endregion
 
-                            //SensorRealValue real = _tempList[i];
+                            SensorRealValue real = _tempList[i];
 
                             this.DispatcherInvoke(() =>
                             {
@@ -367,6 +367,9 @@ namespace THTS.TestCenter
         /// </summary>
         private void SaveAndClose()
         {
+            tol.Info.PositionType = tol.PositionType;
+            tol.Info.TestTimeSpan = tol.TestTimeSpan;
+            tol.Info.TestSampleInterval = tol.TestSampleInterval;
             TestInfoDAO.Save(tol.Info);
             for (int i = 0; i < TestResultDataList.Count; i++)
             {

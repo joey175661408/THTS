@@ -482,7 +482,7 @@ namespace THTS
             {
                 try
                 {
-                    ReadFromExcelTemplate(@".\Template\Temperature9.xls");
+                    ReadFromExcelTemplate(@".\Template\Temperature" + Info.PositionType + ".xls");
                     SetTestResultValue(Info, ResultList);
 
                     WriteToFile(save.FileName, true);

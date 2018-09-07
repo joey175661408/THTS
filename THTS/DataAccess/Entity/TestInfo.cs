@@ -33,6 +33,9 @@ namespace THTS.DataAccess
         public int TemperatureAverage { get; set; }
         public int HumidityDeparture { get; set; }
         public int HumidityAverage { get; set; }
+        public int PositionType { get; set; }
+        public int TestTimeSpan { get; set; }
+        public int TestSampleInterval { get; set; }
         public int IsDeleted { get; set; }
         public string Extra1 { get; set; }
         public string Extra2 { get; set; }

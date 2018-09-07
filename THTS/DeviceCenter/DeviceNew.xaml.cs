@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using THTS.DataAccess;
+using THTS.DataAccess.EntityDAO;
 
 namespace THTS.DeviceCenter
 {
@@ -19,29 +21,60 @@ namespace THTS.DeviceCenter
     /// </summary>
     public partial class DeviceNew
     {
-        DataAccess.Device _newDevice;
-        public DataAccess.Device NewDevice
-        {
-            get { return _newDevice; }
-        }
+        private bool isEdit = false;
+        public Device NewDevice = new Device();
 
         public DeviceNew()
         {
             InitializeComponent();
+        }
 
-            _newDevice = new DataAccess.Device();
+        public DeviceNew(Device editDevice)
+        {
+            InitializeComponent();
+
+            isEdit = true;
+            NewDevice = editDevice;
+            this.tbID.IsEnabled = false;
+            this.tbID.Text = NewDevice.SensorId;
+            this.tbModule.Text = NewDevice.ModuleName;
+            this.tbManufactory.Text = NewDevice.Manufacture;
+            this.tbFactoryNo.Text = NewDevice.FactoryNo;
+            this.tbCertificateNo.Text = NewDevice.CertificateNo;
+            this.rbPass.IsChecked = NewDevice.CalibrateResult == 1;
+            this.dpCalDate.Text = NewDevice.CalibrateDate;
+            this.dpExpireDate.Text = NewDevice.ExpireDate;
+            this.tbRemark.Text = NewDevice.Remark;
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            _newDevice.ModuleName = "";
-            _newDevice.Manufacture = this.tbManufactory.Text;
-            _newDevice.FactoryNo = this.tbFactoryNo.Text;
-            _newDevice.CertificateNo = this.tbCertificateNo.Text;
-            _newDevice.CalibrateResult = this.rbPass.IsChecked.HasValue && this.rbPass.IsChecked.Value ? 1 : 0;
-            _newDevice.CalibrateDate = this.dpCalDate.Text;
-            _newDevice.ExpireDate = this.dpExpireDate.Text;
-            _newDevice.Remark = this.tbRemark.Text;
+            if (!isEdit)
+            {
+                string sensorID = this.tbID.Text;
+
+                if (sensorID == "")
+                {
+                    MessageBox.Show("传感器序号不得为空！");
+                    return;
+                }
+
+                if (DeviceDAO.IsExist(this.tbID.Text))
+                {
+                    MessageBox.Show("传感器序号已存在！");
+                    return;
+                }
+            }
+
+            NewDevice.SensorId = this.tbID.Text;
+            NewDevice.ModuleName = this.tbModule.Text;
+            NewDevice.Manufacture = this.tbManufactory.Text;
+            NewDevice.FactoryNo = this.tbFactoryNo.Text;
+            NewDevice.CertificateNo = this.tbCertificateNo.Text;
+            NewDevice.CalibrateResult = this.rbPass.IsChecked.HasValue && this.rbPass.IsChecked.Value ? 1 : 0;
+            NewDevice.CalibrateDate = this.dpCalDate.Text;
+            NewDevice.ExpireDate = this.dpExpireDate.Text;
+            NewDevice.Remark = this.tbRemark.Text;
 
             this.DialogResult = true;
         }

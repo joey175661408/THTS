@@ -23,7 +23,7 @@
                     <ToolBar HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ToolBarTray.IsLocked="True"   Grid.Row="0" Foreground="Black">
                         <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Command="{Binding AddCommand}">
                             <StackPanel Orientation="Vertical">
-                                <iconPacks:PackIconFontAwesome Width="30" Height="30" Kind="CreativeCommonsBrands" HorizontalAlignment="Center"/>
+                                <iconPacks:PackIconFontAwesome Width="30" Height="30" Kind="NewspaperSolid" HorizontalAlignment="Center"/>
                                 <TextBlock Text="新建" HorizontalAlignment="Center" Margin="0,5,0,0"/>
                             </StackPanel>
                         </Button>
@@ -35,11 +35,11 @@
                         </Button>
                         <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Command="{Binding DeleteCommand}">
                             <StackPanel Orientation="Vertical">
-                                <iconPacks:PackIconFontAwesome Width="30" Height="30" Kind="CogSolid" HorizontalAlignment="Center"/>
+                                <iconPacks:PackIconFontAwesome Width="30" Height="30" Kind="XboxBrands" HorizontalAlignment="Center"/>
                                 <TextBlock Text="删除" HorizontalAlignment="Center" Margin="0,5,0,0"/>
                             </StackPanel>
                         </Button>
-                        <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Command="{Binding SearchFlyoutCommand}">
+                        <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Command="{Binding SearchFlyoutCommand}" Visibility="Collapsed">
                             <StackPanel Orientation="Vertical">
                                 <iconPacks:PackIconFontAwesome Width="30" Height="30" Kind="SearchSolid" HorizontalAlignment="Center"/>
                                 <TextBlock Text="查询" HorizontalAlignment="Center" Margin="0,5,0,0"/>
@@ -51,7 +51,7 @@
                                 <TextBlock Text="选择" HorizontalAlignment="Center" Margin="0,5,0,0"/>
                             </StackPanel>
                         </Button>
-                        <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Command="{Binding CloseCommand}">
+                        <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Command="{Binding CloseCommand}" Visibility="Collapsed">
                             <StackPanel Orientation="Vertical">
                                 <iconPacks:PackIconFontAwesome Width="30" Height="30" Kind="WindowCloseSolid" HorizontalAlignment="Center"/>
                                 <TextBlock Text="退出" HorizontalAlignment="Center" Margin="0,5,0,0"/>
@@ -70,7 +70,7 @@
                         <DataGridTextColumn Header="生产厂商" Binding="{Binding Manufacture}"/>
                         <DataGridTextColumn Header="出厂编号" Binding="{Binding FactoryNo}"/>
                         <DataGridTextColumn Header="证书编号" Binding="{Binding CertificateNo}"/>
-                        <DataGridTextColumn Header="检定合格" Binding="{Binding CalibrateResult}"/>
+                        <DataGridTextColumn Header="检定合格" Binding="{Binding CalibrateResultString}"/>
                         <DataGridTextColumn Header="检定日期" Binding="{Binding CalibrateDate}"/>
                         <DataGridTextColumn Header="有效期至" Binding="{Binding ExpireDate}"/>
                         <DataGridTextColumn Header="备注信息" Binding="{Binding Remark}"/>
@@ -99,8 +99,6 @@
                 </Grid>
             </Controls:Flyout>
         </Controls:FlyoutsControl>
-        <Controls:ProgressRing Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Visibility="Visible" HorizontalAlignment="Center" VerticalAlignment="Center"
-                                        Width="40" Height="40" />
     </Grid>
 
 </Controls:MetroWindow>

@@ -172,10 +172,10 @@ namespace THTS.TestCenter
         /// </summary>
         private void SensorGet()
         {
-            //if (!instrument.Open())
-            //{
-            //    return;
-            //}
+            if (!instrument.Open())
+            {
+                return;
+            }
 
             ChannelState state = new ChannelState();
             if(instrument.GetSensorState(out state))

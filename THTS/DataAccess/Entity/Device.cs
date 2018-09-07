@@ -10,6 +10,7 @@ namespace THTS.DataAccess
     public class Device : INotifyPropertyChanged, ISequencedObject
     {
         public int Id { get; set; }
+        public string SensorId { get; set; }
         public string ModuleName { get; set; }
         public string Manufacture { get; set; }
         public string FactoryNo { get; set; }
@@ -45,6 +46,16 @@ namespace THTS.DataAccess
         {
             get { return SequenceNumber.ToString("00"); }
         }
+
+        [NotMapped]
+        public string CalibrateResultString
+        {
+            get
+            {
+                return CalibrateResult == 1 ? "合格" : "不合格";
+            }
+        }
+
         #endregion
 
         #region INotifyPropertyChanged 成员
