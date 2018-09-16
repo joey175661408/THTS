@@ -7,6 +7,7 @@ using THTS.SerialPort;
 using THTS.DataAccess;
 using System.Windows;
 using THTS.DataModule;
+using System.Windows.Forms;
 
 namespace THTS.TestCenter
 {
@@ -172,8 +173,11 @@ namespace THTS.TestCenter
         /// </summary>
         private void SensorGet()
         {
+            instrument.Close();
+
             if (!instrument.Open())
             {
+                System.Windows.Forms.MessageBox.Show("串口打开失败！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 

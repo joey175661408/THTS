@@ -105,8 +105,11 @@ namespace THTS.SettingCenter
 
             instrument = new iInstrument(PortName, BaudRate, System.IO.Ports.Parity.None, 8, System.IO.Ports.StopBits.One);
 
+            instrument.Close();
+
             if (!instrument.Open())
             {
+                MessageBox.Show("串口打开失败！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
