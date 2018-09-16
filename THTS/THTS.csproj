@@ -372,6 +372,7 @@
     </None>
     <AppDesigner Include="Properties\" />
     <None Include="Release\THTS.rar" />
+    <None Include="Release\THTS_20180916.rar" />
     <Resource Include="Resources\Entypo.ttf" />
   </ItemGroup>
   <ItemGroup>

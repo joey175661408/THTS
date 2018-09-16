@@ -11,6 +11,7 @@
     xmlns:local="clr-namespace:THTS"
     mc:Ignorable="d"
     WindowStartupLocation="CenterScreen"
+    ShowCloseButton="False"
     Title="疲劳性测试" Height="600" Width="960" WindowState="Maximized">
     <Grid>
         <Grid.RowDefinitions>
@@ -50,6 +51,9 @@
         <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
             <Label Content="采集任务名称：" Width="100"/>
             <TextBox Text="{Binding TaskName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="200"/>
+            <Button  Width="30" Command="{Binding RefreshTaskNameCommand}">
+                <iconPacks:Material Width="18" Height="18"  Kind="Autorenew"/>
+            </Button>
             <Label Content="采集时间(秒)：" Width="100"/>
             <Controls:NumericUpDown Value="{Binding LogTime,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="100"/>
             <Label Content="采集间隔(毫秒)：" Width="100"/>
@@ -100,6 +104,8 @@
             <Button Content="刷新" Width="100" Command="{Binding SearchCommand}"/>
             <Label Width="20"/>
             <Button Content="导出" Width="100" Command="{Binding ExportCommand}"/>
+            <Label Width="20"/>
+            <Button Content="关闭" Width="100" Command="{Binding CloseCommand}"/>
         </StackPanel>
 
         <Grid Grid.Row="11" Grid.Column="1">

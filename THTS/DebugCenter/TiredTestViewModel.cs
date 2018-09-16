@@ -14,9 +14,11 @@ namespace THTS.DebugCenter
     {
         #region 命令
         public IDelegateCommand ConnectCommand { get; private set; }
+        public IDelegateCommand RefreshTaskNameCommand { get; private set; }
         public IDelegateCommand StartCommand { get; private set; }
         public IDelegateCommand SearchCommand { get; private set; }
         public IDelegateCommand ExportCommand { get; private set; }
+        public IDelegateCommand CloseCommand { get; private set; }
         #endregion
 
         #region 属性
@@ -207,9 +209,11 @@ namespace THTS.DebugCenter
         public TiredTestViewModel()
         {
             ConnectCommand = new DelegateCommand(Connect);
+            RefreshTaskNameCommand = new DelegateCommand(RefreshTaskName);
             StartCommand = new DelegateCommand(Start);
             SearchCommand = new DelegateCommand(Search);
             ExportCommand = new DelegateCommand(Export);
+            CloseCommand = new DelegateCommand(CloseView);
 
             PortNameList = new List<string>(System.IO.Ports.SerialPort.GetPortNames());
 
@@ -417,6 +421,27 @@ namespace THTS.DebugCenter
                     MessageBox.Show("导出失败！\r\n" + ex.Message);
                 }
                 
+            }
+        }
+
+        /// <summary>
+        /// 刷新任务名称
+        /// </summary>
+        private void RefreshTaskName()
+        {
+            TaskName = "Task" + DateTime.Now.ToString("yyyyMMddHHmmss");
+        }
+
+        private void CloseView()
+        {
+            instrument.Close();
+
+            foreach (System.Windows.Window item in System.Windows.Application.Current.Windows)
+            {
+                if (item.Title.Equals("疲劳性测试"))
+                {
+                    item.Close();
+                }
             }
         }
 
