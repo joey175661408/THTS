@@ -198,6 +198,7 @@
       <DependentUpon>DeviceNew.xaml</DependentUpon>
     </Compile>
     <Compile Include="ExcelHelper.cs" />
+    <Compile Include="FileHelper.cs" />
     <Compile Include="MVVM\DelegateCommand.cs" />
     <Compile Include="MVVM\IDelegateCommand.cs" />
     <Compile Include="MVVM\ISequencedObject.cs" />
@@ -371,8 +372,9 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Release\Debug.rar" />
     <None Include="Release\THTS.rar" />
-    <None Include="Release\THTS_20180916.rar" />
+    <None Include="Release\THTS_V1.0_20180916.rar" />
     <Resource Include="Resources\Entypo.ttf" />
   </ItemGroup>
   <ItemGroup>

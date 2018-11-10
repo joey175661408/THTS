@@ -14,6 +14,7 @@
     WindowStartupLocation="CenterScreen"
     BorderBrush="{DynamicResource AccentColorBrush}"
     BorderThickness="1"
+    ShowCloseButton="False"
     Title="偏差、波动度及均匀度测试" Height="768" Width="1024" WindowState="Maximized">
 
     <Window.Resources>

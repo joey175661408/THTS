@@ -113,7 +113,7 @@ namespace THTS.SettingCenter
                 return;
             }
 
-            DeviceType = instrument.GetDeviceType();
+            DeviceType = instrument.GetDeviceType() == "" ? "连接失败" : "连接成功";
 
             instrument.Close();
         }
@@ -131,9 +131,6 @@ namespace THTS.SettingCenter
             if (DataAccess.SettingsDAO.SaveOrUpdate(Info))
             {
                 MessageBox.Show("保存成功！");
-            }else
-            {
-                MessageBox.Show("保存失败！");
             }
         }
 

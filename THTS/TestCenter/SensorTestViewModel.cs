@@ -20,6 +20,13 @@ namespace THTS.TestCenter
 {
     public class SensorTestViewModel : NotifyObject
     {
+        #region 开启调试模式
+        /// <summary>
+        /// 是否为调试模式
+        /// </summary>
+        private bool test = true;
+        #endregion
+
         #region Command
         public IDelegateCommand StartCommand { get; private set; }
         public IDelegateCommand StopCommand { get; private set; }
@@ -202,6 +209,14 @@ namespace THTS.TestCenter
         /// </summary>
         public void SyncData()
         {
+            instrument.Close();
+
+            if (!instrument.Open())
+            {
+                System.Windows.Forms.MessageBox.Show("串口打开失败！", "提示", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
+                return;
+            }
+
             Thread thrP = new Thread(new ThreadStart(() =>
             {
                 while (true)
@@ -214,14 +229,17 @@ namespace THTS.TestCenter
 
                         for (int i = 0; i < _tempList.Count; i++)
                         {
-                            #region Test
-                            //SensorRealValue real = new SensorRealValue();
-                            //real.SensorID = i + 1;
-                            //real.SensorValue = (float)(50 + (new Random(Guid.NewGuid().GetHashCode()).Next(-100,100)) * 0.01);
-                            //real.SensorUnit = "℃";
-                            #endregion
-
-                            SensorRealValue real = _tempList[i];
+                            SensorRealValue real = new SensorRealValue();
+                            if (test)
+                            {
+                                real.SensorID = i + 1;
+                                real.SensorValue = (float)(50 + (new Random(Guid.NewGuid().GetHashCode()).Next(-100, 100)) * 0.01);
+                                real.SensorUnit = "℃";
+                            }
+                            else
+                            {
+                                real = _tempList[i];
+                            }
 
                             this.DispatcherInvoke(() =>
                             {
@@ -375,6 +393,8 @@ namespace THTS.TestCenter
             {
                 TestDataDAO.Save(TestResultDataList[i].DataList);
             }
+
+            instrument.Close();
 
             foreach (Window item in Application.Current.Windows)
             {

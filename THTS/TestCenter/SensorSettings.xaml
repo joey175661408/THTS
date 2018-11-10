@@ -58,6 +58,10 @@
 
                         <StackPanel Grid.Row="1" Grid.Column="1"  Orientation="Horizontal" HorizontalAlignment="Left">
                             <Button Content="获取通道信息" Width="100" Command ="{Binding SensorGetCommand}"/>
+                            <Label/>
+                            <Button Content="加载默认配置" Width="100" Command ="{Binding DefaultGetCommand}"/>
+                            <Label/>
+                            <Button Content="保存默认配置" Width="100" Command ="{Binding DefaultSaveCommand}"/>
                         </StackPanel>
 
                         <Grid Grid.Row="3" Grid.Column="1" >
@@ -77,17 +81,17 @@
                                                 <Label Content="传感器编号" Grid.Column="1" VerticalContentAlignment="Center"/>
                                             </StackPanel>
 
-                                            <ListBox ItemsSource="{Binding SensorList}" Grid.Row="2" IsEnabled="{Binding IsOnline}">
+                                            <ListBox ItemsSource="{Binding SensorList}" Grid.Row="2" IsEnabled="{Binding IsOnline}" Margin="-5,0,0,0">
                                                 <ListBox.ItemTemplate>
                                                     <DataTemplate>
                                                         <Grid>
                                                             <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="30"/>
                                                                 <ColumnDefinition Width="*"/>
-                                                                <ColumnDefinition Width="2*"/>
                                                             </Grid.ColumnDefinitions>
 
                                                             <Label Content="{Binding SensorID}" Grid.Column="0" VerticalContentAlignment="Center"/>
-                                                            <TextBox Text="{Binding DeviceID}" Grid.Column="1" VerticalContentAlignment="Center"/>
+                                                            <ComboBox Grid.Column="1" HorizontalAlignment="Stretch" ItemsSource="{Binding DeviceIDList}" SelectedValue="{Binding DeviceID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                                                         </Grid>
                                                     </DataTemplate>
                                                 </ListBox.ItemTemplate>
@@ -147,9 +151,9 @@
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
 
-                                    <CheckBox Content="{Binding TestTemperatureID}" IsChecked="{Binding IsChecked}" Grid.Column="0" VerticalContentAlignment="Center"/>
-                                    <TextBox Text="{Binding TemperatureValue}" Grid.Column="1" VerticalContentAlignment="Center"/>
-                                    <TextBox Text="{Binding HumidityValue}" Grid.Column="2" VerticalContentAlignment="Center" 
+                                    <CheckBox Content="{Binding TestTemperatureID}" IsChecked="{Binding IsChecked, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" VerticalContentAlignment="Center"/>
+                                    <TextBox Text="{Binding TemperatureValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" VerticalContentAlignment="Center"/>
+                                    <TextBox Text="{Binding HumidityValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" VerticalContentAlignment="Center" 
                                              Visibility="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Controls:MetroWindow}},Path = DataContext.ToleranceInfo.Info.HumidityVisibility}"/>
                                 </Grid>
                             </DataTemplate>

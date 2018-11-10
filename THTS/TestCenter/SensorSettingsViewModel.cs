@@ -1,5 +1,6 @@
 ﻿using THTS.MVVM;
 using System;
+using System.Linq;
 using System.Threading;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -8,6 +9,7 @@ using THTS.DataAccess;
 using System.Windows;
 using THTS.DataModule;
 using System.Windows.Forms;
+using THTS.DataAccess.EntityDAO;
 
 namespace THTS.TestCenter
 {
@@ -15,6 +17,8 @@ namespace THTS.TestCenter
     {
         #region 命令
         public IDelegateCommand SensorGetCommand { get; private set; }
+        public IDelegateCommand DefaultGetCommand { get; private set; }
+        public IDelegateCommand DefaultSaveCommand { get; private set; }
         /// <summary>
         /// 测试点分布切换命令
         /// </summary>
@@ -104,6 +108,11 @@ namespace THTS.TestCenter
             set { _sensorsList = value; OnPropertyChanged(); }
         }
 
+        /// <summary>
+        /// 传感器ID列表
+        /// </summary>
+        private List<string> deviceIDList = new List<string>();
+
         private TemperatureTolerance _toleranceInfo = new TemperatureTolerance();
         /// <summary>
         /// 当前测试信息
@@ -126,29 +135,22 @@ namespace THTS.TestCenter
 
             for (int i = 0; i < 10; i++)
             {
+                TestTemperatureModule module = new TestTemperatureModule();
+                module.IsChecked = false;
+                module.TestTemperatureID = "设置温度" + (i + 1);
+
                 if (i == 0)
                 {
-                    DataModule.TestTemperatureModule module = new DataModule.TestTemperatureModule();
                     module.IsChecked = true;
-                    module.TestTemperatureID = "下限";
                     module.TemperatureValue = Info.TemperatureLower;
-                    TestTemperatureList.Add(module);
                 }
                 else if (i == 9)
                 {
-                    DataModule.TestTemperatureModule module = new DataModule.TestTemperatureModule();
                     module.IsChecked = true;
-                    module.TestTemperatureID = "上限";
                     module.TemperatureValue = Info.TemperatureUpper;
-                    TestTemperatureList.Add(module);
                 }
-                else
-                {
-                    DataModule.TestTemperatureModule module = new DataModule.TestTemperatureModule();
-                    module.IsChecked = false;
-                    module.TestTemperatureID = "抽测" + i;
-                    TestTemperatureList.Add(module);
-                }
+
+                TestTemperatureList.Add(module);
             }
 
             _testPositionList = new List<string>();
@@ -158,12 +160,17 @@ namespace THTS.TestCenter
 
             SelectedPositionCommand = new DelegateCommand(TestPositionChanged);
             SensorGetCommand = new DelegateCommand(SensorGet);
+            DefaultGetCommand = new DelegateCommand(DefaultGet);
+            DefaultSaveCommand = new DelegateCommand(DefaultSave);
             StartCommand = new DelegateCommand(Start);
 
             //获取串口配置信息
             DataAccess.Setting settings = DataAccess.SettingsDAO.GetData();
 
             instrument = new iInstrument(settings.PortName, settings.BaudRate, System.IO.Ports.Parity.None, 8, System.IO.Ports.StopBits.One);
+
+            //获取传感器ID列表
+            deviceIDList = DeviceDAO.GetAllData().Select(t => t.FactoryNo).ToList();
         }
 
         #region 方法
@@ -212,12 +219,9 @@ namespace THTS.TestCenter
                         sensor1.ChannelID = 1;
                         sensor1.SensorID = i;
                         sensor1.Type = state.Channel1.ChannelType;
+                        sensor1.DeviceIDList = deviceIDList;
                         channel1.SensorList.Add(sensor1);
-
-                        if (state.Channel1.IsOnline)
-                        {
-                            _sensorsList.Add(sensor1);
-                        }
+                        _sensorsList.Add(sensor1);
                     }
                     
                     if(i > 10 && i <= 20)
@@ -226,12 +230,9 @@ namespace THTS.TestCenter
                         sensor2.ChannelID = 2;
                         sensor2.SensorID = i;
                         sensor2.Type = state.Channel2.ChannelType;
+                        sensor2.DeviceIDList = deviceIDList;
                         channel2.SensorList.Add(sensor2);
-
-                        if (state.Channel2.IsOnline)
-                        {
-                            _sensorsList.Add(sensor2);
-                        }
+                        _sensorsList.Add(sensor2);
                     }
 
                     if (i > 20 && i <= 30)
@@ -240,12 +241,9 @@ namespace THTS.TestCenter
                         sensor3.ChannelID = 3;
                         sensor3.SensorID = i;
                         sensor3.Type = state.Channel3.ChannelType;
+                        sensor3.DeviceIDList = deviceIDList;
                         channel3.SensorList.Add(sensor3);
-
-                        if (state.Channel3.IsOnline)
-                        {
-                            _sensorsList.Add(sensor3);
-                        }
+                        _sensorsList.Add(sensor3);
                     }
 
                     if (i > 30)
@@ -254,12 +252,9 @@ namespace THTS.TestCenter
                         sensor4.ChannelID = 4;
                         sensor4.SensorID = i;
                         sensor4.Type = state.Channel4.ChannelType;
+                        sensor4.DeviceIDList = deviceIDList;
                         channel4.SensorList.Add(sensor4);
-
-                        if (state.Channel4.IsOnline)
-                        {
-                            _sensorsList.Add(sensor4);
-                        }
+                        _sensorsList.Add(sensor4);
                     }
                 }
                 _channelList.Clear();
@@ -272,6 +267,133 @@ namespace THTS.TestCenter
             instrument.Close();
 
             TestPositionChanged();
+        }
+
+        /// <summary>
+        /// 获取默认参数
+        /// </summary>
+        private void DefaultGet()
+        {
+            if (ChannelList.Count == 0)
+            {
+                System.Windows.MessageBox.Show("设备离线！");
+                return;
+            }
+
+            //加载传感器默认配置
+            ObservableCollection<Channel> ChannelListTemp = new ObservableCollection<Channel>();
+            for (int i = 0; i < ChannelList.Count; i++)
+            {
+                ChannelListTemp.Add(ChannelList[i]);
+            }
+
+            for (int j = 1; j < 41; j++)
+            {
+                string tempID = FileHelper.IniReadValue("Sensor", j.ToString());
+                if (!string.IsNullOrEmpty(tempID))
+                {
+                    if (j <= 10)
+                    {
+                        ChannelListTemp[0].SensorList[j - 1].DeviceID = tempID;
+                    }
+                    else if (j > 10 && j <= 20)
+                    {
+                        ChannelListTemp[1].SensorList[j - 11].DeviceID = tempID;
+                    }
+                    else if (j > 20 && j <= 30)
+                    {
+                        ChannelListTemp[2].SensorList[j - 21].DeviceID = tempID;
+                    }
+                    else
+                    {
+                        ChannelListTemp[3].SensorList[j - 31].DeviceID = tempID;
+                    }
+
+                }
+            }
+
+            ChannelList = ChannelListTemp;
+
+            //加载测点分布默认配置
+            SelectedTestPosition = FileHelper.IniReadValue("Position", "type");
+            TestPositionChanged();
+
+            for (int i = 0; i < PositionList.Count; i++)
+            {
+                string tempID = FileHelper.IniReadValue("Position", PositionList[i].TestPositionName);
+                if (!string.IsNullOrEmpty(tempID))
+                {
+                    PositionList[i].TestPositionID = SensorsList[int.Parse(tempID) - 1];
+                }
+            }
+
+            //加载温度默认配置
+            ObservableCollection<DataModule.TestTemperatureModule> TestTemperatureListTemp = new ObservableCollection<TestTemperatureModule>();
+
+            for (int i = 0; i < TestTemperatureList.Count; i++)
+            {
+                string tempID = FileHelper.IniReadValue("Temperture", TestTemperatureList[i].TestTemperatureID);
+
+                if (!string.IsNullOrEmpty(tempID))
+                {
+                    TestTemperatureList[i].IsChecked = true;
+                    TestTemperatureList[i].TemperatureValue = tempID;
+                }
+                else
+                {
+                    TestTemperatureList[i].IsChecked = false;
+                    TestTemperatureList[i].TemperatureValue = string.Empty;
+                }
+                TestTemperatureListTemp.Add(TestTemperatureList[i]);
+            }
+
+            TestTemperatureList = TestTemperatureListTemp;
+        }
+
+        /// <summary>
+        /// 保存默认参数
+        /// </summary>
+        private void DefaultSave()
+        {
+            try
+            {
+                FileHelper.DeleteFile();
+
+                //记录默认传感器ID
+                for (int i = 0; i < SensorsList.Count; i++)
+                {
+                    FileHelper.IniWriteValue("Sensor", SensorsList[i].SensorID.ToString(), SensorsList[i].DeviceID);
+                }
+
+                //记录默认测试分布类型
+                FileHelper.IniWriteValue("Position", "type", SelectedTestPosition);
+
+                //记录默认测点分布
+                for (int i = 0; i < PositionList.Count; i++)
+                {
+                    if (PositionList[i].TestPositionID == null)
+                    {
+                        continue;
+                    }
+
+                    FileHelper.IniWriteValue("Position", PositionList[i].TestPositionName, PositionList[i].TestPositionID.SensorID.ToString());
+                }
+
+                //记录默认测点温度
+                for (int i = 0; i < TestTemperatureList.Count; i++)
+                {
+                    if (TestTemperatureList[i].IsChecked.HasValue && TestTemperatureList[i].IsChecked == true)
+                    {
+                        FileHelper.IniWriteValue("Temperture", TestTemperatureList[i].TestTemperatureID, TestTemperatureList[i].TemperatureValue.ToString());
+                    }
+                }
+
+                System.Windows.MessageBox.Show("保存成功！");
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show(ex.Message);
+            }
         }
 
         /// <summary>

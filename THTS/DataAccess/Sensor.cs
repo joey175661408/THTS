@@ -14,7 +14,8 @@ namespace THTS.DataAccess
         private int channelID;
         private string type;
         private int sensorID;
-        private int deviceID;
+        private string deviceID;
+        private List<string> deviceIDList;
 
         /// <summary>
         /// 传感器类型
@@ -46,10 +47,19 @@ namespace THTS.DataAccess
         /// <summary>
         /// 软件中记录的传感器设备ID
         /// </summary>
-        public int DeviceID
+        public string DeviceID
         {
             get { return deviceID; }
             set { deviceID = value; }
+        }
+
+        /// <summary>
+        /// 传感器ID列表
+        /// </summary>
+        public List<string> DeviceIDList
+        {
+            get { return deviceIDList; }
+            set { deviceIDList = value; }
         }
     }
 

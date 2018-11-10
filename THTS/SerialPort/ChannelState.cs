@@ -124,7 +124,8 @@ namespace THTS.SerialPort
             {
                 if (IsOnline)
                 {
-                    return ChannelType;
+                    //return ChannelType;
+                    return "在线";
                 }
                 else
                 {
