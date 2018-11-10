@@ -10,7 +10,7 @@ namespace THTS.SerialPort
         /// <summary>
         /// 是否为调试模式
         /// </summary>
-        private bool test = true;
+        private bool test = false;
         #endregion
 
         public iInstrument(string portName, int baudRate, Parity parity, int dataBits, StopBits stopBits)

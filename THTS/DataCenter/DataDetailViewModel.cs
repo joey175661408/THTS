@@ -56,7 +56,7 @@ namespace THTS.DataCenter
         {
             Info = testinfo;
 
-            ToleranceInfo = TemperatureToleranceDAO.GetToleranceInfoData(testinfo.RecordSN);
+            ToleranceInfo.PositionType = Info.PositionType;
 
             EditCommand = new DelegateCommand(Edit);
             ExportRecordCommand = new DelegateCommand(Export);

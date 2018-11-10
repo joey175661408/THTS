@@ -82,6 +82,7 @@ namespace THTS.DataCenter
             if (TestInfoDAO.Delete(SelectedTestInfo))
             {
                 TestRecordList = TestInfoDAO.GetAllData();
+                TestRecordList = SequencingService.SetCollectionSequence(TestRecordList);
             }
         }
 

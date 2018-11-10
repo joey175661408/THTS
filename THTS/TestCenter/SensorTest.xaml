@@ -205,7 +205,42 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        
+
+        <Style x:Key="MaxMinStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Grid x:Name="Root">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="1" />
+                                    <RowDefinition Height="20" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                </Grid.ColumnDefinitions>
+                                <!--设置标题名称-->
+                                <ContentPresenter Content="第i次" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="7" />
+                                <!--设置间隔线-->
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Height="1" Visibility="Visible" Grid.Row="1" Grid.ColumnSpan="7" />
+                                <ContentPresenter Content="最大" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="1" />
+                                <ContentPresenter Content="最小" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            </Grid>
+                            <Rectangle x:Name="VerticalSeparator" Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="1" Grid.Column="1" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <Style x:Key="PositionHumidityStyle" TargetType="DataGridColumnHeader">
             <Setter Property="Template">
                 <Setter.Value>
@@ -268,11 +303,13 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button Content="开始采样" Width="80" Height="30" Command="{Binding StartCommand}" IsEnabled="{Binding StartEnable}"/>
+                <Button Content="{Binding StartOrPause}" Width="50" Height="30" Command="{Binding StartCommand}" IsEnabled="{Binding StartEnable}"/>
                 <Label/>
-                <Button Content="中止测试" Width="80" Height="30" Command="{Binding StopCommand}"/>
+                <Button Content="⬛" Width="50" Height="30" Command="{Binding StopCommand}" IsEnabled="{Binding StopEnable}"/>
                 <Label/>
-                <Button Content="保存并关闭" Width="80" Height="30" Command="{Binding SaveAndCloseCommand}"/>
+                <Button Content="保存" Width="50" Height="30" Command="{Binding SaveAndCloseCommand}" IsEnabled="{Binding SaveEnable}"/>
+                <Label/>
+                <Button Content="返回" Width="50" Height="30"  Command="{Binding ReturnCommand}"/>
             </StackPanel>
             <Label Grid.Row="2" Content="如需立即开始，可按【开始采样】按钮！" HorizontalAlignment="Center"/>
             <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
@@ -439,7 +476,19 @@
                                                     </DataTemplate>
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
-
+                                            
+                                            <DataGridTemplateColumn HeaderStyle="{StaticResource MaxMinStyle}">
+                                                <DataGridTemplateColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <Label Content="{Binding StringMaxT}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding StringMinT}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </DataGridTemplateColumn.CellTemplate>
+                                            </DataGridTemplateColumn>
+                                            
                                             <DataGridTemplateColumn HeaderStyle="{StaticResource PositionHumidityStyle}" Visibility="Collapsed">
                                                 <DataGridTemplateColumn.CellTemplate>
                                                     <DataTemplate>

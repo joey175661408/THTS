@@ -24,13 +24,14 @@ namespace THTS.TestCenter
         /// <summary>
         /// 是否为调试模式
         /// </summary>
-        private bool test = true;
+        private bool test = false;
         #endregion
 
         #region Command
         public IDelegateCommand StartCommand { get; private set; }
         public IDelegateCommand StopCommand { get; private set; }
         public IDelegateCommand SaveAndCloseCommand { get; private set; }
+        public IDelegateCommand ReturnCommand { get; private set; }
         #endregion
 
         private int temperatureIndex = 0;
@@ -118,15 +119,36 @@ namespace THTS.TestCenter
         private DateTime currTime;
         bool timeout = false;
 
-
-        private bool _startEnable = true;
+        private string _startOrPause = "▶";
         /// <summary>
-        /// 开始按钮是否有效
+        /// 开始按钮是否有效名称
         /// </summary>
-        public bool StartEnable
+        public string StartOrPause
         {
-            get { return _startEnable; }
-            set { _startEnable = value; OnPropertyChanged(); }
+            get { return _startOrPause; }
+            set { _startOrPause = value; OnPropertyChanged(); }
+        }
+        //暂停标志
+        private bool pause = false;
+
+        private bool _stopEnable = false;
+        /// <summary>
+        /// 中止按钮是否有效
+        /// </summary>
+        public bool StopEnable
+        {
+            get { return _stopEnable; }
+            set { _stopEnable = value; OnPropertyChanged(); }
+        }
+
+        private bool _saveEnable = false;
+        /// <summary>
+        /// 保存按钮是否有效
+        /// </summary>
+        public bool SaveEnable
+        {
+            get { return _saveEnable; }
+            set { _saveEnable = value; OnPropertyChanged(); }
         }
 
         private int _barValue = 0;
@@ -166,6 +188,7 @@ namespace THTS.TestCenter
             StartCommand = new DelegateCommand(Start);
             StopCommand = new DelegateCommand(Stop);
             SaveAndCloseCommand = new DelegateCommand(SaveAndClose); 
+            ReturnCommand = new DelegateCommand(Return);
 
             TestPositionChanged(tolerance.PositionType);
 
@@ -265,6 +288,20 @@ namespace THTS.TestCenter
         /// </summary>
         private void Start()
         {
+            if (StartOrPause.Equals("||"))
+            {
+                pause = true;
+                StartOrPause = "▶";
+                return;
+            }
+
+            if (StartOrPause.Equals("▶") && pause)
+            {
+                pause = false;
+                StartOrPause = "||";
+                return;
+            }
+
             DispatcherTimer timerBar = new DispatcherTimer();
             timerBar.Interval = TimeSpan.FromSeconds(1);
             timerBar.Tick += ProcessBarChange;
@@ -280,18 +317,27 @@ namespace THTS.TestCenter
             timeout = false;
             Thread thrP = new Thread(new ThreadStart(() =>
             {
-                StartEnable = false;
+                StartOrPause = "||";
+                StopEnable = true;
+                SaveEnable = false;
 
                 while (!timeout)
                 {
                     BarValue = (int)(DateTime.Now - now).TotalSeconds * 100 / (tol.TestTimeSpan * 60);
                     timeout = BarValue >= 100;
                     Thread.Sleep(500);
+                    //暂停
+                    while (pause)
+                    {
+                        Thread.Sleep(300);
+                    }
                 }
 
                 timerBar.Stop();
                 timer.Stop();
-                StartEnable = true;
+                StartOrPause = "▶";
+                SaveEnable = true;
+                MessageBox.Show("设置温度" + CurrentTemperature + "℃ 测量结束");
 
                 if (TestResultDataList.Count > temperatureIndex + 1)
                 {
@@ -311,6 +357,11 @@ namespace THTS.TestCenter
         /// <param name="e"></param>
         private void ProcessBarChange(object sender, EventArgs e)
         {
+            if (pause)
+            {
+                return;
+            }
+
             TimeSpan temp = currTime - DateTime.Now;
             BarTime = temp.Hours.ToString("00") + ":" + temp.Minutes.ToString("00") + ":" + temp.Seconds.ToString("00");
         }
@@ -322,6 +373,11 @@ namespace THTS.TestCenter
         /// <param name="e"></param>
         private void CollectData(object sender, EventArgs e)
         {
+            if (pause)
+            {
+                return;
+            }
+
             TestData data = new TestData
             {
                 RecordSN = tol.RecordSN,
@@ -399,6 +455,21 @@ namespace THTS.TestCenter
             foreach (Window item in Application.Current.Windows)
             {
                 if (item.Title.Equals("测试中心") || item.Title.Equals("测试参数")|| item.Title.Equals("偏差、波动度及均匀度测试"))
+                {
+                    item.Close();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 返回上个界面
+        /// </summary>
+        private void Return()
+        {
+            instrument.Close();
+            foreach (Window item in Application.Current.Windows)
+            {
+                if (item.Title.Equals("偏差、波动度及均匀度测试"))
                 {
                     item.Close();
                 }
