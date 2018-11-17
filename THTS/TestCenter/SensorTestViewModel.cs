@@ -84,7 +84,7 @@ namespace THTS.TestCenter
         {
             get { return _uC15Visibility; }
             set { _uC15Visibility = value; OnPropertyChanged(); }
-        }
+        }      
 
         private Dictionary<string, Sensor> _positionName;
         /// <summary>
@@ -222,7 +222,9 @@ namespace THTS.TestCenter
 
             if (templist.Count > 0)
             {
-                CurrentTemperature = templist[0].TemperatureValue;
+                CurrentTemperature = string.IsNullOrEmpty(templist[0].HumidityValue)?
+                    templist[0].TemperatureValue + "℃" :
+                    templist[0].TemperatureValue + "℃|" + templist[0].HumidityValue + "%";
                 TabItemIndex = 0;
             }
         }

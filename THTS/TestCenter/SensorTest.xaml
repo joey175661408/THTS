@@ -313,9 +313,8 @@
             </StackPanel>
             <Label Grid.Row="2" Content="如需立即开始，可按【开始采样】按钮！" HorizontalAlignment="Center"/>
             <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Label Content="当前测试温度：" FontSize="18" Height="40" VerticalContentAlignment="Center"/>
+                <Label Content="当前测试：" FontSize="18" Height="40" VerticalContentAlignment="Center"/>
                 <Label Content="{Binding CurrentTemperature}" FontSize="18" Height="40" VerticalContentAlignment="Center"/>
-                <Label Content="℃" FontSize="18" Height="40" VerticalContentAlignment="Center"/>
             </StackPanel>
             <StackPanel Grid.Row="4" Orientation="Horizontal">
                 <Controls:MetroProgressBar Value="{Binding BarValue}" IsIndeterminate="True"  Maximum="100" Minimum="0" Width="200" Height="20"/>
@@ -397,8 +396,9 @@
                                             <DataGridTextColumn Binding="{Binding Time}" Header="时间"/>
                                             <DataGridTextColumn Binding="{Binding Count}" Header="次数" />
                                             <DataGridTextColumn Binding="{Binding DeviceTemperature}" Header="仪表示值℃" />
-                                            <DataGridTextColumn Binding="{Binding DeviceHumidity}" Header="仪表示值%RH" Visibility="Collapsed"/>
-                                            
+                                            <DataGridTextColumn Binding="{Binding DeviceHumidity}" Header="仪表示值%RH" 
+                                                                Visibility="{Binding Data.Tol.Info.HumidityVisibility ,Source={StaticResource proxy}}"/>
+
                                             <DataGridTemplateColumn HeaderStyle="{StaticResource DeviceStyle}" Visibility="Collapsed">
                                                 <DataGridTemplateColumn.CellTemplate>
                                                     <DataTemplate>
@@ -489,7 +489,8 @@
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
                                             
-                                            <DataGridTemplateColumn HeaderStyle="{StaticResource PositionHumidityStyle}" Visibility="Collapsed">
+                                            <DataGridTemplateColumn HeaderStyle="{StaticResource PositionHumidityStyle}" 
+                                                                    Visibility="{Binding Data.Tol.Info.HumidityVisibility ,Source={StaticResource proxy}}">
                                                 <DataGridTemplateColumn.CellTemplate>
                                                     <DataTemplate>
                                                         <StackPanel Orientation="Horizontal">

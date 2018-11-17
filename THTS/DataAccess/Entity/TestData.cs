@@ -218,7 +218,19 @@ namespace THTS.DataAccess.Entity
         [NotMapped]
         public string TemperatureTitle
         {
-            get { return TemperatureName + "(" + TemperatureValue + "℃)  "; }
+            get
+            {
+                if (string.IsNullOrEmpty(HumidityValue))
+                {
+                    return TemperatureName + "(" + TemperatureValue + "℃)  ";
+
+                }
+                else
+                {
+                    return TemperatureName + "(" + TemperatureValue + "℃|" + HumidityValue + "%)  ";
+
+                }
+            }
         }
 
         #endregion

@@ -35,7 +35,19 @@ namespace THTS.DataAccess.Entity
         [NotMapped]
         public string TemperatureTitle
         {
-            get { return TemperatureName + "(" + TemperatureValue + "℃)  "; }
+            get
+            {
+                if (string.IsNullOrEmpty(HumidityValue))
+                {
+                    return TemperatureName + "(" + TemperatureValue + "℃)  ";
+
+                }
+                else
+                {
+                    return TemperatureName + "(" + TemperatureValue + "℃|" + HumidityValue + "%)  ";
+
+                }
+            }
         }
 
         [NotMapped]
@@ -47,23 +59,48 @@ namespace THTS.DataAccess.Entity
 
         public void CalcuteResult()
         {
+            //温度数据
             double sumOT = 0D;
             double sumDeviceT = 0D;
             double sumMMT = 0D;
             double maxOT = Double.Parse(DataList[0].StringO);
             double minOT = Double.Parse(DataList[0].StringO);
+
             for (int i = 0; i < DataList.Count; i++)
             {
                 sumOT += Double.Parse(DataList[i].StringO);
                 sumDeviceT += Double.Parse(DataList[i].DeviceTemperature);
                 sumMMT += Double.Parse(DataList[i].StringMaxT) - Double.Parse(DataList[i].StringMinT);
-
                 maxOT = DataList[i].O > maxOT ? Double.Parse(DataList[i].StringO) : maxOT;
                 minOT = DataList[i].O < minOT ? Double.Parse(DataList[i].StringO) : minOT;
             }
+
             this.TemperatureDepartureValue = ((sumDeviceT - sumOT) / DataList.Count).ToString("0.00");
             this.TemperatureAverageValue = (sumMMT / DataList.Count).ToString("0.00");
             this.TemperatureFluctuationValue = "±" + ((maxOT - minOT) / 2).ToString("0.00");
+
+            //湿度数据
+            if (!string.IsNullOrEmpty(HumidityValue))
+            {
+                double sumJiaH = 0D;
+                double sumDeviceH = 0D;
+                double sumMMH = 0D;
+                double maxJiaH = Double.Parse(DataList[0].StringJia);
+                double minJiaH = Double.Parse(DataList[0].StringJia);
+
+                for (int i = 0; i < DataList.Count; i++)
+                {
+                    sumJiaH += Double.Parse(DataList[i].StringJia);
+                    sumDeviceH += Double.Parse(DataList[i].DeviceHumidity);
+                    sumMMH += Double.Parse(DataList[i].StringMaxH) - Double.Parse(DataList[i].StringMinH);
+                    maxJiaH = DataList[i].Jia > maxJiaH ? Double.Parse(DataList[i].StringJia) : maxJiaH;
+                    minJiaH = DataList[i].Jia < minJiaH ? Double.Parse(DataList[i].StringJia) : minJiaH;
+                }
+
+                this.HumidityDepartureValue = ((sumDeviceH - sumJiaH) / DataList.Count).ToString("0.00");
+                this.HumidityAverageValue = (sumMMH / DataList.Count).ToString("0.00");
+                this.HumidityFluctuationValue = "±" + ((maxJiaH - minJiaH) / 2).ToString("0.00");
+            }
         }
 
         #endregion

@@ -162,10 +162,10 @@
                     <CheckBox IsChecked="{Binding Info.TempDepartureIsChecked}" Content="温度偏差" Margin="10,0,0,0"/>
                     <Label/>
                     <CheckBox IsChecked="{Binding Info.TempAverageIsChecked}" Content="温度波动度及均匀度" Margin="10,0,0,0"/>
-                    <Label Visibility="Collapsed"/>
-                    <CheckBox IsChecked="{Binding Info.HumiDepartureIsChecked}" Content="湿度偏差" Margin="10,0,0,0" Visibility="Collapsed"/>
-                    <Label Visibility="Collapsed"/>
-                    <CheckBox IsChecked="{Binding Info.HumiAverageIsChecked}" Content="湿度波动度及均匀度" Margin="10,0,0,0" Visibility="Collapsed"/>
+                    <Label/>
+                    <CheckBox IsChecked="{Binding Info.HumiDepartureIsChecked}" Content="湿度偏差" Margin="10,0,0,0" Visibility="Visible"/>
+                    <Label/>
+                    <CheckBox IsChecked="{Binding Info.HumiAverageIsChecked}" Content="湿度波动度及均匀度" Margin="10,0,0,0" Visibility="Visible"/>
                     <Label/>
                 </StackPanel>
             </GroupBox>

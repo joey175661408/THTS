@@ -137,7 +137,7 @@ namespace THTS.TestCenter
             {
                 TestTemperatureModule module = new TestTemperatureModule();
                 module.IsChecked = false;
-                module.TestTemperatureID = "设置温度" + (i + 1);
+                module.TestTemperatureID = "设置测量" + (i + 1);
 
                 if (i == 0)
                 {
@@ -274,7 +274,7 @@ namespace THTS.TestCenter
         /// </summary>
         private void DefaultGet()
         {
-            if (ChannelList.Count == 0)
+            if (ChannelList.Where(t=>t.IsOnline == true).Count() == 0)
             {
                 System.Windows.MessageBox.Show("设备离线！");
                 return;
@@ -327,22 +327,24 @@ namespace THTS.TestCenter
                 }
             }
 
-            //加载温度默认配置
+            //加载温度/湿度默认配置
             ObservableCollection<DataModule.TestTemperatureModule> TestTemperatureListTemp = new ObservableCollection<TestTemperatureModule>();
 
             for (int i = 0; i < TestTemperatureList.Count; i++)
             {
-                string tempID = FileHelper.IniReadValue("Temperture", TestTemperatureList[i].TestTemperatureID);
+                string tempID = FileHelper.IniReadValue("Temperture|Humidity", TestTemperatureList[i].TestTemperatureID);
 
                 if (!string.IsNullOrEmpty(tempID))
                 {
                     TestTemperatureList[i].IsChecked = true;
-                    TestTemperatureList[i].TemperatureValue = tempID;
+                    TestTemperatureList[i].TemperatureValue = tempID.Contains("|")?tempID.Split('|')[0]:tempID;
+                    TestTemperatureList[i].HumidityValue = tempID.Contains("|")?tempID.Split('|')[1]: string.Empty;
                 }
                 else
                 {
                     TestTemperatureList[i].IsChecked = false;
                     TestTemperatureList[i].TemperatureValue = string.Empty;
+                    TestTemperatureList[i].HumidityValue = string.Empty;
                 }
                 TestTemperatureListTemp.Add(TestTemperatureList[i]);
             }
@@ -379,12 +381,13 @@ namespace THTS.TestCenter
                     FileHelper.IniWriteValue("Position", PositionList[i].TestPositionName, PositionList[i].TestPositionID.SensorID.ToString());
                 }
 
-                //记录默认测点温度
+                //记录默认测点温度/湿度
                 for (int i = 0; i < TestTemperatureList.Count; i++)
                 {
                     if (TestTemperatureList[i].IsChecked.HasValue && TestTemperatureList[i].IsChecked == true)
                     {
-                        FileHelper.IniWriteValue("Temperture", TestTemperatureList[i].TestTemperatureID, TestTemperatureList[i].TemperatureValue.ToString());
+                        FileHelper.IniWriteValue("Temperture|Humidity", TestTemperatureList[i].TestTemperatureID,
+                            TestTemperatureList[i].TemperatureValue + "|" + TestTemperatureList[i].HumidityValue);
                     }
                 }
 
@@ -485,6 +488,12 @@ namespace THTS.TestCenter
         /// </summary>
         private void Start()
         {
+            if (ChannelList.Where(t => t.IsOnline == true).Count() == 0)
+            {
+                System.Windows.MessageBox.Show("设备离线！");
+                return;
+            }
+
             ToleranceInfo.TemperatureList.Clear();
             for (int i = 0; i < TestTemperatureList.Count; i++)
             {

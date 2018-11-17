@@ -423,8 +423,8 @@
                         </Grid.ColumnDefinitions>
                         <CheckBox Grid.Row="1" Grid.Column="0" IsChecked="{Binding Info.TempDepartureIsChecked}" Content="温度偏差" Margin="10,0,0,0"/>
                         <CheckBox Grid.Row="1" Grid.Column="2" IsChecked="{Binding Info.TempAverageIsChecked}" Content="温度波动度及均匀度" Margin="10,0,0,0"/>
-                        <CheckBox Grid.Row="3" Grid.Column="0" IsChecked="{Binding Info.HumiDepartureIsChecked}" Content="湿度偏差" Margin="10,0,0,0" Visibility="Collapsed"/>
-                        <CheckBox Grid.Row="3" Grid.Column="2" IsChecked="{Binding Info.HumiAverageIsChecked}" Content="湿度波动度及均匀度" Margin="10,0,0,0" Visibility="Collapsed"/>
+                        <CheckBox Grid.Row="3" Grid.Column="0" IsChecked="{Binding Info.HumiDepartureIsChecked}" Content="湿度偏差" Margin="10,0,0,0"/>
+                        <CheckBox Grid.Row="3" Grid.Column="2" IsChecked="{Binding Info.HumiAverageIsChecked}" Content="湿度波动度及均匀度" Margin="10,0,0,0"/>
                     </Grid>
                 </GroupBox>
                 
@@ -466,7 +466,8 @@
                                 <Label FontSize="18" Content="{Binding TemperatureValue}" Width="80" HorizontalContentAlignment="Center"/>
                                 <Label FontSize="18" Content="℃" HorizontalContentAlignment="Left"/>
                             </StackPanel>
-                            <StackPanel Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Center" Visibility="Collapsed">
+                            <StackPanel Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Center" 
+                                        Visibility="{Binding Data.Tol.Info.HumidityVisibility ,Source={StaticResource proxy}}">
                                 <Label FontSize="18" Content="标称湿度" HorizontalContentAlignment="Left"/>
                                 <Label FontSize="18" Content="{Binding HumidityValue}" Width="80" HorizontalContentAlignment="Center"/>
                                 <Label FontSize="18" Content="%RH" HorizontalContentAlignment="Left"/>
@@ -486,7 +487,8 @@
                                 <DataGridTextColumn Binding="{Binding Time}" Header="时间"/>
                                 <DataGridTextColumn Binding="{Binding Count}" Header="次数" />
                                 <DataGridTextColumn Binding="{Binding DeviceTemperature}" Header="仪表示值℃"/>
-                                <DataGridTextColumn Binding="{Binding DeviceTemperature}" Header="仪表示值%RH" Visibility="Collapsed"/>
+                                <DataGridTextColumn Binding="{Binding DeviceHumidity}" Header="仪表示值%RH" 
+                                                    Visibility="{Binding Data.Tol.Info.HumidityVisibility ,Source={StaticResource proxy}}"/>
                                 
                                 <DataGridTemplateColumn HeaderStyle="{StaticResource DeviceStyle}" Visibility="Collapsed">
                                     <DataGridTemplateColumn.CellTemplate>
@@ -578,7 +580,8 @@
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
                             
-                                <DataGridTemplateColumn HeaderStyle="{StaticResource PositionHumidityStyle}" Visibility="Collapsed">
+                                <DataGridTemplateColumn HeaderStyle="{StaticResource PositionHumidityStyle}" 
+                                               Visibility="{Binding Data.Tol.Info.HumidityVisibility ,Source={StaticResource proxy}}">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal">
@@ -626,17 +629,20 @@
                                 <Label FontSize="18" Content="{Binding TemperatureFluctuationValue}" Width="80" HorizontalContentAlignment="Center"/>
                                 <Label FontSize="18" Content="℃" HorizontalContentAlignment="Left"/>
                             </StackPanel>
-                            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Visibility="Collapsed">
+                            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" 
+                                        Visibility="{Binding Data.Tol.Info.HumidityVisibility ,Source={StaticResource proxy}}">
                                 <Label FontSize="18" Content="湿度偏差" HorizontalContentAlignment="Left"/>
                                 <Label FontSize="18" Content="{Binding HumidityDepartureValue}" Width="80" HorizontalContentAlignment="Center"/>
                                 <Label FontSize="18" Content="%RH" HorizontalContentAlignment="Left"/>
                             </StackPanel>
-                            <StackPanel Grid.Row="1" Grid.Column="3" Orientation="Horizontal" Visibility="Collapsed">
+                            <StackPanel Grid.Row="1" Grid.Column="3" Orientation="Horizontal" 
+                                        Visibility="{Binding Data.Tol.Info.HumidityVisibility ,Source={StaticResource proxy}}">
                                 <Label FontSize="18" Content="湿度均匀度" HorizontalContentAlignment="Left"/>
                                 <Label FontSize="18" Content="{Binding HumidityAverageValue}" Width="80" HorizontalContentAlignment="Center"/>
                                 <Label FontSize="18" Content="%RH" HorizontalContentAlignment="Left"/>
                             </StackPanel>
-                            <StackPanel Grid.Row="1" Grid.Column="5" Orientation="Horizontal" Visibility="Collapsed">
+                            <StackPanel Grid.Row="1" Grid.Column="5" Orientation="Horizontal" 
+                                        Visibility="{Binding Data.Tol.Info.HumidityVisibility ,Source={StaticResource proxy}}">
                                 <Label FontSize="18" Content="湿度波动度" HorizontalContentAlignment="Left"/>
                                 <Label FontSize="18" Content="{Binding HumidityFluctuationValue}" Width="80" HorizontalContentAlignment="Center"/>
                                 <Label FontSize="18" Content="%RH" HorizontalContentAlignment="Left"/>

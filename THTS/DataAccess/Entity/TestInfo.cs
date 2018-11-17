@@ -51,8 +51,6 @@ namespace THTS.DataAccess
         public TestInfo()
         {
             this.RegisterPropertyChangedHandler(() => PropertyChanged);
-            this.HumidityDeparture = 0;
-            this.HumidityAverage = 0;
             this.IsDeleted = 0;
         }
 
@@ -119,7 +117,7 @@ namespace THTS.DataAccess
         {
             get
             {
-                if(TemperatureAverage == 0 || TemperatureDeparture == 0)
+                if(TemperatureAverage == 0 && TemperatureDeparture == 0)
                 {
                     return Visibility.Collapsed;
                 }
@@ -135,7 +133,7 @@ namespace THTS.DataAccess
         {
             get
             {
-                if (HumidityAverage == 0 || HumidityDeparture == 0)
+                if (HumidityAverage == 0 && HumidityDeparture == 0)
                 {
                     return Visibility.Collapsed;
                 }
