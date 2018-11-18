@@ -37,7 +37,13 @@ namespace THTS.DataAccess
         public int TestTimeSpan { get; set; }
         public int TestSampleInterval { get; set; }
         public int IsDeleted { get; set; }
+        /// <summary>
+        /// 下限湿度
+        /// </summary>
         public string Extra1 { get; set; }
+        /// <summary>
+        /// 上限湿度
+        /// </summary>
         public string Extra2 { get; set; }
         public string Extra3 { get; set; }
         public string Extra4 { get; set; }

@@ -71,6 +71,8 @@ namespace THTS.DataAccess.EntityDAO
                     test.Accuracy = "1";
                     test.TemperatureLower = "-40";
                     test.TemperatureUpper = "120";
+                    test.Extra1 = "20";
+                    test.Extra2 = "100";
 
                     test.EnvironmentTemperature = "25";
                     test.EnvironmentPressure = "101";

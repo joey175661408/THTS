@@ -331,6 +331,8 @@
                             <RowDefinition Height="5"/>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="5"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="5"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
@@ -347,14 +349,16 @@
                         <TextBox Text="{Binding Info.UutSN,Mode=TwoWay}" Width="200" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                         <TextBlock Text="生产厂家" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                         <TextBox Text="{Binding Info.UutManufacture,Mode=TwoWay}" Width="200" Grid.Row="9" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Text="校准地点" Grid.Row="11" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Info.UutCalPosition,Mode=TwoWay}" Width="200" Grid.Row="11" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Text="精确度（±℃）" Grid.Row="13" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Info.Accuracy,Mode=TwoWay}" Width="200" Grid.Row="13" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Text="下限温度（℃）" Grid.Row="15" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Info.TemperatureLower,Mode=TwoWay}" Width="200" Grid.Row="15" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Text="上限温度（℃）" Grid.Row="17" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Info.TemperatureUpper,Mode=TwoWay}" Width="200" Grid.Row="17" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBlock Text="精确度（±℃）" Grid.Row="11" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBox Text="{Binding Info.Accuracy,Mode=TwoWay}" Width="200" Grid.Row="11" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBlock Text="下限温度（℃）" Grid.Row="13" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBox Text="{Binding Info.TemperatureLower,Mode=TwoWay}" Width="200" Grid.Row="13" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBlock Text="上限温度（℃）" Grid.Row="15" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBox Text="{Binding Info.TemperatureUpper,Mode=TwoWay}" Width="200" Grid.Row="15" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBlock Text="下限湿度（%RH）" Grid.Row="17" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBox Text="{Binding Info.Extra1,Mode=TwoWay}" Width="200" Grid.Row="17" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBlock Text="上限湿度（%RH）" Grid.Row="19" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBox Text="{Binding Info.Extra2,Mode=TwoWay}" Width="200" Grid.Row="19" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                     </Grid>
                 </GroupBox>
             </StackPanel>
@@ -363,6 +367,8 @@
                 <GroupBox Header="测试信息" Height="340">
                     <Grid>
                         <Grid.RowDefinitions>
+                            <RowDefinition Height="5"/>
+                            <RowDefinition Height="*"/>
                             <RowDefinition Height="5"/>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="5"/>
@@ -396,12 +402,14 @@
                         <TextBox Text="{Binding Info.VerifiedBy,Mode=TwoWay}" Width="200" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                         <TextBlock Text="核验员" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                         <TextBox Text="{Binding Info.CheckedBy,Mode=TwoWay}" Width="200" Grid.Row="9" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Text="测试时间" Grid.Row="11" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <DatePicker Text="{Binding Info.TestDate,Mode=TwoWay}" Width="200" Grid.Row="11" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Text="记录编号" Grid.Row="13" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Info.RecordSN,Mode=TwoWay}" Width="200" Grid.Row="13" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Text="证书编号" Grid.Row="15" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Info.CertificateSN,Mode=TwoWay}" Width="200" Grid.Row="15" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBlock Text="校准地点" Grid.Row="11" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBox Text="{Binding Info.UutCalPosition,Mode=TwoWay}" Width="200" Grid.Row="11" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBlock Text="测试时间" Grid.Row="13" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <DatePicker Text="{Binding Info.TestDate,Mode=TwoWay}" Width="200" Grid.Row="13" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBlock Text="记录编号" Grid.Row="15" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBox Text="{Binding Info.RecordSN,Mode=TwoWay}" Width="200" Grid.Row="15" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBlock Text="证书编号" Grid.Row="17" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBox Text="{Binding Info.CertificateSN,Mode=TwoWay}" Width="200" Grid.Row="17" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                     </Grid>
                 </GroupBox>
             </StackPanel>

@@ -65,7 +65,7 @@
                           Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="序号" Binding="{Binding SequenceNumber}"/>
-                        <DataGridTextColumn Header="传感器序列号" Binding="{Binding Id}"/>
+                        <!--<DataGridTextColumn Header="传感器序列号" Binding="{Binding Id}"/>-->
                         <DataGridTextColumn Header="类型" Binding="{Binding ModuleName}"/>
                         <DataGridTextColumn Header="生产厂商" Binding="{Binding Manufacture}"/>
                         <DataGridTextColumn Header="出厂编号" Binding="{Binding FactoryNo}"/>
