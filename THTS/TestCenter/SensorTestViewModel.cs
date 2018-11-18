@@ -339,13 +339,15 @@ namespace THTS.TestCenter
                 timer.Stop();
                 StartOrPause = "▶";
                 SaveEnable = true;
-                MessageBox.Show("设置温度" + CurrentTemperature + "℃ 测量结束");
+                MessageBox.Show("设置测量" + CurrentTemperature + " 测量结束");
 
                 if (TestResultDataList.Count > temperatureIndex + 1)
                 {
                     temperatureIndex = temperatureIndex + 1;
                     TabItemIndex = TabItemIndex + 1;
-                    CurrentTemperature = TestResultDataList[temperatureIndex].TemperatureValue;
+                    CurrentTemperature = string.IsNullOrEmpty(TestResultDataList[temperatureIndex].HumidityValue) ?
+                    TestResultDataList[temperatureIndex].TemperatureValue + "℃" :
+                    TestResultDataList[temperatureIndex].TemperatureValue + "℃|" + TestResultDataList[temperatureIndex].HumidityValue + "%";
                 }
             }));
             thrP.IsBackground = true;
@@ -384,11 +386,11 @@ namespace THTS.TestCenter
             {
                 RecordSN = tol.RecordSN,
                 TemperatureName = TestResultDataList[temperatureIndex].TemperatureName,
-                TemperatureValue = CurrentTemperature,
+                TemperatureValue = TestResultDataList[temperatureIndex].TemperatureValue,
                 HumidityValue = TestResultDataList[temperatureIndex].HumidityValue,
                 Time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
                 Count = TestResultDataList[temperatureIndex].DataList.Count + 1,
-                DeviceTemperature = CurrentTemperature,
+                DeviceTemperature = TestResultDataList[temperatureIndex].TemperatureValue,
                 DeviceHumidity = TestResultDataList[temperatureIndex].HumidityValue,
 
                 A = SetValueForPosition("A"),
