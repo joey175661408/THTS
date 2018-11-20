@@ -333,6 +333,8 @@
                             <RowDefinition Height="5"/>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="5"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="5"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
@@ -355,10 +357,12 @@
                         <TextBox Text="{Binding Info.TemperatureLower,Mode=TwoWay}" Width="200" Grid.Row="13" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                         <TextBlock Text="上限温度（℃）" Grid.Row="15" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                         <TextBox Text="{Binding Info.TemperatureUpper,Mode=TwoWay}" Width="200" Grid.Row="15" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Text="下限湿度（%RH）" Grid.Row="17" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Info.Extra1,Mode=TwoWay}" Width="200" Grid.Row="17" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Text="上限湿度（%RH）" Grid.Row="19" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Info.Extra2,Mode=TwoWay}" Width="200" Grid.Row="19" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBlock Text="精确度（±%RH）" Grid.Row="17" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBox Text="{Binding Info.Extra3,Mode=TwoWay}" Width="200" Grid.Row="17" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBlock Text="下限湿度（%RH）" Grid.Row="19" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBox Text="{Binding Info.Extra1,Mode=TwoWay}" Width="200" Grid.Row="19" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBlock Text="上限湿度（%RH）" Grid.Row="21" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBox Text="{Binding Info.Extra2,Mode=TwoWay}" Width="200" Grid.Row="21" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                     </Grid>
                 </GroupBox>
             </StackPanel>

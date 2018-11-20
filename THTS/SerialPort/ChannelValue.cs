@@ -338,5 +338,10 @@ namespace THTS.SerialPort
         {
             get { return _sensorValue + _sensorUnit; }
         }
+
+        public string SensorValueString
+        {
+            get { return _sensorValue.ToString("0.00"); }
+        }
     }
 }

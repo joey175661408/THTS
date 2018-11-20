@@ -258,7 +258,7 @@ namespace THTS.TestCenter
                             if (test)
                             {
                                 real.SensorID = i + 1;
-                                real.SensorValue = (float)(50 + (new Random(Guid.NewGuid().GetHashCode()).Next(-100, 100)) * 0.01);
+                                real.SensorValue = (float)(50 + (new Random(Guid.NewGuid().GetHashCode()).Next(-1000, 1000)) * 0.001);
                                 real.SensorUnit = "℃";
                             }
                             else
@@ -454,26 +454,19 @@ namespace THTS.TestCenter
                 TestDataDAO.Save(TestResultDataList[i].DataList);
             }
 
-            instrument.Close();
-
-            foreach (Window item in Application.Current.Windows)
-            {
-                if (item.Title.Equals("测试中心") || item.Title.Equals("测试参数")|| item.Title.Equals("偏差、波动度及均匀度测试"))
-                {
-                    item.Close();
-                }
-            }
+            SaveEnable = false;
         }
 
         /// <summary>
-        /// 返回上个界面
+        /// 返回主界面
         /// </summary>
         private void Return()
         {
             instrument.Close();
+
             foreach (Window item in Application.Current.Windows)
             {
-                if (item.Title.Equals("偏差、波动度及均匀度测试"))
+                if (item.Title.Equals("测试中心") || item.Title.Equals("测试参数") || item.Title.Equals("偏差、波动度及均匀度测试"))
                 {
                     item.Close();
                 }

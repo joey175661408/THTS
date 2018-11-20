@@ -37,13 +37,13 @@
                         <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Command="{Binding EditCommand}" IsEnabled ="{Binding IsEnableEdit, UpdateSourceTrigger=PropertyChanged}">
                             <StackPanel Orientation="Vertical">
                                 <iconPacks:PackIconFontAwesome Width="30" Height="30" Kind="DesktopSolid" HorizontalAlignment="Center"/>
-                                <TextBlock Text="查看" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+                                <TextBlock Text="查看数据" HorizontalAlignment="Center" Margin="0,5,0,0"/>
                             </StackPanel>
                         </Button>
                         <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Command="{Binding ExportRecordCommand}" IsEnabled="{Binding IsEnableExport,Mode=TwoWay}" >
                             <StackPanel Orientation="Vertical">
                                 <iconPacks:PackIconFontAwesome Width="30" Height="30" Kind="DesktopSolid" HorizontalAlignment="Center"/>
-                                <TextBlock Text="导出" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+                                <TextBlock Text="导出报告" HorizontalAlignment="Center" Margin="0,5,0,0"/>
                             </StackPanel>
                         </Button>
                         <Button Width="70" Height="55" Margin="0, 0, 0, 0" VerticalAlignment="Center" Command="{Binding DeleteCommand}" IsEnabled="{Binding IsEnableExport,Mode=TwoWay}">

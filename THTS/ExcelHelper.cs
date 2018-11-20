@@ -486,7 +486,10 @@ namespace THTS
                     SetTestResultValue(Info, ResultList);
 
                     WriteToFile(save.FileName, true);
-                    MessageBox.Show("导出成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if(MessageBox.Show("导出成功！是否立即打开？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Information)== DialogResult.Yes)
+                    {
+                        System.Diagnostics.Process.Start(save.FileName);
+                    }
                 }
                 catch (Exception ex)
                 {

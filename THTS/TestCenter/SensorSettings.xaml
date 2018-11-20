@@ -91,7 +91,8 @@
                                                             </Grid.ColumnDefinitions>
 
                                                             <Label Content="{Binding SensorID}" Grid.Column="0" VerticalContentAlignment="Center"/>
-                                                            <ComboBox Grid.Column="1" HorizontalAlignment="Stretch" ItemsSource="{Binding DeviceIDList}" SelectedValue="{Binding DeviceID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                                            <ComboBox Grid.Column="1" HorizontalAlignment="Stretch" Controls:TextBoxHelper.ClearTextButton="True"
+                                                                      ItemsSource="{Binding DeviceIDList}" SelectedValue="{Binding DeviceID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                                                         </Grid>
                                                     </DataTemplate>
                                                 </ListBox.ItemTemplate>

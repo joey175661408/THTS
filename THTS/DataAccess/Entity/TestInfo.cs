@@ -45,6 +45,9 @@ namespace THTS.DataAccess
         /// 上限湿度
         /// </summary>
         public string Extra2 { get; set; }
+        /// <summary>
+        /// 湿度精确度
+        /// </summary>
         public string Extra3 { get; set; }
         public string Extra4 { get; set; }
         public string Extra5 { get; set; }

@@ -363,7 +363,7 @@
                                             <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
                                         <Label Content="{Binding SensorID}" Grid.Column="0" VerticalContentAlignment="Center"/>
-                                        <Label Content="{Binding SensorValue}" Grid.Column="1" VerticalContentAlignment="Center"/>
+                                        <Label Content="{Binding SensorValueString}" Grid.Column="1" VerticalContentAlignment="Center"/>
                                         <Label Content="{Binding SensorUnit}" Grid.Column="2" VerticalContentAlignment="Center"/>
                                     </Grid>
                                 </DataTemplate>
