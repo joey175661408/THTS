@@ -361,6 +361,8 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="bin\Debug\Data\DB.sqlite" />
+    <None Include="bin\Debug\help\温湿度测试系统操作指南.docx" />
+    <None Include="bin\Debug\help\温湿度测试系统操作指南.pdf" />
     <None Include="bin\Debug\Template\Temperature15.xls" />
     <None Include="bin\Debug\Template\Temperature9.xls" />
     <None Include="bin\Debug\Template\template15.xls" />
@@ -412,9 +414,12 @@
     <Resource Include="Images\user.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Release\THTS温湿度测试系统安装包.exe" />
+    <Resource Include="Lib\background.bmp" />
     <Content Include="Lib\DynamicDataDisplay.dll" />
     <Content Include="Lib\DynamicDataDisplay.resources.dll" />
     <Content Include="Lib\EntityFramework.dll" />
+    <Resource Include="Lib\logo.ico" />
     <Content Include="Lib\Newtonsoft.Json.dll" />
     <Content Include="Lib\NPOI.dll" />
     <Content Include="Lib\SQLite.CodeFirst.dll" />

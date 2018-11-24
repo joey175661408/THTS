@@ -14,6 +14,8 @@ namespace THTS.UserCenter
             InitializeComponent();
         }
 
+        public bool testMode = false;
+
         private void Login_Click(object sender, RoutedEventArgs e)
         {
             string userName = this.tbUserName.Text;
@@ -26,6 +28,13 @@ namespace THTS.UserCenter
 
             if (userName.Equals("admin") && password.Equals("admin"))
             {
+                this.DialogResult = true;
+                return;
+            }
+
+            if (userName.Equals("THTS") && password.Equals("THTS"))
+            {
+                testMode = true;
                 this.DialogResult = true;
                 return;
             }

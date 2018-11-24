@@ -22,6 +22,12 @@ namespace THTS
 
             UserCenter.Login login = new UserCenter.Login();
             bool? log = login.ShowDialog();
+
+            if (login.testMode)
+            {
+                mainWindow.SetDebugMode();
+            }
+
             if (log.HasValue && log.Value)
             {
                 app.Run(mainWindow);

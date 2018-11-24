@@ -27,6 +27,15 @@ namespace THTS
             InitializeComponent();
         }
 
+        /// <summary>
+        /// 设置调试系统
+        /// </summary>
+        public void SetDebugMode()
+        {
+            this.HelpTile.Visibility = Visibility.Collapsed;
+            this.DebugTile.Visibility = Visibility.Visible;
+        }
+
         private void TestCenter_Click(object sender, RoutedEventArgs e)
         {
             TestCenter.TestCenter testCenter = new TestCenter.TestCenter();
@@ -55,6 +64,11 @@ namespace THTS
         {
             SettingCenter.SettingCenter settingCenter = new SettingCenter.SettingCenter();
             settingCenter.ShowDialog();
+        }
+
+        private void Help_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(Environment.CurrentDirectory + "/help/温湿度测试系统操作指南.pdf");
         }
 
         private void Quit_Click(object sender, RoutedEventArgs e)
