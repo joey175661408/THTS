@@ -177,6 +177,202 @@ namespace THTS.TestCenter
         /// </summary>
         iInstrument instrument = new iInstrument("COM1", 115200, System.IO.Ports.Parity.None, 8, System.IO.Ports.StopBits.One);
 
+        #region 温度曲线参数
+
+        ObservableDataSource<Point> _lineTop = new ObservableDataSource<Point>();
+        /// <summary>
+        /// 温度曲线数据源Top
+        /// </summary>
+        public ObservableDataSource<Point> LineTop
+        {
+            get { return _lineTop; }
+            set { _lineTop = value; OnPropertyChanged(); }
+        }
+
+        ObservableDataSource<Point> _lineBottom = new ObservableDataSource<Point>();
+        /// <summary>
+        /// 温度曲线数据源Bottom
+        /// </summary>
+        public ObservableDataSource<Point> LineBottom
+        {
+            get { return _lineBottom; }
+            set { _lineBottom = value; OnPropertyChanged(); }
+        }
+
+        ObservableDataSource<Point> _lineA = new ObservableDataSource<Point>();
+        /// <summary>
+        /// 温度曲线数据源A
+        /// </summary>
+        public ObservableDataSource<Point> LineA
+        {
+            get { return _lineA; }
+            set { _lineA = value; OnPropertyChanged(); }
+        }
+
+        ObservableDataSource<Point> _lineB = new ObservableDataSource<Point>();
+        /// <summary>
+        /// 温度曲线数据源B
+        /// </summary>
+        public ObservableDataSource<Point> LineB
+        {
+            get { return _lineB; }
+            set { _lineB = value; OnPropertyChanged(); }
+        }
+        ObservableDataSource<Point> _lineC = new ObservableDataSource<Point>();
+        /// <summary>
+        /// 温度曲线数据源C
+        /// </summary>
+        public ObservableDataSource<Point> LineC
+        {
+            get { return _lineC; }
+            set { _lineC = value; OnPropertyChanged(); }
+        }
+        ObservableDataSource<Point> _lineD = new ObservableDataSource<Point>();
+        /// <summary>
+        /// 温度曲线数据源D
+        /// </summary>
+        public ObservableDataSource<Point> LineD
+        {
+            get { return _lineD; }
+            set { _lineD = value; OnPropertyChanged(); }
+        }
+        ObservableDataSource<Point> _lineE = new ObservableDataSource<Point>();
+        /// <summary>
+        /// 温度曲线数据源E
+        /// </summary>
+        public ObservableDataSource<Point> LineE
+        {
+            get { return _lineE; }
+            set { _lineE = value; OnPropertyChanged(); }
+        }
+        ObservableDataSource<Point> _lineF = new ObservableDataSource<Point>();
+        /// <summary>
+        /// 温度曲线数据源F
+        /// </summary>
+        public ObservableDataSource<Point> LineF
+        {
+            get { return _lineF; }
+            set { _lineF = value; OnPropertyChanged(); }
+        }
+        ObservableDataSource<Point> _lineG = new ObservableDataSource<Point>();
+        /// <summary>
+        /// 温度曲线数据源G
+        /// </summary>
+        public ObservableDataSource<Point> LineG
+        {
+            get { return _lineG; }
+            set { _lineG = value; OnPropertyChanged(); }
+        }
+        ObservableDataSource<Point> _lineH = new ObservableDataSource<Point>();
+        /// <summary>
+        /// 温度曲线数据源H
+        /// </summary>
+        public ObservableDataSource<Point> LineH
+        {
+            get { return _lineH; }
+            set { _lineH = value; OnPropertyChanged(); }
+        }
+        ObservableDataSource<Point> _lineI = new ObservableDataSource<Point>();
+        /// <summary>
+        /// 温度曲线数据源I
+        /// </summary>
+        public ObservableDataSource<Point> LineI
+        {
+            get { return _lineI; }
+            set { _lineI = value; OnPropertyChanged(); }
+        }
+        ObservableDataSource<Point> _lineJ = new ObservableDataSource<Point>();
+        /// <summary>
+        /// 温度曲线数据源J
+        /// </summary>
+        public ObservableDataSource<Point> LineJ
+        {
+            get { return _lineJ; }
+            set { _lineJ = value; OnPropertyChanged(); }
+        }
+        ObservableDataSource<Point> _lineK = new ObservableDataSource<Point>();
+        /// <summary>
+        /// 温度曲线数据源K
+        /// </summary>
+        public ObservableDataSource<Point> LineK
+        {
+            get { return _lineK; }
+            set { _lineK = value; OnPropertyChanged(); }
+        }
+        ObservableDataSource<Point> _lineL = new ObservableDataSource<Point>();
+        /// <summary>
+        /// 温度曲线数据源L
+        /// </summary>
+        public ObservableDataSource<Point> LineL
+        {
+            get { return _lineL; }
+            set { _lineL = value; OnPropertyChanged(); }
+        }
+        ObservableDataSource<Point> _lineM = new ObservableDataSource<Point>();
+        /// <summary>
+        /// 温度曲线数据源M
+        /// </summary>
+        public ObservableDataSource<Point> LineM
+        {
+            get { return _lineM; }
+            set { _lineM = value; OnPropertyChanged(); }
+        }
+        ObservableDataSource<Point> _lineN = new ObservableDataSource<Point>();
+        /// <summary>
+        /// 温度曲线数据源N
+        /// </summary>
+        public ObservableDataSource<Point> LineN
+        {
+            get { return _lineN; }
+            set { _lineN = value; OnPropertyChanged(); }
+        }
+        ObservableDataSource<Point> _lineO = new ObservableDataSource<Point>();
+        /// <summary>
+        /// 温度曲线数据源O
+        /// </summary>
+        public ObservableDataSource<Point> LineO
+        {
+            get { return _lineO; }
+            set { _lineO = value; OnPropertyChanged(); }
+        }
+        ObservableDataSource<Point> _lineJia = new ObservableDataSource<Point>();
+        /// <summary>
+        /// 温度曲线数据源-甲
+        /// </summary>
+        public ObservableDataSource<Point> LineJia
+        {
+            get { return _lineJia; }
+            set { _lineJia = value; OnPropertyChanged(); }
+        }
+        ObservableDataSource<Point> _lineYi = new ObservableDataSource<Point>();
+        /// <summary>
+        /// 温度曲线数据源-乙
+        /// </summary>
+        public ObservableDataSource<Point> LineYi
+        {
+            get { return _lineYi; }
+            set { _lineYi = value; OnPropertyChanged(); }
+        }
+        ObservableDataSource<Point> _lineBing = new ObservableDataSource<Point>();
+        /// <summary>
+        /// 温度曲线数据源-丙
+        /// </summary>
+        public ObservableDataSource<Point> LineBing
+        {
+            get { return _lineBing; }
+            set { _lineBing = value; OnPropertyChanged(); }
+        }
+                ObservableDataSource<Point> _lineDing = new ObservableDataSource<Point>();
+        /// <summary>
+        /// 温度曲线数据源-丁
+        /// </summary>
+        public ObservableDataSource<Point> LineDing
+        {
+            get { return _lineDing; }
+            set { _lineDing = value; OnPropertyChanged(); }
+        }
+
+        #endregion
 
         /// <summary>
         /// 构造函数
@@ -257,13 +453,26 @@ namespace THTS.TestCenter
                             SensorRealValue real = new SensorRealValue();
                             if (test)
                             {
+                                int tt = 50;
+                                if (i > 29)
+                                {
+                                    tt = 20;
+                                }
+
                                 real.SensorID = i + 1;
-                                real.SensorValue = (float)(50 + (new Random(Guid.NewGuid().GetHashCode()).Next(-1000, 1000)) * 0.001);
+                                real.SensorValue = (float)(tt + (new Random(Guid.NewGuid().GetHashCode()).Next(-1000, 1000)) * 0.001);
                                 real.SensorUnit = "℃";
                             }
                             else
                             {
                                 real = _tempList[i];
+                            }
+
+                            //试用版，隐藏传感器无用数据
+                            if (i >= 30 && i <= 39 && i != 32)
+                            {
+                                real.SensorValue = 0;
+                                real.SensorUnit = string.Empty;
                             }
 
                             this.DispatcherInvoke(() =>
@@ -304,6 +513,12 @@ namespace THTS.TestCenter
                 return;
             }
 
+            ClearChartLineData();
+            DispatcherTimer timerChart = new DispatcherTimer();
+            timerChart.Interval = TimeSpan.FromMilliseconds(500);
+            timerChart.Tick += ChartLineData;
+            timerChart.Start();
+
             DispatcherTimer timerBar = new DispatcherTimer();
             timerBar.Interval = TimeSpan.FromSeconds(1);
             timerBar.Tick += ProcessBarChange;
@@ -335,6 +550,7 @@ namespace THTS.TestCenter
                     }
                 }
 
+                timerChart.Stop();
                 timerBar.Stop();
                 timer.Stop();
                 StartOrPause = "▶";
@@ -352,6 +568,88 @@ namespace THTS.TestCenter
             }));
             thrP.IsBackground = true;
             thrP.Start();
+        }
+
+        /// <summary>
+        /// 实时曲线绘画事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ChartLineData(object sender, EventArgs e)
+        {
+            HorizontalDateTimeAxis datetimeAxis = new HorizontalDateTimeAxis();
+
+            LineTop.AppendMany(new List<Point> {
+                    new Point(
+                        datetimeAxis.ConvertToDouble(DateTime.Now),
+                        tol.Info.YTop
+                        ) });
+
+            LineBottom.AppendMany(new List<Point> {
+                    new Point(
+                        datetimeAxis.ConvertToDouble(DateTime.Now),
+                        tol.Info.YBottom
+                        ) });
+
+            SetChartLineData(LineA, "A");
+            SetChartLineData(LineB, "B");
+            SetChartLineData(LineC, "C");
+            SetChartLineData(LineD, "D");
+            SetChartLineData(LineE, "E");
+            SetChartLineData(LineF, "F");
+            SetChartLineData(LineG, "G");
+            SetChartLineData(LineH, "H");
+            SetChartLineData(LineI, "I");
+            SetChartLineData(LineJ, "J");
+            SetChartLineData(LineK, "K");
+            SetChartLineData(LineL, "L");
+            SetChartLineData(LineM, "M");
+            SetChartLineData(LineN, "N");
+            SetChartLineData(LineO, "O");
+            SetChartLineData(LineJia, "甲");
+            SetChartLineData(LineYi, "乙");
+            SetChartLineData(LineBing, "丙");
+            SetChartLineData(LineDing, "丁");
+        }
+
+        private void SetChartLineData(ObservableDataSource<Point> line, string position)
+        {
+            if (PositionName.ContainsKey(position))
+            {
+                HorizontalDateTimeAxis datetimeAxis = new HorizontalDateTimeAxis();
+
+                line.AppendMany(new List<Point> {
+                    new Point(
+                        datetimeAxis.ConvertToDouble(DateTime.Now),
+                        SensorList[PositionName[position].SensorID - 1].SensorValue
+                        ) });
+            }
+
+        }
+
+        private void ClearChartLineData()
+        {
+            LineTop.Collection.Clear();
+            LineBottom.Collection.Clear();
+            LineA.Collection.Clear();
+            LineB.Collection.Clear();
+            LineC.Collection.Clear();
+            LineD.Collection.Clear();
+            LineE.Collection.Clear();
+            LineF.Collection.Clear();
+            LineG.Collection.Clear();
+            LineH.Collection.Clear();
+            LineI.Collection.Clear();
+            LineJ.Collection.Clear();
+            LineK.Collection.Clear();
+            LineL.Collection.Clear();
+            LineM.Collection.Clear();
+            LineN.Collection.Clear();
+            LineO.Collection.Clear();
+            LineJia.Collection.Clear();
+            LineYi.Collection.Clear();
+            LineBing.Collection.Clear();
+            LineDing.Collection.Clear();
         }
 
         /// <summary>

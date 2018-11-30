@@ -513,7 +513,7 @@
                         </Controls:MetroTabControl>
                     </Grid>
                 </Controls:MetroTabItem>
-                <Controls:MetroTabItem Header="实时曲线" Visibility="Collapsed">
+                <Controls:MetroTabItem Header="实时曲线" Visibility="Visible">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
@@ -521,27 +521,182 @@
                         </Grid.RowDefinitions>
                         <d3:ChartPlotter x:Name="plotter2">
                             <d3:ChartPlotter.VerticalAxis>
-                                <d3:VerticalIntegerAxis />
+                                <d3:VerticalIntegerAxis  />
                             </d3:ChartPlotter.VerticalAxis>
                             <d3:ChartPlotter.HorizontalAxis>
                                 <d3:HorizontalDateTimeAxis />
                             </d3:ChartPlotter.HorizontalAxis>
-                            <d3:Header FontFamily="Arial" Content="实时温度曲线"/>
                             <d3:HorizontalAxisTitle FontFamily="Arial"/>
                             <d3:CursorCoordinateGraph IsHorizontalDateTimeAxis="True" />
-                            <d3:LineGraph Name="lineTemperature">
-                                <!--<d3:LineGraph DataSource="{Binding PreloadPressureCollections}">-->
+                            <d3:LineGraph Name="Top" DataSource="{Binding LineTop}">
                                 <d3:LineGraph.LinePen>
-                                    <Pen Brush="Blue" Thickness="2"/>
+                                    <Pen Brush="White" Thickness="1"/>
                                 </d3:LineGraph.LinePen>
                                 <d3:LineGraph.Description>
-                                    <d3:PenDescription DescriptionString="预压数据"/>
+                                    <d3:PenDescription DescriptionString=""/>
+                                </d3:LineGraph.Description>
+                            </d3:LineGraph>
+                            <d3:LineGraph Name="A" DataSource="{Binding LineA}">
+                                <d3:LineGraph.LinePen>
+                                    <Pen Brush="Blue" Thickness="1"/>
+                                </d3:LineGraph.LinePen>
+                                <d3:LineGraph.Description>
+                                    <d3:PenDescription DescriptionString="A"/>
+                                </d3:LineGraph.Description>
+                            </d3:LineGraph>
+                            <d3:LineGraph Name="B" DataSource="{Binding LineB}">
+                                <d3:LineGraph.LinePen>
+                                    <Pen Brush="Aqua" Thickness="1"/>
+                                </d3:LineGraph.LinePen>
+                                <d3:LineGraph.Description>
+                                    <d3:PenDescription DescriptionString="B"/>
+                                </d3:LineGraph.Description>
+                            </d3:LineGraph>
+                            <d3:LineGraph Name="C" DataSource="{Binding LineC}">
+                                <d3:LineGraph.LinePen>
+                                    <Pen Brush="Brown" Thickness="1"/>
+                                </d3:LineGraph.LinePen>
+                                <d3:LineGraph.Description>
+                                    <d3:PenDescription DescriptionString="C"/>
+                                </d3:LineGraph.Description>
+                            </d3:LineGraph>
+                            <d3:LineGraph Name="D" DataSource="{Binding LineD}">
+                                <d3:LineGraph.LinePen>
+                                    <Pen Brush="Coral" Thickness="1"/>
+                                </d3:LineGraph.LinePen>
+                                <d3:LineGraph.Description>
+                                    <d3:PenDescription DescriptionString="D"/>
+                                </d3:LineGraph.Description>
+                            </d3:LineGraph>
+                            <d3:LineGraph Name="E" DataSource="{Binding LineE}">
+                                <d3:LineGraph.LinePen>
+                                    <Pen Brush="DimGray" Thickness="1"/>
+                                </d3:LineGraph.LinePen>
+                                <d3:LineGraph.Description>
+                                    <d3:PenDescription DescriptionString="E"/>
+                                </d3:LineGraph.Description>
+                            </d3:LineGraph>
+                            <d3:LineGraph Name="F" DataSource="{Binding LineF}">
+                                <d3:LineGraph.LinePen>
+                                    <Pen Brush="Gold" Thickness="1"/>
+                                </d3:LineGraph.LinePen>
+                                <d3:LineGraph.Description>
+                                    <d3:PenDescription DescriptionString="F"/>
+                                </d3:LineGraph.Description>
+                            </d3:LineGraph>
+                            <d3:LineGraph Name="G" DataSource="{Binding LineG}">
+                                <d3:LineGraph.LinePen>
+                                    <Pen Brush="Green" Thickness="1"/>
+                                </d3:LineGraph.LinePen>
+                                <d3:LineGraph.Description>
+                                    <d3:PenDescription DescriptionString="G"/>
+                                </d3:LineGraph.Description>
+                            </d3:LineGraph>
+                            <d3:LineGraph Name="H" DataSource="{Binding LineH}">
+                                <d3:LineGraph.LinePen>
+                                    <Pen Brush="HotPink" Thickness="1"/>
+                                </d3:LineGraph.LinePen>
+                                <d3:LineGraph.Description>
+                                    <d3:PenDescription DescriptionString="H"/>
+                                </d3:LineGraph.Description>
+                            </d3:LineGraph>
+                            <d3:LineGraph Name="I" DataSource="{Binding LineI}">
+                                <d3:LineGraph.LinePen>
+                                    <Pen Brush="Indigo" Thickness="1"/>
+                                </d3:LineGraph.LinePen>
+                                <d3:LineGraph.Description>
+                                    <d3:PenDescription DescriptionString="I"/>
+                                </d3:LineGraph.Description>
+                            </d3:LineGraph>
+                            <d3:LineGraph Name="J" DataSource="{Binding LineJ}">
+                                <d3:LineGraph.LinePen>
+                                    <Pen Brush="Lime" Thickness="1"/>
+                                </d3:LineGraph.LinePen>
+                                <d3:LineGraph.Description>
+                                    <d3:PenDescription DescriptionString="J"/>
+                                </d3:LineGraph.Description>
+                            </d3:LineGraph>
+                            <d3:LineGraph Name="K" DataSource="{Binding LineK}">
+                                <d3:LineGraph.LinePen>
+                                    <Pen Brush="Maroon" Thickness="1"/>
+                                </d3:LineGraph.LinePen>
+                                <d3:LineGraph.Description>
+                                    <d3:PenDescription DescriptionString="K"/>
+                                </d3:LineGraph.Description>
+                            </d3:LineGraph>
+                            <d3:LineGraph Name="L" DataSource="{Binding LineL}">
+                                <d3:LineGraph.LinePen>
+                                    <Pen Brush="MistyRose" Thickness="1"/>
+                                </d3:LineGraph.LinePen>
+                                <d3:LineGraph.Description>
+                                    <d3:PenDescription DescriptionString="L"/>
+                                </d3:LineGraph.Description>
+                            </d3:LineGraph>
+                            <d3:LineGraph Name="M" DataSource="{Binding LineM}">
+                                <d3:LineGraph.LinePen>
+                                    <Pen Brush="Olive" Thickness="1"/>
+                                </d3:LineGraph.LinePen>
+                                <d3:LineGraph.Description>
+                                    <d3:PenDescription DescriptionString="M"/>
+                                </d3:LineGraph.Description>
+                            </d3:LineGraph>
+                            <d3:LineGraph Name="N" DataSource="{Binding LineN}">
+                                <d3:LineGraph.LinePen>
+                                    <Pen Brush="Orange" Thickness="1"/>
+                                </d3:LineGraph.LinePen>
+                                <d3:LineGraph.Description>
+                                    <d3:PenDescription DescriptionString="N"/>
+                                </d3:LineGraph.Description>
+                            </d3:LineGraph>
+                            <d3:LineGraph Name="O" DataSource="{Binding LineO}">
+                                <d3:LineGraph.LinePen>
+                                    <Pen Brush="Red" Thickness="1"/>
+                                </d3:LineGraph.LinePen>
+                                <d3:LineGraph.Description>
+                                    <d3:PenDescription DescriptionString="O"/>
+                                </d3:LineGraph.Description>
+                            </d3:LineGraph>
+                            <d3:LineGraph Name="Jia" DataSource="{Binding LineJia}">
+                                <d3:LineGraph.LinePen>
+                                    <Pen Brush="RosyBrown" Thickness="1"/>
+                                </d3:LineGraph.LinePen>
+                                <d3:LineGraph.Description>
+                                    <d3:PenDescription DescriptionString="甲"/>
+                                </d3:LineGraph.Description>
+                            </d3:LineGraph>
+                            <d3:LineGraph Name="Yi" DataSource="{Binding LineYi}">
+                                <d3:LineGraph.LinePen>
+                                    <Pen Brush="Salmon" Thickness="1"/>
+                                </d3:LineGraph.LinePen>
+                                <d3:LineGraph.Description>
+                                    <d3:PenDescription DescriptionString="乙"/>
+                                </d3:LineGraph.Description>
+                            </d3:LineGraph>
+                            <d3:LineGraph Name="Bing" DataSource="{Binding LineBing}">
+                                <d3:LineGraph.LinePen>
+                                    <Pen Brush="Sienna" Thickness="1"/>
+                                </d3:LineGraph.LinePen>
+                                <d3:LineGraph.Description>
+                                    <d3:PenDescription DescriptionString="丙"/>
+                                </d3:LineGraph.Description>
+                            </d3:LineGraph>
+                            <d3:LineGraph Name="Ding" DataSource="{Binding LineDing}">
+                                <d3:LineGraph.LinePen>
+                                    <Pen Brush="Violet" Thickness="1"/>
+                                </d3:LineGraph.LinePen>
+                                <d3:LineGraph.Description>
+                                    <d3:PenDescription DescriptionString="丁"/>
+                                </d3:LineGraph.Description>
+                            </d3:LineGraph>
+                            <d3:LineGraph Name="Bottom" DataSource="{Binding LineBottom}">
+                                <d3:LineGraph.LinePen>
+                                    <Pen Brush="White" Thickness="1"/>
+                                </d3:LineGraph.LinePen>
+                                <d3:LineGraph.Description>
+                                    <d3:PenDescription DescriptionString=""/>
                                 </d3:LineGraph.Description>
                             </d3:LineGraph>
                         </d3:ChartPlotter>
-                        <GroupBox Name="gbChartParams" Header="曲线属性" Visibility="Hidden">
-                            <ListBox></ListBox>
-                        </GroupBox>
                     </Grid>
                 </Controls:MetroTabItem>
             </Controls:MetroTabControl>

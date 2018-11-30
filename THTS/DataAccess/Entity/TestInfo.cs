@@ -153,6 +153,66 @@ namespace THTS.DataAccess
             }
         }
 
+        /// <summary>
+        /// 曲线图纵坐标最大值
+        /// </summary>
+        [NotMapped]
+        public double YTop
+        {
+            get
+            {
+                try
+                {
+                    double p = double.Parse(TemperatureUpper);
+                    double h = double.Parse(Extra2);
+
+                    if (p > h)
+                    {
+                        return p;
+                    }
+                    else
+                    {
+                        return h;
+                    }
+                }
+                catch (System.Exception)
+                {
+
+                    return 105;
+                }
+            }
+        }
+
+        /// <summary>
+        /// 曲线图纵坐标最小值
+        /// </summary>
+        [NotMapped]
+        public double YBottom
+        {
+            get
+            {
+                try
+                {
+                    double p = double.Parse(TemperatureLower);
+                    double h = double.Parse(Extra1);
+
+                    if (p > h)
+                    {
+                        return h;
+                    }
+                    else
+                    {
+                        return p;
+                    }
+                }
+                catch (System.Exception)
+                {
+
+                    return -5;
+                }
+            }
+        }
+
         #endregion
 
         #region INotifyPropertyChanged 成员
