@@ -179,6 +179,16 @@ namespace THTS.TestCenter
 
         #region 温度曲线参数
 
+        ObservableDataSource<Point> _lineRight = new ObservableDataSource<Point>();
+        /// <summary>
+        /// 温度曲线数据源Right
+        /// </summary>
+        public ObservableDataSource<Point> LineRight
+        {
+            get { return _lineRight; }
+            set { _lineRight = value; OnPropertyChanged(); }
+        }
+
         ObservableDataSource<Point> _lineTop = new ObservableDataSource<Point>();
         /// <summary>
         /// 温度曲线数据源Top
@@ -583,6 +593,12 @@ namespace THTS.TestCenter
         private void ChartLineData(object sender, EventArgs e)
         {
             HorizontalDateTimeAxis datetimeAxis = new HorizontalDateTimeAxis();
+
+            LineRight.AppendMany(new List<Point> {
+                    new Point(
+                        datetimeAxis.ConvertToDouble(currTime.AddSeconds(5)),
+                        tol.Info.YTop
+                        ) });
 
             LineTop.AppendMany(new List<Point> {
                     new Point(

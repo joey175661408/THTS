@@ -528,9 +528,17 @@
                             </d3:ChartPlotter.HorizontalAxis>
                             <d3:HorizontalAxisTitle FontFamily="Arial"/>
                             <d3:CursorCoordinateGraph IsHorizontalDateTimeAxis="True" />
+                            <d3:LineGraph Name="Right" DataSource="{Binding LineRight}">
+                                <d3:LineGraph.LinePen>
+                                    <Pen Brush="Transparent" Thickness="1"/>
+                                </d3:LineGraph.LinePen>
+                                <d3:LineGraph.Description>
+                                    <d3:PenDescription DescriptionString=""/>
+                                </d3:LineGraph.Description>
+                            </d3:LineGraph>
                             <d3:LineGraph Name="Top" DataSource="{Binding LineTop}">
                                 <d3:LineGraph.LinePen>
-                                    <Pen Brush="White" Thickness="1"/>
+                                    <Pen Brush="Transparent" Thickness="1"/>
                                 </d3:LineGraph.LinePen>
                                 <d3:LineGraph.Description>
                                     <d3:PenDescription DescriptionString=""/>
@@ -690,7 +698,7 @@
                             </d3:LineGraph>
                             <d3:LineGraph Name="Bottom" DataSource="{Binding LineBottom}">
                                 <d3:LineGraph.LinePen>
-                                    <Pen Brush="White" Thickness="1"/>
+                                    <Pen Brush="Transparent" Thickness="1"/>
                                 </d3:LineGraph.LinePen>
                                 <d3:LineGraph.Description>
                                     <d3:PenDescription DescriptionString=""/>

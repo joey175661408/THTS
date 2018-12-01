@@ -27,6 +27,20 @@ namespace THTS.DeviceCenter
         public DeviceNew()
         {
             InitializeComponent();
+
+            Device tempDevice = DeviceDAO.GetLastDevice();
+            if (tempDevice != null)
+            {
+                NewDevice = tempDevice;
+                this.tbModule.Text = NewDevice.ModuleName;
+                this.tbManufactory.Text = NewDevice.Manufacture;
+                this.tbFactoryNo.Text = NewDevice.FactoryNo;
+                this.tbCertificateNo.Text = NewDevice.CertificateNo;
+                this.rbPass.IsChecked = NewDevice.CalibrateResult == 1;
+                this.dpCalDate.Text = NewDevice.CalibrateDate;
+                this.dpExpireDate.Text = NewDevice.ExpireDate;
+                this.tbRemark.Text = NewDevice.Remark;
+            }
         }
 
         public DeviceNew(Device editDevice)

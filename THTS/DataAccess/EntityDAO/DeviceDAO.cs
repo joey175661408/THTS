@@ -36,6 +36,23 @@ namespace THTS.DataAccess.EntityDAO
         }
 
         /// <summary>
+        /// 获取最新保存的设备信息
+        /// </summary>
+        /// <returns></returns>
+        public static Device GetLastDevice()
+        {
+            ObservableCollection<Device> deviceList = GetAllData();
+            if (deviceList.Count > 0)
+            {
+                return deviceList[deviceList.Count - 1];
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
         /// 此传感器是否已存在
         /// </summary>
         /// <param name="sensorID"></param>
