@@ -416,6 +416,7 @@
   <ItemGroup>
     <Content Include="Release\THTS温湿度测试系统安装包%28试用版%29.exe" />
     <Content Include="Release\THTS温湿度测试系统安装包.exe" />
+    <Content Include="Release\THTS温湿度测试系统安装包20181201.exe" />
     <Resource Include="Lib\background.bmp" />
     <Content Include="Lib\DynamicDataDisplay.dll" />
     <Content Include="Lib\DynamicDataDisplay.resources.dll" />
