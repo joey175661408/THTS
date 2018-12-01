@@ -176,16 +176,17 @@
                         <ListBox x:Name="PositionListBox" ItemsSource="{Binding PositionList}" Grid.Row="2">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
-                                    <Grid Width="100">
+                                    <Grid Width="130">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="30"/>
                                             <ColumnDefinition Width="10"/>
-                                            <ColumnDefinition Width="50"/>
+                                            <ColumnDefinition Width="80"/>
                                         </Grid.ColumnDefinitions>
 
                                         <Label Grid.Column="0" Content="{Binding TestPositionName}" HorizontalAlignment="Right"/>
                                         <Label Grid.Column="1" />
-                                        <ComboBox Grid.Column="2" ItemsSource="{Binding SensorsList}" DisplayMemberPath="SensorID" SelectedValue="{Binding TestPositionID}" HorizontalAlignment="Left"/>
+                                        <ComboBox Grid.Column="2" ItemsSource="{Binding SensorsList}" Controls:TextBoxHelper.ClearTextButton="True"
+                                                  DisplayMemberPath="SensorID" SelectedValue="{Binding TestPositionID}" HorizontalAlignment="Left"/>
                                         
                                     </Grid>
                                 </DataTemplate>

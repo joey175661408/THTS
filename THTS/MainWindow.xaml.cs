@@ -68,7 +68,7 @@ namespace THTS
 
         private void Help_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start(Environment.CurrentDirectory + "/help/温湿度测试系统操作指南.pdf");
+            System.Diagnostics.Process.Start(Environment.CurrentDirectory + "/help/温湿度场自动测试系统用户手册.pdf");
         }
 
         private void Quit_Click(object sender, RoutedEventArgs e)

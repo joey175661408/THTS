@@ -456,12 +456,17 @@ namespace THTS.TestCenter
                                 int tt = 50;
                                 if (i > 29)
                                 {
-                                    tt = 20;
+                                    tt = 30;
                                 }
 
                                 real.SensorID = i + 1;
                                 real.SensorValue = (float)(tt + (new Random(Guid.NewGuid().GetHashCode()).Next(-1000, 1000)) * 0.001);
                                 real.SensorUnit = "℃";
+
+                                if (i > 29)
+                                {
+                                    real.SensorUnit = "%";
+                                }
                             }
                             else
                             {
