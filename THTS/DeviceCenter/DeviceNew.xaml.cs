@@ -37,6 +37,7 @@ namespace THTS.DeviceCenter
                 this.tbFactoryNo.Text = NewDevice.FactoryNo;
                 this.tbCertificateNo.Text = NewDevice.CertificateNo;
                 this.rbPass.IsChecked = NewDevice.CalibrateResult == 1;
+                this.rbFail.IsChecked = NewDevice.CalibrateResult != 1;
                 this.dpCalDate.Text = NewDevice.CalibrateDate;
                 this.dpExpireDate.Text = NewDevice.ExpireDate;
                 this.tbRemark.Text = NewDevice.Remark;
@@ -56,6 +57,7 @@ namespace THTS.DeviceCenter
             this.tbFactoryNo.Text = NewDevice.FactoryNo;
             this.tbCertificateNo.Text = NewDevice.CertificateNo;
             this.rbPass.IsChecked = NewDevice.CalibrateResult == 1;
+            this.rbFail.IsChecked = NewDevice.CalibrateResult != 1;
             this.dpCalDate.Text = NewDevice.CalibrateDate;
             this.dpExpireDate.Text = NewDevice.ExpireDate;
             this.tbRemark.Text = NewDevice.Remark;

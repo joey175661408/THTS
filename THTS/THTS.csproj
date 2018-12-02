@@ -363,8 +363,6 @@
     <None Include="bin\Debug\Data\DB.sqlite" />
     <None Include="bin\Debug\help\温湿度场自动测试系统用户手册.docx" />
     <None Include="bin\Debug\help\温湿度场自动测试系统用户手册.pdf" />
-    <None Include="bin\Debug\Template\Temperature15.xls" />
-    <None Include="bin\Debug\Template\Temperature9.xls" />
     <None Include="bin\Debug\Template\template15.xls" />
     <None Include="bin\Debug\Template\template9.xls" />
     <None Include="Lib\JJF 1101-2003 环境试验设备温度、湿度校准规范.pdf" />

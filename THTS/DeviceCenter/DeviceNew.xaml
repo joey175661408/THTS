@@ -122,7 +122,7 @@
                     <TextBlock Grid.Row="1" Grid.Column="1" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Text="检定合格"/>
                     <StackPanel Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" Orientation="Horizontal" Margin="5">
                         <RadioButton Name="rbPass" Content="合格" IsChecked="True" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <RadioButton Content="不合格" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0"/>
+                        <RadioButton Name="rbFail"  Content="不合格" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0"/>
                     </StackPanel>
 
                 </Grid>
