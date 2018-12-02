@@ -380,6 +380,7 @@
     <None Include="Release\THTS_V1.2_20181118.rar" />
     <None Include="Release\THTS_V1.3_20181118.rar" />
     <None Include="Release\THTS_V1.4_20181118.rar" />
+    <None Include="Release\THTS_V1.5_20181202.rar" />
     <Resource Include="Resources\Entypo.ttf" />
   </ItemGroup>
   <ItemGroup>
