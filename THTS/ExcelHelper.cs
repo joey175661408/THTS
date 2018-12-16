@@ -221,7 +221,7 @@ namespace THTS
             ICell cell13 = GetOrCreateColumn(row, 13);
             cell13.SetCellValue(Info.CheckedBy);
             ICell cell14 = GetOrCreateColumn(row, 14);
-            cell14.SetCellValue(Info.TestDate);
+            cell14.SetCellValue(Info.GetTestDate);
             ICell cell15 = GetOrCreateColumn(row, 15);
             cell15.SetCellValue(Info.RecordSN);
             ICell cell16 = GetOrCreateColumn(row, 16);

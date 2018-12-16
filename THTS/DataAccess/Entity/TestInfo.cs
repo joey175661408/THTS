@@ -2,6 +2,7 @@
 using THTS.MVVM;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Windows;
+using System;
 
 namespace THTS.DataAccess
 {
@@ -64,6 +65,12 @@ namespace THTS.DataAccess
         }
 
         #region NotMapped
+
+        [NotMapped]
+        public DateTime GetTestDate
+        {
+            get { return DateTime.Parse(TestDate); }
+        }
 
         [NotMapped]
         public bool? TempDepartureIsChecked
