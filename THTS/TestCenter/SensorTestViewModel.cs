@@ -24,7 +24,7 @@ namespace THTS.TestCenter
         /// <summary>
         /// 是否为调试模式
         /// </summary>
-        private bool test = false;
+        private bool test = true;
         #endregion
 
         #region Command

@@ -38,8 +38,16 @@ namespace THTS
 
         private void TestCenter_Click(object sender, RoutedEventArgs e)
         {
-            TestCenter.TestCenter testCenter = new TestCenter.TestCenter();
-            testCenter.ShowDialog();
+            if (MessageBox.Show("是否进行多温箱测试？", "提示", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                TestCenter.TestCenterMulti testCenterMulti = new TestCenter.TestCenterMulti();
+                testCenterMulti.ShowDialog();
+            }
+            else
+            {
+                TestCenter.TestCenter testCenter = new TestCenter.TestCenter();
+                testCenter.ShowDialog();
+            }
         }
 
         private void DeviceCenter_Click(object sender, RoutedEventArgs e)
