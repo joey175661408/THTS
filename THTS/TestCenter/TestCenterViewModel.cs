@@ -32,7 +32,7 @@ namespace THTS.TestCenter
             CloseCommand = new DelegateCommand(Close);
 
             Info = DataAccess.EntityDAO.TestInfoDAO.GetTestInfoData();
-            Info.RecordSN = DateTime.Now.ToString("yyyyMMddHHmmss");
+            Info.RecordSN = DateTime.Now.ToString("RyyyyMMddHHmmss0");
             Info.TestDate = DateTime.Now.ToString("yyyy-MM-dd");
             Info.IsDeleted = 0;
         }

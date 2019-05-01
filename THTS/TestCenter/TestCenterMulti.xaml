@@ -38,7 +38,7 @@
             <GroupBox Header="被检仪器信息">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="30"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
@@ -47,12 +47,12 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <CheckBox x:Name="Channel1" Grid.Row="0" Grid.Column="0" Content="通道1" IsChecked="False" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <CheckBox x:Name="Channel2" Grid.Row="0" Grid.Column="1" Content="通道2" IsChecked="False" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <CheckBox x:Name="Channel3" Grid.Row="0" Grid.Column="2" Content="通道3" IsChecked="False" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <CheckBox x:Name="Channel4" Grid.Row="0" Grid.Column="3" Content="通道4" IsChecked="False" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Label  Grid.Row="0" Grid.Column="0" Content="仪表1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Label  Grid.Row="0" Grid.Column="1" Content="仪表2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Label  Grid.Row="0" Grid.Column="2" Content="仪表3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Label  Grid.Row="0" Grid.Column="3" Content="仪表4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
-                    <Grid Grid.Row="1" Grid.Column="0" IsEnabled="{Binding ElementName=Channel1,Path=IsChecked}">
+                    <Grid Grid.Row="1" Grid.Column="0" >
                         <Grid.RowDefinitions>
                             <RowDefinition Height="5"/>
                             <RowDefinition Height="*"/>
@@ -98,7 +98,7 @@
                         <TextBlock Text="证书编号" Grid.Row="17" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                         <TextBox Text="{Binding Info1.CertificateSN,Mode=TwoWay}" Width="120" Grid.Row="17" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                     </Grid>
-                    <Grid Grid.Row="1" Grid.Column="1" IsEnabled="{Binding ElementName=Channel1,Path=IsChecked}">
+                    <Grid Grid.Row="1" Grid.Column="1" >
                         <Grid.RowDefinitions>
                             <RowDefinition Height="5"/>
                             <RowDefinition Height="*"/>
@@ -144,7 +144,7 @@
                         <TextBlock Text="证书编号" Grid.Row="17" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                         <TextBox Text="{Binding Info2.CertificateSN,Mode=TwoWay}" Width="120" Grid.Row="17" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                     </Grid>
-                    <Grid Grid.Row="1" Grid.Column="2" IsEnabled="{Binding ElementName=Channel1,Path=IsChecked}">
+                    <Grid Grid.Row="1" Grid.Column="2" >
                         <Grid.RowDefinitions>
                             <RowDefinition Height="5"/>
                             <RowDefinition Height="*"/>
@@ -190,7 +190,7 @@
                         <TextBlock Text="证书编号" Grid.Row="17" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                         <TextBox Text="{Binding Info3.CertificateSN,Mode=TwoWay}" Width="120" Grid.Row="17" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                     </Grid>
-                    <Grid Grid.Row="1" Grid.Column="3" IsEnabled="{Binding ElementName=Channel1,Path=IsChecked}">
+                    <Grid Grid.Row="1" Grid.Column="3" >
                         <Grid.RowDefinitions>
                             <RowDefinition Height="5"/>
                             <RowDefinition Height="*"/>
@@ -274,9 +274,9 @@
             <GroupBox Header="测试项目">
                 <StackPanel Orientation="Vertical">
                     <Label/>
-                    <CheckBox IsChecked="{Binding Info.TempDepartureIsChecked}" Content="温度偏差" Margin="50,0,0,0"/>
+                    <CheckBox IsChecked="{Binding Info.TempDepartureIsChecked}" Content="温度偏差" Margin="50,0,0,0" IsEnabled="False"/>
                     <Label/>
-                    <CheckBox IsChecked="{Binding Info.TempAverageIsChecked}" Content="温度波动度及均匀度" Margin="50,0,0,0"/>
+                    <CheckBox IsChecked="{Binding Info.TempAverageIsChecked}" Content="温度波动度及均匀度" Margin="50,0,0,0" IsEnabled="False"/>
                     <Label/>
                 </StackPanel>
             </GroupBox>
