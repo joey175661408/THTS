@@ -90,12 +90,22 @@ namespace THTS.TestCenter
 
         private ObservableCollection<Sensor> _sensorsList = new ObservableCollection<Sensor>();
         /// <summary>
-        /// 传感器信息列表
+        /// 位置传感器信息列表
         /// </summary>
         public ObservableCollection<Sensor> SensorsList
         {
             get { return _sensorsList; }
             set { _sensorsList = value; OnPropertyChanged(); }
+        }
+
+        private ObservableCollection<Sensor> _sensorsListAll = new ObservableCollection<Sensor>();
+        /// <summary>
+        /// 所有传感器信息列表
+        /// </summary>
+        public ObservableCollection<Sensor> SensorsListAll
+        {
+            get { return _sensorsListAll; }
+            set { _sensorsListAll = value; OnPropertyChanged(); }
         }
 
         /// <summary>
@@ -223,6 +233,7 @@ namespace THTS.TestCenter
                         sensor1.DeviceIDList = deviceIDList;
                         channel1.SensorList.Add(sensor1);
                         _sensorsList.Add(sensor1);
+                        _sensorsListAll.Add(sensor1);
                     }
                     
                     if(i > 10 && i <= 19)
@@ -233,7 +244,7 @@ namespace THTS.TestCenter
                         sensor2.Type = state.Channel2.ChannelType;
                         sensor2.DeviceIDList = deviceIDList;
                         channel2.SensorList.Add(sensor2);
-                        _sensorsList.Add(sensor2);
+                        _sensorsListAll.Add(sensor2);
                     }
 
                     if (i > 20 && i <= 29)
@@ -244,7 +255,7 @@ namespace THTS.TestCenter
                         sensor3.Type = state.Channel3.ChannelType;
                         sensor3.DeviceIDList = deviceIDList;
                         channel3.SensorList.Add(sensor3);
-                        _sensorsList.Add(sensor3);
+                        _sensorsListAll.Add(sensor3);
                     }
 
                     if (i > 30)
@@ -255,7 +266,7 @@ namespace THTS.TestCenter
                         sensor4.Type = state.Channel4.ChannelType;
                         sensor4.DeviceIDList = deviceIDList;
                         channel4.SensorList.Add(sensor4);
-                        _sensorsList.Add(sensor4);
+                        _sensorsListAll.Add(sensor4);
                     }
                 }
                 _channelList.Clear();
@@ -314,6 +325,21 @@ namespace THTS.TestCenter
 
             ChannelList = ChannelListTemp;
 
+            PositionList.Clear();
+
+            for (int i = 0; i < 8; i++)
+            {
+                TestPositionModule item = new TestPositionModule();
+                item.SensorsList = SensorsList;
+                item.TestPositionName = Convert.ToChar(65 + i).ToString();
+                PositionList.Add(item);
+            }
+
+            TestPositionModule itemO = new TestPositionModule();
+            itemO.SensorsList = SensorsList;
+            itemO.TestPositionName = "O";
+            PositionList.Add(itemO);
+
             for (int i = 0; i < PositionList.Count; i++)
             {
                 string tempID = MultiFileHelper.IniReadValue("Position", PositionList[i].TestPositionName);
@@ -355,9 +381,9 @@ namespace THTS.TestCenter
             try
             {
                 //记录默认传感器ID
-                for (int i = 0; i < SensorsList.Count; i++)
+                for (int i = 0; i < SensorsListAll.Count; i++)
                 {
-                    MultiFileHelper.IniWriteValue("SensorMulti", SensorsList[i].SensorID.ToString(), SensorsList[i].DeviceID);
+                    MultiFileHelper.IniWriteValue("SensorMulti", SensorsListAll[i].SensorID.ToString(), SensorsListAll[i].DeviceID);
                 }
 
                 //记录默认测点分布
@@ -431,7 +457,7 @@ namespace THTS.TestCenter
                 return;
             }
 
-            SensorTest test = new SensorTest(ToleranceInfo);
+            SensorTestMulti test = new SensorTestMulti(ToleranceInfo);
             test.ShowDialog();
         }
 

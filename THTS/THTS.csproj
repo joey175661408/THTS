@@ -230,9 +230,13 @@
     </Compile>
     <Compile Include="TestCenter\SensorSettingsMultiViewModel.cs" />
     <Compile Include="TestCenter\SensorSettingsViewModel.cs" />
+    <Compile Include="TestCenter\SensorTestMulti.xaml.cs">
+      <DependentUpon>SensorTestMulti.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TestCenter\SensorTest.xaml.cs">
       <DependentUpon>SensorTest.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TestCenter\SensorTestMultiViewModel.cs" />
     <Compile Include="TestCenter\SensorTestViewModel.cs" />
     <Compile Include="TestCenter\TestCenterMulti.xaml.cs">
       <DependentUpon>TestCenterMulti.xaml</DependentUpon>
@@ -320,6 +324,10 @@
     <Page Include="TestCenter\SensorSettings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TestCenter\SensorTestMulti.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="TestCenter\SensorTest.xaml">
       <SubType>Designer</SubType>
