@@ -18,45 +18,31 @@ namespace THTS.TestCenter
     /// <summary>
     /// UC_distribution.xaml 的交互逻辑
     /// </summary>
-    public partial class UC_distribution15 : UserControl
+    public partial class UC_distribution5 : UserControl
     {
-        public UC_distribution15()
+        public UC_distribution5()
         {
             InitializeComponent();
         }
-
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             try
             {
-                if (this.Visibility != Visibility.Visible)
+                if(this.Visibility != Visibility.Visible)
                 {
                     return;
-                }
-
+;                }
                 Dictionary<string, Sensor> PositionList = (Dictionary<string, Sensor>)this.Tag;
 
-                ChangeFont(this.T1, PositionList, "1");
-                ChangeFont(this.T2, PositionList, "2");
-                ChangeFont(this.T3, PositionList, "3");
-                ChangeFont(this.T4, PositionList, "4");
-                ChangeFont(this.T5, PositionList, "5");
-                ChangeFont(this.T6, PositionList, "6");
-                ChangeFont(this.T7, PositionList, "7");
-                ChangeFont(this.T8, PositionList, "8");
-                ChangeFont(this.T9, PositionList, "9");
-                ChangeFont(this.T9, PositionList, "10");
-                ChangeFont(this.T9, PositionList, "11");
-                ChangeFont(this.T9, PositionList, "12");
-                ChangeFont(this.T9, PositionList, "13");
-                ChangeFont(this.T9, PositionList, "14");
-                ChangeFont(this.T9, PositionList, "15");
-                ChangeFont(this.A, PositionList, "A");
-                ChangeFont(this.B, PositionList, "B");
-                ChangeFont(this.C, PositionList, "C");
-                ChangeFont(this.D, PositionList, "D");
-                ChangeFont(this.O, PositionList, "O");
+                ChangeFont(this.T1, PositionList,"1");
+                ChangeFont(this.T2, PositionList,"2");
+                ChangeFont(this.T3, PositionList,"3");
+                ChangeFont(this.T4, PositionList,"4");
+                ChangeFont(this.T5, PositionList,"5");
+                ChangeFont(this.A, PositionList,"A");
+                ChangeFont(this.B, PositionList,"B");
+                ChangeFont(this.O, PositionList,"O");
             }
             catch (Exception)
             {

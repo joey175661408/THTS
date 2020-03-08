@@ -541,7 +541,7 @@ namespace THTS.TestCenter
             timerBar.Start();
 
             DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromMinutes(tol.TestSampleInterval);
+            timer.Interval = TimeSpan.FromSeconds(tol.TestSampleInterval);
             timer.Tick += CollectData;
             timer.Start();
 

@@ -66,6 +66,16 @@ namespace THTS.TestCenter
             set { _sensorList = value; OnPropertyChanged(); }
         }
 
+        private Visibility _uC5Visibility = Visibility.Visible;
+        /// <summary>
+        /// 5测点分布示意图 
+        /// </summary>
+        public Visibility UC5Visibility
+        {
+            get { return _uC5Visibility; }
+            set { _uC5Visibility = value; OnPropertyChanged(); }
+        }
+
         private Visibility _uC9Visibility = Visibility.Visible;
         /// <summary>
         /// 9测点分布示意图 
@@ -541,7 +551,7 @@ namespace THTS.TestCenter
             timerBar.Start();
 
             DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromMinutes(tol.TestSampleInterval);
+            timer.Interval = TimeSpan.FromSeconds(tol.TestSampleInterval);
             timer.Tick += CollectData;
             timer.Start();
 
@@ -817,13 +827,21 @@ namespace THTS.TestCenter
         /// </summary>
         private void TestPositionChanged(int testPositionType)
         {
-            if (testPositionType == 9)
+            if (testPositionType == 5)
             {
+                UC5Visibility = Visibility.Visible;
+                UC9Visibility = Visibility.Collapsed;
+                UC15Visibility = Visibility.Collapsed;
+            }
+            else if(testPositionType == 9)
+            {
+                UC5Visibility = Visibility.Collapsed;
                 UC9Visibility = Visibility.Visible;
                 UC15Visibility = Visibility.Collapsed;
             }
             else if (testPositionType == 15)
             {
+                UC5Visibility = Visibility.Collapsed;
                 UC9Visibility = Visibility.Collapsed;
                 UC15Visibility = Visibility.Visible;
             }

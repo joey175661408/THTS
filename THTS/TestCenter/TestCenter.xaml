@@ -181,9 +181,22 @@
                     <Label/>
                 </StackPanel>
             </GroupBox>
+            <GroupBox Header="校准数据修正">
+                <StackPanel Orientation="Vertical">
+                    <Label/>
+                    <CheckBox IsChecked="{Binding Info.PT100IsFix}" Content="PT100温度传感器" Margin="10,0,0,0"/>
+                    <Label/>
+                    <CheckBox IsChecked="{Binding Info.HumidityIsFix}" Content="湿度传感器" Margin="10,0,0,0"/>
+                    <Label/>
+                    <CheckBox IsChecked="{Binding Info.KtempIsFix}" Content="K型热电偶温度传感器" Margin="10,0,0,0" Visibility="Visible"/>
+                    <Label/>
+                </StackPanel>
+            </GroupBox>
             <Label/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Button Content="开始" Width="100" Command="{Binding StartCommand}"/>
+                <Label></Label>
+                <Button Content="返回" Width="100" Click="Button_Click" />
             </StackPanel>
         </StackPanel>
     </Grid>

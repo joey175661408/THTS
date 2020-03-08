@@ -70,7 +70,10 @@
                         <DataGridTextColumn Header="生产厂商" Binding="{Binding Manufacture}"/>
                         <DataGridTextColumn Header="出厂编号" Binding="{Binding FactoryNo}"/>
                         <DataGridTextColumn Header="证书编号" Binding="{Binding CertificateNo}"/>
-                        <DataGridTextColumn Header="检定合格" Binding="{Binding CalibrateResultString}"/>
+                        <DataGridTextColumn Header="修正值1" Binding="{Binding Extra1}"/>
+                        <DataGridTextColumn Header="修正值2" Binding="{Binding Extra2}"/>
+                        <DataGridTextColumn Header="修正值3" Binding="{Binding Extra3}"/>
+                        <DataGridTextColumn Header="检定合格" Binding="{Binding CalibrateResultString}" Visibility="Collapsed"/>
                         <DataGridTextColumn Header="检定日期" Binding="{Binding CalibrateDate}"/>
                         <DataGridTextColumn Header="有效期至" Binding="{Binding ExpireDate}"/>
                         <DataGridTextColumn Header="备注信息" Binding="{Binding Remark}"/>

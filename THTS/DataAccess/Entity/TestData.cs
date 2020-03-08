@@ -19,28 +19,88 @@ namespace THTS.DataAccess.Entity
         public int Count { get; set; }
         public string DeviceTemperature { get; set; }
         public string DeviceHumidity { get; set; }
+        /// <summary>
+        /// 5点1/9点1/15点1
+        /// </summary>
         public float A { get; set; }
+        /// <summary>
+        /// 5点2/9点2/15点2
+        /// </summary>
         public float B { get; set; }
+        /// <summary>
+        /// 5点3/9点3/15点3
+        /// </summary>
         public float C { get; set; }
+        /// <summary>
+        /// 5点4/9点4/15点4
+        /// </summary>
         public float D { get; set; }
+        /// <summary>
+        /// 9点6/15点5
+        /// </summary>
         public float E { get; set; }
+        /// <summary>
+        /// 9点7/15点6
+        /// </summary>
         public float F { get; set; }
+        /// <summary>
+        /// 9点8/15点7
+        /// </summary>
         public float G { get; set; }
+        /// <summary>
+        /// 9点9/15点8
+        /// </summary>
         public float H { get; set; }
+        /// <summary>
+        /// 15点9
+        /// </summary>
         public float I { get; set; }
+        /// <summary>
+        /// 15点10
+        /// </summary>
         public float J { get; set; }
+        /// <summary>
+        /// 15点11
+        /// </summary>
         public float K { get; set; }
+        /// <summary>
+        /// 15点12
+        /// </summary>
         public float L { get; set; }
+        /// <summary>
+        /// 15点13
+        /// </summary>
         public float M { get; set; }
+        /// <summary>
+        /// 15点14
+        /// </summary>
         public float N { get; set; }
+        /// <summary>
+        /// 5点5/9点5/15点15
+        /// </summary>
         public float O { get; set; }
 
+        /// <summary>
+        /// 5点O/9点O/15点O
+        /// </summary>
         public float Jia { get; set; }
+        /// <summary>
+        /// 5点A/9点A/15点A
+        /// </summary>
         public float Yi { get; set; }
+        /// <summary>
+        /// 5点B/9点B/15点B
+        /// </summary>
         public float Bing{ get; set; }
+        /// <summary>
+        /// 9点C/15点C
+        /// </summary>
         public float Ding { get; set; }
-
+        /// <summary>
+        /// 9点D/15点D
+        /// </summary>
         public string Extra1 { get; set; }
+
         public string Extra2 { get; set; }
         public string Extra3 { get; set; }
         public string Extra4 { get; set; }
@@ -102,6 +162,8 @@ namespace THTS.DataAccess.Entity
         public string StringBing { get { return Bing.Equals(-1000) ? "" : Bing.ToString("0.00"); } }
         [NotMapped]
         public string StringDing { get { return Ding.Equals(-1000) ? "" : Ding.ToString("0.00"); } }
+        [NotMapped]
+        public string StringExtra1 { get { return Extra1.Equals(-1000) ? "" : Ding.ToString("0.00"); } }
 
         [NotMapped]
         public float MaxT

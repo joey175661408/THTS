@@ -48,6 +48,15 @@ namespace THTS.DataAccess
         public TestInfo Info { get; set; }
 
         [NotMapped]
+        public Visibility UC5Visibility
+        {
+            get
+            {
+                return PositionType == 5 ? Visibility.Visible : Visibility.Collapsed;
+            }
+        }
+
+        [NotMapped]
         public Visibility UC9Visibility
         {
             get
@@ -62,6 +71,24 @@ namespace THTS.DataAccess
             get
             {
                 return PositionType == 15 ? Visibility.Visible : Visibility.Collapsed;
+            }
+        }
+
+        [NotMapped]
+        public Visibility Humidity5Visibility
+        {
+            get
+            {
+                return PositionType == 5 && Info.HumidityVisibility == Visibility.Visible ? Visibility.Visible : Visibility.Collapsed;
+            }
+        }
+
+        [NotMapped]
+        public Visibility Humidity9or15Visibility
+        {
+            get
+            {
+                return PositionType != 5 && Info.HumidityVisibility == Visibility.Visible ? Visibility.Visible : Visibility.Collapsed;
             }
         }
 

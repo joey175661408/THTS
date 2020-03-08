@@ -50,8 +50,17 @@ namespace THTS.DataAccess
         /// 湿度精确度
         /// </summary>
         public string Extra3 { get; set; }
+        /// <summary>
+        /// PT100温度传感器是否修正(True/False)
+        /// </summary>
         public string Extra4 { get; set; }
+        /// <summary>
+        /// 湿度传感器是否修正(True/False)
+        /// </summary>
         public string Extra5 { get; set; }
+        /// <summary>
+        /// K型热电偶温度传感器是否修正(True/False)
+        /// </summary>
         public string Extra6 { get; set; }
         public string Extra7 { get; set; }
         public string Extra8 { get; set; }
@@ -70,6 +79,48 @@ namespace THTS.DataAccess
         public DateTime GetTestDate
         {
             get { return DateTime.Parse(TestDate); }
+        }
+
+        [NotMapped]
+        public bool? PT100IsFix
+        {
+            get
+            {
+                return Extra4.Equals("True");
+            }
+
+            set
+            {
+                Extra4 = value.HasValue && value.Value ? "True" : "False";
+            }
+        }
+
+        [NotMapped]
+        public bool? HumidityIsFix
+        {
+            get
+            {
+                return Extra5.Equals("True");
+            }
+
+            set
+            {
+                Extra5 = value.HasValue && value.Value ? "True" : "False";
+            }
+        }
+
+        [NotMapped]
+        public bool? KtempIsFix
+        {
+            get
+            {
+                return Extra6.Equals("True");
+            }
+
+            set
+            {
+                Extra6 = value.HasValue && value.Value ? "True" : "False";
+            }
         }
 
         [NotMapped]

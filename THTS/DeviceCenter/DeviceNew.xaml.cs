@@ -61,6 +61,29 @@ namespace THTS.DeviceCenter
             this.dpCalDate.Text = NewDevice.CalibrateDate;
             this.dpExpireDate.Text = NewDevice.ExpireDate;
             this.tbRemark.Text = NewDevice.Remark;
+
+
+            if (this.tbModule.SelectedItem.ToString().Contains("PT100"))
+            {
+                this.cbP.IsChecked = NewDevice.Extra4.Equals("True") ? true : false;
+                this.txP1.Text = NewDevice.Extra1;
+                this.txP2.Text = NewDevice.Extra2;
+            }
+            else if (this.tbModule.SelectedItem.ToString().Contains("K"))
+            {
+                this.cbK.IsChecked = NewDevice.Extra4.Equals("True") ? true : false;
+                this.txK1.Text = NewDevice.Extra1;
+                this.txK2.Text = NewDevice.Extra2;
+                this.txK3.Text = NewDevice.Extra3;
+            }
+            else
+            {
+                this.cbH.IsChecked = NewDevice.Extra4.Equals("True") ? true : false;
+                this.txH1.Text = NewDevice.Extra1;
+                this.txH2.Text = NewDevice.Extra2;
+                this.txH3.Text = NewDevice.Extra3;
+            }
+
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
@@ -92,6 +115,27 @@ namespace THTS.DeviceCenter
             NewDevice.ExpireDate = this.dpExpireDate.Text;
             NewDevice.Remark = this.tbRemark.Text;
 
+            if (this.tbModule.SelectedItem.ToString().Contains("PT100"))
+            {
+                NewDevice.Extra4 = this.cbP.IsChecked.ToString();
+                NewDevice.Extra1 = this.txP1.Text;
+                NewDevice.Extra2 = this.txP2.Text;
+            }
+            else if (this.tbModule.SelectedItem.ToString().Contains("K"))
+            {
+                NewDevice.Extra4 = this.cbK.IsChecked.ToString();
+                NewDevice.Extra1 = this.txK1.Text;
+                NewDevice.Extra2 = this.txK2.Text;
+                NewDevice.Extra3 = this.txK3.Text;
+            }
+            else
+            {
+                NewDevice.Extra4 = this.cbH.IsChecked.ToString();
+                NewDevice.Extra1 = this.txH1.Text;
+                NewDevice.Extra2 = this.txH2.Text;
+                NewDevice.Extra3 = this.txH3.Text;
+            }
+
             this.DialogResult = true;
         }
 
@@ -99,6 +143,28 @@ namespace THTS.DeviceCenter
         {
             this.DialogResult = false;
             this.Close();
+        }
+
+        private void tbModule_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (this.tbModule.SelectedItem.ToString().Contains("PT100"))
+            {
+                this.spP.Visibility = Visibility.Visible;
+                this.spH.Visibility = Visibility.Collapsed;
+                this.spK.Visibility = Visibility.Collapsed;
+            }
+            else if (this.tbModule.SelectedItem.ToString().Contains("K"))
+            {
+                this.spP.Visibility = Visibility.Collapsed;
+                this.spH.Visibility = Visibility.Collapsed;
+                this.spK.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                this.spP.Visibility = Visibility.Collapsed;
+                this.spH.Visibility = Visibility.Visible;
+                this.spK.Visibility = Visibility.Collapsed;
+            }
         }
     }
 }

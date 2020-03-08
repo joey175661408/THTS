@@ -48,6 +48,16 @@ namespace THTS.TestCenter
             set { _testTemperatureList = value; OnPropertyChanged(); }
         }
 
+        private Visibility _uC5Visibility = Visibility.Visible;
+        /// <summary>
+        /// 5测点分布示意图 
+        /// </summary>
+        public Visibility UC5Visibility
+        {
+            get { return _uC5Visibility; }
+            set { _uC5Visibility = value; OnPropertyChanged(); }
+        }
+
         private Visibility _uC9Visibility = Visibility.Visible;
         /// <summary>
         /// 9测点分布示意图 
@@ -133,18 +143,18 @@ namespace THTS.TestCenter
             ToleranceInfo.RecordSN = Info.RecordSN;
             ToleranceInfo.Info = Info;
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 4; i++)
             {
                 TestTemperatureModule module = new TestTemperatureModule();
                 module.IsChecked = false;
-                module.TestTemperatureID = "设置测量" + (i + 1);
+                module.TestTemperatureID = "测量点" + (i + 1);
 
                 if (i == 0)
                 {
                     module.IsChecked = true;
                     module.TemperatureValue = Info.TemperatureLower;
                 }
-                else if (i == 9)
+                else if (i == 3)
                 {
                     module.IsChecked = true;
                     module.TemperatureValue = Info.TemperatureUpper;
@@ -154,8 +164,9 @@ namespace THTS.TestCenter
             }
 
             _testPositionList = new List<string>();
-            _testPositionList.Add("9测点分布体");
-            _testPositionList.Add("15测点分布体");
+            _testPositionList.Add("5点分布图");
+            _testPositionList.Add("9点分布图");
+            _testPositionList.Add("15点分布图");
             SelectedTestPosition = _testPositionList[0];
 
             SelectedPositionCommand = new DelegateCommand(TestPositionChanged);
@@ -171,6 +182,7 @@ namespace THTS.TestCenter
 
             //获取传感器ID列表
             deviceIDList = DeviceDAO.GetAllData().Select(t => t.FactoryNo).ToList();
+            deviceIDList.Insert(0, string.Empty);
         }
 
         #region 方法
@@ -404,81 +416,128 @@ namespace THTS.TestCenter
         /// </summary>
         private void TestPositionChanged()
         {
-            if (SelectedTestPosition.Contains("9"))
+            if (SelectedTestPosition.Equals("5点分布图"))
             {
+                UC5Visibility = Visibility.Visible;
+                UC9Visibility = Visibility.Hidden;
+                UC15Visibility = Visibility.Hidden;
+
+                PositionList.Clear();
+
+                for (int i = 1; i <= 5; i++)
+                {
+                    TestPositionModule item = new TestPositionModule();
+                    item.SensorsList = SensorsList;
+                    item.TestPositionName = i.ToString();
+                    PositionList.Add(item);
+                }
+
+                if (ToleranceInfo.Info.HumidityVisibility == Visibility.Visible)
+                {
+                    TestPositionModule itemA = new TestPositionModule();
+                    itemA.SensorsList = SensorsList;
+                    itemA.TestPositionName = "A";
+                    PositionList.Add(itemA);
+
+                    TestPositionModule itemB = new TestPositionModule();
+                    itemB.SensorsList = SensorsList;
+                    itemB.TestPositionName = "B";
+                    PositionList.Add(itemB);
+
+                    TestPositionModule itemO = new TestPositionModule();
+                    itemO.SensorsList = SensorsList;
+                    itemO.TestPositionName = "O";
+                    PositionList.Add(itemO);
+                }
+
+            }
+            else if (SelectedTestPosition.Equals("9点分布图"))
+            {
+                UC5Visibility = Visibility.Hidden;
                 UC9Visibility = Visibility.Visible;
                 UC15Visibility = Visibility.Hidden;
 
                 PositionList.Clear();
 
-                for (int i = 0; i < 8; i++)
+                for (int i = 1; i <= 9; i++)
                 {
                     TestPositionModule item = new TestPositionModule();
                     item.SensorsList = SensorsList;
-                    item.TestPositionName = Convert.ToChar(65 + i).ToString();
+                    item.TestPositionName = i.ToString();
                     PositionList.Add(item);
                 }
 
-                TestPositionModule itemO = new TestPositionModule();
-                itemO.SensorsList = SensorsList;
-                itemO.TestPositionName = "O";
-                PositionList.Add(itemO);
-
                 if (ToleranceInfo.Info.HumidityVisibility == Visibility.Visible)
                 {
-                    TestPositionModule itemJia = new TestPositionModule();
-                    itemJia.SensorsList = SensorsList;
-                    itemJia.TestPositionName = "甲";
-                    PositionList.Add(itemJia);
+                    TestPositionModule itemA = new TestPositionModule();
+                    itemA.SensorsList = SensorsList;
+                    itemA.TestPositionName = "A";
+                    PositionList.Add(itemA);
 
-                    TestPositionModule itemYi = new TestPositionModule();
-                    itemYi.SensorsList = SensorsList;
-                    itemYi.TestPositionName = "乙";
-                    PositionList.Add(itemYi);
+                    TestPositionModule itemB = new TestPositionModule();
+                    itemB.SensorsList = SensorsList;
+                    itemB.TestPositionName = "B";
+                    PositionList.Add(itemB);
 
-                    TestPositionModule itemBing = new TestPositionModule();
-                    itemBing.SensorsList = SensorsList;
-                    itemBing.TestPositionName = "丙";
-                    PositionList.Add(itemBing);
+                    TestPositionModule itemC = new TestPositionModule();
+                    itemC.SensorsList = SensorsList;
+                    itemC.TestPositionName = "C";
+                    PositionList.Add(itemC);
+
+                    TestPositionModule itemD = new TestPositionModule();
+                    itemD.SensorsList = SensorsList;
+                    itemD.TestPositionName = "D";
+                    PositionList.Add(itemD);
+
+                    TestPositionModule itemO = new TestPositionModule();
+                    itemO.SensorsList = SensorsList;
+                    itemO.TestPositionName = "O";
+                    PositionList.Add(itemO);
                 }
 
             }
-            else if (SelectedTestPosition.Contains("15"))
+            else if (SelectedTestPosition.Equals("15点分布图"))
             {
+                UC5Visibility = Visibility.Hidden;
                 UC9Visibility = Visibility.Hidden;
                 UC15Visibility = Visibility.Visible;
 
                 PositionList.Clear();
 
-                for (int i = 0; i < 15; i++)
+                for (int i = 1; i <= 15; i++)
                 {
                     TestPositionModule item = new TestPositionModule();
                     item.SensorsList = SensorsList;
-                    item.TestPositionName = Convert.ToChar(65 + i).ToString();
+                    item.TestPositionName = i.ToString();
                     PositionList.Add(item);
                 }
 
                 if (ToleranceInfo.Info.HumidityVisibility == Visibility.Visible)
                 {
-                    TestPositionModule itemJia = new TestPositionModule();
-                    itemJia.SensorsList = SensorsList;
-                    itemJia.TestPositionName = "甲";
-                    PositionList.Add(itemJia);
+                    TestPositionModule itemA = new TestPositionModule();
+                    itemA.SensorsList = SensorsList;
+                    itemA.TestPositionName = "A";
+                    PositionList.Add(itemA);
 
-                    TestPositionModule itemYi = new TestPositionModule();
-                    itemYi.SensorsList = SensorsList;
-                    itemYi.TestPositionName = "乙";
-                    PositionList.Add(itemYi);
+                    TestPositionModule itemB = new TestPositionModule();
+                    itemB.SensorsList = SensorsList;
+                    itemB.TestPositionName = "B";
+                    PositionList.Add(itemB);
 
-                    TestPositionModule itemBing = new TestPositionModule();
-                    itemBing.SensorsList = SensorsList;
-                    itemBing.TestPositionName = "丙";
-                    PositionList.Add(itemBing);
+                    TestPositionModule itemC = new TestPositionModule();
+                    itemC.SensorsList = SensorsList;
+                    itemC.TestPositionName = "C";
+                    PositionList.Add(itemC);
 
-                    TestPositionModule itemDing = new TestPositionModule();
-                    itemDing.SensorsList = SensorsList;
-                    itemDing.TestPositionName = "丁";
-                    PositionList.Add(itemDing);
+                    TestPositionModule itemD = new TestPositionModule();
+                    itemD.SensorsList = SensorsList;
+                    itemD.TestPositionName = "D";
+                    PositionList.Add(itemD);
+
+                    TestPositionModule itemO = new TestPositionModule();
+                    itemO.SensorsList = SensorsList;
+                    itemO.TestPositionName = "O";
+                    PositionList.Add(itemO);
                 }
             }
         }

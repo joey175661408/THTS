@@ -75,19 +75,20 @@
                         <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Header="设备名称" Binding="{Binding UutName}"/>
                         <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Header="型号规格" Binding="{Binding UutModule}"/>
                         <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Header="出厂编号" Binding="{Binding UutSN}"/>
+                        <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Header="委托单位" Binding="{Binding Company}"/>
                         <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Header="生产厂商" Binding="{Binding UutManufacture}"/>
-                        <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Header="用户编号" Binding="{Binding UutCustomSN}"/>
-                        <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Header="精确度(±℃)" Binding="{Binding Accuracy}"/>
-                        <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Header="温度下限(℃)" Binding="{Binding TemperatureLower}"/>
-                        <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Header="温度上限(℃)" Binding="{Binding TemperatureUpper}"/>
-                        <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Header="环境温度(℃)" Binding="{Binding EnvironmentTemperature}"/>
-                        <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Header="环境大气压(千帕)" Binding="{Binding EnvironmentPressure}"/>
-                        <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Header="环境湿度(%)" Binding="{Binding EnvironmentTemperature}"/>
+                        <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Visibility="Collapsed" Header="用户编号" Binding="{Binding UutCustomSN}"/>
+                        <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Visibility="Collapsed" Header="精确度(±℃)" Binding="{Binding Accuracy}"/>
+                        <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Visibility="Collapsed" Header="温度下限(℃)" Binding="{Binding TemperatureLower}"/>
+                        <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Visibility="Collapsed" Header="温度上限(℃)" Binding="{Binding TemperatureUpper}"/>
+                        <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Visibility="Collapsed" Header="环境温度(℃)" Binding="{Binding EnvironmentTemperature}"/>
+                        <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Visibility="Collapsed" Header="环境大气压(千帕)" Binding="{Binding EnvironmentPressure}"/>
+                        <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Visibility="Collapsed" Header="环境湿度(%)" Binding="{Binding EnvironmentTemperature}"/>
                         <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Header="测试日期" Binding="{Binding TestDate}"/>
                         <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Header="测试人员" Binding="{Binding VerifiedBy}"/>
-                        <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Header="核验人员" Binding="{Binding CheckedBy}"/>
-                        <DataGridCheckBoxColumn Header="温度偏差" Binding="{Binding TempDepartureIsChecked}"/>
-                        <DataGridCheckBoxColumn Header="温度均匀度" Binding="{Binding TempAverageIsChecked}"/>
+                        <DataGridTextColumn ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Visibility="Collapsed" Header="核验人员" Binding="{Binding CheckedBy}"/>
+                        <DataGridCheckBoxColumn Visibility="Collapsed" Header="温度偏差" Binding="{Binding TempDepartureIsChecked}"/>
+                        <DataGridCheckBoxColumn Visibility="Collapsed" Header="温度均匀度" Binding="{Binding TempAverageIsChecked}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </GroupBox>

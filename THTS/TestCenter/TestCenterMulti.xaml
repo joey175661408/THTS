@@ -280,9 +280,11 @@
                     <Label/>
                 </StackPanel>
             </GroupBox>
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Label/>
+            <Label/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Button Content="开始" Width="100" Command="{Binding StartCommand}"/>
+                <Label/>
+                <Button Content="返回" Width="100" Click="Button_Click" />
             </StackPanel>
         </StackPanel>
     </Grid>

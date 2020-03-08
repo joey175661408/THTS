@@ -21,9 +21,21 @@ namespace THTS.DataAccess
         public string Remark { get; set; }
         public int IsDelete { get; set; }
 
+        /// <summary>
+        /// 修正值1
+        /// </summary>
         public string Extra1 { get; set; }
+        /// <summary>
+        /// 修正值2
+        /// </summary>
         public string Extra2 { get; set; }
+        /// <summary>
+        /// 修正值3
+        /// </summary>
         public string Extra3 { get; set; }
+        /// <summary>
+        /// 是否修正
+        /// </summary>
         public string Extra4 { get; set; }
         public string Extra5 { get; set; }
         public string Extra6 { get; set; }

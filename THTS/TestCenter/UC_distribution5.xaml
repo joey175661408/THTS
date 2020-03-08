@@ -5,7 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     xmlns:d3="http://research.microsoft.com/DynamicDataDisplay/1.0" 
     xmlns:ec="http://schemas.microsoft.com/expression/2010/controls" 
-    x:Class="THTS.TestCenter.UC_distribution9"
+    x:Class="THTS.TestCenter.UC_distribution5"
     Loaded="UserControl_Loaded"
     mc:Ignorable="d" 
     Height="500" Width="500">
@@ -110,19 +110,13 @@
         <Ellipse HorizontalAlignment="Right" Height="6" Margin="0,0,119,146" Stroke="Black" StrokeThickness="2" VerticalAlignment="Bottom" Width="6" Fill="Black"/>
         <Ellipse HorizontalAlignment="Left" Height="6" Margin="176,0,0,146" Stroke="Black" StrokeThickness="2" VerticalAlignment="Bottom" Width="6" Fill="Black"/>
         <Label x:Name="T1" Content="1" HorizontalAlignment="Left" Margin="180,51,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="T2" Content="2" HorizontalAlignment="Left" Margin="340,51,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="T3" Content="3" HorizontalAlignment="Left" Margin="300,120,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="T4" Content="4" HorizontalAlignment="Left" Margin="140,120,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="T5" Content="5" VerticalAlignment="Bottom" Margin="250,0,0,225"  HorizontalAlignment="Left"/>
-        <Label x:Name="T6" Content="6" HorizontalAlignment="Left" Margin="180,0,0,122" VerticalAlignment="Bottom"/>
-        <Label x:Name="T7" Content="7" HorizontalAlignment="Left" Margin="330,0,0,122" VerticalAlignment="Bottom"/>
-        <Label x:Name="T8" Content="8" HorizontalAlignment="Left" Margin="300,0,0,50" VerticalAlignment="Bottom"/>
-        <Label x:Name="T9" Content="9" HorizontalAlignment="Left" Margin="135,0,0,50" VerticalAlignment="Bottom"/>
-        <Label x:Name="A" Content="A" HorizontalAlignment="Right" Margin="0,51,295,0" VerticalAlignment="Top"/>
-        <Label x:Name="B" Content="B" HorizontalAlignment="Right" Margin="0,120,175,0" VerticalAlignment="Top"/>
-        <Label x:Name="C" Content="C" HorizontalAlignment="Left" Margin="340,0,0,122" VerticalAlignment="Bottom"/>
-        <Label x:Name="D" Content="D" HorizontalAlignment="Left" Margin="145,0,0,50" VerticalAlignment="Bottom"/>
-        <Label x:Name="O" Content="O" VerticalAlignment="Bottom" Margin="0,0,250,250"  HorizontalAlignment="Right"/>
+        <Label x:Name="T2" Content="2" HorizontalAlignment="Left" Margin="300,120,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="T3" Content="3" HorizontalAlignment="Left" Margin="349,0,0,122.01" VerticalAlignment="Bottom"/>
+        <Label x:Name="T4" Content="4" HorizontalAlignment="Left" Margin="133.33,0,0,48.983" VerticalAlignment="Bottom"/>
+        <Label x:Name="T5" Content="5" Margin="0,0,250,250" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+        <Label x:Name="A" Content="A" HorizontalAlignment="Right" Margin="0,50,290,0" VerticalAlignment="Top"/>
+        <Label x:Name="B" Content="B" Margin="0,0,179.25,51" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+        <Label x:Name="O" Content="O" Margin="250,0,0,225" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
 
     </Grid>
 </UserControl>

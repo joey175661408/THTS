@@ -30,7 +30,7 @@ namespace THTS.DataAccess.EntityDAO
                     TemperatureTolerance tolerance = new TemperatureTolerance();
 
                     tolerance.TestTimeSpan = 30;
-                    tolerance.TestSampleInterval = 2;
+                    tolerance.TestSampleInterval = 10;
 
                     return tolerance;
                 }

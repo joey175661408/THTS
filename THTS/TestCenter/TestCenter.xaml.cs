@@ -26,5 +26,9 @@ namespace THTS.TestCenter
             this.DataContext = new TestCenterViewModel();
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

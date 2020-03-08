@@ -513,7 +513,7 @@
                         </Controls:MetroTabControl>
                     </Grid>
                 </Controls:MetroTabItem>
-                <Controls:MetroTabItem Header="实时曲线" Visibility="Visible">
+                <Controls:MetroTabItem Header="实时曲线" Visibility="Collapsed">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
