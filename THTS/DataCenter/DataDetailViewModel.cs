@@ -56,6 +56,8 @@ namespace THTS.DataCenter
         {
             Info = testinfo;
 
+            ToleranceInfo.Info = testinfo;
+
             ToleranceInfo.PositionType = Info.PositionType;
 
             EditCommand = new DelegateCommand(Edit);

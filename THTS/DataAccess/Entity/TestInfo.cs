@@ -67,6 +67,13 @@ namespace THTS.DataAccess
         public string Extra9 { get; set; }
         public string Extra10 { get; set; }
 
+        //标准设备信息
+        public string CalName { get; set; }
+        public string CalModule { get; set; }
+        public string CalAccuracy { get; set; }
+        public string CalCertificateSN { get; set; }
+        public string CalExpiryDate { get; set; }
+
         public TestInfo()
         {
             this.RegisterPropertyChangedHandler(() => PropertyChanged);

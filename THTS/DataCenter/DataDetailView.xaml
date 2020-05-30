@@ -54,6 +54,53 @@
             </Setter>
         </Style>
 
+        <Style x:Key="PositionTemperatureStyle5" TargetType="DataGridColumnHeader">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Grid x:Name="Root">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="1" />
+                                    <RowDefinition Height="20" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                </Grid.ColumnDefinitions>
+                                <!--设置标题名称-->
+                                <ContentPresenter Content="温度/℃" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="29" />
+                                <!--设置间隔线-->
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Height="1" Visibility="Visible" Grid.Row="1" Grid.ColumnSpan="29" />
+                                <ContentPresenter Content="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="1" />
+                                <ContentPresenter Content="2" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="3" />
+                                <ContentPresenter Content="3" Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="5" />
+                                <ContentPresenter Content="4" Grid.Row="2" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="7" />
+                                <ContentPresenter Content="5" Grid.Row="2" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            </Grid>
+                            <Rectangle x:Name="VerticalSeparator" Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="1" Grid.Column="1" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
         <Style x:Key="PositionTemperatureStyle9" TargetType="DataGridColumnHeader">
             <Setter Property="Template">
                 <Setter.Value>
@@ -92,23 +139,23 @@
                                 <ContentPresenter Content="温度/℃" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="29" />
                                 <!--设置间隔线-->
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Height="1" Visibility="Visible" Grid.Row="1" Grid.ColumnSpan="29" />
-                                <ContentPresenter Content="A" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="1" />
-                                <ContentPresenter Content="B" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="2" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="3" />
-                                <ContentPresenter Content="C" Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="3" Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="5" />
-                                <ContentPresenter Content="D" Grid.Row="2" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="15" />
-                                <ContentPresenter Content="O" Grid.Row="2" Grid.Column="28" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="4" Grid.Row="2" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="7" />
-                                <ContentPresenter Content="E" Grid.Row="2" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="5" Grid.Row="2" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="9" />
-                                <ContentPresenter Content="F" Grid.Row="2" Grid.Column="10" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="6" Grid.Row="2" Grid.Column="10" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="11" />
-                                <ContentPresenter Content="G" Grid.Row="2" Grid.Column="12" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="7" Grid.Row="2" Grid.Column="12" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="13" />
-                                <ContentPresenter Content="H" Grid.Row="2" Grid.Column="14" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="8" Grid.Row="2" Grid.Column="14" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="15" />
+                                <ContentPresenter Content="9" Grid.Row="2" Grid.Column="16" VerticalAlignment="Center" HorizontalAlignment="Center" />
                             </Grid>
                             <Rectangle x:Name="VerticalSeparator" Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="1" Grid.Column="1" />
                         </Grid>
@@ -167,35 +214,35 @@
                                 <ContentPresenter Content="温度/℃" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="29" />
                                 <!--设置间隔线-->
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Height="1" Visibility="Visible" Grid.Row="1" Grid.ColumnSpan="29" />
-                                <ContentPresenter Content="A" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="1" />
-                                <ContentPresenter Content="B" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="2" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="3" />
-                                <ContentPresenter Content="C" Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="3" Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="5" />
-                                <ContentPresenter Content="D" Grid.Row="2" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="4" Grid.Row="2" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="7" />
-                                <ContentPresenter Content="E" Grid.Row="2" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="5" Grid.Row="2" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="9" />
-                                <ContentPresenter Content="F" Grid.Row="2" Grid.Column="10" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="6" Grid.Row="2" Grid.Column="10" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="11" />
-                                <ContentPresenter Content="G" Grid.Row="2" Grid.Column="12" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="27" />
-                                <ContentPresenter Content="O" Grid.Row="2" Grid.Column="28" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="7" Grid.Row="2" Grid.Column="12" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="13" />
-                                <ContentPresenter Content="H" Grid.Row="2" Grid.Column="14" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="8" Grid.Row="2" Grid.Column="14" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="15" />
-                                <ContentPresenter Content="I" Grid.Row="2" Grid.Column="16" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="9" Grid.Row="2" Grid.Column="16" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="17" />
-                                <ContentPresenter Content="J" Grid.Row="2" Grid.Column="18" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="10" Grid.Row="2" Grid.Column="18" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="19" />
-                                <ContentPresenter Content="K" Grid.Row="2" Grid.Column="20" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="11" Grid.Row="2" Grid.Column="20" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="21" />
-                                <ContentPresenter Content="L" Grid.Row="2" Grid.Column="22" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="12" Grid.Row="2" Grid.Column="22" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="23" />
-                                <ContentPresenter Content="M" Grid.Row="2" Grid.Column="24" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="13" Grid.Row="2" Grid.Column="24" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="25" />
-                                <ContentPresenter Content="N" Grid.Row="2" Grid.Column="26" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="14" Grid.Row="2" Grid.Column="26" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="27" />
+                                <ContentPresenter Content="15" Grid.Row="2" Grid.Column="28" VerticalAlignment="Center" HorizontalAlignment="Center" />
                             </Grid>
                             <Rectangle x:Name="VerticalSeparator" Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="1" Grid.Column="1" />
                         </Grid>
@@ -239,6 +286,45 @@
             </Setter>
         </Style>
 
+        <Style x:Key="Position5HumidityStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Grid x:Name="Root">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="1" />
+                                    <RowDefinition Height="20" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                </Grid.ColumnDefinitions>
+                                <!--设置标题名称-->
+                                <ContentPresenter Content="湿度" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="7" />
+                                <!--设置间隔线-->
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Height="1" Visibility="Visible" Grid.Row="1" Grid.ColumnSpan="7" />
+                                <ContentPresenter Content="A" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="1" />
+                                <ContentPresenter Content="B" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="3" />
+                                <ContentPresenter Content="O" Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            </Grid>
+                            <Rectangle x:Name="VerticalSeparator" Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="1" Grid.Column="1" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <Style x:Key="PositionHumidityStyle" TargetType="DataGridColumnHeader">
             <Setter Property="Template">
                 <Setter.Value>
@@ -262,18 +348,22 @@
                                     <ColumnDefinition Width="50" />
                                     <ColumnDefinition Width="1" />
                                     <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
                                 </Grid.ColumnDefinitions>
                                 <!--设置标题名称-->
                                 <ContentPresenter Content="湿度" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="7" />
                                 <!--设置间隔线-->
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Height="1" Visibility="Visible" Grid.Row="1" Grid.ColumnSpan="7" />
-                                <ContentPresenter Content="甲" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="A" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="1" />
-                                <ContentPresenter Content="乙" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="B" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="3" />
-                                <ContentPresenter Content="丙" Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="C" Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="5" />
-                                <ContentPresenter Content="丁" Grid.Row="2" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="D" Grid.Row="2" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="7" />
+                                <ContentPresenter Content="O" Grid.Row="2" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" />
                             </Grid>
                             <Rectangle x:Name="VerticalSeparator" Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="1" Grid.Column="1" />
                         </Grid>
@@ -283,21 +373,10 @@
         </Style>
     </Window.Resources>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="5"/>
-            <RowDefinition Height="360"/>
-            <RowDefinition Height="5"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="5"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="5"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="5"/>
-        </Grid.ColumnDefinitions>
-        
-        <Grid Grid.Row="1" Grid.Column="1">
+    <ScrollViewer>
+        <StackPanel>
+            <Expander Margin="0 10 0 0" Header="基础信息" IsExpanded="True">
+                <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="5"/>
                 <ColumnDefinition Width="*"/>
@@ -439,7 +518,27 @@
                         <CheckBox Grid.Row="3" Grid.Column="2" IsChecked="{Binding Info.HumiAverageIsChecked}" Content="湿度波动度及均匀度" Margin="10,0,0,0"/>
                     </Grid>
                 </GroupBox>
-                
+                <Label/>
+                <GroupBox Header="校准数据修正" IsEnabled="False">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="5"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="5"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="5"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="5"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <CheckBox Grid.Row="1" Grid.Column="0" IsChecked="{Binding Info.Extra4}" Content="PT100温度传感器" Margin="10,0,0,0"/>
+                        <CheckBox Grid.Row="3" Grid.Column="0" IsChecked="{Binding Info.Extra5}" Content="湿度传感器" Margin="10,0,0,0"/>
+                        <CheckBox Grid.Row="5" Grid.Column="0" IsChecked="{Binding Info.Extra6}" Content="K型热电偶温度传感器" Margin="10,0,0,0"/>
+                    </Grid>
+                </GroupBox>
+
                 <Label/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Button Content="导出报告" Width="100" Height="30" Command="{Binding ExportRecordCommand}"/>
@@ -448,8 +547,10 @@
                 </StackPanel>
             </StackPanel>
         </Grid>
-
-        <Controls:MetroTabControl Grid.Row="3" Grid.Column="1" ItemsSource="{Binding ResultList}" Margin="10,0,0,0"
+            </Expander>
+            
+            <Expander Margin="0 10 0 0" Header="校准记录" IsExpanded="True">
+                <Controls:MetroTabControl Grid.Row="3" Grid.Column="1" ItemsSource="{Binding ResultList}" Margin="10,0,0,0"
                                   MaxWidth="1342" HorizontalAlignment="Left">
             <Controls:MetroTabControl.ItemTemplate>
                 <DataTemplate>
@@ -479,7 +580,7 @@
                                 <Label FontSize="18" Content="℃" HorizontalContentAlignment="Left"/>
                             </StackPanel>
                             <StackPanel Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Center" 
-                                        Visibility="{Binding Data.Tol.Info.HumidityVisibility ,Source={StaticResource proxy}}">
+                                        Visibility="{Binding Data.Info.HumidityVisibility ,Source={StaticResource proxy}}">
                                 <Label FontSize="18" Content="标称湿度" HorizontalContentAlignment="Left"/>
                                 <Label FontSize="18" Content="{Binding HumidityValue}" Width="80" HorizontalContentAlignment="Center"/>
                                 <Label FontSize="18" Content="%RH" HorizontalContentAlignment="Left"/>
@@ -500,7 +601,7 @@
                                 <DataGridTextColumn Binding="{Binding Count}" Header="次数" />
                                 <DataGridTextColumn Binding="{Binding DeviceTemperature}" Header="仪表示值℃"/>
                                 <DataGridTextColumn Binding="{Binding DeviceHumidity}" Header="仪表示值%RH" 
-                                                    Visibility="{Binding Data.Tol.Info.HumidityVisibility ,Source={StaticResource proxy}}"/>
+                                                    Visibility="{Binding Data.Info.HumidityVisibility ,Source={StaticResource proxy}}"/>
                                 
                                 <DataGridTemplateColumn HeaderStyle="{StaticResource DeviceStyle}" Visibility="Collapsed">
                                     <DataGridTemplateColumn.CellTemplate>
@@ -513,6 +614,25 @@
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
 
+                                <DataGridTemplateColumn HeaderStyle="{StaticResource PositionTemperatureStyle5}" 
+                                                                    Visibility="{Binding Data.UC5Visibility ,Source={StaticResource proxy}}">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="{Binding StringA}" Width="50" HorizontalContentAlignment="Center"/>
+                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                <Label Content="{Binding StringB}" Width="50" HorizontalContentAlignment="Center"/>
+                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                <Label Content="{Binding StringC}" Width="50" HorizontalContentAlignment="Center"/>
+                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                <Label Content="{Binding StringD}" Width="50" HorizontalContentAlignment="Center"/>
+                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                <Label Content="{Binding StringO}" Width="50" HorizontalContentAlignment="Center"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                
                                 <DataGridTemplateColumn HeaderStyle="{StaticResource PositionTemperatureStyle9}" 
                                                                     Visibility="{Binding Data.UC9Visibility ,Source={StaticResource proxy}}">
                                     <DataGridTemplateColumn.CellTemplate>
@@ -554,13 +674,13 @@
                                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
                                                 <Label Content="{Binding StringD}" Width="50" HorizontalContentAlignment="Center"/>
                                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                <Label Content="{Binding StringO}" Width="50" HorizontalContentAlignment="Center"/>
+                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
                                                 <Label Content="{Binding StringE}" Width="50" HorizontalContentAlignment="Center"/>
                                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
                                                 <Label Content="{Binding StringF}" Width="50" HorizontalContentAlignment="Center"/>
                                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
                                                 <Label Content="{Binding StringG}" Width="50" HorizontalContentAlignment="Center"/>
-                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                <Label Content="{Binding StringO}" Width="50" HorizontalContentAlignment="Center"/>
                                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
                                                 <Label Content="{Binding StringH}" Width="50" HorizontalContentAlignment="Center"/>
                                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
@@ -591,24 +711,54 @@
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
-                            
-                                <DataGridTemplateColumn HeaderStyle="{StaticResource PositionHumidityStyle}" 
-                                               Visibility="{Binding Data.Tol.Info.HumidityVisibility ,Source={StaticResource proxy}}">
+
+                                <DataGridTemplateColumn HeaderStyle="{StaticResource Position5HumidityStyle}" 
+                                                                    Visibility="{Binding Data.Humidity5Visibility ,Source={StaticResource proxy}}">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal">
-                                                <Label Content="{Binding StringJia}" Width="50" HorizontalContentAlignment="Center"/>
-                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
                                                 <Label Content="{Binding StringYi}" Width="50" HorizontalContentAlignment="Center"/>
                                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
                                                 <Label Content="{Binding StringBing}" Width="50" HorizontalContentAlignment="Center"/>
                                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                <Label Content="{Binding StringDing}" Width="50" HorizontalContentAlignment="Center"/>
+                                                <Label Content="{Binding StringJia}" Width="50" HorizontalContentAlignment="Center"/>
                                             </StackPanel>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
 
+                                <DataGridTemplateColumn HeaderStyle="{StaticResource PositionHumidityStyle}" 
+                                               Visibility="{Binding Data.Humidity9or15Visibility ,Source={StaticResource proxy}}">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="{Binding StringYi}" Width="50" HorizontalContentAlignment="Center"/>
+                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                <Label Content="{Binding StringBing}" Width="50" HorizontalContentAlignment="Center"/>
+                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                <Label Content="{Binding StringDing}" Width="50" HorizontalContentAlignment="Center"/>
+                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                <Label Content="{Binding StringExtra1}" Width="50" HorizontalContentAlignment="Center"/>
+                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                <Label Content="{Binding StringJia}" Width="50" HorizontalContentAlignment="Center"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn HeaderStyle="{StaticResource MaxMinStyle}" 
+                                                                    Visibility="{Binding Data.Info.HumidityVisibility, Source={StaticResource proxy}}">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="{Binding StringMaxH}" Width="50" HorizontalContentAlignment="Center"/>
+                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                <Label Content="{Binding StringMinH}" Width="50" HorizontalContentAlignment="Center"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                
                             </DataGrid.Columns>
                         </DataGrid>
 
@@ -619,42 +769,55 @@
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="5*"/>
                                 <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="5*"/>
                                 <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="5*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="5*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
-                                <Label FontSize="18" Content="温度偏差" HorizontalContentAlignment="Left"/>
-                                <Label FontSize="18" Content="{Binding TemperatureDepartureValue}" Width="80" HorizontalContentAlignment="Center"/>
+                                <Label FontSize="18" Content="温度上偏差" HorizontalContentAlignment="Left"/>
+                                <Label FontSize="18" Content="{Binding TemperatureDepartureUpValue}" Width="80" HorizontalContentAlignment="Center"/>
                                 <Label FontSize="18" Content="℃" HorizontalContentAlignment="Left"/>
                             </StackPanel>
-                            <StackPanel Grid.Row="0" Grid.Column="3" Orientation="Horizontal" >
+                            <StackPanel Grid.Row="0" Grid.Column="3" Orientation="Horizontal">
+                                <Label FontSize="18" Content="温度下偏差" HorizontalContentAlignment="Left"/>
+                                <Label FontSize="18" Content="{Binding TemperatureDepartureDownValue}" Width="80" HorizontalContentAlignment="Center"/>
+                                <Label FontSize="18" Content="℃" HorizontalContentAlignment="Left"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="0" Grid.Column="5" Orientation="Horizontal" >
                                 <Label FontSize="18" Content="温度均匀度" HorizontalContentAlignment="Left"/>
                                 <Label FontSize="18" Content="{Binding TemperatureAverageValue}" Width="80" HorizontalContentAlignment="Center"/>
                                 <Label FontSize="18" Content="℃" HorizontalContentAlignment="Left"/>
                             </StackPanel>
-                            <StackPanel Grid.Row="0" Grid.Column="5" Orientation="Horizontal" >
+                            <StackPanel Grid.Row="0" Grid.Column="7" Orientation="Horizontal" >
                                 <Label FontSize="18" Content="温度波动度" HorizontalContentAlignment="Left"/>
                                 <Label FontSize="18" Content="{Binding TemperatureFluctuationValue}" Width="80" HorizontalContentAlignment="Center"/>
                                 <Label FontSize="18" Content="℃" HorizontalContentAlignment="Left"/>
                             </StackPanel>
                             <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" 
-                                        Visibility="{Binding Data.Tol.Info.HumidityVisibility ,Source={StaticResource proxy}}">
-                                <Label FontSize="18" Content="湿度偏差" HorizontalContentAlignment="Left"/>
-                                <Label FontSize="18" Content="{Binding HumidityDepartureValue}" Width="80" HorizontalContentAlignment="Center"/>
+                                        Visibility="{Binding Data.Info.HumidityVisibility ,Source={StaticResource proxy}}">
+                                <Label FontSize="18" Content="湿度上偏差" HorizontalContentAlignment="Left"/>
+                                <Label FontSize="18" Content="{Binding HumidityDepartureUpValue}" Width="80" HorizontalContentAlignment="Center"/>
                                 <Label FontSize="18" Content="%RH" HorizontalContentAlignment="Left"/>
                             </StackPanel>
                             <StackPanel Grid.Row="1" Grid.Column="3" Orientation="Horizontal" 
-                                        Visibility="{Binding Data.Tol.Info.HumidityVisibility ,Source={StaticResource proxy}}">
+                                        Visibility="{Binding Data.Info.HumidityVisibility ,Source={StaticResource proxy}}">
+                                <Label FontSize="18" Content="湿度下偏差" HorizontalContentAlignment="Left"/>
+                                <Label FontSize="18" Content="{Binding HumidityDepartureDownValue}" Width="80" HorizontalContentAlignment="Center"/>
+                                <Label FontSize="18" Content="%RH" HorizontalContentAlignment="Left"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Grid.Column="5" Orientation="Horizontal" 
+                                        Visibility="{Binding Data.Info.HumidityVisibility ,Source={StaticResource proxy}}">
                                 <Label FontSize="18" Content="湿度均匀度" HorizontalContentAlignment="Left"/>
                                 <Label FontSize="18" Content="{Binding HumidityAverageValue}" Width="80" HorizontalContentAlignment="Center"/>
                                 <Label FontSize="18" Content="%RH" HorizontalContentAlignment="Left"/>
                             </StackPanel>
-                            <StackPanel Grid.Row="1" Grid.Column="5" Orientation="Horizontal" 
-                                        Visibility="{Binding Data.Tol.Info.HumidityVisibility ,Source={StaticResource proxy}}">
+                            <StackPanel Grid.Row="1" Grid.Column="7" Orientation="Horizontal" 
+                                        Visibility="{Binding Data.Info.HumidityVisibility ,Source={StaticResource proxy}}">
                                 <Label FontSize="18" Content="湿度波动度" HorizontalContentAlignment="Left"/>
                                 <Label FontSize="18" Content="{Binding HumidityFluctuationValue}" Width="80" HorizontalContentAlignment="Center"/>
                                 <Label FontSize="18" Content="%RH" HorizontalContentAlignment="Left"/>
@@ -664,7 +827,11 @@
                 </DataTemplate>
             </Controls:MetroTabControl.ContentTemplate>
         </Controls:MetroTabControl>
-    </Grid>
+            </Expander>
+
+        </StackPanel>
+
+    </ScrollViewer>
 
 
 </Controls:MetroWindow>

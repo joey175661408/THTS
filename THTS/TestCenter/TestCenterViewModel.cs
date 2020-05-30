@@ -56,6 +56,12 @@ namespace THTS.TestCenter
                 return;
             }
 
+            if (DataAccess.SettingsDAO.GetData().PortName.Equals(string.Empty))
+            {
+                System.Windows.MessageBox.Show("未检测到串口信息", "警告", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Warning);
+                return;
+            }
+
             SensorSettings settings = new SensorSettings(Info);
             settings.ShowDialog();
         }

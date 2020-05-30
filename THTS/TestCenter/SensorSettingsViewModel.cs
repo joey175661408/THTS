@@ -139,6 +139,11 @@ namespace THTS.TestCenter
 
         public SensorSettingsViewModel(TestInfo Info)
         {
+            //获取串口配置信息
+            DataAccess.Setting settings = DataAccess.SettingsDAO.GetData();
+            instrument = new iInstrument(settings.PortName, settings.BaudRate, System.IO.Ports.Parity.None, 8, System.IO.Ports.StopBits.One);
+
+
             ToleranceInfo = DataAccess.EntityDAO.TemperatureToleranceDAO.GetToleranceInfoData();
             ToleranceInfo.RecordSN = Info.RecordSN;
             ToleranceInfo.Info = Info;
@@ -175,10 +180,6 @@ namespace THTS.TestCenter
             DefaultSaveCommand = new DelegateCommand(DefaultSave);
             StartCommand = new DelegateCommand(Start);
 
-            //获取串口配置信息
-            DataAccess.Setting settings = DataAccess.SettingsDAO.GetData();
-
-            instrument = new iInstrument(settings.PortName, settings.BaudRate, System.IO.Ports.Parity.None, 8, System.IO.Ports.StopBits.One);
 
             //获取传感器ID列表
             deviceIDList = DeviceDAO.GetAllData().Select(t => t.FactoryNo).ToList();
@@ -327,7 +328,8 @@ namespace THTS.TestCenter
             ChannelList = ChannelListTemp;
 
             //加载测点分布默认配置
-            SelectedTestPosition = FileHelper.IniReadValue("Position", "type");
+            string tempPosition = FileHelper.IniReadValue("Position", "type");
+            SelectedTestPosition = tempPosition.Contains("9")?"9点分布图":(tempPosition.Contains("15")?"15点分布图":"5点分布图");
             TestPositionChanged();
 
             for (int i = 0; i < PositionList.Count; i++)
@@ -344,7 +346,7 @@ namespace THTS.TestCenter
 
             for (int i = 0; i < TestTemperatureList.Count; i++)
             {
-                string tempID = FileHelper.IniReadValue("Temperture|Humidity", TestTemperatureList[i].TestTemperatureID);
+                string tempID = FileHelper.IniReadValue("Temperture|Humidity", i.ToString());
 
                 if (!string.IsNullOrEmpty(tempID))
                 {
@@ -398,7 +400,7 @@ namespace THTS.TestCenter
                 {
                     if (TestTemperatureList[i].IsChecked.HasValue && TestTemperatureList[i].IsChecked == true)
                     {
-                        FileHelper.IniWriteValue("Temperture|Humidity", TestTemperatureList[i].TestTemperatureID,
+                        FileHelper.IniWriteValue("Temperture|Humidity", i.ToString(),
                             TestTemperatureList[i].TemperatureValue + "|" + TestTemperatureList[i].HumidityValue);
                     }
                 }
@@ -572,7 +574,7 @@ namespace THTS.TestCenter
 
             }
 
-            ToleranceInfo.PositionType = SelectedTestPosition.Contains("9") ? 9 : 15;
+            ToleranceInfo.PositionType = SelectedTestPosition.Contains("9") ? 9 : (SelectedTestPosition.Contains("15") ? 15 : 5);
 
             if (!CheckTestPostion())
             {
@@ -622,15 +624,36 @@ namespace THTS.TestCenter
                 }
             }
 
-            if(ToleranceInfo.Info.TemperatuerVisibility == Visibility.Visible && !ToleranceInfo.PositionList.ContainsKey("O"))
+            if(ToleranceInfo.Info.TemperatuerVisibility == Visibility.Visible)
             {
-                System.Windows.MessageBox.Show("温度中心点位置【O】未放置传感器！");
+                if(ToleranceInfo.PositionType == 15)
+                {
+                    if (!ToleranceInfo.PositionList.ContainsKey("15"))
+                    {
+                        System.Windows.MessageBox.Show("温度中心点位置【15】未放置传感器！");
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
+                else 
+                {
+                    if (!ToleranceInfo.PositionList.ContainsKey("5"))
+                    {
+                        System.Windows.MessageBox.Show("温度中心点位置【5】未放置传感器！");
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
                 return false;
             }
 
-            if (ToleranceInfo.Info.HumidityVisibility == Visibility.Visible && !ToleranceInfo.PositionList.ContainsKey("甲"))
+            if (ToleranceInfo.Info.HumidityVisibility == Visibility.Visible && !ToleranceInfo.PositionList.ContainsKey("O"))
             {
-                System.Windows.MessageBox.Show("湿度中心点位置【甲】未放置传感器！");
+                System.Windows.MessageBox.Show("湿度中心点位置【O】未放置传感器！");
                 return false;
             }
 

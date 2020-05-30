@@ -36,47 +36,47 @@ namespace THTS.DataAccess.Entity
         /// </summary>
         public float D { get; set; }
         /// <summary>
-        /// 9点6/15点5
+        /// 9点6/15点6
         /// </summary>
         public float E { get; set; }
         /// <summary>
-        /// 9点7/15点6
+        /// 9点7/15点7
         /// </summary>
         public float F { get; set; }
         /// <summary>
-        /// 9点8/15点7
+        /// 9点8/15点8
         /// </summary>
         public float G { get; set; }
         /// <summary>
-        /// 9点9/15点8
+        /// 9点9/15点9
         /// </summary>
         public float H { get; set; }
         /// <summary>
-        /// 15点9
+        /// 15点10
         /// </summary>
         public float I { get; set; }
         /// <summary>
-        /// 15点10
+        /// 15点11
         /// </summary>
         public float J { get; set; }
         /// <summary>
-        /// 15点11
+        /// 15点12
         /// </summary>
         public float K { get; set; }
         /// <summary>
-        /// 15点12
+        /// 15点13
         /// </summary>
         public float L { get; set; }
         /// <summary>
-        /// 15点13
+        /// 15点14
         /// </summary>
         public float M { get; set; }
         /// <summary>
-        /// 15点14
+        /// 15点15
         /// </summary>
         public float N { get; set; }
         /// <summary>
-        /// 5点5/9点5/15点15
+        /// 5点5/9点5/15点5
         /// </summary>
         public float O { get; set; }
 
@@ -163,7 +163,17 @@ namespace THTS.DataAccess.Entity
         [NotMapped]
         public string StringDing { get { return Ding.Equals(-1000) ? "" : Ding.ToString("0.00"); } }
         [NotMapped]
-        public string StringExtra1 { get { return Extra1.Equals(-1000) ? "" : Ding.ToString("0.00"); } }
+        public string StringExtra1 { get { return Extra1.Equals("-1000") ? "" : float.Parse(Extra1).ToString("0.00"); } }
+        [NotMapped]
+        private float FloatExtra1
+        {
+            get
+            {
+                float temp = -1000;
+                float.TryParse(Extra1, out temp);
+                return temp;                
+            }
+        }
 
         [NotMapped]
         public float MaxT
@@ -217,6 +227,9 @@ namespace THTS.DataAccess.Entity
         public string StringMaxT { get { return MaxT.ToString("0.00"); } }
         [NotMapped]
         public string StringMinT { get { return MinT.ToString("0.00"); } }
+        [NotMapped]
+        public string StringAverageT { get; set; }
+
 
         [NotMapped]
         public float MaxH
@@ -227,6 +240,7 @@ namespace THTS.DataAccess.Entity
                 temp = Yi == -1000 || Yi < temp ? temp : Yi;
                 temp = Bing == -1000 || Bing < temp ? temp : Bing;
                 temp = Ding == -1000 || Ding < temp ? temp : Ding;
+                temp = FloatExtra1 == -1000 || FloatExtra1 < temp ? temp : FloatExtra1;
                 return temp;
             }
         }
@@ -240,6 +254,8 @@ namespace THTS.DataAccess.Entity
                 temp = Yi == -1000 || Yi > temp ? temp : Yi;
                 temp = Bing == -1000 || Bing > temp ? temp : Bing;
                 temp = Ding == -1000 || Ding > temp ? temp : Ding;
+                temp = FloatExtra1 == -1000 || FloatExtra1 > temp ? temp : FloatExtra1;
+
                 return temp;
             }
         }
@@ -248,7 +264,7 @@ namespace THTS.DataAccess.Entity
         public string StringMaxH { get { return MaxH.ToString("0.00"); } }
         [NotMapped]
         public string StringMinH { get { return MinH.ToString("0.00"); } }
-
+        public string StringAverageH { get; set; }
         #endregion
 
         #region INotifyPropertyChanged 成员

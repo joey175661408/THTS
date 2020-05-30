@@ -24,7 +24,7 @@ namespace THTS.TestCenter
         /// <summary>
         /// 是否为调试模式
         /// </summary>
-        private bool test = true;
+        private bool test = false;
         #endregion
 
         #region Command
@@ -357,7 +357,7 @@ namespace THTS.TestCenter
         }
         ObservableDataSource<Point> _lineJia = new ObservableDataSource<Point>();
         /// <summary>
-        /// 温度曲线数据源-甲
+        /// 湿度曲线数据源-甲
         /// </summary>
         public ObservableDataSource<Point> LineJia
         {
@@ -366,7 +366,7 @@ namespace THTS.TestCenter
         }
         ObservableDataSource<Point> _lineYi = new ObservableDataSource<Point>();
         /// <summary>
-        /// 温度曲线数据源-乙
+        /// 湿度曲线数据源-乙
         /// </summary>
         public ObservableDataSource<Point> LineYi
         {
@@ -375,21 +375,30 @@ namespace THTS.TestCenter
         }
         ObservableDataSource<Point> _lineBing = new ObservableDataSource<Point>();
         /// <summary>
-        /// 温度曲线数据源-丙
+        /// 湿度曲线数据源-丙
         /// </summary>
         public ObservableDataSource<Point> LineBing
         {
             get { return _lineBing; }
             set { _lineBing = value; OnPropertyChanged(); }
         }
-                ObservableDataSource<Point> _lineDing = new ObservableDataSource<Point>();
+        ObservableDataSource<Point> _lineDing = new ObservableDataSource<Point>();
         /// <summary>
-        /// 温度曲线数据源-丁
+        /// 湿度曲线数据源-丁
         /// </summary>
         public ObservableDataSource<Point> LineDing
         {
             get { return _lineDing; }
             set { _lineDing = value; OnPropertyChanged(); }
+        }
+        ObservableDataSource<Point> _lineWu = new ObservableDataSource<Point>();
+        /// <summary>
+        /// 湿度曲线数据源-戊
+        /// </summary>
+        public ObservableDataSource<Point> LineWu
+        {
+            get { return _lineWu; }
+            set { _lineWu = value; OnPropertyChanged(); }
         }
 
         #endregion
@@ -622,25 +631,26 @@ namespace THTS.TestCenter
                         tol.Info.YBottom
                         ) });
 
-            SetChartLineData(LineA, "A");
-            SetChartLineData(LineB, "B");
-            SetChartLineData(LineC, "C");
-            SetChartLineData(LineD, "D");
-            SetChartLineData(LineE, "E");
-            SetChartLineData(LineF, "F");
-            SetChartLineData(LineG, "G");
-            SetChartLineData(LineH, "H");
-            SetChartLineData(LineI, "I");
-            SetChartLineData(LineJ, "J");
-            SetChartLineData(LineK, "K");
-            SetChartLineData(LineL, "L");
-            SetChartLineData(LineM, "M");
-            SetChartLineData(LineN, "N");
-            SetChartLineData(LineO, "O");
-            SetChartLineData(LineJia, "甲");
-            SetChartLineData(LineYi, "乙");
-            SetChartLineData(LineBing, "丙");
-            SetChartLineData(LineDing, "丁");
+            SetChartLineData(LineA, "1");
+            SetChartLineData(LineB, "2");
+            SetChartLineData(LineC, "3");
+            SetChartLineData(LineD, "4");
+            SetChartLineData(LineO, "5");
+            SetChartLineData(LineE, "6");
+            SetChartLineData(LineF, "7");
+            SetChartLineData(LineG, "8");
+            SetChartLineData(LineH, "9");
+            SetChartLineData(LineI, "10");
+            SetChartLineData(LineJ, "11");
+            SetChartLineData(LineK, "12");
+            SetChartLineData(LineL, "13");
+            SetChartLineData(LineM, "14");
+            SetChartLineData(LineN, "15");
+            SetChartLineData(LineYi, "A");
+            SetChartLineData(LineBing, "B");
+            SetChartLineData(LineDing, "C");
+            SetChartLineData(LineWu, "D");
+            SetChartLineData(LineJia, "O");
         }
 
         private void SetChartLineData(ObservableDataSource<Point> line, string position)
@@ -681,6 +691,7 @@ namespace THTS.TestCenter
             LineYi.Collection.Clear();
             LineBing.Collection.Clear();
             LineDing.Collection.Clear();
+            LineWu.Collection.Clear();
         }
 
         /// <summary>
@@ -722,25 +733,27 @@ namespace THTS.TestCenter
                 DeviceTemperature = TestResultDataList[temperatureIndex].TemperatureValue,
                 DeviceHumidity = TestResultDataList[temperatureIndex].HumidityValue,
 
-                A = SetValueForPosition("A"),
-                B = SetValueForPosition("B"),
-                C = SetValueForPosition("C"),
-                D = SetValueForPosition("D"),
-                E = SetValueForPosition("E"),
-                F = SetValueForPosition("F"),
-                G = SetValueForPosition("G"),
-                H = SetValueForPosition("H"),
-                I = SetValueForPosition("I"),
-                J = SetValueForPosition("J"),
-                K = SetValueForPosition("K"),
-                L = SetValueForPosition("L"),
-                M = SetValueForPosition("M"),
-                N = SetValueForPosition("N"),
-                O = SetValueForPosition("O"),
-                Jia = SetValueForPosition("甲"),
-                Yi = SetValueForPosition("乙"),
-                Bing = SetValueForPosition("丙"),
-                Ding = SetValueForPosition("丁")
+                A = SetValueForPosition("1"),
+                B = SetValueForPosition("2"),
+                C = SetValueForPosition("3"),
+                D = SetValueForPosition("4"),
+                O = SetValueForPosition("5"),
+                E = SetValueForPosition("6"),
+                F = SetValueForPosition("7"),
+                G = SetValueForPosition("8"),
+                H = SetValueForPosition("9"),
+                I = SetValueForPosition("10"),
+                J = SetValueForPosition("11"),
+                K = SetValueForPosition("12"),
+                L = SetValueForPosition("13"),
+                M = SetValueForPosition("14"),
+                N = SetValueForPosition("15"),
+
+                Jia = SetValueForPosition("O"),
+                Yi = SetValueForPosition("A"),
+                Bing = SetValueForPosition("B"),
+                Ding = SetValueForPosition("C"),
+                Extra1 = SetValueForPosition("D").ToString()
             };
 
             TestResultDataList[temperatureIndex].DataList.Add(data);

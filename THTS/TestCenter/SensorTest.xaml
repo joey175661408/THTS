@@ -93,8 +93,8 @@
                                 <ContentPresenter Content="3" Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="5" />
                                 <ContentPresenter Content="4" Grid.Row="2" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="15" />
-                                <ContentPresenter Content="5" Grid.Row="2" Grid.Column="28" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="7" />
+                                <ContentPresenter Content="5" Grid.Row="2" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" />
                             </Grid>
                             <Rectangle x:Name="VerticalSeparator" Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="1" Grid.Column="1" />
                         </Grid>
@@ -148,16 +148,16 @@
                                 <ContentPresenter Content="3" Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="5" />
                                 <ContentPresenter Content="4" Grid.Row="2" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="15" />
-                                <ContentPresenter Content="5" Grid.Row="2" Grid.Column="28" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="7" />
-                                <ContentPresenter Content="6" Grid.Row="2" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="5" Grid.Row="2" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="9" />
-                                <ContentPresenter Content="7" Grid.Row="2" Grid.Column="10" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="6" Grid.Row="2" Grid.Column="10" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="11" />
-                                <ContentPresenter Content="8" Grid.Row="2" Grid.Column="12" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="7" Grid.Row="2" Grid.Column="12" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="13" />
-                                <ContentPresenter Content="9" Grid.Row="2" Grid.Column="14" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="8" Grid.Row="2" Grid.Column="14" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="15" />
+                                <ContentPresenter Content="9" Grid.Row="2" Grid.Column="16" VerticalAlignment="Center" HorizontalAlignment="Center" />
                             </Grid>
                             <Rectangle x:Name="VerticalSeparator" Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="1" Grid.Column="1" />
                         </Grid>
@@ -229,22 +229,22 @@
                                 <ContentPresenter Content="6" Grid.Row="2" Grid.Column="10" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="11" />
                                 <ContentPresenter Content="7" Grid.Row="2" Grid.Column="12" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="27" />
-                                <ContentPresenter Content="8" Grid.Row="2" Grid.Column="28" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="13" />
-                                <ContentPresenter Content="9" Grid.Row="2" Grid.Column="14" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="8" Grid.Row="2" Grid.Column="14" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="15" />
-                                <ContentPresenter Content="10" Grid.Row="2" Grid.Column="16" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="9" Grid.Row="2" Grid.Column="16" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="17" />
-                                <ContentPresenter Content="11" Grid.Row="2" Grid.Column="18" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="10" Grid.Row="2" Grid.Column="18" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="19" />
-                                <ContentPresenter Content="12" Grid.Row="2" Grid.Column="20" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="11" Grid.Row="2" Grid.Column="20" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="21" />
-                                <ContentPresenter Content="13" Grid.Row="2" Grid.Column="22" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="12" Grid.Row="2" Grid.Column="22" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="23" />
-                                <ContentPresenter Content="14" Grid.Row="2" Grid.Column="24" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="13" Grid.Row="2" Grid.Column="24" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="25" />
-                                <ContentPresenter Content="15" Grid.Row="2" Grid.Column="26" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="14" Grid.Row="2" Grid.Column="26" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="27" />
+                                <ContentPresenter Content="15" Grid.Row="2" Grid.Column="28" VerticalAlignment="Center" HorizontalAlignment="Center" />
                             </Grid>
                             <Rectangle x:Name="VerticalSeparator" Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="1" Grid.Column="1" />
                         </Grid>
@@ -428,6 +428,7 @@
 
                 <local:UC_distribution15 Tag="{Binding PositionName}"  Margin="-100,0,0,0" Grid.Row="1" Grid.Column="1" Width="500" Height="500" Visibility="{Binding UC15Visibility}"/>
                 <local:UC_distribution9 Tag="{Binding PositionName}" Margin="-100,0,0,0" Grid.Row="1" Grid.Column="1" Width="500" Height="500" Visibility="{Binding UC9Visibility}"/>
+                <local:UC_distribution5 Tag="{Binding PositionName}" Margin="-100,0,0,0" Grid.Row="1" Grid.Column="1" Width="500" Height="500" Visibility="{Binding UC5Visibility}"/>
             </Grid>
         </Grid>
 
@@ -561,6 +562,8 @@
                                                             <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
                                                             <Label Content="{Binding StringD}" Width="50" HorizontalContentAlignment="Center"/>
                                                             <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding StringO}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
                                                             <Label Content="{Binding StringE}" Width="50" HorizontalContentAlignment="Center"/>
                                                             <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
                                                             <Label Content="{Binding StringF}" Width="50" HorizontalContentAlignment="Center"/>
@@ -580,8 +583,6 @@
                                                             <Label Content="{Binding StringM}" Width="50" HorizontalContentAlignment="Center"/>
                                                             <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
                                                             <Label Content="{Binding StringN}" Width="50" HorizontalContentAlignment="Center"/>
-                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                            <Label Content="{Binding StringO}" Width="50" HorizontalContentAlignment="Center"/>
                                                         </StackPanel>
                                                     </DataTemplate>
                                                 </DataGridTemplateColumn.CellTemplate>
@@ -600,27 +601,25 @@
                                             </DataGridTemplateColumn>
 
                                             <DataGridTemplateColumn HeaderStyle="{StaticResource Position5HumidityStyle}" 
-                                                                    Visibility="{Binding Data.Humidity5Visibility ,Source={StaticResource proxy}}">
+                                                                    Visibility="{Binding Data.Tol.Humidity5Visibility ,Source={StaticResource proxy}}">
                                                 <DataGridTemplateColumn.CellTemplate>
                                                     <DataTemplate>
                                                         <StackPanel Orientation="Horizontal">
-                                                            <Label Content="{Binding StringJia}" Width="50" HorizontalContentAlignment="Center"/>
-                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
                                                             <Label Content="{Binding StringYi}" Width="50" HorizontalContentAlignment="Center"/>
                                                             <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
                                                             <Label Content="{Binding StringBing}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding StringJia}" Width="50" HorizontalContentAlignment="Center"/>
                                                         </StackPanel>
                                                     </DataTemplate>
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
-                                        
+
                                             <DataGridTemplateColumn HeaderStyle="{StaticResource PositionHumidityStyle}" 
-                                                                    Visibility="{Binding Data.Humidity5Visibility ,Source={StaticResource proxy}}">
+                                                                    Visibility="{Binding Data.Tol.Humidity9or15Visibility ,Source={StaticResource proxy}}">
                                                 <DataGridTemplateColumn.CellTemplate>
                                                     <DataTemplate>
                                                         <StackPanel Orientation="Horizontal">
-                                                            <Label Content="{Binding StringJia}" Width="50" HorizontalContentAlignment="Center"/>
-                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
                                                             <Label Content="{Binding StringYi}" Width="50" HorizontalContentAlignment="Center"/>
                                                             <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
                                                             <Label Content="{Binding StringBing}" Width="50" HorizontalContentAlignment="Center"/>
@@ -628,6 +627,21 @@
                                                             <Label Content="{Binding StringDing}" Width="50" HorizontalContentAlignment="Center"/>
                                                             <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
                                                             <Label Content="{Binding StringExtra1}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding StringJia}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </DataGridTemplateColumn.CellTemplate>
+                                            </DataGridTemplateColumn>
+
+                                            <DataGridTemplateColumn HeaderStyle="{StaticResource MaxMinStyle}" 
+                                                                    Visibility="{Binding Data.Tol.Info.HumidityVisibility, Source={StaticResource proxy}}">
+                                                <DataGridTemplateColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <Label Content="{Binding StringMaxH}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding StringMinH}" Width="50" HorizontalContentAlignment="Center"/>
                                                         </StackPanel>
                                                     </DataTemplate>
                                                 </DataGridTemplateColumn.CellTemplate>
@@ -676,7 +690,7 @@
                                     <Pen Brush="Blue" Thickness="1"/>
                                 </d3:LineGraph.LinePen>
                                 <d3:LineGraph.Description>
-                                    <d3:PenDescription DescriptionString="A"/>
+                                    <d3:PenDescription DescriptionString="1"/>
                                 </d3:LineGraph.Description>
                             </d3:LineGraph>
                             <d3:LineGraph Name="B" DataSource="{Binding LineB}">
@@ -684,7 +698,7 @@
                                     <Pen Brush="Aqua" Thickness="1"/>
                                 </d3:LineGraph.LinePen>
                                 <d3:LineGraph.Description>
-                                    <d3:PenDescription DescriptionString="B"/>
+                                    <d3:PenDescription DescriptionString="2"/>
                                 </d3:LineGraph.Description>
                             </d3:LineGraph>
                             <d3:LineGraph Name="C" DataSource="{Binding LineC}">
@@ -692,7 +706,7 @@
                                     <Pen Brush="Brown" Thickness="1"/>
                                 </d3:LineGraph.LinePen>
                                 <d3:LineGraph.Description>
-                                    <d3:PenDescription DescriptionString="C"/>
+                                    <d3:PenDescription DescriptionString="3"/>
                                 </d3:LineGraph.Description>
                             </d3:LineGraph>
                             <d3:LineGraph Name="D" DataSource="{Binding LineD}">
@@ -700,87 +714,7 @@
                                     <Pen Brush="Coral" Thickness="1"/>
                                 </d3:LineGraph.LinePen>
                                 <d3:LineGraph.Description>
-                                    <d3:PenDescription DescriptionString="D"/>
-                                </d3:LineGraph.Description>
-                            </d3:LineGraph>
-                            <d3:LineGraph Name="E" DataSource="{Binding LineE}">
-                                <d3:LineGraph.LinePen>
-                                    <Pen Brush="DimGray" Thickness="1"/>
-                                </d3:LineGraph.LinePen>
-                                <d3:LineGraph.Description>
-                                    <d3:PenDescription DescriptionString="E"/>
-                                </d3:LineGraph.Description>
-                            </d3:LineGraph>
-                            <d3:LineGraph Name="F" DataSource="{Binding LineF}">
-                                <d3:LineGraph.LinePen>
-                                    <Pen Brush="Gold" Thickness="1"/>
-                                </d3:LineGraph.LinePen>
-                                <d3:LineGraph.Description>
-                                    <d3:PenDescription DescriptionString="F"/>
-                                </d3:LineGraph.Description>
-                            </d3:LineGraph>
-                            <d3:LineGraph Name="G" DataSource="{Binding LineG}">
-                                <d3:LineGraph.LinePen>
-                                    <Pen Brush="Green" Thickness="1"/>
-                                </d3:LineGraph.LinePen>
-                                <d3:LineGraph.Description>
-                                    <d3:PenDescription DescriptionString="G"/>
-                                </d3:LineGraph.Description>
-                            </d3:LineGraph>
-                            <d3:LineGraph Name="H" DataSource="{Binding LineH}">
-                                <d3:LineGraph.LinePen>
-                                    <Pen Brush="HotPink" Thickness="1"/>
-                                </d3:LineGraph.LinePen>
-                                <d3:LineGraph.Description>
-                                    <d3:PenDescription DescriptionString="H"/>
-                                </d3:LineGraph.Description>
-                            </d3:LineGraph>
-                            <d3:LineGraph Name="I" DataSource="{Binding LineI}">
-                                <d3:LineGraph.LinePen>
-                                    <Pen Brush="Indigo" Thickness="1"/>
-                                </d3:LineGraph.LinePen>
-                                <d3:LineGraph.Description>
-                                    <d3:PenDescription DescriptionString="I"/>
-                                </d3:LineGraph.Description>
-                            </d3:LineGraph>
-                            <d3:LineGraph Name="J" DataSource="{Binding LineJ}">
-                                <d3:LineGraph.LinePen>
-                                    <Pen Brush="Lime" Thickness="1"/>
-                                </d3:LineGraph.LinePen>
-                                <d3:LineGraph.Description>
-                                    <d3:PenDescription DescriptionString="J"/>
-                                </d3:LineGraph.Description>
-                            </d3:LineGraph>
-                            <d3:LineGraph Name="K" DataSource="{Binding LineK}">
-                                <d3:LineGraph.LinePen>
-                                    <Pen Brush="Maroon" Thickness="1"/>
-                                </d3:LineGraph.LinePen>
-                                <d3:LineGraph.Description>
-                                    <d3:PenDescription DescriptionString="K"/>
-                                </d3:LineGraph.Description>
-                            </d3:LineGraph>
-                            <d3:LineGraph Name="L" DataSource="{Binding LineL}">
-                                <d3:LineGraph.LinePen>
-                                    <Pen Brush="MistyRose" Thickness="1"/>
-                                </d3:LineGraph.LinePen>
-                                <d3:LineGraph.Description>
-                                    <d3:PenDescription DescriptionString="L"/>
-                                </d3:LineGraph.Description>
-                            </d3:LineGraph>
-                            <d3:LineGraph Name="M" DataSource="{Binding LineM}">
-                                <d3:LineGraph.LinePen>
-                                    <Pen Brush="Olive" Thickness="1"/>
-                                </d3:LineGraph.LinePen>
-                                <d3:LineGraph.Description>
-                                    <d3:PenDescription DescriptionString="M"/>
-                                </d3:LineGraph.Description>
-                            </d3:LineGraph>
-                            <d3:LineGraph Name="N" DataSource="{Binding LineN}">
-                                <d3:LineGraph.LinePen>
-                                    <Pen Brush="Orange" Thickness="1"/>
-                                </d3:LineGraph.LinePen>
-                                <d3:LineGraph.Description>
-                                    <d3:PenDescription DescriptionString="N"/>
+                                    <d3:PenDescription DescriptionString="4"/>
                                 </d3:LineGraph.Description>
                             </d3:LineGraph>
                             <d3:LineGraph Name="O" DataSource="{Binding LineO}">
@@ -788,15 +722,87 @@
                                     <Pen Brush="Red" Thickness="1"/>
                                 </d3:LineGraph.LinePen>
                                 <d3:LineGraph.Description>
-                                    <d3:PenDescription DescriptionString="O"/>
+                                    <d3:PenDescription DescriptionString="5"/>
                                 </d3:LineGraph.Description>
                             </d3:LineGraph>
-                            <d3:LineGraph Name="Jia" DataSource="{Binding LineJia}">
+                            <d3:LineGraph Name="E" DataSource="{Binding LineE}">
                                 <d3:LineGraph.LinePen>
-                                    <Pen Brush="RosyBrown" Thickness="1"/>
+                                    <Pen Brush="DimGray" Thickness="1"/>
                                 </d3:LineGraph.LinePen>
                                 <d3:LineGraph.Description>
-                                    <d3:PenDescription DescriptionString="甲"/>
+                                    <d3:PenDescription DescriptionString="6"/>
+                                </d3:LineGraph.Description>
+                            </d3:LineGraph>
+                            <d3:LineGraph Name="F" DataSource="{Binding LineF}">
+                                <d3:LineGraph.LinePen>
+                                    <Pen Brush="Gold" Thickness="1"/>
+                                </d3:LineGraph.LinePen>
+                                <d3:LineGraph.Description>
+                                    <d3:PenDescription DescriptionString="7"/>
+                                </d3:LineGraph.Description>
+                            </d3:LineGraph>
+                            <d3:LineGraph Name="G" DataSource="{Binding LineG}">
+                                <d3:LineGraph.LinePen>
+                                    <Pen Brush="Green" Thickness="1"/>
+                                </d3:LineGraph.LinePen>
+                                <d3:LineGraph.Description>
+                                    <d3:PenDescription DescriptionString="8"/>
+                                </d3:LineGraph.Description>
+                            </d3:LineGraph>
+                            <d3:LineGraph Name="H" DataSource="{Binding LineH}">
+                                <d3:LineGraph.LinePen>
+                                    <Pen Brush="HotPink" Thickness="1"/>
+                                </d3:LineGraph.LinePen>
+                                <d3:LineGraph.Description>
+                                    <d3:PenDescription DescriptionString="9"/>
+                                </d3:LineGraph.Description>
+                            </d3:LineGraph>
+                            <d3:LineGraph Name="I" DataSource="{Binding LineI}">
+                                <d3:LineGraph.LinePen>
+                                    <Pen Brush="Indigo" Thickness="1"/>
+                                </d3:LineGraph.LinePen>
+                                <d3:LineGraph.Description>
+                                    <d3:PenDescription DescriptionString="10"/>
+                                </d3:LineGraph.Description>
+                            </d3:LineGraph>
+                            <d3:LineGraph Name="J" DataSource="{Binding LineJ}">
+                                <d3:LineGraph.LinePen>
+                                    <Pen Brush="Lime" Thickness="1"/>
+                                </d3:LineGraph.LinePen>
+                                <d3:LineGraph.Description>
+                                    <d3:PenDescription DescriptionString="11"/>
+                                </d3:LineGraph.Description>
+                            </d3:LineGraph>
+                            <d3:LineGraph Name="K" DataSource="{Binding LineK}">
+                                <d3:LineGraph.LinePen>
+                                    <Pen Brush="Maroon" Thickness="1"/>
+                                </d3:LineGraph.LinePen>
+                                <d3:LineGraph.Description>
+                                    <d3:PenDescription DescriptionString="12"/>
+                                </d3:LineGraph.Description>
+                            </d3:LineGraph>
+                            <d3:LineGraph Name="L" DataSource="{Binding LineL}">
+                                <d3:LineGraph.LinePen>
+                                    <Pen Brush="MistyRose" Thickness="1"/>
+                                </d3:LineGraph.LinePen>
+                                <d3:LineGraph.Description>
+                                    <d3:PenDescription DescriptionString="13"/>
+                                </d3:LineGraph.Description>
+                            </d3:LineGraph>
+                            <d3:LineGraph Name="M" DataSource="{Binding LineM}">
+                                <d3:LineGraph.LinePen>
+                                    <Pen Brush="Olive" Thickness="1"/>
+                                </d3:LineGraph.LinePen>
+                                <d3:LineGraph.Description>
+                                    <d3:PenDescription DescriptionString="14"/>
+                                </d3:LineGraph.Description>
+                            </d3:LineGraph>
+                            <d3:LineGraph Name="N" DataSource="{Binding LineN}">
+                                <d3:LineGraph.LinePen>
+                                    <Pen Brush="Orange" Thickness="1"/>
+                                </d3:LineGraph.LinePen>
+                                <d3:LineGraph.Description>
+                                    <d3:PenDescription DescriptionString="15"/>
                                 </d3:LineGraph.Description>
                             </d3:LineGraph>
                             <d3:LineGraph Name="Yi" DataSource="{Binding LineYi}">
@@ -804,7 +810,7 @@
                                     <Pen Brush="Salmon" Thickness="1"/>
                                 </d3:LineGraph.LinePen>
                                 <d3:LineGraph.Description>
-                                    <d3:PenDescription DescriptionString="乙"/>
+                                    <d3:PenDescription DescriptionString="A"/>
                                 </d3:LineGraph.Description>
                             </d3:LineGraph>
                             <d3:LineGraph Name="Bing" DataSource="{Binding LineBing}">
@@ -812,7 +818,7 @@
                                     <Pen Brush="Sienna" Thickness="1"/>
                                 </d3:LineGraph.LinePen>
                                 <d3:LineGraph.Description>
-                                    <d3:PenDescription DescriptionString="丙"/>
+                                    <d3:PenDescription DescriptionString="B"/>
                                 </d3:LineGraph.Description>
                             </d3:LineGraph>
                             <d3:LineGraph Name="Ding" DataSource="{Binding LineDing}">
@@ -820,7 +826,23 @@
                                     <Pen Brush="Violet" Thickness="1"/>
                                 </d3:LineGraph.LinePen>
                                 <d3:LineGraph.Description>
-                                    <d3:PenDescription DescriptionString="丁"/>
+                                    <d3:PenDescription DescriptionString="C"/>
+                                </d3:LineGraph.Description>
+                            </d3:LineGraph>
+                            <d3:LineGraph Name="Wu" DataSource="{Binding LineWu}">
+                                <d3:LineGraph.LinePen>
+                                    <Pen Brush="Violet" Thickness="1"/>
+                                </d3:LineGraph.LinePen>
+                                <d3:LineGraph.Description>
+                                    <d3:PenDescription DescriptionString="D"/>
+                                </d3:LineGraph.Description>
+                            </d3:LineGraph>
+                            <d3:LineGraph Name="Jia" DataSource="{Binding LineJia}">
+                                <d3:LineGraph.LinePen>
+                                    <Pen Brush="RosyBrown" Thickness="1"/>
+                                </d3:LineGraph.LinePen>
+                                <d3:LineGraph.Description>
+                                    <d3:PenDescription DescriptionString="O"/>
                                 </d3:LineGraph.Description>
                             </d3:LineGraph>
                             <d3:LineGraph Name="Bottom" DataSource="{Binding LineBottom}">

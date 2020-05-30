@@ -56,7 +56,16 @@ namespace THTS.DataAccess.EntityDAO
                 ctx.TestInfos.Load();
                 if (ctx.TestInfos.Local.Count > 0)
                 {
-                    return ctx.TestInfos.Local[ctx.TestInfos.Local.Count-1];
+                    TestInfo temp = ctx.TestInfos.Local[ctx.TestInfos.Local.Count-1];
+
+                    if(temp.Extra4 == null | temp.Extra5 == null | temp.Extra6 == null)
+                    {
+                        temp.Extra4 = "False";
+                        temp.Extra5 = "False";
+                        temp.Extra6 = "False";
+                    }
+
+                    return temp;
                 }else
                 {
                     TestInfo test = new TestInfo();
@@ -74,6 +83,9 @@ namespace THTS.DataAccess.EntityDAO
                     test.Extra3 = "2";
                     test.Extra1 = "20";
                     test.Extra2 = "100";
+                    test.Extra4 = "False";
+                    test.Extra5 = "False";
+                    test.Extra6 = "False";
 
                     test.EnvironmentTemperature = "25";
                     test.EnvironmentPressure = "101";
