@@ -301,7 +301,6 @@ namespace THTS
                     GetOrCreateColumn(rowJ, 22).SetCellValue(ResultList[i].DataList[j].StringYi);
                     GetOrCreateColumn(rowJ, 23).SetCellValue(ResultList[i].DataList[j].StringBing);
                     GetOrCreateColumn(rowJ, 24).SetCellValue(ResultList[i].DataList[j].StringDing);
-                    GetOrCreateColumn(rowJ, 25).SetCellValue(ResultList[i].DataList[j].StringExtra1);
                     GetOrCreateColumn(rowJ, 26).SetCellValue(ResultList[i].DataList[j].StringJia);
                     GetOrCreateColumn(rowJ, 27).SetCellValue(ResultList[i].DataList[j].StringMaxH);
                     GetOrCreateColumn(rowJ, 28).SetCellValue(ResultList[i].DataList[j].StringMinH);

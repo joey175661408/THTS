@@ -96,9 +96,7 @@ namespace THTS.DataAccess.Entity
         /// 9点C/15点C
         /// </summary>
         public float Ding { get; set; }
-        /// <summary>
-        /// 9点D/15点D
-        /// </summary>
+
         public string Extra1 { get; set; }
 
         public string Extra2 { get; set; }
@@ -162,18 +160,6 @@ namespace THTS.DataAccess.Entity
         public string StringBing { get { return Bing.Equals(-1000) ? "" : Bing.ToString("0.00"); } }
         [NotMapped]
         public string StringDing { get { return Ding.Equals(-1000) ? "" : Ding.ToString("0.00"); } }
-        [NotMapped]
-        public string StringExtra1 { get { return Extra1.Equals("-1000") ? "" : float.Parse(Extra1).ToString("0.00"); } }
-        [NotMapped]
-        private float FloatExtra1
-        {
-            get
-            {
-                float temp = -1000;
-                float.TryParse(Extra1, out temp);
-                return temp;                
-            }
-        }
 
         [NotMapped]
         public float MaxT
@@ -240,7 +226,6 @@ namespace THTS.DataAccess.Entity
                 temp = Yi == -1000 || Yi < temp ? temp : Yi;
                 temp = Bing == -1000 || Bing < temp ? temp : Bing;
                 temp = Ding == -1000 || Ding < temp ? temp : Ding;
-                temp = FloatExtra1 == -1000 || FloatExtra1 < temp ? temp : FloatExtra1;
                 return temp;
             }
         }
@@ -254,7 +239,6 @@ namespace THTS.DataAccess.Entity
                 temp = Yi == -1000 || Yi > temp ? temp : Yi;
                 temp = Bing == -1000 || Bing > temp ? temp : Bing;
                 temp = Ding == -1000 || Ding > temp ? temp : Ding;
-                temp = FloatExtra1 == -1000 || FloatExtra1 > temp ? temp : FloatExtra1;
 
                 return temp;
             }

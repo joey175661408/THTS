@@ -46,16 +46,15 @@ namespace THTS.TestCenter
                 ChangeFont(this.T7, PositionList, "7");
                 ChangeFont(this.T8, PositionList, "8");
                 ChangeFont(this.T9, PositionList, "9");
-                ChangeFont(this.T9, PositionList, "10");
-                ChangeFont(this.T9, PositionList, "11");
-                ChangeFont(this.T9, PositionList, "12");
-                ChangeFont(this.T9, PositionList, "13");
-                ChangeFont(this.T9, PositionList, "14");
-                ChangeFont(this.T9, PositionList, "15");
+                ChangeFont(this.T10, PositionList, "10");
+                ChangeFont(this.T11, PositionList, "11");
+                ChangeFont(this.T12, PositionList, "12");
+                ChangeFont(this.T13, PositionList, "13");
+                ChangeFont(this.T14, PositionList, "14");
+                ChangeFont(this.T15, PositionList, "15");
                 ChangeFont(this.A, PositionList, "A");
                 ChangeFont(this.B, PositionList, "B");
                 ChangeFont(this.C, PositionList, "C");
-                ChangeFont(this.D, PositionList, "D");
                 ChangeFont(this.O, PositionList, "O");
             }
             catch (Exception)

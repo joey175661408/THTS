@@ -149,8 +149,6 @@ namespace THTS.DataAccess.Entity
                 maxFH = GetMaxFH(maxFH, FtempB.FluctuationValue.Replace("±", ""));
                 TestDataFluctuationValue FtempC = FluctuationList["C"];
                 maxFH = GetMaxFH(maxFH, FtempC.FluctuationValue.Replace("±", ""));
-                TestDataFluctuationValue FtempD = FluctuationList["D"];
-                maxFH = GetMaxFH(maxFH, FtempD.FluctuationValue.Replace("±", ""));
 
                 this.HumidityFluctuationValue = "±" + maxFH.ToString("0.00");
             }
@@ -238,7 +236,6 @@ namespace THTS.DataAccess.Entity
             TestDataFluctuationValue FA = new TestDataFluctuationValue();
             TestDataFluctuationValue FB = new TestDataFluctuationValue();
             TestDataFluctuationValue FC = new TestDataFluctuationValue();
-            TestDataFluctuationValue FD = new TestDataFluctuationValue();
             TestDataFluctuationValue FO = new TestDataFluctuationValue();
 
             for (int i = 0; i < DataList.Count; i++)
@@ -261,7 +258,6 @@ namespace THTS.DataAccess.Entity
                 FA.DataValue.Add(DataList[i].StringYi);
                 FB.DataValue.Add(DataList[i].StringBing);
                 FC.DataValue.Add(DataList[i].StringDing);
-                FD.DataValue.Add(DataList[i].StringExtra1);
                 FO.DataValue.Add(DataList[i].StringJia);
             }
 
@@ -283,7 +279,6 @@ namespace THTS.DataAccess.Entity
             FluctuationList.Add("A", FA);
             FluctuationList.Add("B", FB);
             FluctuationList.Add("C", FC);
-            FluctuationList.Add("D", FD);
             FluctuationList.Add("O", FO);
 
             foreach (var item in FluctuationList.Keys)

@@ -351,22 +351,18 @@
                                     <ColumnDefinition Width="50" />
                                     <ColumnDefinition Width="1" />
                                     <ColumnDefinition Width="50" />
-                                    <ColumnDefinition Width="1" />
-                                    <ColumnDefinition Width="50" />
                                 </Grid.ColumnDefinitions>
                                 <!--设置标题名称-->
                                 <ContentPresenter Content="湿度" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="7" />
                                 <!--设置间隔线-->
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Height="1" Visibility="Visible" Grid.Row="1" Grid.ColumnSpan="7" />
-                                <ContentPresenter Content="A" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="O" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="1" />
-                                <ContentPresenter Content="B" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="A" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="3" />
-                                <ContentPresenter Content="C" Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="B" Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="5" />
-                                <ContentPresenter Content="D" Grid.Row="2" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="7" />
-                                <ContentPresenter Content="O" Grid.Row="2" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <ContentPresenter Content="C" Grid.Row="2" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" />
                             </Grid>
                             <Rectangle x:Name="VerticalSeparator" Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="1" Grid.Column="1" />
                         </Grid>
@@ -588,7 +584,7 @@
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
                                             
-                                            <DataGridTemplateColumn HeaderStyle="{StaticResource MaxMinStyle}">
+                                            <DataGridTemplateColumn HeaderStyle="{StaticResource MaxMinStyle}" Visibility="Collapsed">
                                                 <DataGridTemplateColumn.CellTemplate>
                                                     <DataTemplate>
                                                         <StackPanel Orientation="Horizontal">
@@ -620,22 +616,21 @@
                                                 <DataGridTemplateColumn.CellTemplate>
                                                     <DataTemplate>
                                                         <StackPanel Orientation="Horizontal">
+                                                            <Label Content="{Binding StringJia}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
                                                             <Label Content="{Binding StringYi}" Width="50" HorizontalContentAlignment="Center"/>
                                                             <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
                                                             <Label Content="{Binding StringBing}" Width="50" HorizontalContentAlignment="Center"/>
                                                             <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
                                                             <Label Content="{Binding StringDing}" Width="50" HorizontalContentAlignment="Center"/>
-                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                            <Label Content="{Binding StringExtra1}" Width="50" HorizontalContentAlignment="Center"/>
-                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                            <Label Content="{Binding StringJia}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <!--<Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding StringExtra1}" Width="50" HorizontalContentAlignment="Center"/>-->
                                                         </StackPanel>
                                                     </DataTemplate>
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
 
-                                            <DataGridTemplateColumn HeaderStyle="{StaticResource MaxMinStyle}" 
-                                                                    Visibility="{Binding Data.Tol.Info.HumidityVisibility, Source={StaticResource proxy}}">
+                                            <DataGridTemplateColumn HeaderStyle="{StaticResource MaxMinStyle}" Visibility="Collapsed">
                                                 <DataGridTemplateColumn.CellTemplate>
                                                     <DataTemplate>
                                                         <StackPanel Orientation="Horizontal">
@@ -805,6 +800,14 @@
                                     <d3:PenDescription DescriptionString="15"/>
                                 </d3:LineGraph.Description>
                             </d3:LineGraph>
+                            <d3:LineGraph Name="Jia" DataSource="{Binding LineJia}">
+                                <d3:LineGraph.LinePen>
+                                    <Pen Brush="RosyBrown" Thickness="1"/>
+                                </d3:LineGraph.LinePen>
+                                <d3:LineGraph.Description>
+                                    <d3:PenDescription DescriptionString="O"/>
+                                </d3:LineGraph.Description>
+                            </d3:LineGraph>
                             <d3:LineGraph Name="Yi" DataSource="{Binding LineYi}">
                                 <d3:LineGraph.LinePen>
                                     <Pen Brush="Salmon" Thickness="1"/>
@@ -827,22 +830,6 @@
                                 </d3:LineGraph.LinePen>
                                 <d3:LineGraph.Description>
                                     <d3:PenDescription DescriptionString="C"/>
-                                </d3:LineGraph.Description>
-                            </d3:LineGraph>
-                            <d3:LineGraph Name="Wu" DataSource="{Binding LineWu}">
-                                <d3:LineGraph.LinePen>
-                                    <Pen Brush="Violet" Thickness="1"/>
-                                </d3:LineGraph.LinePen>
-                                <d3:LineGraph.Description>
-                                    <d3:PenDescription DescriptionString="D"/>
-                                </d3:LineGraph.Description>
-                            </d3:LineGraph>
-                            <d3:LineGraph Name="Jia" DataSource="{Binding LineJia}">
-                                <d3:LineGraph.LinePen>
-                                    <Pen Brush="RosyBrown" Thickness="1"/>
-                                </d3:LineGraph.LinePen>
-                                <d3:LineGraph.Description>
-                                    <d3:PenDescription DescriptionString="O"/>
                                 </d3:LineGraph.Description>
                             </d3:LineGraph>
                             <d3:LineGraph Name="Bottom" DataSource="{Binding LineBottom}">

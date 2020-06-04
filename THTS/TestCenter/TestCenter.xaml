@@ -124,9 +124,47 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="3" Orientation="Vertical">
-            <GroupBox Header="证书信息">
+            <GroupBox Header="标准器信息">
                 <Grid>
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="5"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="仪器名称" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBox Text="{Binding Info.CalName,Mode=TwoWay}" Width="200" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBlock Text="型号/规格" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBox Text="{Binding Info.CalModule,Mode=TwoWay}" Width="200" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBlock Text="准确度等级" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBox Text="{Binding Info.CalAccuracy,Mode=TwoWay}" Width="200" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBlock Text="证书编号" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBox Text="{Binding Info.CalCertificateSN,Mode=TwoWay}" Width="200" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBlock Text="有效期至" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <DatePicker Text="{Binding Info.CalExpiryDate,Mode=TwoWay}" Width="200" Grid.Row="9" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                </Grid>
+            </GroupBox>
+            <GroupBox Header="测试信息">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="*"/>
                         <RowDefinition Height="5"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="5"/>
@@ -142,46 +180,32 @@
                     <TextBox Text="{Binding Info.RecordSN,Mode=TwoWay}" Width="200" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                     <TextBlock Text="证书编号" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                     <TextBox Text="{Binding Info.CertificateSN,Mode=TwoWay}" Width="200" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                </Grid>
-            </GroupBox>
-            <GroupBox Header="测试信息">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="5"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="5"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="5"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="5"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="10"/>
-                        <ColumnDefinition Width="3*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Text="检定员" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    <TextBox Text="{Binding Info.VerifiedBy,Mode=TwoWay}" Width="200" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                    <TextBlock Text="核验员" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    <TextBox Text="{Binding Info.CheckedBy,Mode=TwoWay}" Width="200" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                    <TextBlock Text="测试时间" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    <DatePicker Text="{Binding Info.TestDate,Mode=TwoWay}" Width="200" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBlock Text="检定员" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBox Text="{Binding Info.VerifiedBy,Mode=TwoWay}" Width="200" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBlock Text="核验员" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBox Text="{Binding Info.CheckedBy,Mode=TwoWay}" Width="200" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBlock Text="测试时间" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <DatePicker Text="{Binding Info.TestDate,Mode=TwoWay}" Width="200" Grid.Row="9" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 </Grid>
             </GroupBox>
             <GroupBox Header="测试项目">
                 <StackPanel Orientation="Vertical">
                     <Label/>
-                    <CheckBox IsChecked="{Binding Info.TempDepartureIsChecked}" Content="温度偏差" Margin="10,0,0,0"/>
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox IsChecked="{Binding Info.TempDepartureIsChecked}" Content="温度偏差" Margin="10,0,0,0"/>
+                        <Label/>
+                        <CheckBox IsChecked="{Binding Info.TempAverageIsChecked}" Content="温度波动度及均匀度" Margin="10,0,0,0"/>
+                    </StackPanel>
                     <Label/>
-                    <CheckBox IsChecked="{Binding Info.TempAverageIsChecked}" Content="温度波动度及均匀度" Margin="10,0,0,0"/>
-                    <Label/>
-                    <CheckBox IsChecked="{Binding Info.HumiDepartureIsChecked}" Content="湿度偏差" Margin="10,0,0,0" Visibility="Visible"/>
-                    <Label/>
-                    <CheckBox IsChecked="{Binding Info.HumiAverageIsChecked}" Content="湿度波动度及均匀度" Margin="10,0,0,0" Visibility="Visible"/>
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox IsChecked="{Binding Info.HumiDepartureIsChecked}" Content="湿度偏差" Margin="10,0,0,0" Visibility="Visible"/>
+                        <Label/>
+                        <CheckBox IsChecked="{Binding Info.HumiAverageIsChecked}" Content="湿度波动度及均匀度" Margin="10,0,0,0" Visibility="Visible"/>
+                    </StackPanel>
                     <Label/>
                 </StackPanel>
             </GroupBox>
-            <GroupBox Header="校准数据修正">
+            <GroupBox Header="校准数据修正" Visibility="Collapsed">
                 <StackPanel Orientation="Vertical">
                     <Label/>
                     <CheckBox IsChecked="{Binding Info.PT100IsFix}" Content="PT100温度传感器" Margin="10,0,0,0"/>

@@ -415,6 +415,7 @@
     <None Include="Release\THTS_V1.5_20181202.rar" />
     <None Include="Release\THTS_V1.6_20181209.rar" />
     <None Include="Release\THTS_V1.7_20181216.rar" />
+    <None Include="Release\THTS_V2.0_20200530.rar" />
     <Resource Include="Resources\Entypo.ttf" />
   </ItemGroup>
   <ItemGroup>

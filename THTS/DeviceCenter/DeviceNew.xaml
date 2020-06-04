@@ -133,7 +133,7 @@
                 </Grid>
             </StackPanel>
 
-            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="5">
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="5" Visibility="Collapsed">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="5"/>

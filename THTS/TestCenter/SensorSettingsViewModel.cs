@@ -169,7 +169,7 @@ namespace THTS.TestCenter
             }
 
             _testPositionList = new List<string>();
-            _testPositionList.Add("5点分布图");
+            //_testPositionList.Add("5点分布图");
             _testPositionList.Add("9点分布图");
             _testPositionList.Add("15点分布图");
             SelectedTestPosition = _testPositionList[0];
@@ -481,16 +481,6 @@ namespace THTS.TestCenter
                     itemB.TestPositionName = "B";
                     PositionList.Add(itemB);
 
-                    TestPositionModule itemC = new TestPositionModule();
-                    itemC.SensorsList = SensorsList;
-                    itemC.TestPositionName = "C";
-                    PositionList.Add(itemC);
-
-                    TestPositionModule itemD = new TestPositionModule();
-                    itemD.SensorsList = SensorsList;
-                    itemD.TestPositionName = "D";
-                    PositionList.Add(itemD);
-
                     TestPositionModule itemO = new TestPositionModule();
                     itemO.SensorsList = SensorsList;
                     itemO.TestPositionName = "O";
@@ -530,11 +520,6 @@ namespace THTS.TestCenter
                     itemC.SensorsList = SensorsList;
                     itemC.TestPositionName = "C";
                     PositionList.Add(itemC);
-
-                    TestPositionModule itemD = new TestPositionModule();
-                    itemD.SensorsList = SensorsList;
-                    itemD.TestPositionName = "D";
-                    PositionList.Add(itemD);
 
                     TestPositionModule itemO = new TestPositionModule();
                     itemO.SensorsList = SensorsList;

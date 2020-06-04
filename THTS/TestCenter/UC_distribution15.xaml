@@ -116,14 +116,13 @@
         <Label x:Name="T5" Content="5" HorizontalAlignment="Left" Margin="248,98,0,0" VerticalAlignment="Top"/>
         <Label x:Name="T6" Content="6" HorizontalAlignment="Left" Margin="180,0,0,122" VerticalAlignment="Bottom"/>
         <Label x:Name="T7" Content="7" HorizontalAlignment="Left" Margin="330,0,0,122" VerticalAlignment="Bottom"/>
-        <Label x:Name="T8" Content="8" HorizontalAlignment="Left" Margin="300,0,0,50" VerticalAlignment="Bottom"/>
+        <Label x:Name="T8" Content="8" HorizontalAlignment="Left" Margin="290,0,0,50" VerticalAlignment="Bottom"/>
         <Label x:Name="T9" Content="9" HorizontalAlignment="Left" Margin="135,0,0,50" VerticalAlignment="Bottom"/>
         <Label x:Name="T10" Content="10" HorizontalAlignment="Left" Margin="247,0,0,75" VerticalAlignment="Bottom"/>
         <Label x:Name="T15" Content="15" VerticalAlignment="Bottom" Margin="250,0,0,225"  HorizontalAlignment="Left"/>
         <Label x:Name="A" Content="A" HorizontalAlignment="Right" Margin="0,51,295,0" VerticalAlignment="Top"/>
-        <Label x:Name="B" Content="B" HorizontalAlignment="Right" Margin="0,120,175,0" VerticalAlignment="Top"/>
-        <Label x:Name="C" Content="C" HorizontalAlignment="Left" Margin="340,0,0,122" VerticalAlignment="Bottom"/>
-        <Label x:Name="D" Content="D" HorizontalAlignment="Left" Margin="145,0,0,50" VerticalAlignment="Bottom"/>
+        <Label x:Name="B" Content="B" HorizontalAlignment="Left" Margin="300,0,0,50" VerticalAlignment="Bottom"/>
+        <Label x:Name="C" Content="C" Margin="250,0,0,200" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
         <Label x:Name="O" Content="O" VerticalAlignment="Bottom" Margin="0,0,250,250"  HorizontalAlignment="Right"/>
         <Label x:Name="T11" Content="11" Margin="245,0,0,275" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
         <Label x:Name="T12" Content="12" Margin="328,0,0,248" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>

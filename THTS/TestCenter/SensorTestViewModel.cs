@@ -24,7 +24,7 @@ namespace THTS.TestCenter
         /// <summary>
         /// 是否为调试模式
         /// </summary>
-        private bool test = false;
+        private bool test = true;
         #endregion
 
         #region Command
@@ -391,15 +391,6 @@ namespace THTS.TestCenter
             get { return _lineDing; }
             set { _lineDing = value; OnPropertyChanged(); }
         }
-        ObservableDataSource<Point> _lineWu = new ObservableDataSource<Point>();
-        /// <summary>
-        /// 湿度曲线数据源-戊
-        /// </summary>
-        public ObservableDataSource<Point> LineWu
-        {
-            get { return _lineWu; }
-            set { _lineWu = value; OnPropertyChanged(); }
-        }
 
         #endregion
 
@@ -646,11 +637,10 @@ namespace THTS.TestCenter
             SetChartLineData(LineL, "13");
             SetChartLineData(LineM, "14");
             SetChartLineData(LineN, "15");
+            SetChartLineData(LineJia, "O");
             SetChartLineData(LineYi, "A");
             SetChartLineData(LineBing, "B");
             SetChartLineData(LineDing, "C");
-            SetChartLineData(LineWu, "D");
-            SetChartLineData(LineJia, "O");
         }
 
         private void SetChartLineData(ObservableDataSource<Point> line, string position)
@@ -691,7 +681,6 @@ namespace THTS.TestCenter
             LineYi.Collection.Clear();
             LineBing.Collection.Clear();
             LineDing.Collection.Clear();
-            LineWu.Collection.Clear();
         }
 
         /// <summary>
@@ -753,7 +742,6 @@ namespace THTS.TestCenter
                 Yi = SetValueForPosition("A"),
                 Bing = SetValueForPosition("B"),
                 Ding = SetValueForPosition("C"),
-                Extra1 = SetValueForPosition("D").ToString()
             };
 
             TestResultDataList[temperatureIndex].DataList.Add(data);
