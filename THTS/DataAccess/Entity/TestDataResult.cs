@@ -287,6 +287,7 @@ namespace THTS.DataAccess.Entity
                 double maxValue = 0D;
                 double minValue = 0D;
                 double sumValue = 0D;
+                bool isData = false;
                 for (int i = 0; i < Ftemp.DataValue.Count; i++)
                 {
                     double tempValue = double.NaN;
@@ -303,12 +304,13 @@ namespace THTS.DataAccess.Entity
                             minValue = minValue < tempValue ? minValue : tempValue;
                             sumValue += tempValue;
                         }
+                        isData = true;
                     }
                 }
-                FluctuationList[item].MaxValue = maxValue.ToString("0.00");
-                FluctuationList[item].MinValue = minValue.ToString("0.00");
-                FluctuationList[item].AverageValue = (sumValue / Ftemp.DataValue.Count).ToString("0.00");
-                FluctuationList[item].FluctuationValue = "±" + ((maxValue - minValue) / 2).ToString("0.00");
+                FluctuationList[item].MaxValue = isData ? maxValue.ToString("0.00") : "";
+                FluctuationList[item].MinValue = isData ? minValue.ToString("0.00") : "";
+                FluctuationList[item].AverageValue = isData ? (sumValue / Ftemp.DataValue.Count).ToString("0.00") : "";
+                FluctuationList[item].FluctuationValue = isData ? "±" + ((maxValue - minValue) / 2).ToString("0.00") : "";
             }
 
         }

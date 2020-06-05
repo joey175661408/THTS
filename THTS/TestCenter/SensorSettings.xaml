@@ -231,7 +231,7 @@
                     <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Orientation="Horizontal">
                         <Label Width="5"/>
                         <TextBlock Text="测试时间：" VerticalAlignment="Center"/>
-                        <Controls:NumericUpDown Value="{Binding ToleranceInfo.TestTimeSpan,Mode=TwoWay}" VerticalAlignment="Center"/>
+                        <Controls:NumericUpDown Value="{Binding ToleranceInfo.TestTimeSpan,Mode=TwoWay}" Minimum="1" VerticalAlignment="Center"/>
                         <TextBlock Text="分钟" VerticalAlignment="Center"/>
                     </StackPanel>
                     <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Orientation="Horizontal">

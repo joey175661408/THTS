@@ -24,7 +24,7 @@ namespace THTS.TestCenter
         /// <summary>
         /// 是否为调试模式
         /// </summary>
-        private bool test = true;
+        private bool test = false;
         #endregion
 
         #region Command
@@ -593,6 +593,9 @@ namespace THTS.TestCenter
             }));
             thrP.IsBackground = true;
             thrP.Start();
+            
+            //计时器开始即记录第一次数据
+            RecordTestData();
         }
 
         /// <summary>
@@ -711,6 +714,11 @@ namespace THTS.TestCenter
                 return;
             }
 
+            RecordTestData();
+        }
+
+        private void RecordTestData()
+        {
             TestData data = new TestData
             {
                 RecordSN = tol.RecordSN,

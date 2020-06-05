@@ -354,16 +354,6 @@ namespace THTS
                 ICell cellFlucC = GetOrCreateColumn(rowFluc, 24);
                 cellFlucC.SetCellValue(tempC.FluctuationValue);
 
-                TestDataFluctuationValue tempD = ResultList[i].FluctuationList["D"];
-                ICell cellAverD = GetOrCreateColumn(rowAver, 25);
-                cellAverD.SetCellValue(tempD.AverageValue);
-                ICell cellMaxD = GetOrCreateColumn(rowMax, 25);
-                cellMaxD.SetCellValue(tempD.MaxValue);
-                ICell cellMinD = GetOrCreateColumn(rowMin, 25);
-                cellMinD.SetCellValue(tempD.MinValue);
-                ICell cellFlucD = GetOrCreateColumn(rowFluc, 25);
-                cellFlucD.SetCellValue(tempD.FluctuationValue);
-
                 TestDataFluctuationValue tempO = ResultList[i].FluctuationList["O"];
                 ICell cellAverO = GetOrCreateColumn(rowAver, 26);
                 cellAverO.SetCellValue(tempO.AverageValue);
