@@ -39,7 +39,7 @@ namespace THTS.DataAccess
         public Setting()
         {
             this.RegisterPropertyChangedHandler(() => PropertyChanged);
-            this.CalStandard = "JJF 1101 - 2003 环境试验设备温度、湿度校准规范";
+            this.CalStandard = "JJF 1101 - 2019 环境试验设备温度、湿度校准规范";
         }
 
 
