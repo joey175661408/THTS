@@ -162,7 +162,7 @@
                     </ListBox>
                 </Grid>
             </GroupBox>
-                <GroupBox Header="传感器布点设置" Grid.Column="2">
+                <GroupBox Header="传感器布点设置" Grid.Column="2" >
                     <StackPanel>
                         <Label/>
                         <ComboBox ItemsSource="{Binding TestPositionList}" SelectedValue="{Binding SelectedTestPosition}">
@@ -173,7 +173,7 @@
                             </i:Interaction.Triggers>
                         </ComboBox>
                         <Label/>
-                        <ListBox x:Name="PositionListBox" ItemsSource="{Binding PositionList}" Grid.Row="2" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <ListBox x:Name="PositionListBox" ItemsSource="{Binding PositionList}" Grid.Row="2" Height="200" ScrollViewer.VerticalScrollBarVisibility="Visible">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <Grid Width="130">
