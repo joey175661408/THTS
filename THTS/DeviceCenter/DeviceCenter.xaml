@@ -65,14 +65,14 @@
                           Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="序号" Binding="{Binding SequenceNumber}"/>
-                        <!--<DataGridTextColumn Header="传感器序列号" Binding="{Binding Id}"/>-->
+                        <DataGridTextColumn Header="传感器编号" Binding="{Binding SensorId}"/>
                         <DataGridTextColumn Header="类型" Binding="{Binding ModuleName}"/>
                         <DataGridTextColumn Header="生产厂商" Binding="{Binding Manufacture}"/>
                         <DataGridTextColumn Header="出厂编号" Binding="{Binding FactoryNo}"/>
                         <DataGridTextColumn Header="证书编号" Binding="{Binding CertificateNo}"/>
-                        <DataGridTextColumn Header="修正值1" Binding="{Binding Extra1}" Visibility="Collapsed"/>
-                        <DataGridTextColumn Header="修正值2" Binding="{Binding Extra2}" Visibility="Collapsed"/>
-                        <DataGridTextColumn Header="修正值3" Binding="{Binding Extra3}" Visibility="Collapsed"/>
+                        <DataGridTextColumn Header="修正值1" Binding="{Binding ToleranceValue1}" />
+                        <DataGridTextColumn Header="修正值2" Binding="{Binding ToleranceValue2}" />
+                        <DataGridTextColumn Header="修正值3" Binding="{Binding ToleranceValue3}" />
                         <DataGridTextColumn Header="检定合格" Binding="{Binding CalibrateResultString}" Visibility="Collapsed"/>
                         <DataGridTextColumn Header="检定日期" Binding="{Binding CalibrateDate}"/>
                         <DataGridTextColumn Header="有效期至" Binding="{Binding ExpireDate}"/>

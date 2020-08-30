@@ -173,7 +173,7 @@
                             </i:Interaction.Triggers>
                         </ComboBox>
                         <Label/>
-                        <ListBox x:Name="PositionListBox" ItemsSource="{Binding PositionList}" Grid.Row="2">
+                        <ListBox x:Name="PositionListBox" ItemsSource="{Binding PositionList}" Grid.Row="2" ScrollViewer.VerticalScrollBarVisibility="Auto">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <Grid Width="130">
@@ -211,6 +211,7 @@
             </Grid.RowDefinitions>
             <GroupBox Name="gbPoint" Grid.Row="0" Header="测点分布" Visibility="Visible">
                 <Grid>
+                    <local:UC_distribution27 Margin="0,0,0,0" Width="500" Height="500" Visibility="{Binding UC27Visibility}"/>
                     <local:UC_distribution15 Margin="0,0,0,0" Width="500" Height="500" Visibility="{Binding UC15Visibility}"/>
                     <local:UC_distribution9 Margin="0,0,0,0" Width="500" Height="500" Visibility="{Binding UC9Visibility}"/>
                     <local:UC_distribution5 Margin="0,0,0,0" Width="500" Height="500" Visibility="{Binding UC5Visibility}"/>

@@ -246,6 +246,9 @@
     </Compile>
     <Compile Include="TestCenter\TestCenterMultiViewModel.cs" />
     <Compile Include="TestCenter\TestCenterViewModel.cs" />
+    <Compile Include="TestCenter\UC_distribution27.xaml.cs">
+      <DependentUpon>UC_distribution27.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TestCenter\UC_distribution15.xaml.cs">
       <DependentUpon>UC_distribution15.xaml</DependentUpon>
     </Compile>
@@ -344,6 +347,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="TestCenter\UC_distribution27.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="TestCenter\UC_distribution15.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -395,6 +402,7 @@
     <None Include="bin\Debug\help\温湿度场自动测试系统用户手册.docx" />
     <None Include="bin\Debug\help\温湿度场自动测试系统用户手册.pdf" />
     <None Include="bin\Debug\Template\template15.xls" />
+    <None Include="bin\Debug\Template\template27.xls" />
     <None Include="bin\Debug\Template\template5.xls" />
     <None Include="bin\Debug\Template\template9.xls" />
     <None Include="Lib\JJF 1101-2003 环境试验设备温度、湿度校准规范.pdf" />
@@ -416,6 +424,7 @@
     <None Include="Release\THTS_V1.6_20181209.rar" />
     <None Include="Release\THTS_V1.7_20181216.rar" />
     <None Include="Release\THTS_V2.0_20200530.rar" />
+    <None Include="Release\THTS_V2.1_20200605.rar" />
     <Resource Include="Resources\Entypo.ttf" />
   </ItemGroup>
   <ItemGroup>

@@ -83,7 +83,7 @@ namespace THTS.SerialPort
                     sensor1.IsOnline = true;
                     ChannelEachState sensor2 = new ChannelEachState();
                     sensor2.ChannelType = "DPC.Temperature";
-                    sensor2.IsOnline = false;
+                    sensor2.IsOnline = true;
                     ChannelEachState sensor3 = new ChannelEachState();
                     sensor3.ChannelType = "DPC.Humidity";
                     sensor3.IsOnline = true;

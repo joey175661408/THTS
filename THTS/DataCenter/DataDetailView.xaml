@@ -100,7 +100,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        
+
         <Style x:Key="PositionTemperatureStyle9" TargetType="DataGridColumnHeader">
             <Setter Property="Template">
                 <Setter.Value>
@@ -251,6 +251,141 @@
             </Setter>
         </Style>
 
+        <Style x:Key="PositionTemperatureStyle27" TargetType="DataGridColumnHeader">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Grid x:Name="Root">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="1" />
+                                    <RowDefinition Height="20" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                </Grid.ColumnDefinitions>
+                                <!--设置标题名称-->
+                                <ContentPresenter Content="温度/℃" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="53" />
+                                <!--设置间隔线-->
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Height="1" Visibility="Visible" Grid.Row="1" Grid.ColumnSpan="53" />
+                                <ContentPresenter Content="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="1" />
+                                <ContentPresenter Content="2" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="3" />
+                                <ContentPresenter Content="3" Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="5" />
+                                <ContentPresenter Content="4" Grid.Row="2" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="7" />
+                                <ContentPresenter Content="5" Grid.Row="2" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="9" />
+                                <ContentPresenter Content="6" Grid.Row="2" Grid.Column="10" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="11" />
+                                <ContentPresenter Content="7" Grid.Row="2" Grid.Column="12" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="13" />
+                                <ContentPresenter Content="8" Grid.Row="2" Grid.Column="14" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="15" />
+                                <ContentPresenter Content="9" Grid.Row="2" Grid.Column="16" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="17" />
+                                <ContentPresenter Content="10" Grid.Row="2" Grid.Column="18" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="19" />
+                                <ContentPresenter Content="11" Grid.Row="2" Grid.Column="20" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="21" />
+                                <ContentPresenter Content="12" Grid.Row="2" Grid.Column="22" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="23" />
+                                <ContentPresenter Content="13" Grid.Row="2" Grid.Column="24" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="25" />
+                                <ContentPresenter Content="14" Grid.Row="2" Grid.Column="26" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="27" />
+                                <ContentPresenter Content="15" Grid.Row="2" Grid.Column="28" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="29" />
+                                <ContentPresenter Content="16" Grid.Row="2" Grid.Column="30" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="31" />
+                                <ContentPresenter Content="17" Grid.Row="2" Grid.Column="32" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="33" />
+                                <ContentPresenter Content="18" Grid.Row="2" Grid.Column="34" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="35" />
+                                <ContentPresenter Content="19" Grid.Row="2" Grid.Column="36" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="37" />
+                                <ContentPresenter Content="20" Grid.Row="2" Grid.Column="38" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="39" />
+                                <ContentPresenter Content="21" Grid.Row="2" Grid.Column="40" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="41" />
+                                <ContentPresenter Content="22" Grid.Row="2" Grid.Column="42" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="43" />
+                                <ContentPresenter Content="23" Grid.Row="2" Grid.Column="44" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="45" />
+                                <ContentPresenter Content="24" Grid.Row="2" Grid.Column="46" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="47" />
+                                <ContentPresenter Content="25" Grid.Row="2" Grid.Column="48" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="49" />
+                                <ContentPresenter Content="26" Grid.Row="2" Grid.Column="50" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="51" />
+                                <ContentPresenter Content="27" Grid.Row="2" Grid.Column="52" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            </Grid>
+                            <Rectangle x:Name="VerticalSeparator" Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="1" Grid.Column="1" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <Style x:Key="MaxMinStyle" TargetType="DataGridColumnHeader">
             <Setter Property="Template">
                 <Setter.Value>
@@ -325,6 +460,45 @@
             </Setter>
         </Style>
 
+        <Style x:Key="Position9HumidityStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Grid x:Name="Root">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="1" />
+                                    <RowDefinition Height="20" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50" />
+                                </Grid.ColumnDefinitions>
+                                <!--设置标题名称-->
+                                <ContentPresenter Content="湿度" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="7" />
+                                <!--设置间隔线-->
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Height="1" Visibility="Visible" Grid.Row="1" Grid.ColumnSpan="7" />
+                                <ContentPresenter Content="O" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="1" />
+                                <ContentPresenter Content="A" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="3" />
+                                <ContentPresenter Content="B" Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            </Grid>
+                            <Rectangle x:Name="VerticalSeparator" Fill="#ccc" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="1" Grid.Column="1" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
         <Style x:Key="PositionHumidityStyle" TargetType="DataGridColumnHeader">
             <Setter Property="Template">
                 <Setter.Value>
@@ -373,127 +547,127 @@
         <StackPanel>
             <Expander Margin="0 10 0 0" Header="基础信息" IsExpanded="True">
                 <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="5"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="5"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="5"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="5"/>
-            </Grid.ColumnDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="5"/>
+                    </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" IsEnabled="False">
-                <GroupBox Header="被检仪器信息">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="5"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="5"/>
-                            <ColumnDefinition Width="2*"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Text="送检单位" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Info.Company,Mode=TwoWay}" Width="200" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Text="设备名称" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Info.UutName,Mode=TwoWay}" Width="200" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Text="型号/规格" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Info.UutModule,Mode=TwoWay}" Width="200" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Text="出厂编号" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Info.UutSN,Mode=TwoWay}" Width="200" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Text="精确度（±℃）" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Info.Accuracy,Mode=TwoWay}" Width="200" Grid.Row="9" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Text="下限温度（℃）" Grid.Row="11" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Info.TemperatureLower,Mode=TwoWay}" Width="200" Grid.Row="11" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Text="上限温度（℃）" Grid.Row="13" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Info.TemperatureUpper,Mode=TwoWay}" Width="200" Grid.Row="13" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Text="精确度（±%RH）" Grid.Row="15" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Info.Extra3,Mode=TwoWay}" Width="200" Grid.Row="15" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Text="下限湿度（%RH）" Grid.Row="17" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Info.Extra1,Mode=TwoWay}" Width="200" Grid.Row="17" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Text="上限湿度（%RH）" Grid.Row="19" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Info.Extra2,Mode=TwoWay}" Width="200" Grid.Row="19" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                    </Grid>
-                </GroupBox>
-            </StackPanel>
+                    <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" IsEnabled="False">
+                        <GroupBox Header="被检仪器信息">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="5"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="5"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="送检单位" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                <TextBox Text="{Binding Info.Company,Mode=TwoWay}" Width="200" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBlock Text="设备名称" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                <TextBox Text="{Binding Info.UutName,Mode=TwoWay}" Width="200" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBlock Text="型号/规格" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                <TextBox Text="{Binding Info.UutModule,Mode=TwoWay}" Width="200" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBlock Text="出厂编号" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                <TextBox Text="{Binding Info.UutSN,Mode=TwoWay}" Width="200" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBlock Text="精确度（±℃）" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                <TextBox Text="{Binding Info.Accuracy,Mode=TwoWay}" Width="200" Grid.Row="9" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBlock Text="下限温度（℃）" Grid.Row="11" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                <TextBox Text="{Binding Info.TemperatureLower,Mode=TwoWay}" Width="200" Grid.Row="11" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBlock Text="上限温度（℃）" Grid.Row="13" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                <TextBox Text="{Binding Info.TemperatureUpper,Mode=TwoWay}" Width="200" Grid.Row="13" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBlock Text="精确度（±%RH）" Grid.Row="15" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                <TextBox Text="{Binding Info.Extra3,Mode=TwoWay}" Width="200" Grid.Row="15" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBlock Text="下限湿度（%RH）" Grid.Row="17" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                <TextBox Text="{Binding Info.Extra1,Mode=TwoWay}" Width="200" Grid.Row="17" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBlock Text="上限湿度（%RH）" Grid.Row="19" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                <TextBox Text="{Binding Info.Extra2,Mode=TwoWay}" Width="200" Grid.Row="19" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            </Grid>
+                        </GroupBox>
+                    </StackPanel>
 
-            <StackPanel Grid.Row="1" Grid.Column="3" Orientation="Vertical" IsEnabled="False">
-                <GroupBox Header="测试信息">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="5"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="5"/>
-                            <ColumnDefinition Width="2*"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Text="生产厂家" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Info.UutManufacture,Mode=TwoWay}" Width="200" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Text="校准地点" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Info.UutCalPosition,Mode=TwoWay}" Width="200" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Text="温度（℃）" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Info.EnvironmentTemperature,Mode=TwoWay}" Width="200" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Text="气压（kPa）" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Info.EnvironmentPressure,Mode=TwoWay}" Width="200" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Text="湿度（%RH）" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Info.EnvironmentHumidity,Mode=TwoWay}" Width="200" Grid.Row="9" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Text="检定员" Grid.Row="11" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Info.VerifiedBy,Mode=TwoWay}" Width="200" Grid.Row="11" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Text="核验员" Grid.Row="13" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Info.CheckedBy,Mode=TwoWay}" Width="200" Grid.Row="13" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Text="测试时间" Grid.Row="15" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <DatePicker Text="{Binding Info.TestDate,Mode=TwoWay}" Width="200" Grid.Row="15" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Text="记录编号" Grid.Row="17" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Info.RecordSN,Mode=TwoWay}" Width="200" Grid.Row="17" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock Text="证书编号" Grid.Row="19" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Info.CertificateSN,Mode=TwoWay}" Width="200" Grid.Row="19" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                    </Grid>
-                </GroupBox>
-            </StackPanel>
+                    <StackPanel Grid.Row="1" Grid.Column="3" Orientation="Vertical" IsEnabled="False">
+                        <GroupBox Header="测试信息">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="5"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="5"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="生产厂家" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                <TextBox Text="{Binding Info.UutManufacture,Mode=TwoWay}" Width="200" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBlock Text="校准地点" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                <TextBox Text="{Binding Info.UutCalPosition,Mode=TwoWay}" Width="200" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBlock Text="温度（℃）" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                <TextBox Text="{Binding Info.EnvironmentTemperature,Mode=TwoWay}" Width="200" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBlock Text="气压（kPa）" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                <TextBox Text="{Binding Info.EnvironmentPressure,Mode=TwoWay}" Width="200" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBlock Text="湿度（%RH）" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                <TextBox Text="{Binding Info.EnvironmentHumidity,Mode=TwoWay}" Width="200" Grid.Row="9" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBlock Text="检定员" Grid.Row="11" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                <TextBox Text="{Binding Info.VerifiedBy,Mode=TwoWay}" Width="200" Grid.Row="11" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBlock Text="核验员" Grid.Row="13" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                <TextBox Text="{Binding Info.CheckedBy,Mode=TwoWay}" Width="200" Grid.Row="13" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBlock Text="测试时间" Grid.Row="15" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                <DatePicker Text="{Binding Info.TestDate,Mode=TwoWay}" Width="200" Grid.Row="15" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBlock Text="记录编号" Grid.Row="17" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                <TextBox Text="{Binding Info.RecordSN,Mode=TwoWay}" Width="200" Grid.Row="17" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBlock Text="证书编号" Grid.Row="19" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                <TextBox Text="{Binding Info.CertificateSN,Mode=TwoWay}" Width="200" Grid.Row="19" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            </Grid>
+                        </GroupBox>
+                    </StackPanel>
 
-            <StackPanel Grid.Row="1" Grid.Column="5" Orientation="Vertical">
+                    <StackPanel Grid.Row="1" Grid.Column="5" Orientation="Vertical">
                         <GroupBox Header="标准器信息" IsEnabled="False">
                             <Grid>
                                 <Grid.RowDefinitions>
@@ -527,333 +701,789 @@
                             </Grid>
                         </GroupBox>
                         <Label/>
-                <GroupBox Header="测试项目" IsEnabled="False">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="5"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="5"/>
-                            <ColumnDefinition Width="2*"/>
-                        </Grid.ColumnDefinitions>
-                        <CheckBox Grid.Row="1" Grid.Column="0" IsChecked="{Binding Info.TempDepartureIsChecked}" Content="温度偏差" Margin="10,0,0,0"/>
-                        <CheckBox Grid.Row="1" Grid.Column="2" IsChecked="{Binding Info.TempAverageIsChecked}" Content="温度波动度及均匀度" Margin="10,0,0,0"/>
-                        <CheckBox Grid.Row="3" Grid.Column="0" IsChecked="{Binding Info.HumiDepartureIsChecked}" Content="湿度偏差" Margin="10,0,0,0"/>
-                        <CheckBox Grid.Row="3" Grid.Column="2" IsChecked="{Binding Info.HumiAverageIsChecked}" Content="湿度波动度及均匀度" Margin="10,0,0,0"/>
-                    </Grid>
-                </GroupBox>
-                <GroupBox Header="校准数据修正" IsEnabled="False" Visibility="Collapsed">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="5"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <CheckBox Grid.Row="1" Grid.Column="0" IsChecked="{Binding Info.Extra4}" Content="PT100温度传感器" Margin="10,0,0,0"/>
-                        <CheckBox Grid.Row="3" Grid.Column="0" IsChecked="{Binding Info.Extra5}" Content="湿度传感器" Margin="10,0,0,0"/>
-                        <CheckBox Grid.Row="5" Grid.Column="0" IsChecked="{Binding Info.Extra6}" Content="K型热电偶温度传感器" Margin="10,0,0,0"/>
-                    </Grid>
-                </GroupBox>
+                        <GroupBox Header="测试项目" IsEnabled="False">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="5"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="5"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                <CheckBox Grid.Row="1" Grid.Column="0" IsChecked="{Binding Info.TempDepartureIsChecked}" Content="温度偏差" Margin="10,0,0,0"/>
+                                <CheckBox Grid.Row="1" Grid.Column="2" IsChecked="{Binding Info.TempAverageIsChecked}" Content="温度波动度及均匀度" Margin="10,0,0,0"/>
+                                <CheckBox Grid.Row="3" Grid.Column="0" IsChecked="{Binding Info.HumiDepartureIsChecked}" Content="湿度偏差" Margin="10,0,0,0"/>
+                                <CheckBox Grid.Row="3" Grid.Column="2" IsChecked="{Binding Info.HumiAverageIsChecked}" Content="湿度波动度及均匀度" Margin="10,0,0,0"/>
+                            </Grid>
+                        </GroupBox>
+                        
 
-                <Label/>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Button Content="导出报告" Width="100" Height="30" Command="{Binding ExportRecordCommand}"/>
-                    <Label></Label>
-                    <Button Content="返回" Width="100" Height="30" IsCancel="True"/>
-                </StackPanel>
-            </StackPanel>
-        </Grid>
+                        <Label/>
+                    </StackPanel>
+                </Grid>
             </Expander>
-            
-            <Expander Margin="0 10 0 0" Header="校准记录" IsExpanded="True">
-                <Controls:MetroTabControl Grid.Row="3" Grid.Column="1" ItemsSource="{Binding ResultList}" Margin="10,0,0,0"
+
+            <Expander Margin="0 10 0 0" Header="校准记录" IsExpanded="True" Visibility="Collapsed">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <Label/>
+                        <Button Content="导出报告" Width="100" Height="30" Command="{Binding ExportRecordCommand}"/>
+                        <Label/>
+                        <Button Content="返回" Width="100" Height="30" IsCancel="True"/>
+                    </StackPanel>
+                    
+                    <Controls:MetroTabControl Grid.Row="3" ItemsSource="{Binding ResultList}" Margin="10,0,0,0"
                                   MaxWidth="1342" HorizontalAlignment="Left">
-            <Controls:MetroTabControl.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding TemperatureTitle}"/>
-                </DataTemplate>
-            </Controls:MetroTabControl.ItemTemplate>
-            <Controls:MetroTabControl.ContentTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="30"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="60"/>
-                        </Grid.RowDefinitions>
-                        
-                        <Grid Grid.Row="0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="2*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="2*"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
-                                <Label FontSize="18" Content="标称温度" HorizontalContentAlignment="Left"/>
-                                <Label FontSize="18" Content="{Binding TemperatureValue}" Width="80" HorizontalContentAlignment="Center"/>
-                                <Label FontSize="18" Content="℃" HorizontalContentAlignment="Left"/>
-                            </StackPanel>
-                            <StackPanel Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Center" 
+                    <Controls:MetroTabControl.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding TemperatureTitle}"/>
+                        </DataTemplate>
+                    </Controls:MetroTabControl.ItemTemplate>
+                    <Controls:MetroTabControl.ContentTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="60"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid Grid.Row="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Label FontSize="18" Content="标称温度" HorizontalContentAlignment="Left"/>
+                                        <Label FontSize="18" Content="{Binding TemperatureValue}" Width="80" HorizontalContentAlignment="Center"/>
+                                        <Label FontSize="18" Content="℃" HorizontalContentAlignment="Left"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Center" 
                                         Visibility="{Binding Data.Info.HumidityVisibility ,Source={StaticResource proxy}}">
-                                <Label FontSize="18" Content="标称湿度" HorizontalContentAlignment="Left"/>
-                                <Label FontSize="18" Content="{Binding HumidityValue}" Width="80" HorizontalContentAlignment="Center"/>
-                                <Label FontSize="18" Content="%RH" HorizontalContentAlignment="Left"/>
-                            </StackPanel>
-                        </Grid>
-                        
-                        <DataGrid Grid.Row="1" AutoGenerateColumns="False" HeadersVisibility="Column" SelectionUnit="FullRow" ColumnHeaderHeight="50" IsReadOnly="True"
+                                        <Label FontSize="18" Content="标称湿度" HorizontalContentAlignment="Left"/>
+                                        <Label FontSize="18" Content="{Binding HumidityValue}" Width="80" HorizontalContentAlignment="Center"/>
+                                        <Label FontSize="18" Content="%RH" HorizontalContentAlignment="Left"/>
+                                    </StackPanel>
+                                </Grid>
+
+                                <DataGrid Grid.Row="1" AutoGenerateColumns="False" HeadersVisibility="Column" SelectionUnit="FullRow" ColumnHeaderHeight="50" IsReadOnly="True"
                                               BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="1" Width="auto" ItemsSource="{Binding DataList}"
                                               GridLinesVisibility="All" HorizontalGridLinesBrush="AliceBlue" VerticalGridLinesBrush="AliceBlue" 
                                               ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                            <DataGrid.ColumnHeaderStyle>
-                                <Style TargetType="DataGridColumnHeader">
-                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                                </Style>
-                            </DataGrid.ColumnHeaderStyle>
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Binding="{Binding Time}" Header="时间"/>
-                                <DataGridTextColumn Binding="{Binding Count}" Header="次数" />
-                                <DataGridTextColumn Binding="{Binding DeviceTemperature}" Header="仪表示值℃"/>
-                                <DataGridTextColumn Binding="{Binding DeviceHumidity}" Header="仪表示值%RH" 
+                                    <DataGrid.ColumnHeaderStyle>
+                                        <Style TargetType="DataGridColumnHeader">
+                                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                        </Style>
+                                    </DataGrid.ColumnHeaderStyle>
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Binding="{Binding Time}" Header="时间"/>
+                                        <DataGridTextColumn Binding="{Binding StringCount}" Header="次数" />
+                                        <DataGridTextColumn Binding="{Binding DeviceTemperature}" Header="仪表示值℃"/>
+                                        <DataGridTextColumn Binding="{Binding DeviceHumidity}" Header="仪表示值%RH" 
                                                     Visibility="{Binding Data.Info.HumidityVisibility ,Source={StaticResource proxy}}"/>
-                                
-                                <DataGridTemplateColumn HeaderStyle="{StaticResource DeviceStyle}" Visibility="Collapsed">
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <StackPanel Orientation="Horizontal">
-                                                <Label Content="{Binding DeviceTemperature}" Width="50" HorizontalContentAlignment="Center"/>
-                                                <Label Content="{Binding DeviceHumidity}" Width="50" HorizontalContentAlignment="Center"/>
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
 
-                                <DataGridTemplateColumn HeaderStyle="{StaticResource PositionTemperatureStyle5}" 
+                                        <DataGridTemplateColumn HeaderStyle="{StaticResource DeviceStyle}" Visibility="Collapsed">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Label Content="{Binding DeviceTemperature}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Label Content="{Binding DeviceHumidity}" Width="50" HorizontalContentAlignment="Center"/>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+
+                                        <DataGridTemplateColumn HeaderStyle="{StaticResource PositionTemperatureStyle5}" 
                                                                     Visibility="{Binding Data.UC5Visibility ,Source={StaticResource proxy}}">
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <StackPanel Orientation="Horizontal">
-                                                <Label Content="{Binding StringA}" Width="50" HorizontalContentAlignment="Center"/>
-                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                <Label Content="{Binding StringB}" Width="50" HorizontalContentAlignment="Center"/>
-                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                <Label Content="{Binding StringC}" Width="50" HorizontalContentAlignment="Center"/>
-                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                <Label Content="{Binding StringD}" Width="50" HorizontalContentAlignment="Center"/>
-                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                <Label Content="{Binding StringO}" Width="50" HorizontalContentAlignment="Center"/>
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
-                                
-                                <DataGridTemplateColumn HeaderStyle="{StaticResource PositionTemperatureStyle9}" 
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Label Content="{Binding StringA}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringB}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringC}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringD}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringO}" Width="50" HorizontalContentAlignment="Center"/>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+
+                                        <DataGridTemplateColumn HeaderStyle="{StaticResource PositionTemperatureStyle9}" 
                                                                     Visibility="{Binding Data.UC9Visibility ,Source={StaticResource proxy}}">
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <StackPanel Orientation="Horizontal">
-                                                <Label Content="{Binding StringA}" Width="50" HorizontalContentAlignment="Center"/>
-                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                <Label Content="{Binding StringB}" Width="50" HorizontalContentAlignment="Center"/>
-                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                <Label Content="{Binding StringC}" Width="50" HorizontalContentAlignment="Center"/>
-                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                <Label Content="{Binding StringD}" Width="50" HorizontalContentAlignment="Center"/>
-                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                <Label Content="{Binding StringO}" Width="50" HorizontalContentAlignment="Center"/>
-                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                <Label Content="{Binding StringE}" Width="50" HorizontalContentAlignment="Center"/>
-                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                <Label Content="{Binding StringF}" Width="50" HorizontalContentAlignment="Center"/>
-                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                <Label Content="{Binding StringG}" Width="50" HorizontalContentAlignment="Center"/>
-                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                <Label Content="{Binding StringH}" Width="50" HorizontalContentAlignment="Center"/>
-                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Label Content="{Binding StringA}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringB}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringC}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringD}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringO}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringE}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringF}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringG}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringH}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
 
-                                <DataGridTemplateColumn HeaderStyle="{StaticResource PositionTemperatureStyle15}"
+                                        <DataGridTemplateColumn HeaderStyle="{StaticResource PositionTemperatureStyle15}"
                                                                     Visibility="{Binding Data.UC15Visibility ,Source={StaticResource proxy}}">
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <StackPanel Orientation="Horizontal">
-                                                <Label Content="{Binding StringA}" Width="50" HorizontalContentAlignment="Center"/>
-                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                <Label Content="{Binding StringB}" Width="50" HorizontalContentAlignment="Center"/>
-                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                <Label Content="{Binding StringC}" Width="50" HorizontalContentAlignment="Center"/>
-                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                <Label Content="{Binding StringD}" Width="50" HorizontalContentAlignment="Center"/>
-                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                <Label Content="{Binding StringO}" Width="50" HorizontalContentAlignment="Center"/>
-                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                <Label Content="{Binding StringE}" Width="50" HorizontalContentAlignment="Center"/>
-                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                <Label Content="{Binding StringF}" Width="50" HorizontalContentAlignment="Center"/>
-                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                <Label Content="{Binding StringG}" Width="50" HorizontalContentAlignment="Center"/>
-                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                <Label Content="{Binding StringH}" Width="50" HorizontalContentAlignment="Center"/>
-                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                <Label Content="{Binding StringI}" Width="50" HorizontalContentAlignment="Center"/>
-                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                <Label Content="{Binding StringJ}" Width="50" HorizontalContentAlignment="Center"/>
-                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                <Label Content="{Binding StringK}" Width="50" HorizontalContentAlignment="Center"/>
-                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                <Label Content="{Binding StringL}" Width="50" HorizontalContentAlignment="Center"/>
-                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                <Label Content="{Binding StringM}" Width="50" HorizontalContentAlignment="Center"/>
-                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                <Label Content="{Binding StringN}" Width="50" HorizontalContentAlignment="Center"/>
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Label Content="{Binding StringA}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringB}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringC}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringD}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringO}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringE}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringF}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringG}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringH}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringI}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringJ}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringK}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringL}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringM}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringN}" Width="50" HorizontalContentAlignment="Center"/>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
 
-                                <DataGridTemplateColumn HeaderStyle="{StaticResource MaxMinStyle}" Visibility="Collapsed">
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <StackPanel Orientation="Horizontal">
-                                                <Label Content="{Binding StringMaxT}" Width="50" HorizontalContentAlignment="Center"/>
-                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                <Label Content="{Binding StringMinT}" Width="50" HorizontalContentAlignment="Center"/>
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
+                                            <DataGridTemplateColumn HeaderStyle="{StaticResource PositionTemperatureStyle27}" 
+                                                                    Visibility="{Binding Data.UC27Visibility ,Source={StaticResource proxy}}">
+                                                <DataGridTemplateColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <Label Content="{Binding StringA}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding StringB}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding StringC}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding StringD}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding StringO}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding StringE}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding StringF}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding StringG}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding StringH}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding StringI}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding StringJ}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding StringK}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding StringL}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding StringM}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding StringN}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding StringT16}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding StringT17}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding StringT18}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding StringT19}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding StringT20}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding StringT21}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding StringT22}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding StringT23}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding StringT24}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding StringT25}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding StringT26}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding StringT27}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </DataGridTemplateColumn.CellTemplate>
+                                            </DataGridTemplateColumn>
 
-                                <DataGridTemplateColumn HeaderStyle="{StaticResource Position5HumidityStyle}" 
+                                            <DataGridTemplateColumn HeaderStyle="{StaticResource MaxMinStyle}" Visibility="Collapsed">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Label Content="{Binding StringMaxT}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringMinT}" Width="50" HorizontalContentAlignment="Center"/>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+
+                                        <DataGridTemplateColumn HeaderStyle="{StaticResource Position5HumidityStyle}" 
                                                                     Visibility="{Binding Data.Humidity5Visibility ,Source={StaticResource proxy}}">
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <StackPanel Orientation="Horizontal">
-                                                <Label Content="{Binding StringJia}" Width="50" HorizontalContentAlignment="Center"/>
-                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                <Label Content="{Binding StringYi}" Width="50" HorizontalContentAlignment="Center"/>
-                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                <Label Content="{Binding StringBing}" Width="50" HorizontalContentAlignment="Center"/>
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Label Content="{Binding StringJia}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringYi}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringBing}" Width="50" HorizontalContentAlignment="Center"/>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
 
-                                <DataGridTemplateColumn HeaderStyle="{StaticResource PositionHumidityStyle}" 
-                                               Visibility="{Binding Data.Humidity9or15Visibility ,Source={StaticResource proxy}}">
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <StackPanel Orientation="Horizontal">
-                                                <Label Content="{Binding StringJia}" Width="50" HorizontalContentAlignment="Center"/>
-                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                <Label Content="{Binding StringYi}" Width="50" HorizontalContentAlignment="Center"/>
-                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                <Label Content="{Binding StringBing}" Width="50" HorizontalContentAlignment="Center"/>
-                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                <Label Content="{Binding StringDing}" Width="50" HorizontalContentAlignment="Center"/>
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
+                                            <DataGridTemplateColumn HeaderStyle="{StaticResource Position9HumidityStyle}" 
+                                               Visibility="{Binding Data.Humidity9Visibility ,Source={StaticResource proxy}}">
+                                                <DataGridTemplateColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <Label Content="{Binding StringJia}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding StringYi}" Width="50" HorizontalContentAlignment="Center"/>
+                                                            <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                            <Label Content="{Binding StringBing}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </DataGridTemplateColumn.CellTemplate>
+                                            </DataGridTemplateColumn>
+                                        
+                                            <DataGridTemplateColumn HeaderStyle="{StaticResource PositionHumidityStyle}" 
+                                               Visibility="{Binding Data.Humidity15Visibility ,Source={StaticResource proxy}}">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Label Content="{Binding StringJia}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringYi}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringBing}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringDing}" Width="50" HorizontalContentAlignment="Center"/>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
 
-                                <DataGridTemplateColumn HeaderStyle="{StaticResource MaxMinStyle}" Visibility="Collapsed">
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <StackPanel Orientation="Horizontal">
-                                                <Label Content="{Binding StringMaxH}" Width="50" HorizontalContentAlignment="Center"/>
-                                                <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
-                                                <Label Content="{Binding StringMinH}" Width="50" HorizontalContentAlignment="Center"/>
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
-                                
-                            </DataGrid.Columns>
-                        </DataGrid>
+                                        <DataGridTemplateColumn HeaderStyle="{StaticResource MaxMinStyle}" Visibility="Collapsed">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Label Content="{Binding StringMaxH}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringMinH}" Width="50" HorizontalContentAlignment="Center"/>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
 
-                        <Grid Grid.Row="2">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="5*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="5*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="5*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="5*"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
-                                <Label FontSize="18" Content="温度上偏差" HorizontalContentAlignment="Left"/>
-                                <Label FontSize="18" Content="{Binding TemperatureDepartureUpValue}" Width="80" HorizontalContentAlignment="Center"/>
-                                <Label FontSize="18" Content="℃" HorizontalContentAlignment="Left"/>
-                            </StackPanel>
-                            <StackPanel Grid.Row="0" Grid.Column="3" Orientation="Horizontal">
-                                <Label FontSize="18" Content="温度下偏差" HorizontalContentAlignment="Left"/>
-                                <Label FontSize="18" Content="{Binding TemperatureDepartureDownValue}" Width="80" HorizontalContentAlignment="Center"/>
-                                <Label FontSize="18" Content="℃" HorizontalContentAlignment="Left"/>
-                            </StackPanel>
-                            <StackPanel Grid.Row="0" Grid.Column="5" Orientation="Horizontal" >
-                                <Label FontSize="18" Content="温度均匀度" HorizontalContentAlignment="Left"/>
-                                <Label FontSize="18" Content="{Binding TemperatureAverageValue}" Width="80" HorizontalContentAlignment="Center"/>
-                                <Label FontSize="18" Content="℃" HorizontalContentAlignment="Left"/>
-                            </StackPanel>
-                            <StackPanel Grid.Row="0" Grid.Column="7" Orientation="Horizontal" >
-                                <Label FontSize="18" Content="温度波动度" HorizontalContentAlignment="Left"/>
-                                <Label FontSize="18" Content="{Binding TemperatureFluctuationValue}" Width="80" HorizontalContentAlignment="Center"/>
-                                <Label FontSize="18" Content="℃" HorizontalContentAlignment="Left"/>
-                            </StackPanel>
-                            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" 
+                                    </DataGrid.Columns>
+                                </DataGrid>
+
+                                <Grid Grid.Row="2">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                                        <Label FontSize="18" Content="温度上偏差" HorizontalContentAlignment="Left"/>
+                                        <Label FontSize="18" Content="{Binding TemperatureDepartureUpValue}" Width="80" HorizontalContentAlignment="Center"/>
+                                        <Label FontSize="18" Content="℃" HorizontalContentAlignment="Left"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="0" Grid.Column="3" Orientation="Horizontal">
+                                        <Label FontSize="18" Content="温度下偏差" HorizontalContentAlignment="Left"/>
+                                        <Label FontSize="18" Content="{Binding TemperatureDepartureDownValue}" Width="80" HorizontalContentAlignment="Center"/>
+                                        <Label FontSize="18" Content="℃" HorizontalContentAlignment="Left"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="0" Grid.Column="5" Orientation="Horizontal" >
+                                        <Label FontSize="18" Content="温度均匀度" HorizontalContentAlignment="Left"/>
+                                        <Label FontSize="18" Content="{Binding TemperatureAverageValue}" Width="80" HorizontalContentAlignment="Center"/>
+                                        <Label FontSize="18" Content="℃" HorizontalContentAlignment="Left"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="0" Grid.Column="7" Orientation="Horizontal" >
+                                        <Label FontSize="18" Content="温度波动度" HorizontalContentAlignment="Left"/>
+                                        <Label FontSize="18" Content="{Binding TemperatureFluctuationValue}" Width="80" HorizontalContentAlignment="Center"/>
+                                        <Label FontSize="18" Content="℃" HorizontalContentAlignment="Left"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" 
                                         Visibility="{Binding Data.Info.HumidityVisibility ,Source={StaticResource proxy}}">
-                                <Label FontSize="18" Content="湿度上偏差" HorizontalContentAlignment="Left"/>
-                                <Label FontSize="18" Content="{Binding HumidityDepartureUpValue}" Width="80" HorizontalContentAlignment="Center"/>
-                                <Label FontSize="18" Content="%RH" HorizontalContentAlignment="Left"/>
-                            </StackPanel>
-                            <StackPanel Grid.Row="1" Grid.Column="3" Orientation="Horizontal" 
+                                        <Label FontSize="18" Content="湿度上偏差" HorizontalContentAlignment="Left"/>
+                                        <Label FontSize="18" Content="{Binding HumidityDepartureUpValue}" Width="80" HorizontalContentAlignment="Center"/>
+                                        <Label FontSize="18" Content="%RH" HorizontalContentAlignment="Left"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1" Grid.Column="3" Orientation="Horizontal" 
                                         Visibility="{Binding Data.Info.HumidityVisibility ,Source={StaticResource proxy}}">
-                                <Label FontSize="18" Content="湿度下偏差" HorizontalContentAlignment="Left"/>
-                                <Label FontSize="18" Content="{Binding HumidityDepartureDownValue}" Width="80" HorizontalContentAlignment="Center"/>
-                                <Label FontSize="18" Content="%RH" HorizontalContentAlignment="Left"/>
-                            </StackPanel>
-                            <StackPanel Grid.Row="1" Grid.Column="5" Orientation="Horizontal" 
+                                        <Label FontSize="18" Content="湿度下偏差" HorizontalContentAlignment="Left"/>
+                                        <Label FontSize="18" Content="{Binding HumidityDepartureDownValue}" Width="80" HorizontalContentAlignment="Center"/>
+                                        <Label FontSize="18" Content="%RH" HorizontalContentAlignment="Left"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1" Grid.Column="5" Orientation="Horizontal" 
                                         Visibility="{Binding Data.Info.HumidityVisibility ,Source={StaticResource proxy}}">
-                                <Label FontSize="18" Content="湿度均匀度" HorizontalContentAlignment="Left"/>
-                                <Label FontSize="18" Content="{Binding HumidityAverageValue}" Width="80" HorizontalContentAlignment="Center"/>
-                                <Label FontSize="18" Content="%RH" HorizontalContentAlignment="Left"/>
-                            </StackPanel>
-                            <StackPanel Grid.Row="1" Grid.Column="7" Orientation="Horizontal" 
+                                        <Label FontSize="18" Content="湿度均匀度" HorizontalContentAlignment="Left"/>
+                                        <Label FontSize="18" Content="{Binding HumidityAverageValue}" Width="80" HorizontalContentAlignment="Center"/>
+                                        <Label FontSize="18" Content="%RH" HorizontalContentAlignment="Left"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1" Grid.Column="7" Orientation="Horizontal" 
                                         Visibility="{Binding Data.Info.HumidityVisibility ,Source={StaticResource proxy}}">
-                                <Label FontSize="18" Content="湿度波动度" HorizontalContentAlignment="Left"/>
-                                <Label FontSize="18" Content="{Binding HumidityFluctuationValue}" Width="80" HorizontalContentAlignment="Center"/>
-                                <Label FontSize="18" Content="%RH" HorizontalContentAlignment="Left"/>
-                            </StackPanel>
-                        </Grid>
-                    </Grid>
-                </DataTemplate>
-            </Controls:MetroTabControl.ContentTemplate>
-        </Controls:MetroTabControl>
+                                        <Label FontSize="18" Content="湿度波动度" HorizontalContentAlignment="Left"/>
+                                        <Label FontSize="18" Content="{Binding HumidityFluctuationValue}" Width="80" HorizontalContentAlignment="Center"/>
+                                        <Label FontSize="18" Content="%RH" HorizontalContentAlignment="Left"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Grid>
+                        </DataTemplate>
+                    </Controls:MetroTabControl.ContentTemplate>
+                </Controls:MetroTabControl>
+                </Grid>
             </Expander>
 
+            <GroupBox Header="校准数据修正">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+                        <Label/>
+                        <CheckBox IsChecked="{Binding Info.Extra4}" Content="PT100温度传感器" />
+                        <Label/>
+                        <CheckBox IsChecked="{Binding Info.Extra5}" Content="湿度传感器" />
+                        <Label/>
+                        <CheckBox IsChecked="{Binding Info.Extra6}" Content="K型热电偶温度传感器" />
+                        <Label/>
+                    </StackPanel>
+                    
+                    <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <Label/>
+                        <Button Content="校准数据修正计算" Width="100" Height="30" Command="{Binding CalcuteRecordCommand}"/>
+                        <Label/>
+                        <Button Content="导出报告" Width="100" Height="30" Command="{Binding ExportRecordCommand}"/>
+                        <Label/>
+                        <Button Content="返回" Width="100" Height="30" IsCancel="True"/>
+                    </StackPanel>
+                </Grid>
+            </GroupBox>
+            
+            <Expander Grid.Row="3" Margin="0 10 0 0" Header="修正记录" IsExpanded="True">
+                <Controls:MetroTabControl Grid.Row="3" ItemsSource="{Binding ResultList}" Margin="10,0,0,0"
+                                  MaxWidth="1342" HorizontalAlignment="Left">
+                    <Controls:MetroTabControl.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding TemperatureTitle}"/>
+                        </DataTemplate>
+                    </Controls:MetroTabControl.ItemTemplate>
+                    <Controls:MetroTabControl.ContentTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="60"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid Grid.Row="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Label FontSize="18" Content="标称温度" HorizontalContentAlignment="Left"/>
+                                        <Label FontSize="18" Content="{Binding TemperatureValue}" Width="80" HorizontalContentAlignment="Center"/>
+                                        <Label FontSize="18" Content="℃" HorizontalContentAlignment="Left"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Center" 
+                                        Visibility="{Binding Data.Info.HumidityVisibility ,Source={StaticResource proxy}}">
+                                        <Label FontSize="18" Content="标称湿度" HorizontalContentAlignment="Left"/>
+                                        <Label FontSize="18" Content="{Binding HumidityValue}" Width="80" HorizontalContentAlignment="Center"/>
+                                        <Label FontSize="18" Content="%RH" HorizontalContentAlignment="Left"/>
+                                    </StackPanel>
+                                </Grid>
+
+                                <DataGrid Grid.Row="1" AutoGenerateColumns="False" HeadersVisibility="Column" SelectionUnit="FullRow" ColumnHeaderHeight="50" IsReadOnly="True"
+                                              BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="1" Width="auto" ItemsSource="{Binding DataList}"
+                                              GridLinesVisibility="All" HorizontalGridLinesBrush="AliceBlue" VerticalGridLinesBrush="AliceBlue" 
+                                              ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                                    <DataGrid.ColumnHeaderStyle>
+                                        <Style TargetType="DataGridColumnHeader">
+                                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                        </Style>
+                                    </DataGrid.ColumnHeaderStyle>
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Binding="{Binding Time}" Header="时间"/>
+                                        <DataGridTextColumn Binding="{Binding StringCount}" Header="次数" />
+                                        <DataGridTextColumn Binding="{Binding DeviceTemperature}" Header="仪表示值℃"/>
+                                        <DataGridTextColumn Binding="{Binding DeviceHumidity}" Header="仪表示值%RH" 
+                                                    Visibility="{Binding Data.Info.HumidityVisibility ,Source={StaticResource proxy}}"/>
+
+                                        <DataGridTemplateColumn HeaderStyle="{StaticResource DeviceStyle}" Visibility="Collapsed">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Label Content="{Binding DeviceTemperature}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Label Content="{Binding DeviceHumidity}" Width="50" HorizontalContentAlignment="Center"/>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+
+                                        <DataGridTemplateColumn HeaderStyle="{StaticResource PositionTemperatureStyle5}" 
+                                                                    Visibility="{Binding Data.UC5Visibility ,Source={StaticResource proxy}}">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Label Content="{Binding StringA}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringB}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringC}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringD}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringO}" Width="50" HorizontalContentAlignment="Center"/>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+
+                                        <DataGridTemplateColumn HeaderStyle="{StaticResource PositionTemperatureStyle9}" 
+                                                                    Visibility="{Binding Data.UC9Visibility ,Source={StaticResource proxy}}">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Label Content="{Binding StringA}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringB}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringC}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringD}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringO}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringE}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringF}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringG}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringH}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+
+                                        <DataGridTemplateColumn HeaderStyle="{StaticResource PositionTemperatureStyle15}"
+                                                                    Visibility="{Binding Data.UC15Visibility ,Source={StaticResource proxy}}">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Label Content="{Binding StringA}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringB}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringC}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringD}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringO}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringE}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringF}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringG}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringH}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringI}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringJ}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringK}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringL}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringM}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringN}" Width="50" HorizontalContentAlignment="Center"/>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+
+                                        <DataGridTemplateColumn HeaderStyle="{StaticResource PositionTemperatureStyle27}" 
+                                                                    Visibility="{Binding Data.UC27Visibility ,Source={StaticResource proxy}}">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Label Content="{Binding StringA}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringB}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringC}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringD}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringO}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringE}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringF}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringG}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringH}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringI}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringJ}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringK}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringL}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringM}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringN}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringT16}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringT17}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringT18}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringT19}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringT20}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringT21}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringT22}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringT23}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringT24}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringT25}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringT26}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringT27}" Width="50" HorizontalContentAlignment="Center"/>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+
+                                        <DataGridTemplateColumn HeaderStyle="{StaticResource MaxMinStyle}" Visibility="Collapsed">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Label Content="{Binding StringMaxT}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringMinT}" Width="50" HorizontalContentAlignment="Center"/>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+
+                                        <DataGridTemplateColumn HeaderStyle="{StaticResource Position5HumidityStyle}" 
+                                                                    Visibility="{Binding Data.Humidity5Visibility ,Source={StaticResource proxy}}">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Label Content="{Binding StringJia}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringYi}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringBing}" Width="50" HorizontalContentAlignment="Center"/>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+
+                                        <DataGridTemplateColumn HeaderStyle="{StaticResource Position9HumidityStyle}" 
+                                               Visibility="{Binding Data.Humidity9Visibility ,Source={StaticResource proxy}}">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Label Content="{Binding StringJia}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringYi}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringBing}" Width="50" HorizontalContentAlignment="Center"/>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                        
+                                        <DataGridTemplateColumn HeaderStyle="{StaticResource PositionHumidityStyle}" 
+                                               Visibility="{Binding Data.Humidity15Visibility ,Source={StaticResource proxy}}">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Label Content="{Binding StringJia}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringYi}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringBing}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringDing}" Width="50" HorizontalContentAlignment="Center"/>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+
+                                        <DataGridTemplateColumn HeaderStyle="{StaticResource MaxMinStyle}" Visibility="Collapsed">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Label Content="{Binding StringMaxH}" Width="50" HorizontalContentAlignment="Center"/>
+                                                        <Rectangle Fill="#ccc" VerticalAlignment="Stretch" Width="1"/>
+                                                        <Label Content="{Binding StringMinH}" Width="50" HorizontalContentAlignment="Center"/>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+
+                                    </DataGrid.Columns>
+                                </DataGrid>
+
+                                <Grid Grid.Row="2">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                                        <Label FontSize="18" Content="温度上偏差" HorizontalContentAlignment="Left"/>
+                                        <Label FontSize="18" Content="{Binding TemperatureDepartureUpValue}" Width="80" HorizontalContentAlignment="Center"/>
+                                        <Label FontSize="18" Content="℃" HorizontalContentAlignment="Left"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="0" Grid.Column="3" Orientation="Horizontal">
+                                        <Label FontSize="18" Content="温度下偏差" HorizontalContentAlignment="Left"/>
+                                        <Label FontSize="18" Content="{Binding TemperatureDepartureDownValue}" Width="80" HorizontalContentAlignment="Center"/>
+                                        <Label FontSize="18" Content="℃" HorizontalContentAlignment="Left"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="0" Grid.Column="5" Orientation="Horizontal" >
+                                        <Label FontSize="18" Content="温度均匀度" HorizontalContentAlignment="Left"/>
+                                        <Label FontSize="18" Content="{Binding TemperatureAverageValue}" Width="80" HorizontalContentAlignment="Center"/>
+                                        <Label FontSize="18" Content="℃" HorizontalContentAlignment="Left"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="0" Grid.Column="7" Orientation="Horizontal" >
+                                        <Label FontSize="18" Content="温度波动度" HorizontalContentAlignment="Left"/>
+                                        <Label FontSize="18" Content="{Binding TemperatureFluctuationValue}" Width="80" HorizontalContentAlignment="Center"/>
+                                        <Label FontSize="18" Content="℃" HorizontalContentAlignment="Left"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" 
+                                        Visibility="{Binding Data.Info.HumidityVisibility ,Source={StaticResource proxy}}">
+                                        <Label FontSize="18" Content="湿度上偏差" HorizontalContentAlignment="Left"/>
+                                        <Label FontSize="18" Content="{Binding HumidityDepartureUpValue}" Width="80" HorizontalContentAlignment="Center"/>
+                                        <Label FontSize="18" Content="%RH" HorizontalContentAlignment="Left"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1" Grid.Column="3" Orientation="Horizontal" 
+                                        Visibility="{Binding Data.Info.HumidityVisibility ,Source={StaticResource proxy}}">
+                                        <Label FontSize="18" Content="湿度下偏差" HorizontalContentAlignment="Left"/>
+                                        <Label FontSize="18" Content="{Binding HumidityDepartureDownValue}" Width="80" HorizontalContentAlignment="Center"/>
+                                        <Label FontSize="18" Content="%RH" HorizontalContentAlignment="Left"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1" Grid.Column="5" Orientation="Horizontal" 
+                                        Visibility="{Binding Data.Info.HumidityVisibility ,Source={StaticResource proxy}}">
+                                        <Label FontSize="18" Content="湿度均匀度" HorizontalContentAlignment="Left"/>
+                                        <Label FontSize="18" Content="{Binding HumidityAverageValue}" Width="80" HorizontalContentAlignment="Center"/>
+                                        <Label FontSize="18" Content="%RH" HorizontalContentAlignment="Left"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1" Grid.Column="7" Orientation="Horizontal" 
+                                        Visibility="{Binding Data.Info.HumidityVisibility ,Source={StaticResource proxy}}">
+                                        <Label FontSize="18" Content="湿度波动度" HorizontalContentAlignment="Left"/>
+                                        <Label FontSize="18" Content="{Binding HumidityFluctuationValue}" Width="80" HorizontalContentAlignment="Center"/>
+                                        <Label FontSize="18" Content="%RH" HorizontalContentAlignment="Left"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Grid>
+                        </DataTemplate>
+                    </Controls:MetroTabControl.ContentTemplate>
+                </Controls:MetroTabControl>
+            </Expander>
+                
         </StackPanel>
 
     </ScrollViewer>

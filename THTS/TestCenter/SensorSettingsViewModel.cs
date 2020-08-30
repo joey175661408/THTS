@@ -78,6 +78,16 @@ namespace THTS.TestCenter
             set { _uC15Visibility = value; OnPropertyChanged(); }
         }
 
+        private Visibility _uC27Visibility = Visibility.Visible;
+        /// <summary>
+        /// 27测点分布示意图 
+        /// </summary>
+        public Visibility UC27Visibility
+        {
+            get { return _uC27Visibility; }
+            set { _uC27Visibility = value; OnPropertyChanged(); }
+        }
+
         private List<string> _testPositionList;
         /// <summary>
         /// 温场测点分布体列表
@@ -172,6 +182,7 @@ namespace THTS.TestCenter
             //_testPositionList.Add("5点分布图");
             _testPositionList.Add("9点分布图");
             _testPositionList.Add("15点分布图");
+            _testPositionList.Add("27点分布图");
             SelectedTestPosition = _testPositionList[0];
 
             SelectedPositionCommand = new DelegateCommand(TestPositionChanged);
@@ -182,7 +193,7 @@ namespace THTS.TestCenter
 
 
             //获取传感器ID列表
-            deviceIDList = DeviceDAO.GetAllData().Select(t => t.FactoryNo).ToList();
+            deviceIDList = DeviceDAO.GetAllData().Select(t => t.SensorId).ToList();
             deviceIDList.Insert(0, string.Empty);
         }
 
@@ -329,7 +340,7 @@ namespace THTS.TestCenter
 
             //加载测点分布默认配置
             string tempPosition = FileHelper.IniReadValue("Position", "type");
-            SelectedTestPosition = tempPosition.Contains("9")?"9点分布图":(tempPosition.Contains("15")?"15点分布图":"5点分布图");
+            SelectedTestPosition = tempPosition.Contains("9")?"9点分布图":(tempPosition.Contains("15")?"15点分布图":"27点分布图");
             TestPositionChanged();
 
             for (int i = 0; i < PositionList.Count; i++)
@@ -423,6 +434,7 @@ namespace THTS.TestCenter
                 UC5Visibility = Visibility.Visible;
                 UC9Visibility = Visibility.Hidden;
                 UC15Visibility = Visibility.Hidden;
+                UC27Visibility = Visibility.Hidden;
 
                 PositionList.Clear();
 
@@ -458,6 +470,8 @@ namespace THTS.TestCenter
                 UC5Visibility = Visibility.Hidden;
                 UC9Visibility = Visibility.Visible;
                 UC15Visibility = Visibility.Hidden;
+                UC27Visibility = Visibility.Hidden;
+
 
                 PositionList.Clear();
 
@@ -493,6 +507,7 @@ namespace THTS.TestCenter
                 UC5Visibility = Visibility.Hidden;
                 UC9Visibility = Visibility.Hidden;
                 UC15Visibility = Visibility.Visible;
+                UC27Visibility = Visibility.Hidden;
 
                 PositionList.Clear();
 
@@ -527,6 +542,23 @@ namespace THTS.TestCenter
                     PositionList.Add(itemO);
                 }
             }
+            else if (SelectedTestPosition.Equals("27点分布图"))
+            {
+                UC5Visibility = Visibility.Hidden;
+                UC9Visibility = Visibility.Hidden;
+                UC15Visibility = Visibility.Hidden;
+                UC27Visibility = Visibility.Visible;
+
+                PositionList.Clear();
+
+                for (int i = 1; i <= 27; i++)
+                {
+                    TestPositionModule item = new TestPositionModule();
+                    item.SensorsList = SensorsList;
+                    item.TestPositionName = i.ToString();
+                    PositionList.Add(item);
+                }
+            }
         }
 
         /// <summary>
@@ -559,7 +591,7 @@ namespace THTS.TestCenter
 
             }
 
-            ToleranceInfo.PositionType = SelectedTestPosition.Contains("9") ? 9 : (SelectedTestPosition.Contains("15") ? 15 : 5);
+            ToleranceInfo.PositionType = SelectedTestPosition.Contains("9") ? 9 : (SelectedTestPosition.Contains("15") ? 15 : 27);
 
             if (!CheckTestPostion())
             {
@@ -609,38 +641,40 @@ namespace THTS.TestCenter
                 }
             }
 
-            if(ToleranceInfo.Info.TemperatuerVisibility == Visibility.Visible)
-            {
-                if(ToleranceInfo.PositionType == 15)
-                {
-                    if (!ToleranceInfo.PositionList.ContainsKey("15"))
-                    {
-                        System.Windows.MessageBox.Show("温度中心点位置【15】未放置传感器！");
-                    }
-                    else
-                    {
-                        return true;
-                    }
-                }
-                else 
-                {
-                    if (!ToleranceInfo.PositionList.ContainsKey("5"))
-                    {
-                        System.Windows.MessageBox.Show("温度中心点位置【5】未放置传感器！");
-                    }
-                    else
-                    {
-                        return true;
-                    }
-                }
-                return false;
-            }
+            #region 2019规程无中心点必须参加计算的概念了
+            //if(ToleranceInfo.Info.TemperatuerVisibility == Visibility.Visible)
+            //{
+            //    if(ToleranceInfo.PositionType == 15 || ToleranceInfo.PositionType == 27)
+            //    {
+            //        if (!ToleranceInfo.PositionList.ContainsKey("15"))
+            //        {
+            //            System.Windows.MessageBox.Show("温度中心点位置【15】未放置传感器！");
+            //        }
+            //        else
+            //        {
+            //            return true;
+            //        }
+            //    }
+            //    else 
+            //    {
+            //        if (!ToleranceInfo.PositionList.ContainsKey("5"))
+            //        {
+            //            System.Windows.MessageBox.Show("温度中心点位置【5】未放置传感器！");
+            //        }
+            //        else
+            //        {
+            //            return true;
+            //        }
+            //    }
+            //    return false;
+            //}
 
-            if (ToleranceInfo.Info.HumidityVisibility == Visibility.Visible && !ToleranceInfo.PositionList.ContainsKey("O"))
-            {
-                System.Windows.MessageBox.Show("湿度中心点位置【O】未放置传感器！");
-                return false;
-            }
+            //if (ToleranceInfo.Info.HumidityVisibility == Visibility.Visible && !ToleranceInfo.PositionList.ContainsKey("O"))
+            //{
+            //    System.Windows.MessageBox.Show("湿度中心点位置【O】未放置传感器！");
+            //    return false;
+            //}
+            #endregion
 
             return true;
 

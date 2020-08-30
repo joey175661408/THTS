@@ -271,98 +271,179 @@ namespace THTS
                 ICell cellI9 = GetOrCreateColumn(rowI, 9);
                 cellI9.SetCellValue(ResultList[i].HumidityFluctuationValue);
 
-                for (int j = 0; j < ResultList[i].DataList.Count; j++)
+                if(Info.PositionType == 27)
                 {
-                    IRow rowJ = GetOrCreateRow(sheetSource, 9 + j);
-                    GetOrCreateColumn(rowJ, 0).SetCellValue(ResultList[i].DataList[j].Time);
-                    GetOrCreateColumn(rowJ, 1).SetCellValue(ResultList[i].DataList[j].Count);
-                    GetOrCreateColumn(rowJ, 2).SetCellValue(ResultList[i].DataList[j].DeviceTemperature);
+                    //-2是去除所有记录次数中的最大值和最小值，当初增加此值只是为了显示
+                    for (int j = 0; j < ResultList[i].DataList.Count-2; j++)
+                    {
+                        IRow rowJ = GetOrCreateRow(sheetSource, 9 + j);
+                        GetOrCreateColumn(rowJ, 0).SetCellValue(ResultList[i].DataList[j].Time);
+                        GetOrCreateColumn(rowJ, 1).SetCellValue(ResultList[i].DataList[j].Count);
+                        GetOrCreateColumn(rowJ, 2).SetCellValue(ResultList[i].DataList[j].DeviceTemperature);
 
-                    GetOrCreateColumn(rowJ, 3).SetCellValue(ResultList[i].DataList[j].StringA);
-                    GetOrCreateColumn(rowJ, 4).SetCellValue(ResultList[i].DataList[j].StringB);
-                    GetOrCreateColumn(rowJ, 5).SetCellValue(ResultList[i].DataList[j].StringC);
-                    GetOrCreateColumn(rowJ, 6).SetCellValue(ResultList[i].DataList[j].StringD);
-                    GetOrCreateColumn(rowJ, 7).SetCellValue(ResultList[i].DataList[j].StringO);
-                    GetOrCreateColumn(rowJ, 8).SetCellValue(ResultList[i].DataList[j].StringE);
-                    GetOrCreateColumn(rowJ, 9).SetCellValue(ResultList[i].DataList[j].StringF);
-                    GetOrCreateColumn(rowJ, 10).SetCellValue(ResultList[i].DataList[j].StringG);
-                    GetOrCreateColumn(rowJ, 11).SetCellValue(ResultList[i].DataList[j].StringH);
-                    GetOrCreateColumn(rowJ, 12).SetCellValue(ResultList[i].DataList[j].StringI);
-                    GetOrCreateColumn(rowJ, 13).SetCellValue(ResultList[i].DataList[j].StringJ);
-                    GetOrCreateColumn(rowJ, 14).SetCellValue(ResultList[i].DataList[j].StringK);
-                    GetOrCreateColumn(rowJ, 15).SetCellValue(ResultList[i].DataList[j].StringL);
-                    GetOrCreateColumn(rowJ, 16).SetCellValue(ResultList[i].DataList[j].StringM);
-                    GetOrCreateColumn(rowJ, 17).SetCellValue(ResultList[i].DataList[j].StringN);
-                    GetOrCreateColumn(rowJ, 18).SetCellValue(ResultList[i].DataList[j].StringMaxT);
-                    GetOrCreateColumn(rowJ, 19).SetCellValue(ResultList[i].DataList[j].StringMinT);
-                    GetOrCreateColumn(rowJ, 20).SetCellValue(ResultList[i].DataList[j].StringAverageT);
+                        GetOrCreateColumn(rowJ, 3).SetCellValue(ResultList[i].DataList[j].StringA);
+                        GetOrCreateColumn(rowJ, 4).SetCellValue(ResultList[i].DataList[j].StringB);
+                        GetOrCreateColumn(rowJ, 5).SetCellValue(ResultList[i].DataList[j].StringC);
+                        GetOrCreateColumn(rowJ, 6).SetCellValue(ResultList[i].DataList[j].StringD);
+                        GetOrCreateColumn(rowJ, 7).SetCellValue(ResultList[i].DataList[j].StringO);
+                        GetOrCreateColumn(rowJ, 8).SetCellValue(ResultList[i].DataList[j].StringE);
+                        GetOrCreateColumn(rowJ, 9).SetCellValue(ResultList[i].DataList[j].StringF);
+                        GetOrCreateColumn(rowJ, 10).SetCellValue(ResultList[i].DataList[j].StringG);
+                        GetOrCreateColumn(rowJ, 11).SetCellValue(ResultList[i].DataList[j].StringH);
+                        GetOrCreateColumn(rowJ, 12).SetCellValue(ResultList[i].DataList[j].StringI);
+                        GetOrCreateColumn(rowJ, 13).SetCellValue(ResultList[i].DataList[j].StringJ);
+                        GetOrCreateColumn(rowJ, 14).SetCellValue(ResultList[i].DataList[j].StringK);
+                        GetOrCreateColumn(rowJ, 15).SetCellValue(ResultList[i].DataList[j].StringL);
+                        GetOrCreateColumn(rowJ, 16).SetCellValue(ResultList[i].DataList[j].StringM);
+                        GetOrCreateColumn(rowJ, 17).SetCellValue(ResultList[i].DataList[j].StringN);
+                        GetOrCreateColumn(rowJ, 18).SetCellValue(ResultList[i].DataList[j].StringMaxT);
+                        GetOrCreateColumn(rowJ, 19).SetCellValue(ResultList[i].DataList[j].StringMinT);
+                        GetOrCreateColumn(rowJ, 20).SetCellValue(ResultList[i].DataList[j].StringAverageT);
 
-                    GetOrCreateColumn(rowJ, 21).SetCellValue(ResultList[i].DataList[j].DeviceHumidity);
-                    GetOrCreateColumn(rowJ, 22).SetCellValue(ResultList[i].DataList[j].StringYi);
-                    GetOrCreateColumn(rowJ, 23).SetCellValue(ResultList[i].DataList[j].StringBing);
-                    GetOrCreateColumn(rowJ, 24).SetCellValue(ResultList[i].DataList[j].StringDing);
-                    GetOrCreateColumn(rowJ, 26).SetCellValue(ResultList[i].DataList[j].StringJia);
-                    GetOrCreateColumn(rowJ, 27).SetCellValue(ResultList[i].DataList[j].StringMaxH);
-                    GetOrCreateColumn(rowJ, 28).SetCellValue(ResultList[i].DataList[j].StringMinH);
-                    GetOrCreateColumn(rowJ, 29).SetCellValue(ResultList[i].DataList[j].StringAverageH);
+                        GetOrCreateColumn(rowJ, 21).SetCellValue(ResultList[i].DataList[j].StringT16);
+                        GetOrCreateColumn(rowJ, 22).SetCellValue(ResultList[i].DataList[j].StringT17);
+                        GetOrCreateColumn(rowJ, 23).SetCellValue(ResultList[i].DataList[j].StringT18);
+                        GetOrCreateColumn(rowJ, 24).SetCellValue(ResultList[i].DataList[j].StringT19);
+                        GetOrCreateColumn(rowJ, 25).SetCellValue(ResultList[i].DataList[j].StringT20);
+                        GetOrCreateColumn(rowJ, 26).SetCellValue(ResultList[i].DataList[j].StringT21);
+                        GetOrCreateColumn(rowJ, 27).SetCellValue(ResultList[i].DataList[j].StringT22);
+                        GetOrCreateColumn(rowJ, 28).SetCellValue(ResultList[i].DataList[j].StringT23);
+                        GetOrCreateColumn(rowJ, 29).SetCellValue(ResultList[i].DataList[j].StringT24);
+                        GetOrCreateColumn(rowJ, 30).SetCellValue(ResultList[i].DataList[j].StringT25);
+                        GetOrCreateColumn(rowJ, 31).SetCellValue(ResultList[i].DataList[j].StringT26);
+                        GetOrCreateColumn(rowJ, 32).SetCellValue(ResultList[i].DataList[j].StringT27);
+                    }
+
+
+                    IRow rowAver = GetOrCreateRow(sheetSource, 4);
+                    IRow rowMax = GetOrCreateRow(sheetSource, 5);
+                    IRow rowMin = GetOrCreateRow(sheetSource, 6);
+                    IRow rowFluc = GetOrCreateRow(sheetSource, 7);
+                    for (int k = 1; k <= 15; k++)
+                    {
+                        TestDataFluctuationValue temp = ResultList[i].FluctuationList[k.ToString()];
+                        ICell cellAver = GetOrCreateColumn(rowAver, k + 2);
+                        cellAver.SetCellValue(temp.AverageValue);
+                        ICell cellMax = GetOrCreateColumn(rowMax, k + 2);
+                        cellMax.SetCellValue(temp.MaxValue);
+                        ICell cellMin = GetOrCreateColumn(rowMin, k + 2);
+                        cellMin.SetCellValue(temp.MinValue);
+                        ICell cellFluc = GetOrCreateColumn(rowFluc, k + 2);
+                        cellFluc.SetCellValue(temp.FluctuationValue);
+                    }
+
+                    for (int k = 16; k <= 27; k++)
+                    {
+                        TestDataFluctuationValue temp = ResultList[i].FluctuationList[k.ToString()];
+                        ICell cellAver = GetOrCreateColumn(rowAver, k + 5);
+                        cellAver.SetCellValue(temp.AverageValue);
+                        ICell cellMax = GetOrCreateColumn(rowMax, k + 5);
+                        cellMax.SetCellValue(temp.MaxValue);
+                        ICell cellMin = GetOrCreateColumn(rowMin, k + 5);
+                        cellMin.SetCellValue(temp.MinValue);
+                        ICell cellFluc = GetOrCreateColumn(rowFluc, k + 5);
+                        cellFluc.SetCellValue(temp.FluctuationValue);
+                    }
+                }
+                else
+                {
+                    //-2是去除所有记录次数中的最大值和最小值，当初增加此值只是为了显示
+                    for (int j = 0; j < ResultList[i].DataList.Count-2; j++)
+                    {
+                        IRow rowJ = GetOrCreateRow(sheetSource, 9 + j);
+                        GetOrCreateColumn(rowJ, 0).SetCellValue(ResultList[i].DataList[j].Time);
+                        GetOrCreateColumn(rowJ, 1).SetCellValue(ResultList[i].DataList[j].Count);
+                        GetOrCreateColumn(rowJ, 2).SetCellValue(ResultList[i].DataList[j].DeviceTemperature);
+
+                        GetOrCreateColumn(rowJ, 3).SetCellValue(ResultList[i].DataList[j].StringA);
+                        GetOrCreateColumn(rowJ, 4).SetCellValue(ResultList[i].DataList[j].StringB);
+                        GetOrCreateColumn(rowJ, 5).SetCellValue(ResultList[i].DataList[j].StringC);
+                        GetOrCreateColumn(rowJ, 6).SetCellValue(ResultList[i].DataList[j].StringD);
+                        GetOrCreateColumn(rowJ, 7).SetCellValue(ResultList[i].DataList[j].StringO);
+                        GetOrCreateColumn(rowJ, 8).SetCellValue(ResultList[i].DataList[j].StringE);
+                        GetOrCreateColumn(rowJ, 9).SetCellValue(ResultList[i].DataList[j].StringF);
+                        GetOrCreateColumn(rowJ, 10).SetCellValue(ResultList[i].DataList[j].StringG);
+                        GetOrCreateColumn(rowJ, 11).SetCellValue(ResultList[i].DataList[j].StringH);
+                        GetOrCreateColumn(rowJ, 12).SetCellValue(ResultList[i].DataList[j].StringI);
+                        GetOrCreateColumn(rowJ, 13).SetCellValue(ResultList[i].DataList[j].StringJ);
+                        GetOrCreateColumn(rowJ, 14).SetCellValue(ResultList[i].DataList[j].StringK);
+                        GetOrCreateColumn(rowJ, 15).SetCellValue(ResultList[i].DataList[j].StringL);
+                        GetOrCreateColumn(rowJ, 16).SetCellValue(ResultList[i].DataList[j].StringM);
+                        GetOrCreateColumn(rowJ, 17).SetCellValue(ResultList[i].DataList[j].StringN);
+                        GetOrCreateColumn(rowJ, 18).SetCellValue(ResultList[i].DataList[j].StringMaxT);
+                        GetOrCreateColumn(rowJ, 19).SetCellValue(ResultList[i].DataList[j].StringMinT);
+                        GetOrCreateColumn(rowJ, 20).SetCellValue(ResultList[i].DataList[j].StringAverageT);
+
+                        GetOrCreateColumn(rowJ, 21).SetCellValue(ResultList[i].DataList[j].DeviceHumidity);
+                        GetOrCreateColumn(rowJ, 22).SetCellValue(ResultList[i].DataList[j].StringYi);
+                        GetOrCreateColumn(rowJ, 23).SetCellValue(ResultList[i].DataList[j].StringBing);
+                        GetOrCreateColumn(rowJ, 24).SetCellValue(ResultList[i].DataList[j].StringDing);
+                        GetOrCreateColumn(rowJ, 26).SetCellValue(ResultList[i].DataList[j].StringJia);
+                        GetOrCreateColumn(rowJ, 27).SetCellValue(ResultList[i].DataList[j].StringMaxH);
+                        GetOrCreateColumn(rowJ, 28).SetCellValue(ResultList[i].DataList[j].StringMinH);
+                        GetOrCreateColumn(rowJ, 29).SetCellValue(ResultList[i].DataList[j].StringAverageH);
+                    }
+
+
+                    IRow rowAver = GetOrCreateRow(sheetSource, 4);
+                    IRow rowMax = GetOrCreateRow(sheetSource, 5);
+                    IRow rowMin = GetOrCreateRow(sheetSource, 6);
+                    IRow rowFluc = GetOrCreateRow(sheetSource, 7);
+                    for (int k = 1; k <= 15; k++)
+                    {
+                        TestDataFluctuationValue temp = ResultList[i].FluctuationList[k.ToString()];
+                        ICell cellAver = GetOrCreateColumn(rowAver, k + 2);
+                        cellAver.SetCellValue(temp.AverageValue);
+                        ICell cellMax = GetOrCreateColumn(rowMax, k + 2);
+                        cellMax.SetCellValue(temp.MaxValue);
+                        ICell cellMin = GetOrCreateColumn(rowMin, k + 2);
+                        cellMin.SetCellValue(temp.MinValue);
+                        ICell cellFluc = GetOrCreateColumn(rowFluc, k + 2);
+                        cellFluc.SetCellValue(temp.FluctuationValue);
+                    }
+
+                    TestDataFluctuationValue tempA = ResultList[i].FluctuationList["A"];
+                    ICell cellAverA = GetOrCreateColumn(rowAver, 22);
+                    cellAverA.SetCellValue(tempA.AverageValue);
+                    ICell cellMaxA = GetOrCreateColumn(rowMax, 22);
+                    cellMaxA.SetCellValue(tempA.MaxValue);
+                    ICell cellMinA = GetOrCreateColumn(rowMin, 22);
+                    cellMinA.SetCellValue(tempA.MinValue);
+                    ICell cellFlucA = GetOrCreateColumn(rowFluc, 22);
+                    cellFlucA.SetCellValue(tempA.FluctuationValue);
+
+                    TestDataFluctuationValue tempB = ResultList[i].FluctuationList["B"];
+                    ICell cellAverB = GetOrCreateColumn(rowAver, 23);
+                    cellAverB.SetCellValue(tempB.AverageValue);
+                    ICell cellMaxB = GetOrCreateColumn(rowMax, 23);
+                    cellMaxB.SetCellValue(tempB.MaxValue);
+                    ICell cellMinB = GetOrCreateColumn(rowMin, 23);
+                    cellMinB.SetCellValue(tempB.MinValue);
+                    ICell cellFlucB = GetOrCreateColumn(rowFluc, 23);
+                    cellFlucB.SetCellValue(tempB.FluctuationValue);
+
+                    TestDataFluctuationValue tempC = ResultList[i].FluctuationList["C"];
+                    ICell cellAverC = GetOrCreateColumn(rowAver, 24);
+                    cellAverC.SetCellValue(tempC.AverageValue);
+                    ICell cellMaxC = GetOrCreateColumn(rowMax, 24);
+                    cellMaxC.SetCellValue(tempC.MaxValue);
+                    ICell cellMinC = GetOrCreateColumn(rowMin, 24);
+                    cellMinC.SetCellValue(tempC.MinValue);
+                    ICell cellFlucC = GetOrCreateColumn(rowFluc, 24);
+                    cellFlucC.SetCellValue(tempC.FluctuationValue);
+
+                    TestDataFluctuationValue tempO = ResultList[i].FluctuationList["O"];
+                    ICell cellAverO = GetOrCreateColumn(rowAver, 26);
+                    cellAverO.SetCellValue(tempO.AverageValue);
+                    ICell cellMaxO = GetOrCreateColumn(rowMax, 26);
+                    cellMaxO.SetCellValue(tempO.MaxValue);
+                    ICell cellMinO = GetOrCreateColumn(rowMin, 26);
+                    cellMinO.SetCellValue(tempO.MinValue);
+                    ICell cellFlucO = GetOrCreateColumn(rowFluc, 26);
+                    cellFlucO.SetCellValue(tempO.FluctuationValue);
                 }
 
-                IRow rowAver = GetOrCreateRow(sheetSource, 4);
-                IRow rowMax = GetOrCreateRow(sheetSource, 5);
-                IRow rowMin = GetOrCreateRow(sheetSource, 6);
-                IRow rowFluc = GetOrCreateRow(sheetSource, 7);
-                for (int k = 1; k <= 15; k++)
-                {
-                    TestDataFluctuationValue temp = ResultList[i].FluctuationList[k.ToString()];
-                    ICell cellAver = GetOrCreateColumn(rowAver, k + 2);
-                    cellAver.SetCellValue(temp.AverageValue);
-                    ICell cellMax = GetOrCreateColumn(rowMax, k + 2);
-                    cellMax.SetCellValue(temp.MaxValue);
-                    ICell cellMin = GetOrCreateColumn(rowMin, k + 2);
-                    cellMin.SetCellValue(temp.MinValue);
-                    ICell cellFluc = GetOrCreateColumn(rowFluc, k + 2);
-                    cellFluc.SetCellValue(temp.FluctuationValue);
-                }
 
-                TestDataFluctuationValue tempA = ResultList[i].FluctuationList["A"];
-                ICell cellAverA = GetOrCreateColumn(rowAver, 22);
-                cellAverA.SetCellValue(tempA.AverageValue);
-                ICell cellMaxA = GetOrCreateColumn(rowMax, 22);
-                cellMaxA.SetCellValue(tempA.MaxValue);
-                ICell cellMinA = GetOrCreateColumn(rowMin, 22);
-                cellMinA.SetCellValue(tempA.MinValue);
-                ICell cellFlucA = GetOrCreateColumn(rowFluc, 22);
-                cellFlucA.SetCellValue(tempA.FluctuationValue);
-
-                TestDataFluctuationValue tempB = ResultList[i].FluctuationList["B"];
-                ICell cellAverB = GetOrCreateColumn(rowAver, 23);
-                cellAverB.SetCellValue(tempB.AverageValue);
-                ICell cellMaxB = GetOrCreateColumn(rowMax, 23);
-                cellMaxB.SetCellValue(tempB.MaxValue);
-                ICell cellMinB = GetOrCreateColumn(rowMin, 23);
-                cellMinB.SetCellValue(tempB.MinValue);
-                ICell cellFlucB = GetOrCreateColumn(rowFluc, 23);
-                cellFlucB.SetCellValue(tempB.FluctuationValue);
-
-                TestDataFluctuationValue tempC = ResultList[i].FluctuationList["C"];
-                ICell cellAverC = GetOrCreateColumn(rowAver, 24);
-                cellAverC.SetCellValue(tempC.AverageValue);
-                ICell cellMaxC = GetOrCreateColumn(rowMax, 24);
-                cellMaxC.SetCellValue(tempC.MaxValue);
-                ICell cellMinC = GetOrCreateColumn(rowMin, 24);
-                cellMinC.SetCellValue(tempC.MinValue);
-                ICell cellFlucC = GetOrCreateColumn(rowFluc, 24);
-                cellFlucC.SetCellValue(tempC.FluctuationValue);
-
-                TestDataFluctuationValue tempO = ResultList[i].FluctuationList["O"];
-                ICell cellAverO = GetOrCreateColumn(rowAver, 26);
-                cellAverO.SetCellValue(tempO.AverageValue);
-                ICell cellMaxO = GetOrCreateColumn(rowMax, 26);
-                cellMaxO.SetCellValue(tempO.MaxValue);
-                ICell cellMinO = GetOrCreateColumn(rowMin, 26);
-                cellMinO.SetCellValue(tempO.MinValue);
-                ICell cellFlucO = GetOrCreateColumn(rowFluc, 26);
-                cellFlucO.SetCellValue(tempO.FluctuationValue);
             }
 
 

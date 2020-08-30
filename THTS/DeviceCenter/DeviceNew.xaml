@@ -29,7 +29,7 @@
                         <ColumnDefinition Width="350"/>
                         <ColumnDefinition Width="50"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Row="1" Grid.Column="1" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Text="序列号"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Text="传感器编号"/>
                     <TextBox Name="tbID" Grid.Row="1" Grid.Column="3" Width="320" Height="24" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 </Grid>
             </StackPanel>
@@ -92,7 +92,7 @@
                     <TextBox Name="tbFactoryNo" Grid.Row="1" Grid.Column="3" Width="320" Height="24" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Center" />
                 </Grid>
             </StackPanel>
-            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="5">
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="5" >
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="5"/>
@@ -132,139 +132,6 @@
 
                 </Grid>
             </StackPanel>
-
-            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="5" Visibility="Collapsed">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="5"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="5"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="50"/>
-                        <ColumnDefinition Width="100"/>
-                        <ColumnDefinition Width="50"/>
-                        <ColumnDefinition Width="350"/>
-                        <ColumnDefinition Width="50"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Row="1" Grid.Column="1" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Text="修  正  值"/>
-                    <StackPanel Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" Margin="5">
-                        <StackPanel x:Name="spP" HorizontalAlignment="Left" Orientation="Vertical" Visibility="Visible">
-                            <CheckBox x:Name="cbP" Content="PT100温度传感器（℃）"/>
-                            <Label/>
-                            <Label Height="1" BorderBrush="Black" BorderThickness="1"/>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="1"/>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition Width="1"/>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition Width="1"/>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition Height="1"/>
-                                    <RowDefinition/>
-                                    <RowDefinition Height="1"/>
-                                    <RowDefinition/>
-                                </Grid.RowDefinitions>
-                                <Label Grid.Row="1" Grid.ColumnSpan="5" Height="1" BorderBrush="Black" BorderThickness="1"/>
-                                <Label Grid.Row="3" Grid.ColumnSpan="5" Height="1" BorderBrush="Black" BorderThickness="1"/>
-                                <Label Grid.Column="0" Grid.RowSpan="5" Width="1" BorderBrush="Black" BorderThickness="1"/>
-                                <Label Grid.Column="2" Grid.RowSpan="5" Width="1" BorderBrush="Black" BorderThickness="1"/>
-                                <Label Grid.Column="4" Grid.RowSpan="5" Width="1" BorderBrush="Black" BorderThickness="1"/>
-
-                                <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Text="标准值"/>
-                                <TextBlock Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" Text="修正值"/>
-                                <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Text="0"/>
-                                <TextBox x:Name="txP1" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" Width="70"/>
-                                <TextBlock Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" Text="100"/>
-                                <TextBox x:Name="txP2" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Center" Width="70"/>
-                            </Grid>
-                            <Label Height="1" BorderBrush="Black" BorderThickness="1"/>
-                        </StackPanel>
-                        <StackPanel x:Name="spH" HorizontalAlignment="Left" Orientation="Vertical" Visibility="Collapsed">
-                            <CheckBox x:Name="cbH"  Content="湿度传感器（%RH）"/>
-                            <Label/>
-                            <Label Height="1" BorderBrush="Black" BorderThickness="1"/>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="1"/>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition Width="1"/>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition Width="1"/>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition Height="1"/>
-                                    <RowDefinition/>
-                                    <RowDefinition Height="1"/>
-                                    <RowDefinition/>
-                                    <RowDefinition Height="1"/>
-                                    <RowDefinition/>
-                                </Grid.RowDefinitions>
-                                <Label Grid.Row="1" Grid.ColumnSpan="5" Height="1" BorderBrush="Black" BorderThickness="1"/>
-                                <Label Grid.Row="3" Grid.ColumnSpan="5" Height="1" BorderBrush="Black" BorderThickness="1"/>
-                                <Label Grid.Row="5" Grid.ColumnSpan="5" Height="1" BorderBrush="Black" BorderThickness="1"/>
-                                <Label Grid.Column="0" Grid.RowSpan="7" Width="1" BorderBrush="Black" BorderThickness="1"/>
-                                <Label Grid.Column="2" Grid.RowSpan="7" Width="1" BorderBrush="Black" BorderThickness="1"/>
-                                <Label Grid.Column="4" Grid.RowSpan="7" Width="1" BorderBrush="Black" BorderThickness="1"/>
-
-                                <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Text="标准值"/>
-                                <TextBlock Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" Text="修正值"/>
-                                <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Text="40"/>
-                                <TextBox x:Name="txH1" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" Width="70"/>
-                                <TextBlock Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" Text="60"/>
-                                <TextBox x:Name="txH2" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Center" Width="70"/>
-                                <TextBlock Grid.Row="6" Grid.Column="1" HorizontalAlignment="Center" Text="80"/>
-                                <TextBox x:Name="txH3" Grid.Row="6" Grid.Column="3" HorizontalAlignment="Center" Width="70"/>
-                            </Grid>
-                            <Label Height="1" BorderBrush="Black" BorderThickness="1"/>
-                        </StackPanel>
-                        <StackPanel x:Name="spK" HorizontalAlignment="Left" Orientation="Vertical" Visibility="Collapsed">
-                            <CheckBox x:Name="cbK"  Content="K型热电偶温度传感器（℃）"/>
-                            <Label/>
-                            <Label Height="1" BorderBrush="Black" BorderThickness="1"/>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="1"/>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition Width="1"/>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition Width="1"/>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition Height="1"/>
-                                    <RowDefinition/>
-                                    <RowDefinition Height="1"/>
-                                    <RowDefinition/>
-                                    <RowDefinition Height="1"/>
-                                    <RowDefinition/>
-                                </Grid.RowDefinitions>
-                                <Label Grid.Row="1" Grid.ColumnSpan="5" Height="1" BorderBrush="Black" BorderThickness="1"/>
-                                <Label Grid.Row="3" Grid.ColumnSpan="5" Height="1" BorderBrush="Black" BorderThickness="1"/>
-                                <Label Grid.Row="5" Grid.ColumnSpan="5" Height="1" BorderBrush="Black" BorderThickness="1"/>
-                                <Label Grid.Column="0" Grid.RowSpan="7" Width="1" BorderBrush="Black" BorderThickness="1"/>
-                                <Label Grid.Column="2" Grid.RowSpan="7" Width="1" BorderBrush="Black" BorderThickness="1"/>
-                                <Label Grid.Column="4" Grid.RowSpan="7" Width="1" BorderBrush="Black" BorderThickness="1"/>
-
-                                <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Text="标准值"/>
-                                <TextBlock Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" Text="修正值"/>
-                                <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Text="400"/>
-                                <TextBox x:Name="txK1" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" Width="70"/>
-                                <TextBlock Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" Text="600"/>
-                                <TextBox x:Name="txK2" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Center" Width="70"/>
-                                <TextBlock Grid.Row="6" Grid.Column="1" HorizontalAlignment="Center" Text="800"/>
-                                <TextBox x:Name="txK3" Grid.Row="6" Grid.Column="3" HorizontalAlignment="Center" Width="70"/>
-                            </Grid>
-                            <Label Height="1" BorderBrush="Black" BorderThickness="1"/>
-                        </StackPanel>
-                    </StackPanel>
-                </Grid>
-            </StackPanel>
-
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="5">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -301,6 +168,160 @@
                     <DatePicker Name="dpExpireDate" Grid.Row="1" Grid.Column="3" Width="320" Height="24" HorizontalAlignment="Left" VerticalAlignment="Center" />
                 </Grid>
             </StackPanel>
+
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="5"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="350"/>
+                        <ColumnDefinition Width="50"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="1" Grid.Column="1" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Text="修  正  值"/>
+                    <StackPanel Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" Margin="5">
+                        <StackPanel x:Name="spP" HorizontalAlignment="Left" Orientation="Vertical" Visibility="Visible">
+                            <CheckBox x:Name="cbP" Content="PT100温度传感器（℃）"/>
+                            <Label/>
+                            <Label Height="1" BorderBrush="Black" BorderThickness="1"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="1"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="1"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="1"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="1"/>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="1"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="1" Grid.ColumnSpan="7" Height="1" BorderBrush="Black" BorderThickness="1"/>
+                                <Label Grid.Row="3" Grid.ColumnSpan="7" Height="1" BorderBrush="Black" BorderThickness="1"/>
+                                <Label Grid.Column="0" Grid.RowSpan="7" Width="1" BorderBrush="Black" BorderThickness="1"/>
+                                <Label Grid.Column="2" Grid.RowSpan="7" Width="1" BorderBrush="Black" BorderThickness="1"/>
+                                <Label Grid.Column="4" Grid.RowSpan="7" Width="1" BorderBrush="Black" BorderThickness="1"/>
+                                <Label Grid.Column="6" Grid.RowSpan="7" Width="1" BorderBrush="Black" BorderThickness="1"/>
+
+                                <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Text="标准值"/>
+                                <TextBlock Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" Text="示  值"/>
+                                <TextBlock Grid.Row="0" Grid.Column="5" HorizontalAlignment="Center" Text="修正值"/>
+                                <TextBox x:Name="txPR1" Grid.Row="2" Grid.Column="1" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Width="70" IsEnabled="False" Text="0"/>
+                                <TextBox x:Name="txPP1" Grid.Row="2" Grid.Column="3" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Width="70"/>
+                                <TextBox x:Name="txPT1" Grid.Row="2" Grid.Column="5" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Width="70" IsEnabled="False"/>
+                                <TextBox x:Name="txPR2" Grid.Row="4" Grid.Column="1" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Width="70" IsEnabled="False" Text="100"/>
+                                <TextBox x:Name="txPP2" Grid.Row="4" Grid.Column="3" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Width="70"/>
+                                <TextBox x:Name="txPT2" Grid.Row="4" Grid.Column="5" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Width="70" IsEnabled="False"/>
+                            </Grid>
+                            <Label Height="1" BorderBrush="Black" BorderThickness="1"/>
+                        </StackPanel>
+                        <StackPanel x:Name="spH" HorizontalAlignment="Left" Orientation="Vertical" Visibility="Visible">
+                            <CheckBox x:Name="cbH"  Content="湿度传感器（%RH）"/>
+                            <Label/>
+                            <Label Height="1" BorderBrush="Black" BorderThickness="1"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="1"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="1"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="1"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="1"/>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="1"/>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="1"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="1" Grid.ColumnSpan="7" Height="1" BorderBrush="Black" BorderThickness="1"/>
+                                <Label Grid.Row="3" Grid.ColumnSpan="7" Height="1" BorderBrush="Black" BorderThickness="1"/>
+                                <Label Grid.Row="5" Grid.ColumnSpan="7" Height="1" BorderBrush="Black" BorderThickness="1"/>
+                                <Label Grid.Column="0" Grid.RowSpan="7" Width="1" BorderBrush="Black" BorderThickness="1"/>
+                                <Label Grid.Column="2" Grid.RowSpan="7" Width="1" BorderBrush="Black" BorderThickness="1"/>
+                                <Label Grid.Column="4" Grid.RowSpan="7" Width="1" BorderBrush="Black" BorderThickness="1"/>
+                                <Label Grid.Column="6" Grid.RowSpan="7" Width="1" BorderBrush="Black" BorderThickness="1"/>
+
+                                <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Text="标准值"/>
+                                <TextBlock Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" Text="示  值"/>
+                                <TextBlock Grid.Row="0" Grid.Column="5" HorizontalAlignment="Center" Text="修正值"/>
+                                <TextBox x:Name="txHR1" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Width="70"/>
+                                <TextBox x:Name="txHP1" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" Width="70"/>
+                                <TextBox x:Name="txHT1" Grid.Row="2" Grid.Column="5" HorizontalAlignment="Center" Width="70" IsEnabled="False"/>
+                                <TextBox x:Name="txHR2" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" Width="70"/>
+                                <TextBox x:Name="txHP2" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Center" Width="70"/>
+                                <TextBox x:Name="txHT2" Grid.Row="4" Grid.Column="5" HorizontalAlignment="Center" Width="70" IsEnabled="False"/>
+                                <TextBox x:Name="txHR3" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Center" Width="70"/>
+                                <TextBox x:Name="txHP3" Grid.Row="6" Grid.Column="3" HorizontalAlignment="Center" Width="70"/>
+                                <TextBox x:Name="txHT3" Grid.Row="6" Grid.Column="5" HorizontalAlignment="Center" Width="70" IsEnabled="False"/>
+                            </Grid>
+                            <Label Height="1" BorderBrush="Black" BorderThickness="1"/>
+                        </StackPanel>
+                        <StackPanel x:Name="spK" HorizontalAlignment="Left" Orientation="Vertical" Visibility="Visible">
+                            <CheckBox x:Name="cbK"  Content="K型热电偶温度传感器（℃）"/>
+                            <Label/>
+                            <Label Height="1" BorderBrush="Black" BorderThickness="1"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="1"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="1"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="1"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="1"/>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="1"/>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="1"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="1" Grid.ColumnSpan="7" Height="1" BorderBrush="Black" BorderThickness="1"/>
+                                <Label Grid.Row="3" Grid.ColumnSpan="7" Height="1" BorderBrush="Black" BorderThickness="1"/>
+                                <Label Grid.Row="5" Grid.ColumnSpan="7" Height="1" BorderBrush="Black" BorderThickness="1"/>
+                                <Label Grid.Column="0" Grid.RowSpan="7" Width="1" BorderBrush="Black" BorderThickness="1"/>
+                                <Label Grid.Column="2" Grid.RowSpan="7" Width="1" BorderBrush="Black" BorderThickness="1"/>
+                                <Label Grid.Column="4" Grid.RowSpan="7" Width="1" BorderBrush="Black" BorderThickness="1"/>
+                                <Label Grid.Column="6" Grid.RowSpan="7" Width="1" BorderBrush="Black" BorderThickness="1"/>
+
+                                <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Text="标准值"/>
+                                <TextBlock Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" Text="示  值"/>
+                                <TextBlock Grid.Row="0" Grid.Column="5" HorizontalAlignment="Center" Text="修正值"/>
+                                <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Text="400"/>
+                                <TextBox x:Name="txKR1" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Width="70"/>
+                                <TextBox x:Name="txKP1" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" Width="70"/>
+                                <TextBox x:Name="txKT1" Grid.Row="2" Grid.Column="5" HorizontalAlignment="Center" Width="70" IsEnabled="False"/>
+                                <TextBox x:Name="txKR2" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" Width="70"/>
+                                <TextBox x:Name="txKP2" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Center" Width="70"/>
+                                <TextBox x:Name="txKT2" Grid.Row="4" Grid.Column="5" HorizontalAlignment="Center" Width="70" IsEnabled="False"/>
+                                <TextBox x:Name="txKR3" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Center" Width="70"/>
+                                <TextBox x:Name="txKP3" Grid.Row="6" Grid.Column="3" HorizontalAlignment="Center" Width="70"/>
+                                <TextBox x:Name="txKT3" Grid.Row="6" Grid.Column="5" HorizontalAlignment="Center" Width="70" IsEnabled="False"/>
+                            </Grid>
+                            <Label Height="1" BorderBrush="Black" BorderThickness="1"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="5">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -321,6 +342,7 @@
             </StackPanel>
 
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                <Button Margin="20,30,60,20" Width="80" Height="30" Content="修正值计算" Click="Calculate_Click"/>
                 <Button Margin="20,30,60,20" Width="80" Height="30" Content="确定" Click="Save_Click"/>
                 <Button Margin="20,30,30,20" Width="80" Height="30" Content="取消" Click="Cancel_Click"/>
             </StackPanel>

@@ -94,7 +94,17 @@ namespace THTS.TestCenter
         {
             get { return _uC15Visibility; }
             set { _uC15Visibility = value; OnPropertyChanged(); }
-        }      
+        }
+
+        private Visibility _uC27Visibility = Visibility.Visible;
+        /// <summary>
+        /// 27测点分布示意图 
+        /// </summary>
+        public Visibility UC27Visibility
+        {
+            get { return _uC27Visibility; }
+            set { _uC27Visibility = value; OnPropertyChanged(); }
+        }
 
         private Dictionary<string, Sensor> _positionName;
         /// <summary>
@@ -355,6 +365,116 @@ namespace THTS.TestCenter
             get { return _lineO; }
             set { _lineO = value; OnPropertyChanged(); }
         }
+        ObservableDataSource<Point> _lineT16 = new ObservableDataSource<Point>();
+        /// <summary>
+        /// 温度曲线数据源T16
+        /// </summary>
+        public ObservableDataSource<Point> LineT16
+        {
+            get { return _lineT16; }
+            set { _lineT16 = value; OnPropertyChanged(); }
+        }
+        ObservableDataSource<Point> _lineT17 = new ObservableDataSource<Point>();
+        /// <summary>
+        /// 温度曲线数据源T17
+        /// </summary>
+        public ObservableDataSource<Point> LineT17
+        {
+            get { return _lineT17; }
+            set { _lineT17 = value; OnPropertyChanged(); }
+        }
+        ObservableDataSource<Point> _lineT18 = new ObservableDataSource<Point>();
+        /// <summary>
+        /// 温度曲线数据源T18
+        /// </summary>
+        public ObservableDataSource<Point> LineT18
+        {
+            get { return _lineT18; }
+            set { _lineT18 = value; OnPropertyChanged(); }
+        }
+        ObservableDataSource<Point> _lineT19 = new ObservableDataSource<Point>();
+        /// <summary>
+        /// 温度曲线数据源T19
+        /// </summary>
+        public ObservableDataSource<Point> LineT19
+        {
+            get { return _lineT19; }
+            set { _lineT19 = value; OnPropertyChanged(); }
+        }
+        ObservableDataSource<Point> _lineT20 = new ObservableDataSource<Point>();
+        /// <summary>
+        /// 温度曲线数据源T20
+        /// </summary>
+        public ObservableDataSource<Point> LineT20
+        {
+            get { return _lineT20; }
+            set { _lineT20 = value; OnPropertyChanged(); }
+        }
+        ObservableDataSource<Point> _lineT21 = new ObservableDataSource<Point>();
+        /// <summary>
+        /// 温度曲线数据源T21
+        /// </summary>
+        public ObservableDataSource<Point> LineT21
+        {
+            get { return _lineT21; }
+            set { _lineT21 = value; OnPropertyChanged(); }
+        }
+        ObservableDataSource<Point> _lineT22 = new ObservableDataSource<Point>();
+        /// <summary>
+        /// 温度曲线数据源T22
+        /// </summary>
+        public ObservableDataSource<Point> LineT22
+        {
+            get { return _lineT22; }
+            set { _lineT22 = value; OnPropertyChanged(); }
+        }
+        ObservableDataSource<Point> _lineT23 = new ObservableDataSource<Point>();
+        /// <summary>
+        /// 温度曲线数据源T23
+        /// </summary>
+        public ObservableDataSource<Point> LineT23
+        {
+            get { return _lineT23; }
+            set { _lineT23 = value; OnPropertyChanged(); }
+        }
+        ObservableDataSource<Point> _lineT24 = new ObservableDataSource<Point>();
+        /// <summary>
+        /// 温度曲线数据源T24
+        /// </summary>
+        public ObservableDataSource<Point> LineT24
+        {
+            get { return _lineT24; }
+            set { _lineT24 = value; OnPropertyChanged(); }
+        }
+        ObservableDataSource<Point> _lineT25 = new ObservableDataSource<Point>();
+        /// <summary>
+        /// 温度曲线数据源T25
+        /// </summary>
+        public ObservableDataSource<Point> LineT25
+        {
+            get { return _lineT25; }
+            set { _lineT25 = value; OnPropertyChanged(); }
+        }
+        ObservableDataSource<Point> _lineT26 = new ObservableDataSource<Point>();
+        /// <summary>
+        /// 温度曲线数据源T26
+        /// </summary>
+        public ObservableDataSource<Point> LineT26
+        {
+            get { return _lineT26; }
+            set { _lineT26 = value; OnPropertyChanged(); }
+        }
+        ObservableDataSource<Point> _lineT27 = new ObservableDataSource<Point>();
+        /// <summary>
+        /// 温度曲线数据源T27
+        /// </summary>
+        public ObservableDataSource<Point> LineT27
+        {
+            get { return _lineT27; }
+            set { _lineT27 = value; OnPropertyChanged(); }
+        }
+
+
         ObservableDataSource<Point> _lineJia = new ObservableDataSource<Point>();
         /// <summary>
         /// 湿度曲线数据源-甲
@@ -494,11 +614,11 @@ namespace THTS.TestCenter
                             }
 
                             //试用版，隐藏传感器无用数据
-                            if (i >= 30 && i <= 39 && i != 32)
-                            {
-                                real.SensorValue = 0;
-                                real.SensorUnit = string.Empty;
-                            }
+                            //if (i >= 30 && i <= 39 && i != 32)
+                            //{
+                            //    real.SensorValue = 0;
+                            //    real.SensorUnit = string.Empty;
+                            //}
 
                             this.DispatcherInvoke(() =>
                             {
@@ -640,6 +760,18 @@ namespace THTS.TestCenter
             SetChartLineData(LineL, "13");
             SetChartLineData(LineM, "14");
             SetChartLineData(LineN, "15");
+            SetChartLineData(LineT16, "16");
+            SetChartLineData(LineT17, "17");
+            SetChartLineData(LineT18, "18");
+            SetChartLineData(LineT19, "19"); 
+            SetChartLineData(LineT20, "20");
+            SetChartLineData(LineT21, "21");
+            SetChartLineData(LineT22, "22");
+            SetChartLineData(LineT23, "23");
+            SetChartLineData(LineT24, "24");
+            SetChartLineData(LineT25, "25");
+            SetChartLineData(LineT26, "26");
+            SetChartLineData(LineT27, "27");
             SetChartLineData(LineJia, "O");
             SetChartLineData(LineYi, "A");
             SetChartLineData(LineBing, "B");
@@ -680,6 +812,18 @@ namespace THTS.TestCenter
             LineM.Collection.Clear();
             LineN.Collection.Clear();
             LineO.Collection.Clear();
+            LineT16.Collection.Clear();
+            LineT17.Collection.Clear();
+            LineT18.Collection.Clear();
+            LineT19.Collection.Clear();
+            LineT20.Collection.Clear();
+            LineT21.Collection.Clear();
+            LineT22.Collection.Clear();
+            LineT23.Collection.Clear();
+            LineT24.Collection.Clear();
+            LineT25.Collection.Clear();
+            LineT26.Collection.Clear();
+            LineT27.Collection.Clear();
             LineJia.Collection.Clear();
             LineYi.Collection.Clear();
             LineBing.Collection.Clear();
@@ -745,6 +889,18 @@ namespace THTS.TestCenter
                 L = SetValueForPosition("13"),
                 M = SetValueForPosition("14"),
                 N = SetValueForPosition("15"),
+                T16 = SetValueForPosition("16"),
+                T17 = SetValueForPosition("17"),
+                T18 = SetValueForPosition("18"),
+                T19 = SetValueForPosition("19"),
+                T20 = SetValueForPosition("20"),
+                T21 = SetValueForPosition("21"),
+                T22 = SetValueForPosition("22"),
+                T23 = SetValueForPosition("23"),
+                T24 = SetValueForPosition("24"),
+                T25 = SetValueForPosition("25"),
+                T26 = SetValueForPosition("26"),
+                T27 = SetValueForPosition("27"),
 
                 Jia = SetValueForPosition("O"),
                 Yi = SetValueForPosition("A"),
@@ -787,6 +943,15 @@ namespace THTS.TestCenter
             tol.Info.TestTimeSpan = tol.TestTimeSpan;
             tol.Info.TestSampleInterval = tol.TestSampleInterval;
             TestInfoDAO.Save(tol.Info);
+
+            ObservableCollection<PositionAndSensor> temp = new ObservableCollection<PositionAndSensor>();
+            foreach (string key in tol.PositionList.Keys)
+            {
+                Sensor tempsensor = tol.PositionList[key];
+                temp.Add(new PositionAndSensor(tol.Info.RecordSN,key,tempsensor.DeviceID));
+            }
+            PositionAndSensorDAO.Save(temp);
+
             for (int i = 0; i < TestResultDataList.Count; i++)
             {
                 TestDataDAO.Save(TestResultDataList[i].DataList);
@@ -841,18 +1006,28 @@ namespace THTS.TestCenter
                 UC5Visibility = Visibility.Visible;
                 UC9Visibility = Visibility.Collapsed;
                 UC15Visibility = Visibility.Collapsed;
+                UC27Visibility = Visibility.Collapsed;
             }
             else if(testPositionType == 9)
             {
                 UC5Visibility = Visibility.Collapsed;
                 UC9Visibility = Visibility.Visible;
                 UC15Visibility = Visibility.Collapsed;
+                UC27Visibility = Visibility.Collapsed;
             }
             else if (testPositionType == 15)
             {
                 UC5Visibility = Visibility.Collapsed;
                 UC9Visibility = Visibility.Collapsed;
                 UC15Visibility = Visibility.Visible;
+                UC27Visibility = Visibility.Collapsed;
+            }
+            else if (testPositionType == 27)
+            {
+                UC5Visibility = Visibility.Collapsed;
+                UC9Visibility = Visibility.Collapsed;
+                UC15Visibility = Visibility.Collapsed;
+                UC27Visibility = Visibility.Visible;
             }
         }
     }

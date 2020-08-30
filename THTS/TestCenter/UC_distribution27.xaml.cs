@@ -18,9 +18,9 @@ namespace THTS.TestCenter
     /// <summary>
     /// UC_distribution.xaml 的交互逻辑
     /// </summary>
-    public partial class UC_distribution15 : UserControl
+    public partial class UC_distribution27 : UserControl
     {
-        public UC_distribution15()
+        public UC_distribution27()
         {
             InitializeComponent();
         }
@@ -35,7 +35,7 @@ namespace THTS.TestCenter
                     return;
                 }
 
-                if(this.Tag == null)
+                if (this.Tag == null)
                 {
                     return;
                 }
@@ -57,6 +57,19 @@ namespace THTS.TestCenter
                 ChangeFont(this.T13, PositionList, "13");
                 ChangeFont(this.T14, PositionList, "14");
                 ChangeFont(this.T15, PositionList, "15");
+                ChangeFont(this.T16, PositionList, "16");
+                ChangeFont(this.T17, PositionList, "17");
+                ChangeFont(this.T18, PositionList, "18");
+                ChangeFont(this.T19, PositionList, "19");
+                ChangeFont(this.T20, PositionList, "20");
+                ChangeFont(this.T21, PositionList, "21");
+                ChangeFont(this.T22, PositionList, "22");
+                ChangeFont(this.T23, PositionList, "23");
+                ChangeFont(this.T24, PositionList, "24");
+                ChangeFont(this.T25, PositionList, "25");
+                ChangeFont(this.T26, PositionList, "26");
+                ChangeFont(this.T27, PositionList, "27");
+
                 ChangeFont(this.A, PositionList, "A");
                 ChangeFont(this.B, PositionList, "B");
                 ChangeFont(this.C, PositionList, "C");

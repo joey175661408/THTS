@@ -3,6 +3,7 @@ using THTS.MVVM;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Windows;
 using System;
+using THTS.DataAccess.EntityDAO;
 
 namespace THTS.DataAccess
 {
@@ -302,5 +303,63 @@ namespace THTS.DataAccess
 
         #endregion
 
+    }
+
+    /// <summary>
+    /// 测点位置与传感器对应关系
+    /// </summary>
+    public class PositionAndSensor : INotifyPropertyChanged, ISequencedObject
+    {
+        public int Id { get; set; }
+        public string RecordSN { get; set; }
+        public string PositionName { get; set; }
+        public string SensorID { get; set; }
+        public int IsDeleted { get; set; }
+
+        public PositionAndSensor()
+        {
+            this.RegisterPropertyChangedHandler(() => PropertyChanged);
+            this.IsDeleted = 0;
+        }
+
+        public PositionAndSensor(string rsn, string pname, string sid)
+        {
+            this.RegisterPropertyChangedHandler(() => PropertyChanged);
+            this.RecordSN = rsn;
+            this.PositionName = pname;
+            this.SensorID = sid;
+            this.IsDeleted = 0;
+            this.sensor = DeviceDAO.GetDevice(sid);
+        }
+
+        [NotMapped]
+        public Device sensor { get; set; }
+
+        public void ReflashSensorInfo()
+        {
+            this.sensor = DeviceDAO.GetDevice(SensorID);
+        }
+
+        #region INotifyPropertyChanged 成员
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        #endregion
+
+        #region ISequencedObject 成员
+        [NotMapped]
+        public int SequenceNumber
+        {
+            get
+            {
+                return this.GetBackingValue(() => this.SequenceNumber);
+            }
+            set
+            {
+                this.SetBackingValue(() => this.SequenceNumber, value);
+            }
+        }
+
+        #endregion
     }
 }

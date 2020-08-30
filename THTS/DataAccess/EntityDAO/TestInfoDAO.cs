@@ -78,7 +78,7 @@ namespace THTS.DataAccess.EntityDAO
                     test.UutCustomSN = "CSN001";
                     test.UutCalPosition = "北京博芮思元仪表科技有限公司";
                     test.Accuracy = "1";
-                    test.TemperatureLower = "-40";
+                    test.TemperatureLower = "0";
                     test.TemperatureUpper = "120";
                     test.Extra3 = "2";
                     test.Extra1 = "20";
@@ -146,6 +146,80 @@ namespace THTS.DataAccess.EntityDAO
                     temp.IsDeleted = 1;
                 }
                 ctx.Update(temp.Id, temp);
+                return ctx.SaveChanges() > 0;
+            }
+        }
+
+        #region IDisposable 成员
+
+        public void Dispose()
+        {
+            if (context != null)
+                context.Dispose();
+        }
+
+        #endregion
+    }
+
+    public class PositionAndSensorDAO : IDisposable
+    {
+        SQLiteDB context;
+
+        public PositionAndSensorDAO()
+        {
+            context = new SQLiteDB();
+        }
+
+        /// <summary>
+        /// 获取数据
+        /// </summary>
+        public static ObservableCollection<PositionAndSensor> GetPositionAndSensor(string recordSN)
+        {
+            using (SQLiteDB ctx = new SQLiteDB())
+            {
+                ctx.PositionAndSensors.Where(t => t.IsDeleted == 0 && t.RecordSN == recordSN).Load();
+                if (ctx.PositionAndSensors.Local.Count > 0)
+                {
+                    return ctx.PositionAndSensors.Local;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
+        /// <summary>
+        /// 保存数据
+        /// </summary>
+        /// <returns></returns>
+        public static bool Save(ObservableCollection<PositionAndSensor> info)
+        {
+            using (SQLiteDB ctx = new SQLiteDB())
+            {
+                ctx.PositionAndSensors.AddRange(info);
+                return ctx.SaveChanges() > 0;
+            }
+        }
+
+        /// <summary>
+        /// 删除数据
+        /// </summary>
+        /// <param name="testInfo"></param>
+        /// <returns></returns>
+        public static bool Delete(string recordSN)
+        {
+            using (SQLiteDB ctx = new SQLiteDB())
+            {
+                ObservableCollection<PositionAndSensor> temp = GetPositionAndSensor(recordSN);
+                if (temp != null)
+                {
+                    foreach (var item in temp)
+                    {
+                        item.IsDeleted = 1;
+                        ctx.Update(item.Id, item);
+                    }
+                }
                 return ctx.SaveChanges() > 0;
             }
         }

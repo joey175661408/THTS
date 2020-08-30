@@ -79,12 +79,12 @@ namespace THTS.DataAccess.Entity
             //根据测试点分组，计算单个测试点波动度
             GroupByPosition();
 
-            #region 2017规程计算方法
+            #region 2019规程计算方法
 
             #region 温度数据
             double sumMMT = 0D;
-            double maxT = Double.Parse(DataList[0].StringO);
-            double minT = Double.Parse(DataList[0].StringO);
+            double maxT = -1000;
+            double minT = 1000;
 
             for (int i = 0; i < DataList.Count; i++)
             {
@@ -103,7 +103,7 @@ namespace THTS.DataAccess.Entity
             this.TemperatureAverageValue = (sumMMT / DataList.Count).ToString("0.00");
             //温度波动度
             double maxF = 0D;
-            for (int i = 1; i <= 15; i++)
+            for (int i = 1; i <= 27; i++)
             {
                 TestDataFluctuationValue Ftemp = FluctuationList[i.ToString()];
 
@@ -120,8 +120,8 @@ namespace THTS.DataAccess.Entity
             if (!string.IsNullOrEmpty(HumidityValue))
             {
                 double sumMMH = 0D;
-                double maxH = Double.Parse(DataList[0].StringJia);
-                double minH = Double.Parse(DataList[0].StringJia);
+                double maxH = -1000;
+                double minH = 1000;
 
                 for (int i = 0; i < DataList.Count; i++)
                 {
@@ -233,6 +233,18 @@ namespace THTS.DataAccess.Entity
             TestDataFluctuationValue F13 = new TestDataFluctuationValue();
             TestDataFluctuationValue F14 = new TestDataFluctuationValue();
             TestDataFluctuationValue F15 = new TestDataFluctuationValue();
+            TestDataFluctuationValue F16 = new TestDataFluctuationValue();
+            TestDataFluctuationValue F17 = new TestDataFluctuationValue();
+            TestDataFluctuationValue F18 = new TestDataFluctuationValue();
+            TestDataFluctuationValue F19 = new TestDataFluctuationValue();
+            TestDataFluctuationValue F20 = new TestDataFluctuationValue();
+            TestDataFluctuationValue F21 = new TestDataFluctuationValue();
+            TestDataFluctuationValue F22 = new TestDataFluctuationValue();
+            TestDataFluctuationValue F23 = new TestDataFluctuationValue();
+            TestDataFluctuationValue F24 = new TestDataFluctuationValue();
+            TestDataFluctuationValue F25 = new TestDataFluctuationValue();
+            TestDataFluctuationValue F26 = new TestDataFluctuationValue();
+            TestDataFluctuationValue F27 = new TestDataFluctuationValue();
             TestDataFluctuationValue FA = new TestDataFluctuationValue();
             TestDataFluctuationValue FB = new TestDataFluctuationValue();
             TestDataFluctuationValue FC = new TestDataFluctuationValue();
@@ -255,6 +267,19 @@ namespace THTS.DataAccess.Entity
                 F13.DataValue.Add(DataList[i].StringL);
                 F14.DataValue.Add(DataList[i].StringM);
                 F15.DataValue.Add(DataList[i].StringN);
+                F16.DataValue.Add(DataList[i].StringT16);
+                F17.DataValue.Add(DataList[i].StringT17);
+                F18.DataValue.Add(DataList[i].StringT18);
+                F19.DataValue.Add(DataList[i].StringT19);
+                F20.DataValue.Add(DataList[i].StringT20);
+                F21.DataValue.Add(DataList[i].StringT21);
+                F22.DataValue.Add(DataList[i].StringT22);
+                F23.DataValue.Add(DataList[i].StringT23);
+                F24.DataValue.Add(DataList[i].StringT24);
+                F25.DataValue.Add(DataList[i].StringT25);
+                F26.DataValue.Add(DataList[i].StringT26);
+                F27.DataValue.Add(DataList[i].StringT27);
+
                 FA.DataValue.Add(DataList[i].StringYi);
                 FB.DataValue.Add(DataList[i].StringBing);
                 FC.DataValue.Add(DataList[i].StringDing);
@@ -276,6 +301,18 @@ namespace THTS.DataAccess.Entity
             FluctuationList.Add("13", F13);
             FluctuationList.Add("14", F14);
             FluctuationList.Add("15", F15);
+            FluctuationList.Add("16", F16);
+            FluctuationList.Add("17", F17);
+            FluctuationList.Add("18", F18);
+            FluctuationList.Add("19", F19);
+            FluctuationList.Add("20", F20);
+            FluctuationList.Add("21", F21);
+            FluctuationList.Add("22", F22);
+            FluctuationList.Add("23", F23);
+            FluctuationList.Add("24", F24);
+            FluctuationList.Add("25", F25);
+            FluctuationList.Add("26", F26);
+            FluctuationList.Add("27", F27);
             FluctuationList.Add("A", FA);
             FluctuationList.Add("B", FB);
             FluctuationList.Add("C", FC);

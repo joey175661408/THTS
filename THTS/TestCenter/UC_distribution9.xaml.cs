@@ -33,6 +33,12 @@ namespace THTS.TestCenter
                 {
                     return;
 ;                }
+
+                if (this.Tag == null)
+                {
+                    return;
+                }
+
                 Dictionary<string, Sensor> PositionList = (Dictionary<string, Sensor>)this.Tag;
 
                 ChangeFont(this.T1, PositionList, "1");

@@ -61,29 +61,48 @@ namespace THTS.DeviceCenter
             this.dpCalDate.Text = NewDevice.CalibrateDate;
             this.dpExpireDate.Text = NewDevice.ExpireDate;
             this.tbRemark.Text = NewDevice.Remark;
+            ShowCalculateResult();
 
+        }
 
+        private void ShowCalculateResult()
+        {
             if (this.tbModule.SelectedItem.ToString().Contains("PT100"))
             {
-                this.cbP.IsChecked = NewDevice.Extra4.Equals("True") ? true : false;
-                this.txP1.Text = NewDevice.Extra1;
-                this.txP2.Text = NewDevice.Extra2;
+                this.cbP.IsChecked = string.IsNullOrEmpty(NewDevice.IsCalculate) ? false : NewDevice.IsCalculate.Equals("True") ? true : false;
+                this.txPR1.Text = NewDevice.ReferenceValue1;
+                this.txPP1.Text = NewDevice.RealValue1;
+                this.txPT1.Text = NewDevice.ToleranceValue1;
+                this.txPR2.Text = NewDevice.ReferenceValue2;
+                this.txPP2.Text = NewDevice.RealValue2;
+                this.txPT2.Text = NewDevice.ToleranceValue2;
             }
             else if (this.tbModule.SelectedItem.ToString().Contains("K"))
             {
-                this.cbK.IsChecked = NewDevice.Extra4.Equals("True") ? true : false;
-                this.txK1.Text = NewDevice.Extra1;
-                this.txK2.Text = NewDevice.Extra2;
-                this.txK3.Text = NewDevice.Extra3;
+                this.cbK.IsChecked = string.IsNullOrEmpty(NewDevice.IsCalculate) ? false : NewDevice.IsCalculate.Equals("True") ? true : false;
+                this.txKR1.Text = NewDevice.ReferenceValue1;
+                this.txKP1.Text = NewDevice.RealValue1;
+                this.txKT1.Text = NewDevice.ToleranceValue1;
+                this.txKR2.Text = NewDevice.ReferenceValue2;
+                this.txKP2.Text = NewDevice.RealValue2;
+                this.txKT2.Text = NewDevice.ToleranceValue2;
+                this.txKR3.Text = NewDevice.ReferenceValue3;
+                this.txKP3.Text = NewDevice.RealValue3;
+                this.txKT3.Text = NewDevice.ToleranceValue3;
             }
             else
             {
-                this.cbH.IsChecked = NewDevice.Extra4.Equals("True") ? true : false;
-                this.txH1.Text = NewDevice.Extra1;
-                this.txH2.Text = NewDevice.Extra2;
-                this.txH3.Text = NewDevice.Extra3;
+                this.cbH.IsChecked = string.IsNullOrEmpty(NewDevice.IsCalculate) ? false : NewDevice.IsCalculate.Equals("True") ? true : false;
+                this.txHR1.Text = NewDevice.ReferenceValue1;
+                this.txHP1.Text = NewDevice.RealValue1;
+                this.txHT1.Text = NewDevice.ToleranceValue1;
+                this.txHR2.Text = NewDevice.ReferenceValue2;
+                this.txHP2.Text = NewDevice.RealValue2;
+                this.txHT2.Text = NewDevice.ToleranceValue2;
+                this.txHR3.Text = NewDevice.ReferenceValue3;
+                this.txHP3.Text = NewDevice.RealValue3;
+                this.txHT3.Text = NewDevice.ToleranceValue3;
             }
-
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
@@ -117,24 +136,42 @@ namespace THTS.DeviceCenter
 
             if (this.tbModule.SelectedItem.ToString().Contains("PT100"))
             {
-                NewDevice.Extra4 = this.cbP.IsChecked.ToString();
-                NewDevice.Extra1 = this.txP1.Text;
-                NewDevice.Extra2 = this.txP2.Text;
+                NewDevice.IsCalculate = this.cbP.IsChecked.ToString();
+                NewDevice.ReferenceValue1 = this.txPR1.Text;
+                NewDevice.RealValue1 = this.txPP1.Text;
+                NewDevice.ToleranceValue1 = this.txPT1.Text;
+                NewDevice.ReferenceValue2 = this.txPR2.Text;
+                NewDevice.RealValue2 = this.txPP2.Text;
+                NewDevice.ToleranceValue2 = this.txPT2.Text;
             }
             else if (this.tbModule.SelectedItem.ToString().Contains("K"))
             {
-                NewDevice.Extra4 = this.cbK.IsChecked.ToString();
-                NewDevice.Extra1 = this.txK1.Text;
-                NewDevice.Extra2 = this.txK2.Text;
-                NewDevice.Extra3 = this.txK3.Text;
+                NewDevice.IsCalculate = this.cbK.IsChecked.ToString();
+                NewDevice.ReferenceValue1 = this.txKR1.Text;
+                NewDevice.RealValue1 = this.txKP1.Text;
+                NewDevice.ToleranceValue1 = this.txKT1.Text;
+                NewDevice.ReferenceValue2 = this.txKR2.Text;
+                NewDevice.RealValue2 = this.txKP2.Text;
+                NewDevice.ToleranceValue2 = this.txKT2.Text;
+                NewDevice.ReferenceValue3 = this.txKR3.Text;
+                NewDevice.RealValue3 = this.txKP3.Text;
+                NewDevice.ToleranceValue3 = this.txKT3.Text;
             }
             else
             {
-                NewDevice.Extra4 = this.cbH.IsChecked.ToString();
-                NewDevice.Extra1 = this.txH1.Text;
-                NewDevice.Extra2 = this.txH2.Text;
-                NewDevice.Extra3 = this.txH3.Text;
+                NewDevice.IsCalculate = this.cbH.IsChecked.ToString();
+                NewDevice.ReferenceValue1 = this.txHR1.Text;
+                NewDevice.RealValue1 = this.txHP1.Text;
+                NewDevice.ToleranceValue1 = this.txHT1.Text;
+                NewDevice.ReferenceValue2 = this.txHR2.Text;
+                NewDevice.RealValue2 = this.txHP2.Text;
+                NewDevice.ToleranceValue2 = this.txHT2.Text;
+                NewDevice.ReferenceValue3 = this.txHR3.Text;
+                NewDevice.RealValue3 = this.txHP3.Text;
+                NewDevice.ToleranceValue3 = this.txHT3.Text;
             }
+
+            NewDevice.Calcute();
 
             this.DialogResult = true;
         }
@@ -165,6 +202,59 @@ namespace THTS.DeviceCenter
                 this.spH.Visibility = Visibility.Visible;
                 this.spK.Visibility = Visibility.Collapsed;
             }
+        }
+
+        private void Calculate_Click(object sender, RoutedEventArgs e)
+        {
+            float Rvalue1, Rvalue2, Rvalue3, Revalue1, Revalue2, Revalue3;
+
+            if (this.tbModule.SelectedItem.ToString().Contains("PT100")&& this.cbP.IsChecked==true)
+            {
+                if (float.TryParse(this.txPR1.Text, out Rvalue1) && float.TryParse(this.txPP1.Text, out Revalue1))
+                {
+                    this.txPT1.Text = (Rvalue1 - Revalue1).ToString("F2");
+                }
+
+                if (float.TryParse(this.txPR2.Text, out Rvalue2) && float.TryParse(this.txPP2.Text, out Revalue2))
+                {
+                    this.txPT2.Text = (Rvalue2 - Revalue2).ToString("F2");
+                }
+            }
+            else if (this.tbModule.SelectedItem.ToString().Contains("K") && this.cbK.IsChecked == true)
+            {
+                if (float.TryParse(this.txKR1.Text, out Rvalue1) && float.TryParse(this.txKP1.Text, out Revalue1))
+                {
+                    this.txKT1.Text = (Rvalue1 - Revalue1).ToString("F2");
+                }
+
+                if (float.TryParse(this.txKR2.Text, out Rvalue2) && float.TryParse(this.txKP2.Text, out Revalue2))
+                {
+                    this.txKT2.Text = (Rvalue2 - Revalue2).ToString("F2");
+                }
+
+                if (float.TryParse(this.txKR3.Text, out Rvalue3) && float.TryParse(this.txKP3.Text, out Revalue3))
+                {
+                    this.txKT3.Text = (Rvalue3 - Revalue3).ToString("F2");
+                }
+            }
+            else if (this.cbH.IsChecked == true)
+            {
+                if (float.TryParse(this.txHR1.Text, out Rvalue1) && float.TryParse(this.txHP1.Text, out Revalue1))
+                {
+                    this.txHT1.Text = (Rvalue1 - Revalue1).ToString("F2");
+                }
+
+                if (float.TryParse(this.txHR2.Text, out Rvalue2) && float.TryParse(this.txHP2.Text, out Revalue2))
+                {
+                    this.txHT2.Text = (Rvalue2 - Revalue2).ToString("F2");
+                }
+
+                if (float.TryParse(this.txHR3.Text, out Rvalue3) && float.TryParse(this.txHP3.Text, out Revalue3))
+                {
+                    this.txHT3.Text = (Rvalue3 - Revalue3).ToString("F2");
+                }
+            }
+
         }
     }
 }

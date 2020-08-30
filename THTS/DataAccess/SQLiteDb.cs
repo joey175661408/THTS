@@ -18,6 +18,7 @@ namespace THTS.DataAccess
 
         public DbSet<User> Users { get; set; }
         public DbSet<TestInfo> TestInfos { get; set; }
+        public DbSet<PositionAndSensor> PositionAndSensors { get; set; }
         public DbSet<TemperatureTolerance> TemperatureTolerances { get; set; }
         public DbSet<Device> Devices { get; set; }
         public DbSet<DebugTiredTest> DebugTiredTests { get; set; }

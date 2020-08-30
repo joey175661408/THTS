@@ -97,7 +97,7 @@ namespace THTS.DataCenter
             }
 
             ExcelHelper helper = new ExcelHelper();
-            helper.ExportDataDetail(SelectedTestInfo, TestDataDAO.CalcuteAndGroupBy(SelectedTestInfo.RecordSN));
+            helper.ExportDataDetail(SelectedTestInfo, TestDataDAO.CalcuteAndGroupBy(SelectedTestInfo, false));
         }
         #endregion
     }
