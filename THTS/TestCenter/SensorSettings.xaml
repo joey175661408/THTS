@@ -31,15 +31,15 @@
 
         <Grid Grid.Row="1" Grid.Column="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="5*"/>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="5"/>
-                <RowDefinition Height="4*"/>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="5"/>
             </Grid.RowDefinitions>
             
             <Grid Grid.Row="0" Grid.Column="2">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="13*"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
                 <GroupBox Grid.Row="0" Header="通道配置">
@@ -173,7 +173,7 @@
                             </i:Interaction.Triggers>
                         </ComboBox>
                         <Label/>
-                        <ListBox x:Name="PositionListBox" ItemsSource="{Binding PositionList}" Grid.Row="2" Height="200" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                        <ListBox x:Name="PositionListBox" ItemsSource="{Binding PositionList}" Grid.Row="2" Height="280" ScrollViewer.VerticalScrollBarVisibility="Auto">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <Grid Width="130">

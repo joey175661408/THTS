@@ -401,6 +401,8 @@
     <None Include="bin\Debug\Data\DB.sqlite" />
     <None Include="bin\Debug\help\温湿度场自动测试系统用户手册.docx" />
     <None Include="bin\Debug\help\温湿度场自动测试系统用户手册.pdf" />
+    <None Include="bin\Debug\help\温湿度场自动测试系统用户手册_V1.0.docx" />
+    <None Include="bin\Debug\help\温湿度场自动测试系统用户手册_V1.0.pdf" />
     <None Include="bin\Debug\Template\template15.xls" />
     <None Include="bin\Debug\Template\template27.xls" />
     <None Include="bin\Debug\Template\template5.xls" />
@@ -425,6 +427,9 @@
     <None Include="Release\THTS_V1.7_20181216.rar" />
     <None Include="Release\THTS_V2.0_20200530.rar" />
     <None Include="Release\THTS_V2.1_20200605.rar" />
+    <None Include="Release\THTS_V2.2_20200830.rar" />
+    <None Include="Release\THTS_V2.3_20200901.rar" />
+    <None Include="Release\THTS_V2.4_20200903.rar" />
     <Resource Include="Resources\Entypo.ttf" />
   </ItemGroup>
   <ItemGroup>

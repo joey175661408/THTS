@@ -31,6 +31,15 @@ namespace THTS.DeviceCenter
             Device tempDevice = DeviceDAO.GetLastDevice();
             if (tempDevice != null)
             {
+                tempDevice.RealValue1 = string.Empty;
+                tempDevice.RealValue2 = string.Empty;
+                tempDevice.RealValue3 = string.Empty;
+                tempDevice.ReferenceValue1 = string.Empty;
+                tempDevice.ReferenceValue2 = string.Empty;
+                tempDevice.ReferenceValue3 = string.Empty;
+                tempDevice.ToleranceValue1 = string.Empty;
+                tempDevice.ToleranceValue2 = string.Empty;
+                tempDevice.ToleranceValue3 = string.Empty;
                 NewDevice = tempDevice;
                 this.tbModule.Text = NewDevice.ModuleName;
                 this.tbManufactory.Text = NewDevice.Manufacture;

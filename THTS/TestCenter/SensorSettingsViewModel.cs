@@ -235,9 +235,9 @@ namespace THTS.TestCenter
                 channel4.ChannelName = "通道4：" + state.Channel4.ChannelName;
                 channel4.SensorList = new List<Sensor>();
 
-                for (int i = 1; i < 41; i++)
+                for (int i = 1; i < 40; i++)
                 {
-                    if (i <= 10)
+                    if (i <= 9)
                     {
                         Sensor sensor1 = new Sensor();
                         sensor1.ChannelID = 1;
@@ -248,7 +248,7 @@ namespace THTS.TestCenter
                         _sensorsList.Add(sensor1);
                     }
                     
-                    if(i > 10 && i <= 20)
+                    if(i > 10 && i <= 19)
                     {
                         Sensor sensor2 = new Sensor();
                         sensor2.ChannelID = 2;
@@ -259,7 +259,7 @@ namespace THTS.TestCenter
                         _sensorsList.Add(sensor2);
                     }
 
-                    if (i > 20 && i <= 30)
+                    if (i > 20 && i <= 29)
                     {
                         Sensor sensor3 = new Sensor();
                         sensor3.ChannelID = 3;

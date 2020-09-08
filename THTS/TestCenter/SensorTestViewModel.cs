@@ -593,32 +593,37 @@ namespace THTS.TestCenter
                             SensorRealValue real = new SensorRealValue();
                             if (test)
                             {
-                                int tt = 50;
-                                if (i > 29)
-                                {
-                                    tt = 30;
-                                }
-
                                 real.SensorID = i + 1;
-                                real.SensorValue = (float)(tt + (new Random(Guid.NewGuid().GetHashCode()).Next(-1000, 1000)) * 0.001);
                                 real.SensorUnit = "℃";
 
+                                int tt = 50;
+                                if (i > 20 && i <30)
+                                {
+                                    tt = 30;
+                                    real.SensorUnit = "%";
+                                }
+
+                                real.SensorValue = (float)(tt + (new Random(Guid.NewGuid().GetHashCode()).Next(-1000, 1000)) * 0.001);
+
                                 if (i > 29)
                                 {
-                                    real.SensorUnit = "%";
+                                    real.SensorValue = -35000;
+                                }
+
+                                if ((i == 30 || i == 31) && (real.SensorValue < 0 || real.SensorValue > 1000))
+                                {
+                                    real.SensorValue = 0;
                                 }
                             }
                             else
                             {
                                 real = _tempList[i];
+                                if ((i == 30 || i == 31) && (real.SensorValue < 0 || real.SensorValue > 1000))
+                                {
+                                    real.SensorValue = 0;
+                                }
                             }
 
-                            //试用版，隐藏传感器无用数据
-                            //if (i >= 30 && i <= 39 && i != 32)
-                            //{
-                            //    real.SensorValue = 0;
-                            //    real.SensorUnit = string.Empty;
-                            //}
 
                             this.DispatcherInvoke(() =>
                             {
