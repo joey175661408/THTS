@@ -205,22 +205,22 @@ namespace THTS.TestCenter
                 Channel channel1 = new Channel();
                 channel1.IsOnline = state.Channel1.IsOnline;
                 channel1.ChannelName = "通道1：" + state.Channel1.ChannelName;
-                channel1.SensorList = new List<Sensor>();
+                channel1.SensorList = new ObservableCollection<Sensor>();
 
                 Channel channel2 = new Channel();
                 channel2.IsOnline = state.Channel2.IsOnline;
                 channel2.ChannelName = "通道2：" + state.Channel2.ChannelName;
-                channel2.SensorList = new List<Sensor>();
+                channel2.SensorList = new ObservableCollection<Sensor>();
 
                 Channel channel3 = new Channel();
                 channel3.IsOnline = state.Channel3.IsOnline;
                 channel3.ChannelName = "通道3：" + state.Channel3.ChannelName;
-                channel3.SensorList = new List<Sensor>();
+                channel3.SensorList = new ObservableCollection<Sensor>();
 
                 Channel channel4 = new Channel();
                 channel4.IsOnline = state.Channel4.IsOnline;
                 channel4.ChannelName = "通道4：" + state.Channel4.ChannelName;
-                channel4.SensorList = new List<Sensor>();
+                channel4.SensorList = new ObservableCollection<Sensor>();
 
                 for (int i = 1; i < 40; i++)
                 {
@@ -305,19 +305,19 @@ namespace THTS.TestCenter
                 {
                     if (j < 10)
                     {
-                        ChannelListTemp[0].SensorList[j - 1].DeviceID = tempID;
+                        ChannelListTemp[0].SensorList[j - 1].Device = DeviceDAO.GetDevice(tempID);
                     }
                     else if (j > 10 && j < 20)
                     {
-                        ChannelListTemp[1].SensorList[j - 11].DeviceID = tempID;
+                        ChannelListTemp[1].SensorList[j - 11].Device = DeviceDAO.GetDevice(tempID);
                     }
                     else if (j > 20 && j < 30)
                     {
-                        ChannelListTemp[2].SensorList[j - 21].DeviceID = tempID;
+                        ChannelListTemp[2].SensorList[j - 21].Device = DeviceDAO.GetDevice(tempID);
                     }
                     else
                     {
-                        ChannelListTemp[3].SensorList[j - 31].DeviceID = tempID;
+                        ChannelListTemp[3].SensorList[j - 31].Device = DeviceDAO.GetDevice(tempID);
                     }
 
                 }

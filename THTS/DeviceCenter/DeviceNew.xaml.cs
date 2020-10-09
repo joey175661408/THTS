@@ -63,6 +63,7 @@ namespace THTS.DeviceCenter
             this.tbID.Text = NewDevice.SensorId;
             this.tbModule.Text = NewDevice.ModuleName;
             this.tbManufactory.Text = NewDevice.Manufacture;
+            this.tbFactoryNo.IsEnabled = false;
             this.tbFactoryNo.Text = NewDevice.FactoryNo;
             this.tbCertificateNo.Text = NewDevice.CertificateNo;
             this.rbPass.IsChecked = NewDevice.CalibrateResult == 1;
@@ -118,17 +119,27 @@ namespace THTS.DeviceCenter
         {
             if (!isEdit)
             {
-                string sensorID = this.tbID.Text;
-
-                if (sensorID == "")
+                if (this.tbID.Text == "")
                 {
-                    MessageBox.Show("传感器序号不得为空！");
+                    MessageBox.Show("传感器编号不得为空！");
+                    return;
+                }
+
+                if (this.tbFactoryNo.Text == "")
+                {
+                    MessageBox.Show("出厂编号不得为空！");
                     return;
                 }
 
                 if (DeviceDAO.IsExist(this.tbID.Text))
                 {
-                    MessageBox.Show("传感器序号已存在！");
+                    MessageBox.Show("传感器编号已存在！");
+                    return;
+                }
+
+                if (DeviceDAO.IsExistWithFactoryNo(this.tbFactoryNo.Text))
+                {
+                    MessageBox.Show("出厂编号已存在！");
                     return;
                 }
             }

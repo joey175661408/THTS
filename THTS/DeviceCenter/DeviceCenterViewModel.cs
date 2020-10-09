@@ -156,6 +156,11 @@ namespace THTS.DeviceCenter
         /// </summary>
         private void Delete()
         {
+            if(DeviceSelected == null || DeviceSelected.SensorId == null)
+            {
+                return;
+            }
+
             bool delete = DataAccess.EntityDAO.DeviceDAO.Delete(DeviceSelected);
             if (delete)
             {

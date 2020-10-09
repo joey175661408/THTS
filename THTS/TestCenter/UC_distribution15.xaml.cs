@@ -73,7 +73,7 @@ namespace THTS.TestCenter
         {
             if (PositionList.ContainsKey(name))
             {
-                ((Label)obj).Content = name + "(" + PositionList[name].SensorID + ")";
+                ((Label)obj).Content = name + "(" + PositionList[name].Device.FactoryNo + ")";
                 ((Label)obj).Foreground = Brushes.Red;
                 ((Label)obj).FontStyle = FontStyles.Italic;
                 ((Label)obj).FontWeight = FontWeights.Bold;

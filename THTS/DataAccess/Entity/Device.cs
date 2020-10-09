@@ -100,6 +100,15 @@ namespace THTS.DataAccess
             }
         }
 
+        [NotMapped]
+        public string DeviceIDWithFactoryNO
+        {
+            get
+            {
+                return FactoryNo + "(出厂编号)";
+            }
+        }
+
         public void Calcute()
         {
             float Rvalue1, Rvalue2, Rvalue3, Revalue1, Revalue2, Revalue3;

@@ -1,14 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using THTS.DataAccess;
+using THTS.MVVM;
 
 namespace THTS.SerialPort
 {
-    public class Channel
+    public class Channel : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public Channel()
+        {
+            this.RegisterPropertyChangedHandler(() => PropertyChanged);
+        }
+
         private bool _isOnline;
         /// <summary>
         /// 通道是否在线
@@ -29,11 +39,13 @@ namespace THTS.SerialPort
             set { _channelName = value; }
         }
 
-        private List<Sensor> _sensorList = new List<Sensor>();
+        private ObservableCollection<Sensor> _sensorList = new ObservableCollection<Sensor>();
+
+
         /// <summary>
         /// 
         /// </summary>
-        public List<Sensor> SensorList
+        public ObservableCollection<Sensor> SensorList
         {
             get { return _sensorList; }
             set { _sensorList = value; }

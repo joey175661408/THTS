@@ -1,21 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using THTS.MVVM;
 
 namespace THTS.DataAccess
 {
     /// <summary>
     /// 传感器数据结构
     /// </summary>
-    public class Sensor
+    public class Sensor : INotifyPropertyChanged
     {
         private int channelID;
         private string type;
         private int sensorID;
+
         private string deviceID;
         private List<string> deviceIDList;
+
+        private Device device;
+        private ObservableCollection<Device> deviceList;
+
+        public Sensor()
+        {
+            this.RegisterPropertyChangedHandler(() => PropertyChanged);
+        }
 
         /// <summary>
         /// 传感器类型
@@ -61,6 +73,48 @@ namespace THTS.DataAccess
             get { return deviceIDList; }
             set { deviceIDList = value; }
         }
+
+        /// <summary>
+        /// 选中的传感器
+        /// </summary>
+        public Device Device
+        {
+            get { return device; }
+            set { device = value;}
+        }
+
+        /// <summary>
+        /// 测点位置中下拉列表内容（通道中传感器序号+传感器出厂编号）
+        /// </summary>
+        public string SensorIDwithFactoryID
+        {
+            get 
+            {
+                if(Device == null)
+                {
+                    return SensorID + "：";
+                }
+                else
+                {
+                    return SensorID + "：" + device.DeviceIDWithFactoryNO; 
+                }
+            }
+        }
+
+        /// <summary>
+        /// 设备列表(出厂编号)
+        /// </summary>
+        public ObservableCollection<Device> DeviceList
+        {
+            get { return deviceList; }
+            set { deviceList = value; }
+        }
+
+        #region INotifyPropertyChanged 成员
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        #endregion
     }
 
     /// <summary>

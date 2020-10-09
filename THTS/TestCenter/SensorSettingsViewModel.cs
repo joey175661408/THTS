@@ -132,6 +132,7 @@ namespace THTS.TestCenter
         /// 传感器ID列表
         /// </summary>
         private List<string> deviceIDList = new List<string>();
+        private ObservableCollection<Device> devicesList = new ObservableCollection<Device>();
 
         private TemperatureTolerance _toleranceInfo = new TemperatureTolerance();
         /// <summary>
@@ -193,6 +194,7 @@ namespace THTS.TestCenter
 
 
             //获取传感器ID列表
+            devicesList = DeviceDAO.GetAllData();
             deviceIDList = DeviceDAO.GetAllData().Select(t => t.SensorId).ToList();
             deviceIDList.Insert(0, string.Empty);
         }
@@ -218,22 +220,22 @@ namespace THTS.TestCenter
                 Channel channel1 = new Channel();
                 channel1.IsOnline = state.Channel1.IsOnline;
                 channel1.ChannelName = "通道1：" + state.Channel1.ChannelName;
-                channel1.SensorList = new List<Sensor>();
+                channel1.SensorList = new ObservableCollection<Sensor>();
 
                 Channel channel2 = new Channel();
                 channel2.IsOnline = state.Channel2.IsOnline;
                 channel2.ChannelName = "通道2：" + state.Channel2.ChannelName;
-                channel2.SensorList = new List<Sensor>();
+                channel2.SensorList = new ObservableCollection<Sensor>();
 
                 Channel channel3 = new Channel();
                 channel3.IsOnline = state.Channel3.IsOnline;
                 channel3.ChannelName = "通道3：" + state.Channel3.ChannelName;
-                channel3.SensorList = new List<Sensor>();
+                channel3.SensorList = new ObservableCollection<Sensor>();
 
                 Channel channel4 = new Channel();
                 channel4.IsOnline = state.Channel4.IsOnline;
                 channel4.ChannelName = "通道4：" + state.Channel4.ChannelName;
-                channel4.SensorList = new List<Sensor>();
+                channel4.SensorList = new ObservableCollection<Sensor>();
 
                 for (int i = 1; i < 40; i++)
                 {
@@ -244,6 +246,7 @@ namespace THTS.TestCenter
                         sensor1.SensorID = i;
                         sensor1.Type = state.Channel1.ChannelType;
                         sensor1.DeviceIDList = deviceIDList;
+                        sensor1.DeviceList = devicesList;
                         channel1.SensorList.Add(sensor1);
                         _sensorsList.Add(sensor1);
                     }
@@ -255,6 +258,7 @@ namespace THTS.TestCenter
                         sensor2.SensorID = i;
                         sensor2.Type = state.Channel2.ChannelType;
                         sensor2.DeviceIDList = deviceIDList;
+                        sensor2.DeviceList = devicesList;
                         channel2.SensorList.Add(sensor2);
                         _sensorsList.Add(sensor2);
                     }
@@ -266,6 +270,7 @@ namespace THTS.TestCenter
                         sensor3.SensorID = i;
                         sensor3.Type = state.Channel3.ChannelType;
                         sensor3.DeviceIDList = deviceIDList;
+                        sensor3.DeviceList = devicesList;
                         channel3.SensorList.Add(sensor3);
                         _sensorsList.Add(sensor3);
                     }
@@ -277,6 +282,7 @@ namespace THTS.TestCenter
                         sensor4.SensorID = i;
                         sensor4.Type = state.Channel4.ChannelType;
                         sensor4.DeviceIDList = deviceIDList;
+                        sensor4.DeviceList = devicesList;
                         channel4.SensorList.Add(sensor4);
                         _sensorsList.Add(sensor4);
                     }
@@ -319,18 +325,46 @@ namespace THTS.TestCenter
                     if (j <= 10)
                     {
                         ChannelListTemp[0].SensorList[j - 1].DeviceID = tempID;
+                        for (int n = 0; n < ChannelListTemp[0].SensorList[j-1].DeviceList.Count; n++)
+                        {
+                            if(ChannelListTemp[0].SensorList[j - 1].DeviceList[n].SensorId == tempID)
+                            {
+                                ChannelListTemp[0].SensorList[j - 1].Device = ChannelListTemp[0].SensorList[j - 1].DeviceList[n];
+                            }
+                        }
                     }
                     else if (j > 10 && j <= 20)
                     {
                         ChannelListTemp[1].SensorList[j - 11].DeviceID = tempID;
+                        for (int n = 0; n < ChannelListTemp[1].SensorList[j - 11].DeviceList.Count; n++)
+                        {
+                            if (ChannelListTemp[1].SensorList[j - 11].DeviceList[n].SensorId == tempID)
+                            {
+                                ChannelListTemp[1].SensorList[j - 11].Device = ChannelListTemp[1].SensorList[j - 11].DeviceList[n];
+                            }
+                        }
                     }
                     else if (j > 20 && j <= 30)
                     {
                         ChannelListTemp[2].SensorList[j - 21].DeviceID = tempID;
+                        for (int n = 0; n < ChannelListTemp[2].SensorList[j - 21].DeviceList.Count; n++)
+                        {
+                            if (ChannelListTemp[2].SensorList[j - 21].DeviceList[n].SensorId == tempID)
+                            {
+                                ChannelListTemp[2].SensorList[j - 21].Device = ChannelListTemp[2].SensorList[j - 21].DeviceList[n];
+                            }
+                        }
                     }
                     else
                     {
                         ChannelListTemp[3].SensorList[j - 31].DeviceID = tempID;
+                        for (int n = 0; n < ChannelListTemp[3].SensorList[j - 31].DeviceList.Count; n++)
+                        {
+                            if (ChannelListTemp[3].SensorList[j - 31].DeviceList[n].SensorId == tempID)
+                            {
+                                ChannelListTemp[3].SensorList[j - 31].Device = ChannelListTemp[3].SensorList[j - 31].DeviceList[n];
+                            }
+                        }
                     }
 
                 }
@@ -346,9 +380,28 @@ namespace THTS.TestCenter
             for (int i = 0; i < PositionList.Count; i++)
             {
                 string tempID = FileHelper.IniReadValue("Position", PositionList[i].TestPositionName);
-                if (!string.IsNullOrEmpty(tempID))
+                string sensorID = FileHelper.IniReadValue("Sensor", tempID);
+
+                if (!string.IsNullOrEmpty(tempID)&&DeviceDAO.IsExist(sensorID))
                 {
-                    PositionList[i].TestPositionID = SensorsList[int.Parse(tempID) - 1];
+                    int id = int.Parse(tempID);
+                    if (id < 10)
+                    {
+                        id = id - 1;
+                    }
+                    else if(id < 20)
+                    {
+                        id = id - 2;
+                    }
+                    else if (id < 30)
+                    {
+                        id = id - 3;
+                    }
+                    else
+                    {
+                        id = id - 4;
+                    }
+                    PositionList[i].TestPositionID = SensorsList[id];
                 }
             }
 
@@ -389,7 +442,8 @@ namespace THTS.TestCenter
                 //记录默认传感器ID
                 for (int i = 0; i < SensorsList.Count; i++)
                 {
-                    FileHelper.IniWriteValue("Sensor", SensorsList[i].SensorID.ToString(), SensorsList[i].DeviceID);
+                    Device temp = SensorsList[i].Device;
+                    FileHelper.IniWriteValue("Sensor", SensorsList[i].SensorID.ToString(), temp == null ? "" : temp.SensorId);
                 }
 
                 //记录默认测试分布类型

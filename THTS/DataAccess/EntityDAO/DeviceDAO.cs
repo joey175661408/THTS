@@ -63,6 +63,27 @@ namespace THTS.DataAccess.EntityDAO
         }
 
         /// <summary>
+        /// 此出厂编号是否存在
+        /// </summary>
+        /// <param name="factoryNO"></param>
+        /// <returns></returns>
+        public static bool IsExistWithFactoryNo(string factoryNO)
+        {
+            using (SQLiteDB ctx = new SQLiteDB())
+            {
+                ctx.Devices.Where(t => t.IsDelete != 1 && t.FactoryNo == factoryNO).Load();
+                if (ctx.Devices.Local.Count > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        /// <summary>
         /// 获取所有设备信息
         /// </summary>
         public static ObservableCollection<Device> GetAllData()

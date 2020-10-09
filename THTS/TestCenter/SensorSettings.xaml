@@ -91,8 +91,9 @@
                                                             </Grid.ColumnDefinitions>
 
                                                             <Label Content="{Binding SensorID}" Grid.Column="0" VerticalContentAlignment="Center"/>
-                                                            <ComboBox Grid.Column="1" HorizontalAlignment="Stretch" Controls:TextBoxHelper.ClearTextButton="False"
-                                                                      ItemsSource="{Binding DeviceIDList}" SelectedValue="{Binding DeviceID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                                            <ComboBox Grid.Column="1" HorizontalAlignment="Stretch" ItemsSource="{Binding DeviceList}" IsEditable="True"
+                                                                      SelectedItem="{Binding Device}" DisplayMemberPath="DeviceIDWithFactoryNO"
+                                                                      SelectionChanged="ComboBox_SelectionChanged"/>
                                                         </Grid>
                                                     </DataTemplate>
                                                 </ListBox.ItemTemplate>
@@ -176,18 +177,24 @@
                         <ListBox x:Name="PositionListBox" ItemsSource="{Binding PositionList}" Grid.Row="2" Height="280" ScrollViewer.VerticalScrollBarVisibility="Auto">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
-                                    <Grid Width="130">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="5"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="5"/>
+                                        </Grid.RowDefinitions>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="30"/>
                                             <ColumnDefinition Width="10"/>
-                                            <ColumnDefinition Width="80"/>
+                                            <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
 
-                                        <Label Grid.Column="0" Content="{Binding TestPositionName}" HorizontalAlignment="Right"/>
-                                        <Label Grid.Column="1" />
-                                        <ComboBox Grid.Column="2" ItemsSource="{Binding SensorsList}" IsEditable="True"
-                                                  DisplayMemberPath="SensorID" SelectedValue="{Binding TestPositionID}" HorizontalAlignment="Left"/>
-                                        
+                                        <Label Grid.Row="1" Grid.Column="0" Content="{Binding TestPositionName}" HorizontalAlignment="Right"/>
+                                        <Label Grid.Row="1" Grid.Column="1" />
+                                        <ComboBox Grid.Row="1" Grid.Column="2" ItemsSource="{Binding SensorsList}" IsEditable="True" 
+                                                   DisplayMemberPath="SensorIDwithFactoryID" SelectedValue="{Binding TestPositionID}" HorizontalAlignment="Stretch">
+                                        </ComboBox>
+
                                     </Grid>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
