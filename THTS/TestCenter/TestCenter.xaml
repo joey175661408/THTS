@@ -31,13 +31,20 @@
         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical">
             <GroupBox Header="">
                 <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="10"/>
                         <ColumnDefinition Width="3*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="委托单位" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    <TextBox Text="{Binding Info.Company,Mode=TwoWay}" Width="200" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBlock Text="委托单位" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBox Text="{Binding Info.Company,Mode=TwoWay}" Width="200" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBlock Text="地        址" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBox Text="{Binding Info.Extra7,Mode=TwoWay}" Width="200" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 </Grid>
             </GroupBox>
             <GroupBox Header="被检仪器信息">
@@ -138,22 +145,30 @@
                         <RowDefinition Height="5"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="5"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="5"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="10"/>
                         <ColumnDefinition Width="3*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="仪器名称" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBlock Text="标准器名称" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                     <TextBox Text="{Binding Info.CalName,Mode=TwoWay}" Width="200" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                    <TextBlock Text="型号/规格" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    <TextBox Text="{Binding Info.CalModule,Mode=TwoWay}" Width="200" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                    <TextBlock Text="准确度等级" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    <TextBox Text="{Binding Info.CalAccuracy,Mode=TwoWay}" Width="200" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                    <TextBlock Text="证书编号" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    <TextBox Text="{Binding Info.CalCertificateSN,Mode=TwoWay}" Width="200" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                    <TextBlock Text="有效期至" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    <DatePicker Text="{Binding Info.CalExpiryDate,Mode=TwoWay}" Width="200" Grid.Row="9" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBlock Text="出厂编号" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBox Text="{Binding Info.Extra9,Mode=TwoWay}" Width="200" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBlock Text="型号/规格" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBox Text="{Binding Info.CalModule,Mode=TwoWay}" Width="200" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBlock Text="准确度等级" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBox Text="{Binding Info.CalAccuracy,Mode=TwoWay}" Width="200" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBlock Text="证书编号" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBox Text="{Binding Info.CalCertificateSN,Mode=TwoWay}" Width="200" Grid.Row="9" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBlock Text="有效期至" Grid.Row="11" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <DatePicker Text="{Binding Info.CalExpiryDate,Mode=TwoWay}" Width="200" Grid.Row="11" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBlock Text="备注信息" Grid.Row="13" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBox Text="{Binding Info.Extra10,Mode=TwoWay}" Width="200" Grid.Row="13" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 </Grid>
             </GroupBox>
             <GroupBox Header="测试信息">

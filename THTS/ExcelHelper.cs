@@ -13,6 +13,8 @@ using System.Collections.ObjectModel;
 using THTS.DataAccess;
 using THTS.DataAccess.Entity;
 using System.Windows.Forms;
+using THTS.DataAccess.EntityDAO;
+using NPOI.XSSF.UserModel;
 
 namespace THTS
 {
@@ -45,7 +47,8 @@ namespace THTS
         {
             using (FileStream file = new FileStream(filePath, FileMode.Open, FileAccess.Read))  //路径，打开权限，读取权限
             {
-                hssfworkbook = new HSSFWorkbook(file);
+                //hssfworkbook = new HSSFWorkbook(file);
+                hssfworkbook = new XSSFWorkbook(file);
                 file.Close();
             }
         }
@@ -191,6 +194,7 @@ namespace THTS
         public bool SetTestResultValue(TestInfo Info, ObservableCollection<TestDataResult> ResultList)
         {
             ISheet sheet = GetOrCreateSheet("Information");
+            //被测设备信息
             IRow row = GetOrCreateRow(sheet, 2);
             ICell cell0 = GetOrCreateColumn(row, 0);
             cell0.SetCellValue(Info.Company);
@@ -232,7 +236,10 @@ namespace THTS
             cell18.SetCellValue(Info.Extra1);
             ICell cell19 = GetOrCreateColumn(row, 19);
             cell19.SetCellValue(Info.Extra2);
+            ICell cell20 = GetOrCreateColumn(row, 19);
+            cell19.SetCellValue(Info.Extra7);
 
+            //标准器信息
             IRow rowCal = GetOrCreateRow(sheet, 6);
             ICell cellCal0 = GetOrCreateColumn(rowCal, 0);
             cellCal0.SetCellValue(Info.CalName);
@@ -244,6 +251,66 @@ namespace THTS
             cellCal3.SetCellValue(Info.CalCertificateSN);
             ICell cellCal4 = GetOrCreateColumn(rowCal, 4);
             cellCal4.SetCellValue(Info.CalExpiryDate);
+            ICell cellCal5 = GetOrCreateColumn(rowCal, 5);
+            cellCal5.SetCellValue(Info.Extra9);
+            ICell cellCal6 = GetOrCreateColumn(rowCal, 6);
+            cellCal6.SetCellValue(Info.Extra10);
+
+            //输出当前传感器信息
+            ObservableCollection<Device> devicesList = DeviceDAO.GetAllData();
+            for (int i = 0; i < devicesList.Count; i++)
+            {
+                IRow rowSensor = GetOrCreateRow(sheet, 10 + i);
+                ICell cellSensor0 = GetOrCreateColumn(rowSensor, 0);
+                cellSensor0.SetCellValue(devicesList[i].SensorId);
+                ICell cellSensor1 = GetOrCreateColumn(rowSensor, 1);
+                cellSensor1.SetCellValue(devicesList[i].ModuleName);
+                ICell cellSensor2 = GetOrCreateColumn(rowSensor, 2);
+                cellSensor2.SetCellValue(devicesList[i].Manufacture);
+                ICell cellSensor3 = GetOrCreateColumn(rowSensor, 3);
+                cellSensor3.SetCellValue(devicesList[i].FactoryNo);
+                ICell cellSensor4 = GetOrCreateColumn(rowSensor, 4);
+                cellSensor4.SetCellValue(devicesList[i].CertificateNo);
+                ICell cellSensor5 = GetOrCreateColumn(rowSensor, 5);
+                cellSensor5.SetCellValue(devicesList[i].ExpireDate);
+                ICell cellSensor6 = GetOrCreateColumn(rowSensor, 6);
+                cellSensor6.SetCellValue(devicesList[i].Remark);
+            }
+
+            #region 标准器连接的传感器信息
+
+            //ObservableCollection<PositionAndSensor> positionAndSensors = PositionAndSensorDAO.GetPositionAndSensor(Info.RecordSN);
+            //for (int i = 0; i < positionAndSensors.Count; i++)
+            //{
+            //    if(string.IsNullOrEmpty(positionAndSensors[i].SensorID))
+            //    {
+            //        continue;
+            //    }
+
+            //    positionAndSensors[i].ReflashSensorInfo();
+
+            //    if(positionAndSensors[i].sensor == null)
+            //    {
+            //        continue;
+            //    }
+
+            //    IRow rowSensor = GetOrCreateRow(sheet, 10 + i);
+            //    ICell cellSensor0 = GetOrCreateColumn(rowSensor, 0);
+            //    cellSensor0.SetCellValue(positionAndSensors[i].sensor.SensorId);
+            //    ICell cellSensor1 = GetOrCreateColumn(rowSensor, 1);
+            //    cellSensor1.SetCellValue(positionAndSensors[i].sensor.ModuleName);
+            //    ICell cellSensor2 = GetOrCreateColumn(rowSensor, 2);
+            //    cellSensor2.SetCellValue(positionAndSensors[i].sensor.Manufacture);
+            //    ICell cellSensor3 = GetOrCreateColumn(rowSensor, 3);
+            //    cellSensor3.SetCellValue(positionAndSensors[i].sensor.FactoryNo);
+            //    ICell cellSensor4 = GetOrCreateColumn(rowSensor, 4);
+            //    cellSensor4.SetCellValue(positionAndSensors[i].sensor.CertificateNo);
+            //    ICell cellSensor5 = GetOrCreateColumn(rowSensor, 5);
+            //    cellSensor5.SetCellValue(positionAndSensors[i].sensor.ExpireDate);
+            //    ICell cellSensor6 = GetOrCreateColumn(rowSensor, 6);
+            //    cellSensor6.SetCellValue(positionAndSensors[i].sensor.Remark);
+            //}
+            #endregion
 
             for (int i = 0; i < ResultList.Count; i++)
             {
@@ -639,16 +706,21 @@ namespace THTS
         public void ExportDataDetail(TestInfo Info,ObservableCollection<TestDataResult> ResultList)
         {
             SaveFileDialog save = new SaveFileDialog();
-            save.Filter = "xls files(*.xls)|*.xls|All files(*.*)|*.*";
-            save.DefaultExt = "xls";
+            //save.Filter = "xls files(*.xls)|*.xls|All files(*.*)|*.*";
+            //save.DefaultExt = "xls";
+            //save.AddExtension = true;
+            //save.RestoreDirectory = true;
+            //save.FileName = Info.RecordSN + ".xls";
+            save.Filter = "xlsx files(*.xlsx)|*.xlsx|All files(*.*)|*.*";
+            save.DefaultExt = "xlsx";
             save.AddExtension = true;
             save.RestoreDirectory = true;
-            save.FileName = Info.RecordSN + ".xls";
+            save.FileName = Info.RecordSN + ".xlsx";
             if (save.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
-                    ReadFromExcelTemplate(@".\Template\template" + Info.PositionType + ".xls");
+                    ReadFromExcelTemplate(@".\Template\template" + Info.PositionType + ".xlsx");
                     SetTestResultValue(Info, ResultList);
 
                     WriteToFile(save.FileName, true);

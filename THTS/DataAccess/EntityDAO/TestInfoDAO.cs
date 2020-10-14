@@ -69,12 +69,12 @@ namespace THTS.DataAccess.EntityDAO
                 }else
                 {
                     TestInfo test = new TestInfo();
-                    test.Company = "北京XX仪表有限公司";
+                    test.Company = "XX仪表有限公司";
 
                     test.UutName = "高低温箱";
                     test.UutModule = "T-001";
-                    test.UutSN = "T20180101001";
-                    test.UutManufacture = "北京YY有限公司";
+                    test.UutSN = "T20200101001";
+                    test.UutManufacture = "YY有限公司";
                     test.UutCustomSN = "CSN001";
                     test.UutCalPosition = "北京博芮思元仪表科技有限公司";
                     test.Accuracy = "1";

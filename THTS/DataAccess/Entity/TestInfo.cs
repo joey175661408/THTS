@@ -63,10 +63,11 @@ namespace THTS.DataAccess
         /// K型热电偶温度传感器是否修正(True/False)
         /// </summary>
         public string Extra6 { get; set; }
+        /// <summary>
+        /// 委托单位地址
+        /// </summary>
         public string Extra7 { get; set; }
         public string Extra8 { get; set; }
-        public string Extra9 { get; set; }
-        public string Extra10 { get; set; }
 
         //标准设备信息
         public string CalName { get; set; }
@@ -74,6 +75,10 @@ namespace THTS.DataAccess
         public string CalAccuracy { get; set; }
         public string CalCertificateSN { get; set; }
         public string CalExpiryDate { get; set; }
+        //标准器出厂编号
+        public string Extra9 { get; set; }
+        //标准器备注信息
+        public string Extra10 { get; set; }
 
         public TestInfo()
         {

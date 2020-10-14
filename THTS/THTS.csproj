@@ -58,6 +58,9 @@
     <ApplicationIcon>logo.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.8.6\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="DynamicDataDisplay, Version=0.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Lib\DynamicDataDisplay.dll</HintPath>
@@ -74,6 +77,9 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.2.0.246, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.1.2.0\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
     <Reference Include="MahApps.Metro, Version=1.5.0.23, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.5.0\lib\net45\MahApps.Metro.dll</HintPath>
       <Private>True</Private>
@@ -86,8 +92,17 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Lib\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="NPOI">
-      <HintPath>Lib\NPOI.dll</HintPath>
+    <Reference Include="NPOI, Version=2.5.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.5.1\lib\net45\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.5.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.5.1\lib\net45\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.5.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.5.1\lib\net45\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.5.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.5.1\lib\net45\NPOI.OpenXmlFormats.dll</HintPath>
     </Reference>
     <Reference Include="SQLite.CodeFirst, Version=1.5.0.21, Culture=neutral, PublicKeyToken=eb96ba0a78d831a7, processorArchitecture=MSIL">
       <HintPath>..\packages\SQLite.CodeFirst.1.5.0.21\lib\net45\SQLite.CodeFirst.dll</HintPath>
@@ -403,10 +418,20 @@
     <None Include="bin\Debug\help\温湿度场自动测试系统用户手册.pdf" />
     <None Include="bin\Debug\help\温湿度场自动测试系统用户手册_V1.0.docx" />
     <None Include="bin\Debug\help\温湿度场自动测试系统用户手册_V1.0.pdf" />
+    <None Include="bin\Debug\Template\template15-吉林省院.xlsx" />
     <None Include="bin\Debug\Template\template15.xls" />
+    <None Include="bin\Debug\Template\template15.xlsx" />
+    <None Include="bin\Debug\Template\template15_2003.xls" />
+    <None Include="bin\Debug\Template\template15_2017.xls" />
+    <None Include="bin\Debug\Template\template27-吉林省院.xlsx" />
     <None Include="bin\Debug\Template\template27.xls" />
+    <None Include="bin\Debug\Template\template27.xlsx" />
     <None Include="bin\Debug\Template\template5.xls" />
+    <None Include="bin\Debug\Template\template9-吉林省院.xlsx" />
     <None Include="bin\Debug\Template\template9.xls" />
+    <None Include="bin\Debug\Template\template9.xlsx" />
+    <None Include="bin\Debug\Template\template9_2003.xls" />
+    <None Include="bin\Debug\Template\template9_2017.xls" />
     <None Include="Lib\JJF 1101-2003 环境试验设备温度、湿度校准规范.pdf" />
     <None Include="Lib\sqlite-tools-win32-x86-3180000.zip" />
     <None Include="Lib\吉林省院记录模板\template9.xls" />
@@ -432,6 +457,8 @@
     <None Include="Release\THTS_V2.3_20200901.rar" />
     <None Include="Release\THTS_V2.4_20200903.rar" />
     <None Include="Release\THTS_V2.5_20201010.rar" />
+    <None Include="Release\THTS_V2.6_20201014.rar" />
+    <None Include="Release\THTS_吉林省院.rar" />
     <Resource Include="Resources\Entypo.ttf" />
   </ItemGroup>
   <ItemGroup>
