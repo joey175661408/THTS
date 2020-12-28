@@ -458,7 +458,9 @@
     <None Include="Release\THTS_V2.4_20200903.rar" />
     <None Include="Release\THTS_V2.5_20201010.rar" />
     <None Include="Release\THTS_V2.6_20201014.rar" />
+    <None Include="Release\THTS_V2.7_20201228.rar" />
     <None Include="Release\THTS_吉林省院.rar" />
+    <None Include="Release\THTS_吉林省院_20201228.rar" />
     <Resource Include="Resources\Entypo.ttf" />
   </ItemGroup>
   <ItemGroup>
