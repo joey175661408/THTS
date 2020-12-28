@@ -672,7 +672,7 @@ namespace THTS.TestCenter
             DispatcherTimer timerBar = new DispatcherTimer();
             timerBar.Interval = TimeSpan.FromSeconds(1);
             timerBar.Tick += ProcessBarChange;
-            currTime = DateTime.Now.AddMinutes(tol.TestTimeSpan);
+            currTime = DateTime.Now.AddSeconds((tol.TestTimeSpan - 1) * tol.TestSampleInterval);
             timerBar.Start();
 
             DispatcherTimer timer = new DispatcherTimer();
@@ -690,7 +690,7 @@ namespace THTS.TestCenter
 
                 while (!timeout)
                 {
-                    BarValue = (int)(DateTime.Now - now).TotalSeconds * 100 / (tol.TestTimeSpan * 60);
+                    BarValue = (int)(DateTime.Now - now).TotalSeconds * 100 / ((tol.TestTimeSpan - 1) * tol.TestSampleInterval);
                     timeout = BarValue >= 100;
                     Thread.Sleep(500);
                     //暂停

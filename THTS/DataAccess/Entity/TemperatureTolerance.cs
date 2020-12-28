@@ -19,6 +19,9 @@ namespace THTS.DataAccess
 
         public int PositionType { get; set; }
 
+        /// <summary>
+        /// 采样次数---2020.12.28
+        /// </summary>
         public int TestTimeSpan { get; set; }
         public int TestSampleInterval { get; set; }
 

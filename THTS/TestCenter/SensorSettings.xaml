@@ -238,9 +238,9 @@
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Orientation="Horizontal">
                         <Label Width="5"/>
-                        <TextBlock Text="测试时间：" VerticalAlignment="Center"/>
+                        <TextBlock Text="采样次数：" VerticalAlignment="Center"/>
                         <Controls:NumericUpDown Value="{Binding ToleranceInfo.TestTimeSpan,Mode=TwoWay}" Minimum="1" VerticalAlignment="Center"/>
-                        <TextBlock Text="分钟" VerticalAlignment="Center"/>
+                        <TextBlock Text="次" VerticalAlignment="Center"/>
                     </StackPanel>
                     <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Orientation="Horizontal">
                         <TextBlock Text="采样时间间隔：" VerticalAlignment="Center"/>
